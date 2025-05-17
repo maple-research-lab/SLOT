@@ -1,4 +1,4 @@
-# SLOT Script
+# SLOT: Sample-specific Language Model Optimization at Test-time
 
 This script evaluates a language model on the GSM8K benchmark, comparing its baseline performance against its performance when enhanced with SLOT (Sample-specific Language Model Optimization at Test-time).
 
