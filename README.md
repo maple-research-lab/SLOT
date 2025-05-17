@@ -1,6 +1,7 @@
 # SLOT: Sample-specific Language Model Optimization at Test-time
 
 ***Training free, simple but effective***
+___Training free, simple but effectiv___
 
 ***Fast, low overhead, easy to adapt to your reasearch***
 
