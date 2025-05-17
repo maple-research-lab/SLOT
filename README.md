@@ -1,7 +1,8 @@
 # SLOT: Sample-specific Language Model Optimization at Test-time
 
-**Training free, simple but effective**
-**Fast, low overhead, easy to adapt to your reasearch**
+***Training free, simple but effective***
+
+***Fast, low overhead, easy to adapt to your reasearch***
 
 This script evaluates a language model on the GSM8K benchmark, comparing its baseline performance against its performance when enhanced with SLOT (Sample-specific Language Model Optimization at Test-time).
 
