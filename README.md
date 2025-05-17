@@ -1,65 +1,51 @@
 # SLOT: Sample-specific Language Model Optimization at Test-time
 
-***Training free, simple but effective***
+***Training free, simple but effective test-time adaptation***
 
 ***Fast, low overhead, easy to adapt to your reasearch***
 
-This script evaluates a language model on the GSM8K benchmark, comparing its baseline performance against its performance when enhanced with SLOT (Sample-specific Language Model Optimization at Test-time).
-
 SLOT is a test-time inference technique that optimizes a lightweight, sample-specific parameter vector for a few steps on the input prompt. This helps the model better align with and follow the given instruction.
 
-SLOT pipeline
+![](result_gsm8k.png)
+
+## How it works?
+The goal of the proposed SLOT approach is to adapt the trained LM to individual prompts at test-time. When a prompt is given, SLOT generates a response with two phases.
+- First, in the *Prompt Stage* we seek to learn a sample-specific **light-weight** vector $\delta\in\mathcal{R}^{1\times d}$ that can be directly added on the final hidden features $H$ from the LLM without incuring heavy computing overhead.
+- Second, in the *Generation Stage*, we apply $\delta$ to the final hidden features $H$ for the next-token prediction to generate a complete response with the test-time adapted $\delta$.
+
 ![](SLOT_pipeline.png)
 
-SLOT results
-![](result_gsm8k.png)
-![](result_open_r1.png)
+## Getting Started
 
-
-## Prerequisites
+### Prerequisites
 
 - Python 3.10.15
 - torch==2.5.1
 - transformers==4.49.0.dev0
 - datasets==3.2.0
 
-## Usage
+### Inference
+
+We provide the inference code [eval_only_slot.py](eval_only_slot.py) to evaluate models on [GSM8k](https://huggingface.co/datasets/openai/gsm8k). If you would like to inference with other prompts, feel free to modify the code!
+
+```bash
+export times=[NUM OF OPTIMIZATION ITERS IN SLOT]
+export lr=[LEARNING RATE USED IN SLOT]
+
+python eval_only_slot.py \
+    --model_path [PATH_TO_MODEL_WEIGHTS]
+```
+
+Hyper-parameters in SLOT are set with environment variables. If `times=0` is set, then the model is inferenced without SLOT optimzation.
+
+Please refer [run.sh](run.sh) for example commands.
+
+Output logs are saved in `logs/log_times_<times_value>_lr_<lr_value>.txt`.
 
 
-2.  **Run the SLOT**:
-    Execute the script from your terminal (change the model_path):
-    ```bash
-    bash run.sh  ## baseline and SLOT(iters=5)
-    ```
+## SLOT results
+![](result_open_r1.png)
 
-## How it Works
-
-1.  **Baseline Evaluation**:
-    - `times` environment variable is set to `0`.
-    - This run measures the model's performance without SLOT optimization.
-
-2.  **SLOT-Enhanced Evaluation**:
-    - `times` environment variable is set to a value > 0 (e.g., `5` in the script). This controls the number of optimization iterations for SLOT.
-    - `lr` environment variable is set (e.g., `0.1` in the script). This is the learning rate for the SLOT optimization.
-    - This run measures the model's performance with SLOT applied.
-
-## Configuration
-
-The primary configurations are within `run.sh`:
-
--   `model_path`: (Required) Path to the pre-trained model.
--   `times`: Number of optimization iterations for SLOT. `0` for baseline.
--   `lr`: Learning rate for SLOT optimization.
-
-The `eval_only_slot.py` script uses these environment variables to control its behavior. You can modify them directly in `run.sh` to experiment with different SLOT settings.
-
-## Output
-
--   **Log Files**: Detailed logs for each run, including per-sample information, are saved in the `logs/` directory. The log file names are formatted as `log_times_<times_value>_lr_<lr_value>.txt`.
-    For example:
-    - `logs/log_times_0_lr_0.1.txt` (Baseline, assuming lr is still set but times=0 makes it irrelevant for SLOT opt)
-    - `logs/log_times_5_lr_0.1.txt` (SLOT with 5 iterations)
- 
 ## Contact
 If you have any problem, welcome issues, or contact Yang Hu (Email: huyangtorus@gmail.com, Wechat: 18840249731)
 ![](wechat_hy.png)
