@@ -30,8 +30,6 @@ SLOT results
 
 ## How it Works
 
-The `run.sh` script executes `eval_only_slot.py` twice:
-
 1.  **Baseline Evaluation**:
     - `times` environment variable is set to `0`.
     - This run measures the model's performance without SLOT optimization.
