@@ -59,4 +59,7 @@ The `eval_only_slot.py` script uses these environment variables to control its b
     For example:
     - `logs/log_times_0_lr_0.1.txt` (Baseline, assuming lr is still set but times=0 makes it irrelevant for SLOT opt)
     - `logs/log_times_5_lr_0.1.txt` (SLOT with 5 iterations)
-
+ 
+## Contact
+If you have any problem, welcome issues, or contact Yang Hu (Email: huyangtorus@gmail.com, Wechat: 18840249731)
+![](wechat_hy.png)
