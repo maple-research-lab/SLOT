@@ -1,5 +1,8 @@
 # SLOT: Sample-specific Language Model Optimization at Test-time
 
+**Training free, simple but effective**
+**Fast, low overhead, easy to adapt to your reasearch**
+
 This script evaluates a language model on the GSM8K benchmark, comparing its baseline performance against its performance when enhanced with SLOT (Sample-specific Language Model Optimization at Test-time).
 
 SLOT is a test-time inference technique that optimizes a lightweight, sample-specific parameter vector for a few steps on the input prompt. This helps the model better align with and follow the given instruction.
