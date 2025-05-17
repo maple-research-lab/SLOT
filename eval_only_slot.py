@@ -8,7 +8,7 @@ from datasets import load_dataset
 import random
 import argparse
 
-from modeling_qwen2_glot import Qwen2ForCausalLM
+from modeling_qwen2_slot import Qwen2ForCausalLM
 
 def reward_correct(item, answer):
     from math_verify import parse, verify, ExprExtractionConfig
