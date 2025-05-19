@@ -23,6 +23,7 @@ The goal of the proposed SLOT approach is to adapt the trained LM to individual 
 - torch==2.5.1
 - transformers==4.49.0.dev0
 - datasets==3.2.0
+- vllm==0.7.2
 
 ### Inference
 
@@ -42,6 +43,22 @@ Please refer [run.sh](run.sh) for example commands.
 
 Output logs are saved in `logs/log_times_<times_value>_lr_<lr_value>.txt`.
 
+### SLOT for LLM on Various Benchmarks
+
+1. Pre-saving `lm_head`
+SLOT operates on the final projection layer (`lm_head`) of the Transformer and requires Tensor Parallelism (TP) for large models.  
+To prepare, first extract and save the `lm_head` from the model's weights.
+📄 Refer to [`retrieve_lm_head.ipynb`](./retrieve_lm_head.ipynb) for detailed instructions.
+2. Replace `model_runner.py` in `vllm`
+To enable SLOT within the `vllm` inference framework, replace the original `model_runner.py` file:
+```bash
+cp ./vllm/model_runner.py ~/openr1/lib/python3.11/site-packages/vllm/worker/model_runner.py
+```
+3. Run Inference with SLOT
+Execute the following script to launch inference with SLOT support:
+```shell
+bash run_vllm.sh
+```
 
 ## SLOT results
 ![](result_open_r1.png)
