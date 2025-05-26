@@ -1,5 +1,7 @@
 # SLOT: Sample-specific Language Model Optimization at Test-time
 
+***fully open sourced!! the full reasoning results are in SLOT/vllm/logs/***
+
 ***Training free, simple but effective test-time adaptation***
 
 ***Fast, low overhead, easy to adapt to your reasearch***
