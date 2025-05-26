@@ -52,7 +52,7 @@ To prepare, first extract and save the `lm_head` from the model's weights.
 2. Replace `model_runner.py` in `vllm`
 To enable SLOT within the `vllm` inference framework, replace the original `model_runner.py` file:
 ```bash
-cp ./vllm/model_runner.py ~/openr1/lib/python3.11/site-packages/vllm/worker/model_runner.py
+cp ./vllm/model_runner.py -r ~/openr1/lib/python3.11/site-packages/vllm/worker/model_runner.py
 ```
 3. Run Inference with SLOT
 Execute the following script to launch inference with SLOT support:

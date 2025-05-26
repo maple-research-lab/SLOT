@@ -1,0 +1,474 @@
+[2025-04-23 15:54:42,640] [[32m    INFO[0m]: PyTorch version 2.5.1 available. (config.py:58)[0m
+INFO 04-23 15:54:47 __init__.py:190] Automatically detected platform cuda.
+[2025-04-23 15:54:48,580] [[32m    INFO[0m]: --- LOADING MODEL --- (pipeline.py:189)[0m
+[2025-04-23 15:54:56,960] [[32m    INFO[0m]: This model supports multiple tasks: {'reward', 'embed', 'classify', 'score', 'generate'}. Defaulting to 'generate'. (config.py:542)[0m
+[2025-04-23 15:54:56,962] [[32m    INFO[0m]: Initializing a V0 LLM engine (v0.7.2) with config: model='~/Models/Qwen/Qwen2.5-Math-1.5B', speculative_config=None, tokenizer='~/Models/Qwen/Qwen2.5-Math-1.5B', skip_tokenizer_init=False, tokenizer_mode=auto, revision=main, override_neuron_config=None, tokenizer_revision=main, trust_remote_code=False, dtype=torch.bfloat16, max_seq_len=4096, download_dir=None, load_format=LoadFormat.AUTO, tensor_parallel_size=1, pipeline_parallel_size=1, disable_custom_all_reduce=False, quantization=None, enforce_eager=False, kv_cache_dtype=auto,  device_config=cuda, decoding_config=DecodingConfig(guided_decoding_backend='xgrammar'), observability_config=ObservabilityConfig(otlp_traces_endpoint=None, collect_model_forward_time=False, collect_model_execute_time=False), seed=1234, served_model_name=~/Models/Qwen/Qwen2.5-Math-1.5B, num_scheduler_steps=1, multi_step_stream_outputs=True, enable_prefix_caching=False, chunked_prefill_enabled=False, use_async_output_proc=True, disable_mm_preprocessor_cache=False, mm_processor_kwargs=None, pooler_config=None, compilation_config={"splitting_ops":[],"compile_sizes":[],"cudagraph_capture_sizes":[128,120,112,104,96,88,80,72,64,56,48,40,32,24,16,8,4,2,1],"max_capture_size":128}, use_cached_outputs=False,  (llm_engine.py:234)[0m
+[2025-04-23 15:54:58,050] [[32m    INFO[0m]: Using Flash Attention backend. (cuda.py:230)[0m
+[2025-04-23 15:54:59,359] [[32m    INFO[0m]: Starting to load model ~/Models/Qwen/Qwen2.5-Math-1.5B... (model_runner.py:1110)[0m
+
+Loading safetensors checkpoint shards:   0% Completed | 0/1 [00:00<?, ?it/s]
+
+Loading safetensors checkpoint shards: 100% Completed | 1/1 [00:01<00:00,  1.06s/it]
+
+Loading safetensors checkpoint shards: 100% Completed | 1/1 [00:01<00:00,  1.06s/it]
+
+[2025-04-23 15:55:00,787] [[32m    INFO[0m]: Loading model weights took 2.8797 GB (model_runner.py:1115)[0m
+[2025-04-23 15:55:01,626] [[32m    INFO[0m]: Memory profiling takes 0.53 seconds
+the current vLLM instance can use total_gpu_memory (79.22GiB) x gpu_memory_utilization (0.90) = 71.29GiB
+model weights take 2.88GiB; non_torch_memory takes 0.16GiB; PyTorch activation peak memory takes 0.74GiB; the rest of the memory reserved for KV Cache is 67.51GiB. (worker.py:267)[0m
+[2025-04-23 15:55:01,833] [[32m    INFO[0m]: # CUDA blocks: 158023, # CPU blocks: 9362 (executor_base.py:110)[0m
+[2025-04-23 15:55:01,833] [[32m    INFO[0m]: Maximum concurrency for 4096 tokens per request: 617.28x (executor_base.py:115)[0m
+[2025-04-23 15:55:05,564] [[32m    INFO[0m]: Capturing cudagraphs for decoding. This may lead to unexpected consequences if the model is not static. To run the model in eager mode, set 'enforce_eager=True' or use '--enforce-eager' in the CLI. If out-of-memory error occurs during cudagraph capture, consider decreasing `gpu_memory_utilization` or switching to eager mode. You can also reduce the `max_num_seqs` as needed to decrease memory usage. (model_runner.py:1434)[0m
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.1
+
+Capturing CUDA graph shapes:   0%|          | 0/19 [00:00<?, ?it/s]
+Capturing CUDA graph shapes:   5%|▌         | 1/19 [00:00<00:08,  2.24it/s]
+Capturing CUDA graph shapes:  11%|█         | 2/19 [00:00<00:07,  2.31it/s]
+Capturing CUDA graph shapes:  16%|█▌        | 3/19 [00:01<00:08,  1.92it/s]
+Capturing CUDA graph shapes:  21%|██        | 4/19 [00:02<00:09,  1.66it/s]
+Capturing CUDA graph shapes:  26%|██▋       | 5/19 [00:02<00:07,  1.87it/s]
+Capturing CUDA graph shapes:  32%|███▏      | 6/19 [00:03<00:06,  2.09it/s]
+Capturing CUDA graph shapes:  37%|███▋      | 7/19 [00:03<00:05,  2.20it/s]
+Capturing CUDA graph shapes:  42%|████▏     | 8/19 [00:04<00:05,  1.99it/s]
+Capturing CUDA graph shapes:  47%|████▋     | 9/19 [00:04<00:04,  2.14it/s]
+Capturing CUDA graph shapes:  53%|█████▎    | 10/19 [00:04<00:03,  2.27it/s]
+Capturing CUDA graph shapes:  58%|█████▊    | 11/19 [00:05<00:03,  2.36it/s]
+Capturing CUDA graph shapes:  63%|██████▎   | 12/19 [00:05<00:02,  2.42it/s]
+Capturing CUDA graph shapes:  68%|██████▊   | 13/19 [00:06<00:02,  2.07it/s]
+Capturing CUDA graph shapes:  74%|███████▎  | 14/19 [00:06<00:02,  2.22it/s]
+Capturing CUDA graph shapes:  79%|███████▉  | 15/19 [00:06<00:01,  2.33it/s]
+Capturing CUDA graph shapes:  84%|████████▍ | 16/19 [00:07<00:01,  2.40it/s]
+Capturing CUDA graph shapes:  89%|████████▉ | 17/19 [00:07<00:00,  2.14it/s]
+Capturing CUDA graph shapes:  95%|█████████▍| 18/19 [00:08<00:00,  2.20it/s]
+Capturing CUDA graph shapes: 100%|██████████| 19/19 [00:08<00:00,  2.24it/s]
+Capturing CUDA graph shapes: 100%|██████████| 19/19 [00:08<00:00,  2.16it/s]
+[2025-04-23 15:55:14,354] [[32m    INFO[0m]: Graph capturing finished in 9 secs, took 0.21 GiB (model_runner.py:1562)[0m
+[2025-04-23 15:55:14,355] [[32m    INFO[0m]: init engine (profile, create kv cache, warmup model) took 13.57 seconds (llm_engine.py:431)[0m
+[2025-04-23 15:55:15,845] [[32m    INFO[0m]: --- INIT SEEDS --- (pipeline.py:263)[0m
+[2025-04-23 15:55:15,845] [[32m    INFO[0m]: --- LOADING TASKS --- (pipeline.py:216)[0m
+[2025-04-23 15:55:15,845] [[32m    INFO[0m]: Found 1 custom tasks in ~/Projects/nips25_slot/open-r2/openr1/lib/python3.11/site-packages/lighteval/tasks/extended/ifeval/main.py (registry.py:142)[0m
+[2025-04-23 15:55:15,845] [[32m    INFO[0m]: Found 6 custom tasks in ~/Projects/nips25_slot/open-r2/openr1/lib/python3.11/site-packages/lighteval/tasks/extended/tiny_benchmarks/main.py (registry.py:142)[0m
+[2025-04-23 15:55:15,845] [[32m    INFO[0m]: Found 1 custom tasks in ~/Projects/nips25_slot/open-r2/openr1/lib/python3.11/site-packages/lighteval/tasks/extended/mt_bench/main.py (registry.py:142)[0m
+[2025-04-23 15:55:15,845] [[32m    INFO[0m]: Found 4 custom tasks in ~/Projects/nips25_slot/open-r2/openr1/lib/python3.11/site-packages/lighteval/tasks/extended/mix_eval/main.py (registry.py:142)[0m
+[2025-04-23 15:55:15,845] [[32m    INFO[0m]: Found 5 custom tasks in ~/Projects/nips25_slot/open-r2/openr1/lib/python3.11/site-packages/lighteval/tasks/extended/olympiade_bench/main.py (registry.py:142)[0m
+[2025-04-23 15:55:15,845] [[32m    INFO[0m]: Found 1 custom tasks in ~/Projects/nips25_slot/open-r2/openr1/lib/python3.11/site-packages/lighteval/tasks/extended/hle/main.py (registry.py:142)[0m
+[2025-04-23 15:55:15,845] [[32m    INFO[0m]: Found 21 custom tasks in ~/Projects/nips25_slot/open-r2/openr1/lib/python3.11/site-packages/lighteval/tasks/extended/lcb/main.py (registry.py:142)[0m
+[2025-04-23 15:55:15,848] [[32m    INFO[0m]: Idavidrein/gpqa gpqa_diamond (lighteval_task.py:187)[0m
+[2025-04-23 15:55:15,848] [[33m WARNING[0m]: Careful, the task lighteval|gpqa:diamond is using evaluation data to build the few shot examples. (lighteval_task.py:260)[0m
+Using the latest cached version of the dataset since Idavidrein/gpqa couldn't be found on the Hugging Face Hub
+[2025-04-23 15:55:39,645] [[33m WARNING[0m]: Using the latest cached version of the dataset since Idavidrein/gpqa couldn't be found on the Hugging Face Hub (load.py:1631)[0m
+Found the latest cached dataset configuration 'gpqa_diamond' at ~/.cache/huggingface/datasets/Idavidrein___gpqa/gpqa_diamond/0.0.0/90b8e5be2b1d3d2dbfe016cdab47981150600c4a (last modified on Sat Apr 12 16:41:50 2025).
+[2025-04-23 15:55:39,649] [[33m WARNING[0m]: Found the latest cached dataset configuration 'gpqa_diamond' at ~/.cache/huggingface/datasets/Idavidrein___gpqa/gpqa_diamond/0.0.0/90b8e5be2b1d3d2dbfe016cdab47981150600c4a (last modified on Sat Apr 12 16:41:50 2025). (cache.py:95)[0m
+[2025-04-23 15:55:39,813] [[32m    INFO[0m]: --- RUNNING MODEL --- (pipeline.py:468)[0m
+[2025-04-23 15:55:39,813] [[32m    INFO[0m]: Running RequestType.GREEDY_UNTIL requests (pipeline.py:472)[0m
+[2025-04-23 15:55:39,869] [[33m WARNING[0m]: You cannot select the number of dataset splits for a generative evaluation at the moment. Automatically inferring. (data.py:260)[0m
+Idavidrein/gpqa
+gpqa_diamond
+True
+None
+
+Splits:   0%|          | 0/1 [00:00<?, ?it/s][2025-04-23 15:55:39,925] [[33m WARNING[0m]: context_size + max_new_tokens=6935 which is greater than self.max_length=4096. Truncating context to 0 tokens. (vllm_model.py:270)[0m
+
+
+Processed prompts:   0%|          | 0/198 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s][A
+
+Processed prompts:   1%|          | 1/198 [00:01<03:58,  1.21s/it, est. speed input: 237.32 toks/s, output: 47.96 toks/s][A
+
+Processed prompts:   2%|▏         | 3/198 [00:01<01:56,  1.67it/s, est. speed input: 421.54 toks/s, output: 123.33 toks/s][A
+
+Processed prompts:   2%|▏         | 4/198 [00:02<01:42,  1.89it/s, est. speed input: 489.75 toks/s, output: 167.32 toks/s][A
+
+Processed prompts:   3%|▎         | 5/198 [00:02<01:25,  2.26it/s, est. speed input: 553.54 toks/s, output: 216.27 toks/s][A
+
+Processed prompts:   4%|▎         | 7/198 [00:02<00:49,  3.83it/s, est. speed input: 713.92 toks/s, output: 336.47 toks/s][A
+
+Processed prompts:   4%|▍         | 8/198 [00:03<01:01,  3.10it/s, est. speed input: 679.95 toks/s, output: 353.99 toks/s][A
+
+Processed prompts:   5%|▍         | 9/198 [00:03<00:49,  3.78it/s, est. speed input: 754.51 toks/s, output: 412.09 toks/s][A
+
+Processed prompts:   6%|▌         | 12/198 [00:03<00:34,  5.39it/s, est. speed input: 910.72 toks/s, output: 570.60 toks/s][A
+
+Processed prompts:   8%|▊         | 15/198 [00:04<00:31,  5.81it/s, est. speed input: 1017.73 toks/s, output: 703.70 toks/s][A
+
+Processed prompts:   8%|▊         | 16/198 [00:04<00:34,  5.30it/s, est. speed input: 1051.67 toks/s, output: 732.34 toks/s][A
+
+Processed prompts:   9%|▉         | 18/198 [00:04<00:25,  6.95it/s, est. speed input: 1179.92 toks/s, output: 856.31 toks/s][A
+
+Processed prompts:  10%|█         | 20/198 [00:05<00:33,  5.26it/s, est. speed input: 1280.44 toks/s, output: 896.44 toks/s][A
+
+Processed prompts:  11%|█         | 21/198 [00:05<00:32,  5.44it/s, est. speed input: 1348.53 toks/s, output: 941.90 toks/s][A
+
+Processed prompts:  12%|█▏        | 23/198 [00:05<00:27,  6.37it/s, est. speed input: 1418.13 toks/s, output: 1047.12 toks/s][A
+
+Processed prompts:  13%|█▎        | 25/198 [00:05<00:29,  5.94it/s, est. speed input: 1418.47 toks/s, output: 1118.93 toks/s][A
+
+Processed prompts:  13%|█▎        | 26/198 [00:06<00:33,  5.15it/s, est. speed input: 1392.59 toks/s, output: 1137.11 toks/s][A
+
+Processed prompts:  14%|█▎        | 27/198 [00:06<00:31,  5.46it/s, est. speed input: 1396.35 toks/s, output: 1184.12 toks/s][A
+
+Processed prompts:  14%|█▍        | 28/198 [00:06<00:28,  6.05it/s, est. speed input: 1450.06 toks/s, output: 1237.31 toks/s][A
+
+Processed prompts:  15%|█▍        | 29/198 [00:06<00:29,  5.71it/s, est. speed input: 1446.89 toks/s, output: 1272.20 toks/s][A
+
+Processed prompts:  15%|█▌        | 30/198 [00:08<01:42,  1.63it/s, est. speed input: 1168.02 toks/s, output: 1068.16 toks/s][A
+
+Processed prompts:  16%|█▌        | 32/198 [00:08<01:03,  2.60it/s, est. speed input: 1213.22 toks/s, output: 1117.60 toks/s][A
+
+Processed prompts:  17%|█▋        | 33/198 [00:08<00:52,  3.13it/s, est. speed input: 1224.86 toks/s, output: 1173.77 toks/s][A
+
+Processed prompts:  17%|█▋        | 34/198 [00:09<00:55,  2.98it/s, est. speed input: 1194.65 toks/s, output: 1143.52 toks/s][A
+
+Processed prompts:  18%|█▊        | 35/198 [00:09<00:47,  3.46it/s, est. speed input: 1215.88 toks/s, output: 1194.40 toks/s][A
+
+Processed prompts:  19%|█▊        | 37/198 [00:09<00:35,  4.53it/s, est. speed input: 1231.98 toks/s, output: 1289.23 toks/s][A
+
+Processed prompts:  19%|█▉        | 38/198 [00:09<00:33,  4.76it/s, est. speed input: 1305.63 toks/s, output: 1336.61 toks/s][A
+
+Processed prompts:  20%|█▉        | 39/198 [00:10<00:56,  2.81it/s, est. speed input: 1229.26 toks/s, output: 1307.47 toks/s][A
+
+Processed prompts:  20%|██        | 40/198 [00:10<00:52,  3.01it/s, est. speed input: 1218.88 toks/s, output: 1324.31 toks/s][A
+
+Processed prompts:  21%|██        | 42/198 [00:11<01:00,  2.57it/s, est. speed input: 1163.59 toks/s, output: 1336.64 toks/s][A
+
+Processed prompts:  22%|██▏       | 43/198 [00:12<00:58,  2.63it/s, est. speed input: 1145.08 toks/s, output: 1316.07 toks/s][A
+
+Processed prompts:  23%|██▎       | 45/198 [00:12<00:45,  3.33it/s, est. speed input: 1152.01 toks/s, output: 1393.88 toks/s][A
+
+Processed prompts:  23%|██▎       | 46/198 [00:13<01:03,  2.39it/s, est. speed input: 1113.67 toks/s, output: 1378.45 toks/s][A
+
+Processed prompts:  24%|██▎       | 47/198 [00:13<01:01,  2.44it/s, est. speed input: 1102.10 toks/s, output: 1412.29 toks/s][A
+
+Processed prompts:  24%|██▍       | 48/198 [00:13<00:51,  2.89it/s, est. speed input: 1102.75 toks/s, output: 1423.55 toks/s][A
+
+Processed prompts:  25%|██▌       | 50/198 [00:13<00:32,  4.52it/s, est. speed input: 1133.31 toks/s, output: 1501.45 toks/s][A
+
+Processed prompts:  26%|██▋       | 52/198 [00:14<00:31,  4.66it/s, est. speed input: 1160.22 toks/s, output: 1554.31 toks/s][A
+
+Processed prompts:  27%|██▋       | 53/198 [00:14<00:29,  4.89it/s, est. speed input: 1165.54 toks/s, output: 1608.62 toks/s][A
+
+Processed prompts:  27%|██▋       | 54/198 [00:15<00:43,  3.28it/s, est. speed input: 1127.78 toks/s, output: 1549.78 toks/s][A
+
+Processed prompts:  28%|██▊       | 55/198 [00:15<00:58,  2.46it/s, est. speed input: 1098.47 toks/s, output: 1552.97 toks/s][A
+
+Processed prompts:  28%|██▊       | 56/198 [00:16<00:50,  2.81it/s, est. speed input: 1094.87 toks/s, output: 1561.74 toks/s][A
+
+Processed prompts:  29%|██▉       | 57/198 [00:16<00:43,  3.21it/s, est. speed input: 1093.65 toks/s, output: 1579.39 toks/s][A
+
+Processed prompts:  29%|██▉       | 58/198 [00:17<01:11,  1.95it/s, est. speed input: 1192.71 toks/s, output: 1558.01 toks/s][A
+
+Processed prompts:  30%|██▉       | 59/198 [00:17<01:06,  2.09it/s, est. speed input: 1179.96 toks/s, output: 1596.20 toks/s][A
+
+Processed prompts:  30%|███       | 60/198 [00:18<01:02,  2.20it/s, est. speed input: 1162.99 toks/s, output: 1569.03 toks/s][A
+
+Processed prompts:  31%|███       | 61/198 [00:18<00:54,  2.53it/s, est. speed input: 1155.56 toks/s, output: 1556.61 toks/s][A
+
+Processed prompts:  31%|███▏      | 62/198 [00:19<01:17,  1.76it/s, est. speed input: 1104.52 toks/s, output: 1482.10 toks/s][A
+
+Processed prompts:  32%|███▏      | 63/198 [00:19<00:59,  2.26it/s, est. speed input: 1106.90 toks/s, output: 1525.07 toks/s][A
+
+Processed prompts:  32%|███▏      | 64/198 [00:19<00:49,  2.69it/s, est. speed input: 1106.08 toks/s, output: 1567.33 toks/s][A
+
+Processed prompts:  33%|███▎      | 65/198 [00:20<01:14,  1.78it/s, est. speed input: 1069.71 toks/s, output: 1563.99 toks/s][A
+
+Processed prompts:  34%|███▍      | 68/198 [00:20<00:37,  3.47it/s, est. speed input: 1086.26 toks/s, output: 1687.53 toks/s][A
+
+Processed prompts:  35%|███▍      | 69/198 [00:21<00:33,  3.88it/s, est. speed input: 1085.84 toks/s, output: 1681.97 toks/s][A
+
+Processed prompts:  35%|███▌      | 70/198 [00:21<00:53,  2.40it/s, est. speed input: 1044.86 toks/s, output: 1613.99 toks/s][A
+
+Processed prompts:  36%|███▌      | 71/198 [00:22<00:47,  2.69it/s, est. speed input: 1038.84 toks/s, output: 1600.81 toks/s][A
+
+Processed prompts:  36%|███▋      | 72/198 [00:23<01:04,  1.94it/s, est. speed input: 1004.93 toks/s, output: 1567.22 toks/s][A
+
+Processed prompts:  37%|███▋      | 73/198 [00:23<00:56,  2.23it/s, est. speed input: 998.67 toks/s, output: 1557.31 toks/s] [A
+
+Processed prompts:  37%|███▋      | 74/198 [00:23<00:48,  2.53it/s, est. speed input: 994.31 toks/s, output: 1559.45 toks/s][A
+
+Processed prompts:  38%|███▊      | 75/198 [00:24<00:55,  2.20it/s, est. speed input: 975.07 toks/s, output: 1532.02 toks/s][A
+
+Processed prompts:  38%|███▊      | 76/198 [00:25<01:19,  1.54it/s, est. speed input: 940.26 toks/s, output: 1530.51 toks/s][A
+
+Processed prompts:  39%|███▉      | 77/198 [00:25<01:05,  1.84it/s, est. speed input: 936.66 toks/s, output: 1549.02 toks/s][A
+
+Processed prompts:  39%|███▉      | 78/198 [00:25<00:52,  2.27it/s, est. speed input: 950.45 toks/s, output: 1611.11 toks/s][A
+
+Processed prompts:  40%|███▉      | 79/198 [00:26<01:04,  1.85it/s, est. speed input: 938.13 toks/s, output: 1638.08 toks/s][A
+
+Processed prompts:  41%|████      | 81/198 [00:27<01:09,  1.69it/s, est. speed input: 910.08 toks/s, output: 1676.12 toks/s][A
+
+Processed prompts:  41%|████▏     | 82/198 [00:29<01:49,  1.06it/s, est. speed input: 858.90 toks/s, output: 1635.76 toks/s][A
+
+Processed prompts:  42%|████▏     | 83/198 [00:31<02:18,  1.20s/it, est. speed input: 814.77 toks/s, output: 1609.32 toks/s][A
+
+Processed prompts:  42%|████▏     | 84/198 [00:32<02:11,  1.16s/it, est. speed input: 794.22 toks/s, output: 1599.85 toks/s][A
+
+Processed prompts:  43%|████▎     | 85/198 [00:34<02:12,  1.17s/it, est. speed input: 771.05 toks/s, output: 1586.03 toks/s][A
+
+Processed prompts:  43%|████▎     | 86/198 [00:36<02:43,  1.46s/it, est. speed input: 729.67 toks/s, output: 1545.43 toks/s][A
+
+Processed prompts:  44%|████▍     | 87/198 [00:36<02:14,  1.21s/it, est. speed input: 724.57 toks/s, output: 1593.80 toks/s][A
+
+Processed prompts:  44%|████▍     | 88/198 [00:38<02:15,  1.23s/it, est. speed input: 707.13 toks/s, output: 1613.23 toks/s][A
+
+Processed prompts:  45%|████▌     | 90/198 [00:39<01:39,  1.09it/s, est. speed input: 703.65 toks/s, output: 1713.04 toks/s][A
+
+Processed prompts:  46%|████▌     | 91/198 [00:41<02:11,  1.23s/it, est. speed input: 674.63 toks/s, output: 1696.38 toks/s][A
+
+Processed prompts:  46%|████▋     | 92/198 [00:41<01:48,  1.02s/it, est. speed input: 671.06 toks/s, output: 1718.07 toks/s][A
+
+Processed prompts:  47%|████▋     | 93/198 [00:44<02:37,  1.50s/it, est. speed input: 635.23 toks/s, output: 1683.59 toks/s][A
+
+Processed prompts:  47%|████▋     | 94/198 [00:44<02:01,  1.16s/it, est. speed input: 637.02 toks/s, output: 1746.20 toks/s][A
+
+Processed prompts:  48%|████▊     | 95/198 [00:47<02:45,  1.60s/it, est. speed input: 613.30 toks/s, output: 1720.32 toks/s][A
+
+Processed prompts:  48%|████▊     | 96/198 [00:47<02:01,  1.19s/it, est. speed input: 616.01 toks/s, output: 1787.87 toks/s][A
+
+Processed prompts:  49%|████▉     | 98/198 [00:48<01:09,  1.43it/s, est. speed input: 630.80 toks/s, output: 1926.42 toks/s][A
+
+Processed prompts:  50%|█████     | 99/198 [00:48<01:00,  1.63it/s, est. speed input: 637.47 toks/s, output: 1986.03 toks/s][A
+
+Processed prompts:  51%|█████     | 100/198 [00:49<00:59,  1.64it/s, est. speed input: 639.82 toks/s, output: 2035.19 toks/s][A
+
+Processed prompts:  51%|█████     | 101/198 [00:49<00:54,  1.77it/s, est. speed input: 643.52 toks/s, output: 2090.56 toks/s][A
+
+Processed prompts:  52%|█████▏    | 103/198 [00:49<00:39,  2.40it/s, est. speed input: 655.61 toks/s, output: 2217.89 toks/s][A
+
+Processed prompts:  54%|█████▎    | 106/198 [00:50<00:23,  3.94it/s, est. speed input: 677.67 toks/s, output: 2427.19 toks/s][A
+
+Processed prompts:  54%|█████▍    | 107/198 [00:50<00:25,  3.62it/s, est. speed input: 680.27 toks/s, output: 2482.68 toks/s][A
+
+Processed prompts:  55%|█████▌    | 109/198 [00:50<00:21,  4.21it/s, est. speed input: 690.50 toks/s, output: 2613.12 toks/s][A
+
+Processed prompts:  56%|█████▌    | 111/198 [00:50<00:15,  5.69it/s, est. speed input: 702.98 toks/s, output: 2754.65 toks/s][A
+
+Processed prompts:  57%|█████▋    | 113/198 [00:51<00:11,  7.36it/s, est. speed input: 715.19 toks/s, output: 2895.92 toks/s][A
+
+Processed prompts:  59%|█████▊    | 116/198 [00:51<00:08,  9.75it/s, est. speed input: 732.69 toks/s, output: 3106.84 toks/s][A
+
+Processed prompts:  60%|█████▉    | 118/198 [00:51<00:07, 10.58it/s, est. speed input: 743.24 toks/s, output: 3244.75 toks/s][A
+
+Processed prompts:  62%|██████▏   | 123/198 [00:51<00:04, 16.02it/s, est. speed input: 771.48 toks/s, output: 3602.29 toks/s][A
+
+Processed prompts:  65%|██████▍   | 128/198 [00:51<00:03, 21.47it/s, est. speed input: 798.81 toks/s, output: 3961.23 toks/s][A
+
+Processed prompts:  67%|██████▋   | 132/198 [00:51<00:02, 24.99it/s, est. speed input: 816.86 toks/s, output: 4221.67 toks/s][A
+
+Processed prompts:  69%|██████▉   | 137/198 [00:51<00:02, 30.05it/s, est. speed input: 841.88 toks/s, output: 4581.13 toks/s][A
+
+Processed prompts:  72%|███████▏  | 143/198 [00:51<00:01, 34.90it/s, est. speed input: 870.80 toks/s, output: 5011.69 toks/s][A
+
+Processed prompts:  78%|███████▊  | 154/198 [00:52<00:00, 51.89it/s, est. speed input: 922.34 toks/s, output: 5812.72 toks/s][A
+
+Processed prompts:  81%|████████  | 160/198 [00:52<00:00, 49.76it/s, est. speed input: 946.95 toks/s, output: 6241.54 toks/s][A
+
+Processed prompts:  84%|████████▍ | 166/198 [00:53<00:02, 14.32it/s, est. speed input: 951.62 toks/s, output: 6540.80 toks/s][A
+
+Processed prompts:  86%|████████▌ | 170/198 [00:53<00:02, 11.51it/s, est. speed input: 957.20 toks/s, output: 6755.78 toks/s][A
+
+Processed prompts:  87%|████████▋ | 173/198 [00:54<00:02, 11.67it/s, est. speed input: 964.64 toks/s, output: 6940.68 toks/s][A
+
+Processed prompts:  89%|████████▉ | 176/198 [00:54<00:02,  9.84it/s, est. speed input: 967.33 toks/s, output: 7092.58 toks/s][A
+
+Processed prompts:  90%|████████▉ | 178/198 [00:55<00:02,  8.23it/s, est. speed input: 966.82 toks/s, output: 7177.24 toks/s][A
+
+Processed prompts:  91%|█████████ | 180/198 [00:55<00:02,  8.92it/s, est. speed input: 970.78 toks/s, output: 7286.25 toks/s][A
+
+Processed prompts:  92%|█████████▏| 182/198 [00:55<00:01,  9.11it/s, est. speed input: 974.33 toks/s, output: 7400.14 toks/s][A
+
+Processed prompts:  93%|█████████▎| 184/198 [00:55<00:01,  8.90it/s, est. speed input: 977.07 toks/s, output: 7508.16 toks/s][A
+
+Processed prompts:  94%|█████████▍| 186/198 [00:56<00:02,  4.49it/s, est. speed input: 964.70 toks/s, output: 7500.55 toks/s][A
+
+Processed prompts:  94%|█████████▍| 187/198 [00:57<00:02,  3.76it/s, est. speed input: 959.29 toks/s, output: 7502.33 toks/s][A
+
+Processed prompts:  95%|█████████▍| 188/198 [00:57<00:02,  4.18it/s, est. speed input: 960.50 toks/s, output: 7555.51 toks/s][A
+
+Processed prompts:  95%|█████████▌| 189/198 [00:58<00:02,  3.27it/s, est. speed input: 954.20 toks/s, output: 7549.31 toks/s][A
+
+Processed prompts:  96%|█████████▋| 191/198 [00:58<00:01,  4.60it/s, est. speed input: 958.12 toks/s, output: 7666.96 toks/s][A
+
+Processed prompts:  97%|█████████▋| 192/198 [00:58<00:01,  3.65it/s, est. speed input: 953.09 toks/s, output: 7670.03 toks/s][A
+
+Processed prompts:  98%|█████████▊| 195/198 [00:59<00:00,  4.64it/s, est. speed input: 954.29 toks/s, output: 7811.03 toks/s][A
+
+Processed prompts:  99%|█████████▉| 196/198 [01:00<00:00,  2.27it/s, est. speed input: 933.92 toks/s, output: 7690.14 toks/s][A
+
+Processed prompts:  99%|█████████▉| 197/198 [01:00<00:00,  2.26it/s, est. speed input: 929.17 toks/s, output: 7699.13 toks/s][A
+
+Processed prompts: 100%|██████████| 198/198 [01:01<00:00,  2.33it/s, est. speed input: 925.10 toks/s, output: 7715.21 toks/s][A
+Processed prompts: 100%|██████████| 198/198 [01:01<00:00,  3.23it/s, est. speed input: 925.10 toks/s, output: 7715.21 toks/s]
+
+Splits: 100%|██████████| 1/1 [01:01<00:00, 61.64s/it]
+Splits: 100%|██████████| 1/1 [01:01<00:00, 61.64s/it]
+[2025-04-23 15:56:42,445] [[32m    INFO[0m]: --- COMPUTING METRICS --- (pipeline.py:504)[0m
+[2025-04-23 15:56:42,448] [[33m WARNING[0m]: We did not manage to extract a prediction in the correct format. Gold: ['A'], Pred: ['Please reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\n'] (dynamic_metrics.py:265)[0m
+[2025-04-23 15:56:42,513] [[33m WARNING[0m]: We did not manage to extract a prediction in the correct format. Gold: ['C'], Pred: ['Please reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by'] (dynamic_metrics.py:265)[0m
+[2025-04-23 15:56:42,563] [[32m    INFO[0m]: --- DISPLAYING RESULTS --- (pipeline.py:546)[0m
+[2025-04-23 15:56:42,573] [[32m    INFO[0m]: --- SAVING AND PUSHING RESULTS --- (pipeline.py:536)[0m
+[2025-04-23 15:56:42,573] [[32m    INFO[0m]: Saving experiment tracker (evaluation_tracker.py:180)[0m
+[2025-04-23 15:56:42,856] [[32m    INFO[0m]: Saving results to ~/Projects/nips25_slot/open-r2/data/evals~/Models/Qwen/Qwen2.5-Math-1.5B/results/_Models_Qwen_Qwen2.5-Math-1.5B/results_2025-04-23T15-56-42.573842.json (evaluation_tracker.py:234)[0m
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.1
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.1
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.1
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.1
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.1
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.1
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.1
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.1
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.1
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.1
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.1
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.1
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.1
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.1
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.1
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.1
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.1
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.1
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.1
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.1
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.1
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.1
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.1
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.1
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.1
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.1
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.1
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.1
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.1
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.1
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.1
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.1
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.1
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.1
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.1
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.1
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.1
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.1
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.1
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.1
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.1
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.1
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.1
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.1
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.1
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.1
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.1
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.1
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.1
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.1
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.1
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.1
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.1
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.1
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.1
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.1
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.1
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.1
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.1
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.1
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.1
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.1
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.1
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.1
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.1
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.1
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.1
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.1
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.1
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.1
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.1
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.1
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.1
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.1
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.1
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.1
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.1
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.1
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.1
+|          Task          |Version|     Metric     |Value |   |Stderr|
+|------------------------|------:|----------------|-----:|---|-----:|
+|all                     |       |extractive_match|0.2778|±  |0.0319|
+|lighteval:gpqa:diamond:0|      0|extractive_match|0.2778|±  |0.0319|
+

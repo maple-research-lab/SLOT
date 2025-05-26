@@ -1,0 +1,432 @@
+[2025-04-12 09:57:38,623] [[32m    INFO[0m]: PyTorch version 2.5.1 available. (config.py:54)[0m
+INFO 04-12 09:57:51 __init__.py:190] Automatically detected platform cuda.
+[2025-04-12 09:57:53,560] [[32m    INFO[0m]: --- LOADING MODEL --- (pipeline.py:189)[0m
+[2025-04-12 09:58:02,187] [[32m    INFO[0m]: This model supports multiple tasks: {'classify', 'reward', 'score', 'generate', 'embed'}. Defaulting to 'generate'. (config.py:542)[0m
+[2025-04-12 09:58:02,480] [[32m    INFO[0m]: Defaulting to use mp for distributed inference (config.py:1401)[0m
+[2025-04-12 09:58:02,490] [[32m    INFO[0m]: Initializing a V0 LLM engine (v0.7.2) with config: model='~/Models/Qwen/Qwen2.5-14B', speculative_config=None, tokenizer='~/Models/Qwen/Qwen2.5-14B', skip_tokenizer_init=False, tokenizer_mode=auto, revision=main, override_neuron_config=None, tokenizer_revision=main, trust_remote_code=False, dtype=torch.bfloat16, max_seq_len=32768, download_dir=None, load_format=LoadFormat.AUTO, tensor_parallel_size=8, pipeline_parallel_size=1, disable_custom_all_reduce=False, quantization=None, enforce_eager=False, kv_cache_dtype=auto,  device_config=cuda, decoding_config=DecodingConfig(guided_decoding_backend='xgrammar'), observability_config=ObservabilityConfig(otlp_traces_endpoint=None, collect_model_forward_time=False, collect_model_execute_time=False), seed=1234, served_model_name=~/Models/Qwen/Qwen2.5-14B, num_scheduler_steps=1, multi_step_stream_outputs=True, enable_prefix_caching=False, chunked_prefill_enabled=False, use_async_output_proc=True, disable_mm_preprocessor_cache=False, mm_processor_kwargs=None, pooler_config=None, compilation_config={"splitting_ops":[],"compile_sizes":[],"cudagraph_capture_sizes":[128,120,112,104,96,88,80,72,64,56,48,40,32,24,16,8,4,2,1],"max_capture_size":128}, use_cached_outputs=False,  (llm_engine.py:234)[0m
+[2025-04-12 09:58:02,707] [[33m WARNING[0m]: Reducing Torch parallelism from 64 threads to 1 to avoid unnecessary CPU contention. Set OMP_NUM_THREADS in the external environment to tune this value as needed. (multiproc_worker_utils.py:300)[0m
+[2025-04-12 09:58:02,724] [[32m    INFO[0m]: Setting Triton cache manager to: vllm.triton_utils.custom_cache_manager:CustomCacheManager (custom_cache_manager.py:19)[0m
+[2025-04-12 09:58:03,563] [[32m    INFO[0m]: Using Flash Attention backend. (cuda.py:230)[0m
+INFO 04-12 09:58:09 __init__.py:190] Automatically detected platform cuda.
+INFO 04-12 09:58:09 __init__.py:190] Automatically detected platform cuda.
+INFO 04-12 09:58:09 __init__.py:190] Automatically detected platform cuda.
+INFO 04-12 09:58:09 __init__.py:190] Automatically detected platform cuda.
+INFO 04-12 09:58:09 __init__.py:190] Automatically detected platform cuda.
+INFO 04-12 09:58:09 __init__.py:190] Automatically detected platform cuda.
+INFO 04-12 09:58:09 __init__.py:190] Automatically detected platform cuda.
+[1;36m(VllmWorkerProcess pid=1115936)[0;0m INFO 04-12 09:58:12 multiproc_worker_utils.py:229] Worker ready; awaiting tasks
+[1;36m(VllmWorkerProcess pid=1115942)[0;0m INFO 04-12 09:58:12 multiproc_worker_utils.py:229] Worker ready; awaiting tasks
+[1;36m(VllmWorkerProcess pid=1115939)[0;0m INFO 04-12 09:58:12 multiproc_worker_utils.py:229] Worker ready; awaiting tasks
+[1;36m(VllmWorkerProcess pid=1115943)[0;0m INFO 04-12 09:58:12 multiproc_worker_utils.py:229] Worker ready; awaiting tasks
+[1;36m(VllmWorkerProcess pid=1115940)[0;0m INFO 04-12 09:58:12 multiproc_worker_utils.py:229] Worker ready; awaiting tasks
+[1;36m(VllmWorkerProcess pid=1115941)[0;0m INFO 04-12 09:58:12 multiproc_worker_utils.py:229] Worker ready; awaiting tasks
+[1;36m(VllmWorkerProcess pid=1115937)[0;0m INFO 04-12 09:58:12 multiproc_worker_utils.py:229] Worker ready; awaiting tasks
+[1;36m(VllmWorkerProcess pid=1115936)[0;0m INFO 04-12 09:58:17 cuda.py:230] Using Flash Attention backend.
+[1;36m(VllmWorkerProcess pid=1115941)[0;0m INFO 04-12 09:58:19 cuda.py:230] Using Flash Attention backend.
+[1;36m(VllmWorkerProcess pid=1115942)[0;0m INFO 04-12 09:58:19 cuda.py:230] Using Flash Attention backend.
+[1;36m(VllmWorkerProcess pid=1115939)[0;0m INFO 04-12 09:58:19 cuda.py:230] Using Flash Attention backend.
+[1;36m(VllmWorkerProcess pid=1115937)[0;0m INFO 04-12 09:58:19 cuda.py:230] Using Flash Attention backend.
+[1;36m(VllmWorkerProcess pid=1115943)[0;0m INFO 04-12 09:58:19 cuda.py:230] Using Flash Attention backend.
+[1;36m(VllmWorkerProcess pid=1115940)[0;0m INFO 04-12 09:58:19 cuda.py:230] Using Flash Attention backend.
+[2025-04-12 09:58:23,509] [[32m    INFO[0m]: Found nccl from library libnccl.so.2 (utils.py:950)[0m
+[1;36m(VllmWorkerProcess pid=1115939)[0;0m INFO 04-12 09:58:23 utils.py:950] Found nccl from library libnccl.so.2
+[1;36m(VllmWorkerProcess pid=1115937)[0;0m INFO 04-12 09:58:23 utils.py:950] Found nccl from library libnccl.so.2
+[1;36m(VllmWorkerProcess pid=1115936)[0;0m INFO 04-12 09:58:23 utils.py:950] Found nccl from library libnccl.so.2
+[1;36m(VllmWorkerProcess pid=1115940)[0;0m INFO 04-12 09:58:23 utils.py:950] Found nccl from library libnccl.so.2
+[1;36m(VllmWorkerProcess pid=1115939)[0;0m INFO 04-12 09:58:23 pynccl.py:69] vLLM is using nccl==2.21.5
+[2025-04-12 09:58:23,510] [[32m    INFO[0m]: vLLM is using nccl==2.21.5 (pynccl.py:69)[0m
+[1;36m(VllmWorkerProcess pid=1115941)[0;0m INFO 04-12 09:58:23 utils.py:950] Found nccl from library libnccl.so.2
+[1;36m(VllmWorkerProcess pid=1115942)[0;0m INFO 04-12 09:58:23 utils.py:950] Found nccl from library libnccl.so.2
+[1;36m(VllmWorkerProcess pid=1115943)[0;0m INFO 04-12 09:58:23 utils.py:950] Found nccl from library libnccl.so.2
+[1;36m(VllmWorkerProcess pid=1115936)[0;0m INFO 04-12 09:58:23 pynccl.py:69] vLLM is using nccl==2.21.5
+[1;36m(VllmWorkerProcess pid=1115940)[0;0m INFO 04-12 09:58:23 pynccl.py:69] vLLM is using nccl==2.21.5
+[1;36m(VllmWorkerProcess pid=1115937)[0;0m INFO 04-12 09:58:23 pynccl.py:69] vLLM is using nccl==2.21.5
+[1;36m(VllmWorkerProcess pid=1115942)[0;0m INFO 04-12 09:58:23 pynccl.py:69] vLLM is using nccl==2.21.5
+[1;36m(VllmWorkerProcess pid=1115941)[0;0m INFO 04-12 09:58:23 pynccl.py:69] vLLM is using nccl==2.21.5
+[1;36m(VllmWorkerProcess pid=1115943)[0;0m INFO 04-12 09:58:23 pynccl.py:69] vLLM is using nccl==2.21.5
+[1;36m(VllmWorkerProcess pid=1115942)[0;0m INFO 04-12 09:58:31 custom_all_reduce_utils.py:244] reading GPU P2P access cache from ~/.cache/vllm/gpu_p2p_access_cache_for_0,1,2,3,4,5,6,7.json
+[1;36m(VllmWorkerProcess pid=1115940)[0;0m INFO 04-12 09:58:31 custom_all_reduce_utils.py:244] reading GPU P2P access cache from ~/.cache/vllm/gpu_p2p_access_cache_for_0,1,2,3,4,5,6,7.json
+[1;36m(VllmWorkerProcess pid=1115939)[0;0m INFO 04-12 09:58:31 custom_all_reduce_utils.py:244] reading GPU P2P access cache from ~/.cache/vllm/gpu_p2p_access_cache_for_0,1,2,3,4,5,6,7.json
+[1;36m(VllmWorkerProcess pid=1115943)[0;0m INFO 04-12 09:58:31 custom_all_reduce_utils.py:244] reading GPU P2P access cache from ~/.cache/vllm/gpu_p2p_access_cache_for_0,1,2,3,4,5,6,7.json
+[1;36m(VllmWorkerProcess pid=1115941)[0;0m INFO 04-12 09:58:31 custom_all_reduce_utils.py:244] reading GPU P2P access cache from ~/.cache/vllm/gpu_p2p_access_cache_for_0,1,2,3,4,5,6,7.json
+[1;36m(VllmWorkerProcess pid=1115936)[0;0m INFO 04-12 09:58:31 custom_all_reduce_utils.py:244] reading GPU P2P access cache from ~/.cache/vllm/gpu_p2p_access_cache_for_0,1,2,3,4,5,6,7.json
+[1;36m(VllmWorkerProcess pid=1115937)[0;0m INFO 04-12 09:58:31 custom_all_reduce_utils.py:244] reading GPU P2P access cache from ~/.cache/vllm/gpu_p2p_access_cache_for_0,1,2,3,4,5,6,7.json
+[2025-04-12 09:58:31,193] [[32m    INFO[0m]: reading GPU P2P access cache from ~/.cache/vllm/gpu_p2p_access_cache_for_0,1,2,3,4,5,6,7.json (custom_all_reduce_utils.py:244)[0m
+[2025-04-12 09:58:31,703] [[32m    INFO[0m]: vLLM message queue communication handle: Handle(connect_ip='127.0.0.1', local_reader_ranks=[1, 2, 3, 4, 5, 6, 7], buffer_handle=(7, 4194304, 6, 'psm_57babd69'), local_subscribe_port=42661, remote_subscribe_port=None) (shm_broadcast.py:258)[0m
+[1;36m(VllmWorkerProcess pid=1115936)[0;0m INFO 04-12 09:58:31 model_runner.py:1110] Starting to load model ~/Models/Qwen/Qwen2.5-14B...
+[1;36m(VllmWorkerProcess pid=1115940)[0;0m INFO 04-12 09:58:31 model_runner.py:1110] Starting to load model ~/Models/Qwen/Qwen2.5-14B...
+[1;36m(VllmWorkerProcess pid=1115939)[0;0m INFO 04-12 09:58:31 model_runner.py:1110] Starting to load model ~/Models/Qwen/Qwen2.5-14B...
+[1;36m(VllmWorkerProcess pid=1115937)[0;0m INFO 04-12 09:58:31 model_runner.py:1110] Starting to load model ~/Models/Qwen/Qwen2.5-14B...
+[2025-04-12 09:58:31,721] [[32m    INFO[0m]: Starting to load model ~/Models/Qwen/Qwen2.5-14B... (model_runner.py:1110)[0m
+[1;36m(VllmWorkerProcess pid=1115941)[0;0m INFO 04-12 09:58:31 model_runner.py:1110] Starting to load model ~/Models/Qwen/Qwen2.5-14B...
+[1;36m(VllmWorkerProcess pid=1115942)[0;0m INFO 04-12 09:58:31 model_runner.py:1110] Starting to load model ~/Models/Qwen/Qwen2.5-14B...
+[1;36m(VllmWorkerProcess pid=1115943)[0;0m INFO 04-12 09:58:31 model_runner.py:1110] Starting to load model ~/Models/Qwen/Qwen2.5-14B...
+
+Loading safetensors checkpoint shards:   0% Completed | 0/8 [00:00<?, ?it/s]
+
+Loading safetensors checkpoint shards:  12% Completed | 1/8 [00:02<00:20,  2.95s/it]
+
+Loading safetensors checkpoint shards:  25% Completed | 2/8 [00:06<00:18,  3.06s/it]
+
+Loading safetensors checkpoint shards:  38% Completed | 3/8 [00:09<00:15,  3.16s/it]
+
+Loading safetensors checkpoint shards:  50% Completed | 4/8 [00:12<00:12,  3.11s/it]
+
+Loading safetensors checkpoint shards:  62% Completed | 5/8 [00:15<00:09,  3.19s/it]
+
+Loading safetensors checkpoint shards:  75% Completed | 6/8 [00:18<00:06,  3.12s/it]
+
+Loading safetensors checkpoint shards:  88% Completed | 7/8 [00:19<00:02,  2.40s/it]
+
+Loading safetensors checkpoint shards: 100% Completed | 8/8 [00:21<00:00,  2.28s/it]
+
+Loading safetensors checkpoint shards: 100% Completed | 8/8 [00:21<00:00,  2.71s/it]
+
+[1;36m(VllmWorkerProcess pid=1115936)[0;0m INFO 04-12 09:58:54 model_runner.py:1115] Loading model weights took 3.4835 GB
+[1;36m(VllmWorkerProcess pid=1115943)[0;0m INFO 04-12 09:58:54 model_runner.py:1115] Loading model weights took 3.4835 GB
+[1;36m(VllmWorkerProcess pid=1115942)[0;0m INFO 04-12 09:58:54 model_runner.py:1115] Loading model weights took 3.4835 GB
+[1;36m(VllmWorkerProcess pid=1115941)[0;0m INFO 04-12 09:58:54 model_runner.py:1115] Loading model weights took 3.4835 GB
+[1;36m(VllmWorkerProcess pid=1115940)[0;0m INFO 04-12 09:58:54 model_runner.py:1115] Loading model weights took 3.4835 GB
+[1;36m(VllmWorkerProcess pid=1115937)[0;0m INFO 04-12 09:58:54 model_runner.py:1115] Loading model weights took 3.4835 GB
+[1;36m(VllmWorkerProcess pid=1115939)[0;0m INFO 04-12 09:58:54 model_runner.py:1115] Loading model weights took 3.4835 GB
+[2025-04-12 09:58:54,586] [[32m    INFO[0m]: Loading model weights took 3.4835 GB (model_runner.py:1115)[0m
+[1;36m(VllmWorkerProcess pid=1115943)[0;0m [2025-04-12 09:58:59,087] [[33m WARNING[0m]: ~/Projects/nips25_slot/open-r2/openr1/lib/python3.11/site-packages/vllm/worker/model_runner.py:1828: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+[1;36m(VllmWorkerProcess pid=1115940)[0;0m [2025-04-12 09:58:59,087] [[33m WARNING[0m]: ~/Projects/nips25_slot/open-r2/openr1/lib/python3.11/site-packages/vllm/worker/model_runner.py:1828: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+[1;36m(VllmWorkerProcess pid=1115942)[0;0m [2025-04-12 09:58:59,087] [[33m WARNING[0m]: ~/Projects/nips25_slot/open-r2/openr1/lib/python3.11/site-packages/vllm/worker/model_runner.py:1828: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+[2025-04-12 09:58:59,087] [[33m WARNING[0m]: ~/Projects/nips25_slot/open-r2/openr1/lib/python3.11/site-packages/vllm/worker/model_runner.py:1828: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  lm_head_weight = torch.load(lm_local, map_location=hidden_states_cur.device).to(dtype=torch.bfloat16)
+ (warnings.py:110)[0m
+[1;36m(VllmWorkerProcess pid=1115943)[0;0m   lm_head_weight = torch.load(lm_local, map_location=hidden_states_cur.device).to(dtype=torch.bfloat16)
+[1;36m(VllmWorkerProcess pid=1115940)[0;0m   lm_head_weight = torch.load(lm_local, map_location=hidden_states_cur.device).to(dtype=torch.bfloat16)
+[1;36m(VllmWorkerProcess pid=1115942)[0;0m   lm_head_weight = torch.load(lm_local, map_location=hidden_states_cur.device).to(dtype=torch.bfloat16)
+[1;36m(VllmWorkerProcess pid=1115943)[0;0m  (warnings.py:110)[0m
+[1;36m(VllmWorkerProcess pid=1115940)[0;0m  (warnings.py:110)[0m
+[1;36m(VllmWorkerProcess pid=1115942)[0;0m  (warnings.py:110)[0m
+[1;36m(VllmWorkerProcess pid=1115941)[0;0m [2025-04-12 09:58:59,087] [[33m WARNING[0m]: ~/Projects/nips25_slot/open-r2/openr1/lib/python3.11/site-packages/vllm/worker/model_runner.py:1828: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+[1;36m(VllmWorkerProcess pid=1115941)[0;0m   lm_head_weight = torch.load(lm_local, map_location=hidden_states_cur.device).to(dtype=torch.bfloat16)
+[1;36m(VllmWorkerProcess pid=1115941)[0;0m  (warnings.py:110)[0m
+[1;36m(VllmWorkerProcess pid=1115936)[0;0m [2025-04-12 09:58:59,087] [[33m WARNING[0m]: ~/Projects/nips25_slot/open-r2/openr1/lib/python3.11/site-packages/vllm/worker/model_runner.py:1828: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+[1;36m(VllmWorkerProcess pid=1115936)[0;0m   lm_head_weight = torch.load(lm_local, map_location=hidden_states_cur.device).to(dtype=torch.bfloat16)
+[1;36m(VllmWorkerProcess pid=1115936)[0;0m  (warnings.py:110)[0m
+[1;36m(VllmWorkerProcess pid=1115939)[0;0m [2025-04-12 09:58:59,087] [[33m WARNING[0m]: ~/Projects/nips25_slot/open-r2/openr1/lib/python3.11/site-packages/vllm/worker/model_runner.py:1828: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+[1;36m(VllmWorkerProcess pid=1115939)[0;0m   lm_head_weight = torch.load(lm_local, map_location=hidden_states_cur.device).to(dtype=torch.bfloat16)
+[1;36m(VllmWorkerProcess pid=1115939)[0;0m  (warnings.py:110)[0m
+[1;36m(VllmWorkerProcess pid=1115937)[0;0m [2025-04-12 09:58:59,087] [[33m WARNING[0m]: ~/Projects/nips25_slot/open-r2/openr1/lib/python3.11/site-packages/vllm/worker/model_runner.py:1828: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+[1;36m(VllmWorkerProcess pid=1115937)[0;0m   lm_head_weight = torch.load(lm_local, map_location=hidden_states_cur.device).to(dtype=torch.bfloat16)
+[1;36m(VllmWorkerProcess pid=1115937)[0;0m  (warnings.py:110)[0m
+[1;36m(VllmWorkerProcess pid=1115940)[0;0m DEBUG - Starting CHOT optimization
+[1;36m(VllmWorkerProcess pid=1115940)[0;0m DEBUG - CHOT parameters: steps=5, lr=0.1
+[1;36m(VllmWorkerProcess pid=1115940)[0;0m DEBUG - hidden_states_orig: torch.Size([32768, 5120]), torch.bfloat16
+[1;36m(VllmWorkerProcess pid=1115940)[0;0m Loading lm_local from: lm_head/Qwen2.5-14B_lm_head.pt
+[1;36m(VllmWorkerProcess pid=1115940)[0;0m cuda:4 torch.Size([152064, 5120])
+[1;36m(VllmWorkerProcess pid=1115940)[0;0m DEBUG - hidden_states_orig: torch.Size([32768, 5120]), torch.bfloat16
+[1;36m(VllmWorkerProcess pid=1115940)[0;0m Loading lm_local from: lm_head/Qwen2.5-14B_lm_head.pt
+[1;36m(VllmWorkerProcess pid=1115940)[0;0m cuda:4 torch.Size([152064, 5120])
+[1;36m(VllmWorkerProcess pid=1115940)[0;0m DEBUG - hidden_states_orig: torch.Size([32768, 5120]), torch.bfloat16
+[1;36m(VllmWorkerProcess pid=1115940)[0;0m Loading lm_local from: lm_head/Qwen2.5-14B_lm_head.pt
+[1;36m(VllmWorkerProcess pid=1115940)[0;0m cuda:4 torch.Size([152064, 5120])
+[1;36m(VllmWorkerProcess pid=1115940)[0;0m DEBUG - hidden_states_orig: torch.Size([32768, 5120]), torch.bfloat16
+[1;36m(VllmWorkerProcess pid=1115940)[0;0m Loading lm_local from: lm_head/Qwen2.5-14B_lm_head.pt
+[1;36m(VllmWorkerProcess pid=1115940)[0;0m cuda:4 torch.Size([152064, 5120])
+[1;36m(VllmWorkerProcess pid=1115940)[0;0m DEBUG - hidden_states_orig: torch.Size([32768, 5120]), torch.bfloat16
+[1;36m(VllmWorkerProcess pid=1115940)[0;0m Loading lm_local from: lm_head/Qwen2.5-14B_lm_head.pt
+[1;36m(VllmWorkerProcess pid=1115940)[0;0m cuda:4 torch.Size([152064, 5120])
+[1;36m(VllmWorkerProcess pid=1115940)[0;0m INFO 04-12 09:59:10 worker.py:267] Memory profiling takes 16.20 seconds
+[1;36m(VllmWorkerProcess pid=1115940)[0;0m INFO 04-12 09:59:10 worker.py:267] the current vLLM instance can use total_gpu_memory (79.22GiB) x gpu_memory_utilization (0.99) = 78.42GiB
+[1;36m(VllmWorkerProcess pid=1115940)[0;0m INFO 04-12 09:59:10 worker.py:267] model weights take 3.48GiB; non_torch_memory takes 3.48GiB; PyTorch activation peak memory takes 48.83GiB; the rest of the memory reserved for KV Cache is 22.63GiB.
+[1;36m(VllmWorkerProcess pid=1115942)[0;0m DEBUG - Starting CHOT optimization
+[1;36m(VllmWorkerProcess pid=1115942)[0;0m DEBUG - CHOT parameters: steps=5, lr=0.1
+[1;36m(VllmWorkerProcess pid=1115942)[0;0m DEBUG - hidden_states_orig: torch.Size([32768, 5120]), torch.bfloat16
+[1;36m(VllmWorkerProcess pid=1115942)[0;0m Loading lm_local from: lm_head/Qwen2.5-14B_lm_head.pt
+[1;36m(VllmWorkerProcess pid=1115942)[0;0m cuda:6 torch.Size([152064, 5120])
+[1;36m(VllmWorkerProcess pid=1115942)[0;0m DEBUG - hidden_states_orig: torch.Size([32768, 5120]), torch.bfloat16
+[1;36m(VllmWorkerProcess pid=1115942)[0;0m Loading lm_local from: lm_head/Qwen2.5-14B_lm_head.pt
+[1;36m(VllmWorkerProcess pid=1115942)[0;0m cuda:6 torch.Size([152064, 5120])
+[1;36m(VllmWorkerProcess pid=1115942)[0;0m DEBUG - hidden_states_orig: torch.Size([32768, 5120]), torch.bfloat16
+[1;36m(VllmWorkerProcess pid=1115942)[0;0m Loading lm_local from: lm_head/Qwen2.5-14B_lm_head.pt
+[1;36m(VllmWorkerProcess pid=1115942)[0;0m cuda:6 torch.Size([152064, 5120])
+[1;36m(VllmWorkerProcess pid=1115942)[0;0m DEBUG - hidden_states_orig: torch.Size([32768, 5120]), torch.bfloat16
+[1;36m(VllmWorkerProcess pid=1115942)[0;0m Loading lm_local from: lm_head/Qwen2.5-14B_lm_head.pt
+[1;36m(VllmWorkerProcess pid=1115942)[0;0m cuda:6 torch.Size([152064, 5120])
+[1;36m(VllmWorkerProcess pid=1115942)[0;0m DEBUG - hidden_states_orig: torch.Size([32768, 5120]), torch.bfloat16
+[1;36m(VllmWorkerProcess pid=1115942)[0;0m Loading lm_local from: lm_head/Qwen2.5-14B_lm_head.pt
+[1;36m(VllmWorkerProcess pid=1115942)[0;0m cuda:6 torch.Size([152064, 5120])
+[1;36m(VllmWorkerProcess pid=1115942)[0;0m INFO 04-12 09:59:10 worker.py:267] Memory profiling takes 16.20 seconds
+[1;36m(VllmWorkerProcess pid=1115942)[0;0m INFO 04-12 09:59:10 worker.py:267] the current vLLM instance can use total_gpu_memory (79.22GiB) x gpu_memory_utilization (0.99) = 78.42GiB
+[1;36m(VllmWorkerProcess pid=1115942)[0;0m INFO 04-12 09:59:10 worker.py:267] model weights take 3.48GiB; non_torch_memory takes 3.48GiB; PyTorch activation peak memory takes 48.83GiB; the rest of the memory reserved for KV Cache is 22.63GiB.
+[1;36m(VllmWorkerProcess pid=1115941)[0;0m DEBUG - Starting CHOT optimization
+[1;36m(VllmWorkerProcess pid=1115941)[0;0m DEBUG - CHOT parameters: steps=5, lr=0.1
+[1;36m(VllmWorkerProcess pid=1115941)[0;0m DEBUG - hidden_states_orig: torch.Size([32768, 5120]), torch.bfloat16
+[1;36m(VllmWorkerProcess pid=1115941)[0;0m Loading lm_local from: lm_head/Qwen2.5-14B_lm_head.pt
+[1;36m(VllmWorkerProcess pid=1115941)[0;0m cuda:5 torch.Size([152064, 5120])
+[1;36m(VllmWorkerProcess pid=1115941)[0;0m DEBUG - hidden_states_orig: torch.Size([32768, 5120]), torch.bfloat16
+[1;36m(VllmWorkerProcess pid=1115941)[0;0m Loading lm_local from: lm_head/Qwen2.5-14B_lm_head.pt
+[1;36m(VllmWorkerProcess pid=1115941)[0;0m cuda:5 torch.Size([152064, 5120])
+[1;36m(VllmWorkerProcess pid=1115941)[0;0m DEBUG - hidden_states_orig: torch.Size([32768, 5120]), torch.bfloat16
+[1;36m(VllmWorkerProcess pid=1115941)[0;0m Loading lm_local from: lm_head/Qwen2.5-14B_lm_head.pt
+[1;36m(VllmWorkerProcess pid=1115941)[0;0m cuda:5 torch.Size([152064, 5120])
+[1;36m(VllmWorkerProcess pid=1115941)[0;0m DEBUG - hidden_states_orig: torch.Size([32768, 5120]), torch.bfloat16
+[1;36m(VllmWorkerProcess pid=1115941)[0;0m Loading lm_local from: lm_head/Qwen2.5-14B_lm_head.pt
+[1;36m(VllmWorkerProcess pid=1115941)[0;0m cuda:5 torch.Size([152064, 5120])
+[1;36m(VllmWorkerProcess pid=1115941)[0;0m DEBUG - hidden_states_orig: torch.Size([32768, 5120]), torch.bfloat16
+[1;36m(VllmWorkerProcess pid=1115941)[0;0m Loading lm_local from: lm_head/Qwen2.5-14B_lm_head.pt
+[1;36m(VllmWorkerProcess pid=1115941)[0;0m cuda:5 torch.Size([152064, 5120])
+[1;36m(VllmWorkerProcess pid=1115941)[0;0m INFO 04-12 09:59:10 worker.py:267] Memory profiling takes 16.15 seconds
+[1;36m(VllmWorkerProcess pid=1115941)[0;0m INFO 04-12 09:59:10 worker.py:267] the current vLLM instance can use total_gpu_memory (79.22GiB) x gpu_memory_utilization (0.99) = 78.42GiB
+[1;36m(VllmWorkerProcess pid=1115941)[0;0m INFO 04-12 09:59:10 worker.py:267] model weights take 3.48GiB; non_torch_memory takes 3.48GiB; PyTorch activation peak memory takes 48.83GiB; the rest of the memory reserved for KV Cache is 22.63GiB.
+[1;36m(VllmWorkerProcess pid=1115943)[0;0m DEBUG - Starting CHOT optimization
+[1;36m(VllmWorkerProcess pid=1115943)[0;0m DEBUG - CHOT parameters: steps=5, lr=0.1
+[1;36m(VllmWorkerProcess pid=1115943)[0;0m DEBUG - hidden_states_orig: torch.Size([32768, 5120]), torch.bfloat16
+[1;36m(VllmWorkerProcess pid=1115943)[0;0m Loading lm_local from: lm_head/Qwen2.5-14B_lm_head.pt
+[1;36m(VllmWorkerProcess pid=1115943)[0;0m cuda:7 torch.Size([152064, 5120])
+[1;36m(VllmWorkerProcess pid=1115943)[0;0m DEBUG - hidden_states_orig: torch.Size([32768, 5120]), torch.bfloat16
+[1;36m(VllmWorkerProcess pid=1115943)[0;0m Loading lm_local from: lm_head/Qwen2.5-14B_lm_head.pt
+[1;36m(VllmWorkerProcess pid=1115943)[0;0m cuda:7 torch.Size([152064, 5120])
+[1;36m(VllmWorkerProcess pid=1115943)[0;0m DEBUG - hidden_states_orig: torch.Size([32768, 5120]), torch.bfloat16
+[1;36m(VllmWorkerProcess pid=1115943)[0;0m Loading lm_local from: lm_head/Qwen2.5-14B_lm_head.pt
+[1;36m(VllmWorkerProcess pid=1115943)[0;0m cuda:7 torch.Size([152064, 5120])
+[1;36m(VllmWorkerProcess pid=1115943)[0;0m DEBUG - hidden_states_orig: torch.Size([32768, 5120]), torch.bfloat16
+[1;36m(VllmWorkerProcess pid=1115943)[0;0m Loading lm_local from: lm_head/Qwen2.5-14B_lm_head.pt
+[1;36m(VllmWorkerProcess pid=1115943)[0;0m cuda:7 torch.Size([152064, 5120])
+[1;36m(VllmWorkerProcess pid=1115943)[0;0m DEBUG - hidden_states_orig: torch.Size([32768, 5120]), torch.bfloat16
+[1;36m(VllmWorkerProcess pid=1115943)[0;0m Loading lm_local from: lm_head/Qwen2.5-14B_lm_head.pt
+[1;36m(VllmWorkerProcess pid=1115943)[0;0m cuda:7 torch.Size([152064, 5120])
+[1;36m(VllmWorkerProcess pid=1115943)[0;0m INFO 04-12 09:59:11 worker.py:267] Memory profiling takes 16.24 seconds
+[1;36m(VllmWorkerProcess pid=1115943)[0;0m INFO 04-12 09:59:11 worker.py:267] the current vLLM instance can use total_gpu_memory (79.22GiB) x gpu_memory_utilization (0.99) = 78.42GiB
+[1;36m(VllmWorkerProcess pid=1115943)[0;0m INFO 04-12 09:59:11 worker.py:267] model weights take 3.48GiB; non_torch_memory takes 3.17GiB; PyTorch activation peak memory takes 48.83GiB; the rest of the memory reserved for KV Cache is 22.95GiB.
+[1;36m(VllmWorkerProcess pid=1115936)[0;0m DEBUG - Starting CHOT optimization
+[1;36m(VllmWorkerProcess pid=1115936)[0;0m DEBUG - CHOT parameters: steps=5, lr=0.1
+[1;36m(VllmWorkerProcess pid=1115936)[0;0m DEBUG - hidden_states_orig: torch.Size([32768, 5120]), torch.bfloat16
+[1;36m(VllmWorkerProcess pid=1115936)[0;0m Loading lm_local from: lm_head/Qwen2.5-14B_lm_head.pt
+[1;36m(VllmWorkerProcess pid=1115936)[0;0m cuda:1 torch.Size([152064, 5120])
+[1;36m(VllmWorkerProcess pid=1115936)[0;0m DEBUG - hidden_states_orig: torch.Size([32768, 5120]), torch.bfloat16
+[1;36m(VllmWorkerProcess pid=1115936)[0;0m Loading lm_local from: lm_head/Qwen2.5-14B_lm_head.pt
+[1;36m(VllmWorkerProcess pid=1115936)[0;0m cuda:1 torch.Size([152064, 5120])
+[1;36m(VllmWorkerProcess pid=1115936)[0;0m DEBUG - hidden_states_orig: torch.Size([32768, 5120]), torch.bfloat16
+[1;36m(VllmWorkerProcess pid=1115936)[0;0m Loading lm_local from: lm_head/Qwen2.5-14B_lm_head.pt
+[1;36m(VllmWorkerProcess pid=1115936)[0;0m cuda:1 torch.Size([152064, 5120])
+[1;36m(VllmWorkerProcess pid=1115936)[0;0m DEBUG - hidden_states_orig: torch.Size([32768, 5120]), torch.bfloat16
+[1;36m(VllmWorkerProcess pid=1115936)[0;0m Loading lm_local from: lm_head/Qwen2.5-14B_lm_head.pt
+[1;36m(VllmWorkerProcess pid=1115936)[0;0m cuda:1 torch.Size([152064, 5120])
+[1;36m(VllmWorkerProcess pid=1115936)[0;0m DEBUG - hidden_states_orig: torch.Size([32768, 5120]), torch.bfloat16
+[1;36m(VllmWorkerProcess pid=1115936)[0;0m Loading lm_local from: lm_head/Qwen2.5-14B_lm_head.pt
+[1;36m(VllmWorkerProcess pid=1115936)[0;0m cuda:1 torch.Size([152064, 5120])
+[1;36m(VllmWorkerProcess pid=1115936)[0;0m INFO 04-12 09:59:11 worker.py:267] Memory profiling takes 16.24 seconds
+[1;36m(VllmWorkerProcess pid=1115936)[0;0m INFO 04-12 09:59:11 worker.py:267] the current vLLM instance can use total_gpu_memory (79.22GiB) x gpu_memory_utilization (0.99) = 78.42GiB
+[1;36m(VllmWorkerProcess pid=1115936)[0;0m INFO 04-12 09:59:11 worker.py:267] model weights take 3.48GiB; non_torch_memory takes 3.48GiB; PyTorch activation peak memory takes 48.83GiB; the rest of the memory reserved for KV Cache is 22.63GiB.
+[1;36m(VllmWorkerProcess pid=1115939)[0;0m DEBUG - Starting CHOT optimization
+[1;36m(VllmWorkerProcess pid=1115939)[0;0m DEBUG - CHOT parameters: steps=5, lr=0.1
+[1;36m(VllmWorkerProcess pid=1115939)[0;0m DEBUG - hidden_states_orig: torch.Size([32768, 5120]), torch.bfloat16
+[1;36m(VllmWorkerProcess pid=1115939)[0;0m Loading lm_local from: lm_head/Qwen2.5-14B_lm_head.pt
+[1;36m(VllmWorkerProcess pid=1115939)[0;0m cuda:3 torch.Size([152064, 5120])
+[1;36m(VllmWorkerProcess pid=1115939)[0;0m DEBUG - hidden_states_orig: torch.Size([32768, 5120]), torch.bfloat16
+[1;36m(VllmWorkerProcess pid=1115939)[0;0m Loading lm_local from: lm_head/Qwen2.5-14B_lm_head.pt
+[1;36m(VllmWorkerProcess pid=1115939)[0;0m cuda:3 torch.Size([152064, 5120])
+[1;36m(VllmWorkerProcess pid=1115939)[0;0m DEBUG - hidden_states_orig: torch.Size([32768, 5120]), torch.bfloat16
+[1;36m(VllmWorkerProcess pid=1115939)[0;0m Loading lm_local from: lm_head/Qwen2.5-14B_lm_head.pt
+[1;36m(VllmWorkerProcess pid=1115939)[0;0m cuda:3 torch.Size([152064, 5120])
+[1;36m(VllmWorkerProcess pid=1115939)[0;0m DEBUG - hidden_states_orig: torch.Size([32768, 5120]), torch.bfloat16
+[1;36m(VllmWorkerProcess pid=1115939)[0;0m Loading lm_local from: lm_head/Qwen2.5-14B_lm_head.pt
+[1;36m(VllmWorkerProcess pid=1115939)[0;0m cuda:3 torch.Size([152064, 5120])
+[1;36m(VllmWorkerProcess pid=1115939)[0;0m DEBUG - hidden_states_orig: torch.Size([32768, 5120]), torch.bfloat16
+[1;36m(VllmWorkerProcess pid=1115939)[0;0m Loading lm_local from: lm_head/Qwen2.5-14B_lm_head.pt
+[1;36m(VllmWorkerProcess pid=1115939)[0;0m cuda:3 torch.Size([152064, 5120])
+[1;36m(VllmWorkerProcess pid=1115939)[0;0m INFO 04-12 09:59:11 worker.py:267] Memory profiling takes 16.27 seconds
+[1;36m(VllmWorkerProcess pid=1115939)[0;0m INFO 04-12 09:59:11 worker.py:267] the current vLLM instance can use total_gpu_memory (79.22GiB) x gpu_memory_utilization (0.99) = 78.42GiB
+[1;36m(VllmWorkerProcess pid=1115939)[0;0m INFO 04-12 09:59:11 worker.py:267] model weights take 3.48GiB; non_torch_memory takes 3.48GiB; PyTorch activation peak memory takes 48.83GiB; the rest of the memory reserved for KV Cache is 22.63GiB.
+[2025-04-12 09:59:11,054] [[32m    INFO[0m]: Memory profiling takes 16.23 seconds
+the current vLLM instance can use total_gpu_memory (79.22GiB) x gpu_memory_utilization (0.99) = 78.42GiB
+model weights take 3.48GiB; non_torch_memory takes 4.48GiB; PyTorch activation peak memory takes 48.83GiB; the rest of the memory reserved for KV Cache is 21.63GiB. (worker.py:267)[0m
+[1;36m(VllmWorkerProcess pid=1115937)[0;0m DEBUG - Starting CHOT optimization
+[1;36m(VllmWorkerProcess pid=1115937)[0;0m DEBUG - CHOT parameters: steps=5, lr=0.1
+[1;36m(VllmWorkerProcess pid=1115937)[0;0m DEBUG - hidden_states_orig: torch.Size([32768, 5120]), torch.bfloat16
+[1;36m(VllmWorkerProcess pid=1115937)[0;0m Loading lm_local from: lm_head/Qwen2.5-14B_lm_head.pt
+[1;36m(VllmWorkerProcess pid=1115937)[0;0m cuda:2 torch.Size([152064, 5120])
+[1;36m(VllmWorkerProcess pid=1115937)[0;0m DEBUG - hidden_states_orig: torch.Size([32768, 5120]), torch.bfloat16
+[1;36m(VllmWorkerProcess pid=1115937)[0;0m Loading lm_local from: lm_head/Qwen2.5-14B_lm_head.pt
+[1;36m(VllmWorkerProcess pid=1115937)[0;0m cuda:2 torch.Size([152064, 5120])
+[1;36m(VllmWorkerProcess pid=1115937)[0;0m DEBUG - hidden_states_orig: torch.Size([32768, 5120]), torch.bfloat16
+[1;36m(VllmWorkerProcess pid=1115937)[0;0m Loading lm_local from: lm_head/Qwen2.5-14B_lm_head.pt
+[1;36m(VllmWorkerProcess pid=1115937)[0;0m cuda:2 torch.Size([152064, 5120])
+[1;36m(VllmWorkerProcess pid=1115937)[0;0m DEBUG - hidden_states_orig: torch.Size([32768, 5120]), torch.bfloat16
+[1;36m(VllmWorkerProcess pid=1115937)[0;0m Loading lm_local from: lm_head/Qwen2.5-14B_lm_head.pt
+[1;36m(VllmWorkerProcess pid=1115937)[0;0m cuda:2 torch.Size([152064, 5120])
+[1;36m(VllmWorkerProcess pid=1115937)[0;0m DEBUG - hidden_states_orig: torch.Size([32768, 5120]), torch.bfloat16
+[1;36m(VllmWorkerProcess pid=1115937)[0;0m Loading lm_local from: lm_head/Qwen2.5-14B_lm_head.pt
+[1;36m(VllmWorkerProcess pid=1115937)[0;0m cuda:2 torch.Size([152064, 5120])
+[1;36m(VllmWorkerProcess pid=1115937)[0;0m INFO 04-12 09:59:11 worker.py:267] Memory profiling takes 16.22 seconds
+[1;36m(VllmWorkerProcess pid=1115937)[0;0m INFO 04-12 09:59:11 worker.py:267] the current vLLM instance can use total_gpu_memory (79.22GiB) x gpu_memory_utilization (0.99) = 78.42GiB
+[1;36m(VllmWorkerProcess pid=1115937)[0;0m INFO 04-12 09:59:11 worker.py:267] model weights take 3.48GiB; non_torch_memory takes 3.48GiB; PyTorch activation peak memory takes 48.83GiB; the rest of the memory reserved for KV Cache is 22.63GiB.
+[2025-04-12 09:59:11,291] [[32m    INFO[0m]: # CUDA blocks: 59069, # CPU blocks: 10922 (executor_base.py:110)[0m
+[2025-04-12 09:59:11,291] [[32m    INFO[0m]: Maximum concurrency for 32768 tokens per request: 28.84x (executor_base.py:115)[0m
+[1;36m(VllmWorkerProcess pid=1115942)[0;0m INFO 04-12 09:59:14 model_runner.py:1434] Capturing cudagraphs for decoding. This may lead to unexpected consequences if the model is not static. To run the model in eager mode, set 'enforce_eager=True' or use '--enforce-eager' in the CLI. If out-of-memory error occurs during cudagraph capture, consider decreasing `gpu_memory_utilization` or switching to eager mode. You can also reduce the `max_num_seqs` as needed to decrease memory usage.
+[1;36m(VllmWorkerProcess pid=1115939)[0;0m INFO 04-12 09:59:14 model_runner.py:1434] Capturing cudagraphs for decoding. This may lead to unexpected consequences if the model is not static. To run the model in eager mode, set 'enforce_eager=True' or use '--enforce-eager' in the CLI. If out-of-memory error occurs during cudagraph capture, consider decreasing `gpu_memory_utilization` or switching to eager mode. You can also reduce the `max_num_seqs` as needed to decrease memory usage.
+[1;36m(VllmWorkerProcess pid=1115940)[0;0m INFO 04-12 09:59:14 model_runner.py:1434] Capturing cudagraphs for decoding. This may lead to unexpected consequences if the model is not static. To run the model in eager mode, set 'enforce_eager=True' or use '--enforce-eager' in the CLI. If out-of-memory error occurs during cudagraph capture, consider decreasing `gpu_memory_utilization` or switching to eager mode. You can also reduce the `max_num_seqs` as needed to decrease memory usage.
+[1;36m(VllmWorkerProcess pid=1115937)[0;0m INFO 04-12 09:59:14 model_runner.py:1434] Capturing cudagraphs for decoding. This may lead to unexpected consequences if the model is not static. To run the model in eager mode, set 'enforce_eager=True' or use '--enforce-eager' in the CLI. If out-of-memory error occurs during cudagraph capture, consider decreasing `gpu_memory_utilization` or switching to eager mode. You can also reduce the `max_num_seqs` as needed to decrease memory usage.
+[1;36m(VllmWorkerProcess pid=1115943)[0;0m INFO 04-12 09:59:15 model_runner.py:1434] Capturing cudagraphs for decoding. This may lead to unexpected consequences if the model is not static. To run the model in eager mode, set 'enforce_eager=True' or use '--enforce-eager' in the CLI. If out-of-memory error occurs during cudagraph capture, consider decreasing `gpu_memory_utilization` or switching to eager mode. You can also reduce the `max_num_seqs` as needed to decrease memory usage.
+[2025-04-12 09:59:15,077] [[32m    INFO[0m]: Capturing cudagraphs for decoding. This may lead to unexpected consequences if the model is not static. To run the model in eager mode, set 'enforce_eager=True' or use '--enforce-eager' in the CLI. If out-of-memory error occurs during cudagraph capture, consider decreasing `gpu_memory_utilization` or switching to eager mode. You can also reduce the `max_num_seqs` as needed to decrease memory usage. (model_runner.py:1434)[0m
+[1;36m(VllmWorkerProcess pid=1115941)[0;0m INFO 04-12 09:59:15 model_runner.py:1434] Capturing cudagraphs for decoding. This may lead to unexpected consequences if the model is not static. To run the model in eager mode, set 'enforce_eager=True' or use '--enforce-eager' in the CLI. If out-of-memory error occurs during cudagraph capture, consider decreasing `gpu_memory_utilization` or switching to eager mode. You can also reduce the `max_num_seqs` as needed to decrease memory usage.
+[1;36m(VllmWorkerProcess pid=1115936)[0;0m INFO 04-12 09:59:15 model_runner.py:1434] Capturing cudagraphs for decoding. This may lead to unexpected consequences if the model is not static. To run the model in eager mode, set 'enforce_eager=True' or use '--enforce-eager' in the CLI. If out-of-memory error occurs during cudagraph capture, consider decreasing `gpu_memory_utilization` or switching to eager mode. You can also reduce the `max_num_seqs` as needed to decrease memory usage.
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=5, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([32768, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-14B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - hidden_states_orig: torch.Size([32768, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-14B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - hidden_states_orig: torch.Size([32768, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-14B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - hidden_states_orig: torch.Size([32768, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-14B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - hidden_states_orig: torch.Size([32768, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-14B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+
+Capturing CUDA graph shapes:   0%|          | 0/19 [00:00<?, ?it/s]
+Capturing CUDA graph shapes:   5%|▌         | 1/19 [00:00<00:09,  1.92it/s]
+Capturing CUDA graph shapes:  11%|█         | 2/19 [00:01<00:08,  1.92it/s]
+Capturing CUDA graph shapes:  16%|█▌        | 3/19 [00:01<00:09,  1.71it/s]
+Capturing CUDA graph shapes:  21%|██        | 4/19 [00:02<00:08,  1.75it/s]
+Capturing CUDA graph shapes:  26%|██▋       | 5/19 [00:02<00:07,  1.79it/s]
+Capturing CUDA graph shapes:  32%|███▏      | 6/19 [00:03<00:07,  1.75it/s]
+Capturing CUDA graph shapes:  37%|███▋      | 7/19 [00:04<00:07,  1.60it/s]
+Capturing CUDA graph shapes:  42%|████▏     | 8/19 [00:04<00:06,  1.71it/s]
+Capturing CUDA graph shapes:  47%|████▋     | 9/19 [00:05<00:06,  1.63it/s]
+Capturing CUDA graph shapes:  53%|█████▎    | 10/19 [00:06<00:05,  1.51it/s]
+Capturing CUDA graph shapes:  58%|█████▊    | 11/19 [00:06<00:04,  1.65it/s]
+Capturing CUDA graph shapes:  63%|██████▎   | 12/19 [00:07<00:03,  1.77it/s]
+Capturing CUDA graph shapes:  68%|██████▊   | 13/19 [00:07<00:03,  1.73it/s]
+Capturing CUDA graph shapes:  74%|███████▎  | 14/19 [00:08<00:02,  1.75it/s]
+Capturing CUDA graph shapes:  79%|███████▉  | 15/19 [00:08<00:02,  1.82it/s]
+Capturing CUDA graph shapes:  84%|████████▍ | 16/19 [00:09<00:01,  1.73it/s][1;36m(VllmWorkerProcess pid=1115940)[0;0m INFO 04-12 09:59:24 custom_all_reduce.py:226] Registering 1843 cuda graph addresses
+[1;36m(VllmWorkerProcess pid=1115943)[0;0m INFO 04-12 09:59:24 custom_all_reduce.py:226] Registering 1843 cuda graph addresses
+[1;36m(VllmWorkerProcess pid=1115939)[0;0m INFO 04-12 09:59:24 custom_all_reduce.py:226] Registering 1843 cuda graph addresses
+[1;36m(VllmWorkerProcess pid=1115941)[0;0m INFO 04-12 09:59:24 custom_all_reduce.py:226] Registering 1843 cuda graph addresses
+[1;36m(VllmWorkerProcess pid=1115942)[0;0m INFO 04-12 09:59:24 custom_all_reduce.py:226] Registering 1843 cuda graph addresses
+[1;36m(VllmWorkerProcess pid=1115937)[0;0m INFO 04-12 09:59:24 custom_all_reduce.py:226] Registering 1843 cuda graph addresses
+
+Capturing CUDA graph shapes:  89%|████████▉ | 17/19 [00:09<00:01,  1.83it/s][1;36m(VllmWorkerProcess pid=1115936)[0;0m INFO 04-12 09:59:25 custom_all_reduce.py:226] Registering 1843 cuda graph addresses
+
+Capturing CUDA graph shapes:  95%|█████████▍| 18/19 [00:10<00:00,  2.02it/s]
+Capturing CUDA graph shapes: 100%|██████████| 19/19 [00:10<00:00,  1.81it/s]
+Capturing CUDA graph shapes: 100%|██████████| 19/19 [00:10<00:00,  1.75it/s]
+[2025-04-12 09:59:25,966] [[32m    INFO[0m]: Registering 1843 cuda graph addresses (custom_all_reduce.py:226)[0m
+[1;36m(VllmWorkerProcess pid=1115941)[0;0m INFO 04-12 09:59:26 model_runner.py:1562] Graph capturing finished in 11 secs, took 0.20 GiB
+[1;36m(VllmWorkerProcess pid=1115940)[0;0m INFO 04-12 09:59:26 model_runner.py:1562] Graph capturing finished in 12 secs, took 0.20 GiB
+[1;36m(VllmWorkerProcess pid=1115942)[0;0m INFO 04-12 09:59:26 model_runner.py:1562] Graph capturing finished in 12 secs, took 0.20 GiB
+[1;36m(VllmWorkerProcess pid=1115939)[0;0m INFO 04-12 09:59:26 model_runner.py:1562] Graph capturing finished in 12 secs, took 0.20 GiB
+[1;36m(VllmWorkerProcess pid=1115943)[0;0m INFO 04-12 09:59:26 model_runner.py:1562] Graph capturing finished in 12 secs, took 0.20 GiB
+[1;36m(VllmWorkerProcess pid=1115936)[0;0m INFO 04-12 09:59:26 model_runner.py:1562] Graph capturing finished in 12 secs, took 0.20 GiB
+[2025-04-12 09:59:26,673] [[32m    INFO[0m]: Graph capturing finished in 12 secs, took 0.20 GiB (model_runner.py:1562)[0m
+[1;36m(VllmWorkerProcess pid=1115937)[0;0m INFO 04-12 09:59:26 model_runner.py:1562] Graph capturing finished in 12 secs, took 0.20 GiB
+[2025-04-12 09:59:26,680] [[32m    INFO[0m]: init engine (profile, create kv cache, warmup model) took 32.09 seconds (llm_engine.py:431)[0m
+[2025-04-12 09:59:27,359] [[32m    INFO[0m]: --- INIT SEEDS --- (pipeline.py:263)[0m
+[2025-04-12 09:59:27,359] [[32m    INFO[0m]: --- LOADING TASKS --- (pipeline.py:216)[0m
+[2025-04-12 09:59:27,359] [[32m    INFO[0m]: Found 1 custom tasks in ~/Projects/nips25_slot/open-r2/openr1/lib/python3.11/site-packages/lighteval/tasks/extended/ifeval/main.py (registry.py:142)[0m
+[2025-04-12 09:59:27,359] [[32m    INFO[0m]: Found 6 custom tasks in ~/Projects/nips25_slot/open-r2/openr1/lib/python3.11/site-packages/lighteval/tasks/extended/tiny_benchmarks/main.py (registry.py:142)[0m
+[2025-04-12 09:59:27,359] [[32m    INFO[0m]: Found 1 custom tasks in ~/Projects/nips25_slot/open-r2/openr1/lib/python3.11/site-packages/lighteval/tasks/extended/mt_bench/main.py (registry.py:142)[0m
+[2025-04-12 09:59:27,359] [[32m    INFO[0m]: Found 4 custom tasks in ~/Projects/nips25_slot/open-r2/openr1/lib/python3.11/site-packages/lighteval/tasks/extended/mix_eval/main.py (registry.py:142)[0m
+[2025-04-12 09:59:27,359] [[32m    INFO[0m]: Found 5 custom tasks in ~/Projects/nips25_slot/open-r2/openr1/lib/python3.11/site-packages/lighteval/tasks/extended/olympiade_bench/main.py (registry.py:142)[0m
+[2025-04-12 09:59:27,360] [[32m    INFO[0m]: Found 1 custom tasks in ~/Projects/nips25_slot/open-r2/openr1/lib/python3.11/site-packages/lighteval/tasks/extended/hle/main.py (registry.py:142)[0m
+[2025-04-12 09:59:27,360] [[32m    INFO[0m]: Found 21 custom tasks in ~/Projects/nips25_slot/open-r2/openr1/lib/python3.11/site-packages/lighteval/tasks/extended/lcb/main.py (registry.py:142)[0m
+[2025-04-12 09:59:27,361] [[32m    INFO[0m]: HuggingFaceH4/aime_2024 default (lighteval_task.py:187)[0m
+[2025-04-12 09:59:27,361] [[33m WARNING[0m]: Careful, the task lighteval|aime24 is using evaluation data to build the few shot examples. (lighteval_task.py:260)[0m
+Using the latest cached version of the dataset since HuggingFaceH4/aime_2024 couldn't be found on the Hugging Face Hub
+[2025-04-12 10:00:16,518] [[33m WARNING[0m]: Using the latest cached version of the dataset since HuggingFaceH4/aime_2024 couldn't be found on the Hugging Face Hub (load.py:1377)[0m
+Found the latest cached dataset configuration 'default' at ~/.cache/huggingface/datasets/HuggingFaceH4___aime_2024/default/0.0.0/2fe88a2f1091d5048c0f36abc874fb997b3dd99a (last modified on Tue Apr  8 15:12:43 2025).
+[2025-04-12 10:00:16,520] [[33m WARNING[0m]: Found the latest cached dataset configuration 'default' at ~/.cache/huggingface/datasets/HuggingFaceH4___aime_2024/default/0.0.0/2fe88a2f1091d5048c0f36abc874fb997b3dd99a (last modified on Tue Apr  8 15:12:43 2025). (cache.py:94)[0m
+[2025-04-12 10:00:16,568] [[32m    INFO[0m]: --- RUNNING MODEL --- (pipeline.py:468)[0m
+[2025-04-12 10:00:16,568] [[32m    INFO[0m]: Running RequestType.GREEDY_UNTIL requests (pipeline.py:472)[0m
+[2025-04-12 10:00:16,575] [[33m WARNING[0m]: You cannot select the number of dataset splits for a generative evaluation at the moment. Automatically inferring. (data.py:260)[0m
+
+Splits:   0%|          | 0/1 [00:00<?, ?it/s][2025-04-12 10:00:16,581] [[33m WARNING[0m]: context_size + max_new_tokens=33251 which is greater than self.max_length=32768. Truncating context to 0 tokens. (vllm_model.py:270)[0m
+
+
+Processed prompts:   0%|          | 0/30 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s][A[2025-04-12 10:00:17,189] [[33m WARNING[0m]: ~/Projects/nips25_slot/open-r2/openr1/lib/python3.11/site-packages/vllm/worker/model_runner.py:1828: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  lm_head_weight = torch.load(lm_local, map_location=hidden_states_cur.device).to(dtype=torch.bfloat16)
+ (warnings.py:110)[0m
+
+
+Processed prompts:   3%|▎         | 1/30 [00:05<02:42,  5.60s/it, est. speed input: 29.81 toks/s, output: 42.84 toks/s][A
+
+Processed prompts:   7%|▋         | 2/30 [00:06<01:24,  3.02s/it, est. speed input: 52.50 toks/s, output: 90.34 toks/s][A
+
+Processed prompts:  10%|█         | 3/30 [00:06<00:46,  1.71s/it, est. speed input: 72.02 toks/s, output: 144.76 toks/s][A
+
+Processed prompts:  17%|█▋        | 5/30 [00:07<00:19,  1.27it/s, est. speed input: 159.52 toks/s, output: 255.99 toks/s][A
+
+Processed prompts:  20%|██        | 6/30 [00:08<00:20,  1.18it/s, est. speed input: 166.25 toks/s, output: 289.16 toks/s][A
+
+Processed prompts:  23%|██▎       | 7/30 [00:08<00:15,  1.46it/s, est. speed input: 180.19 toks/s, output: 345.29 toks/s][A
+
+Processed prompts:  33%|███▎      | 10/30 [00:08<00:07,  2.82it/s, est. speed input: 228.02 toks/s, output: 531.48 toks/s][A
+
+Processed prompts:  40%|████      | 12/30 [00:09<00:05,  3.42it/s, est. speed input: 259.76 toks/s, output: 646.20 toks/s][A
+
+Processed prompts:  50%|█████     | 15/30 [00:09<00:02,  5.33it/s, est. speed input: 323.98 toks/s, output: 844.46 toks/s][A
+
+Processed prompts:  57%|█████▋    | 17/30 [00:09<00:02,  5.04it/s, est. speed input: 346.19 toks/s, output: 944.83 toks/s][A
+
+Processed prompts:  63%|██████▎   | 19/30 [00:09<00:01,  5.89it/s, est. speed input: 373.53 toks/s, output: 1072.14 toks/s][A
+
+Processed prompts:  67%|██████▋   | 20/30 [00:10<00:02,  4.46it/s, est. speed input: 375.58 toks/s, output: 1098.98 toks/s][A
+
+Processed prompts:  73%|███████▎  | 22/30 [00:11<00:02,  3.33it/s, est. speed input: 385.45 toks/s, output: 1163.05 toks/s][A
+
+Processed prompts:  77%|███████▋  | 23/30 [00:11<00:02,  3.17it/s, est. speed input: 386.17 toks/s, output: 1209.13 toks/s][A
+
+Processed prompts:  80%|████████  | 24/30 [00:11<00:01,  3.57it/s, est. speed input: 401.81 toks/s, output: 1278.89 toks/s][A
+
+Processed prompts:  83%|████████▎ | 25/30 [00:12<00:02,  1.98it/s, est. speed input: 375.19 toks/s, output: 1248.09 toks/s][A
+
+Processed prompts:  87%|████████▋ | 26/30 [00:13<00:02,  1.73it/s, est. speed input: 370.25 toks/s, output: 1270.10 toks/s][A
+
+Processed prompts:  90%|█████████ | 27/30 [00:18<00:04,  1.56s/it, est. speed input: 291.70 toks/s, output: 1078.23 toks/s][A
+
+Processed prompts:  93%|█████████▎| 28/30 [00:18<00:02,  1.32s/it, est. speed input: 290.50 toks/s, output: 1150.97 toks/s][A
+
+Processed prompts:  97%|█████████▋| 29/30 [00:29<00:03,  3.95s/it, est. speed input: 192.78 toks/s, output: 865.65 toks/s] [A
+
+Processed prompts: 100%|██████████| 30/30 [05:36<00:00, 90.80s/it, est. speed input: 17.57 toks/s, output: 172.38 toks/s] [A
+Processed prompts: 100%|██████████| 30/30 [05:36<00:00, 11.22s/it, est. speed input: 17.57 toks/s, output: 172.38 toks/s]
+
+Splits: 100%|██████████| 1/1 [05:36<00:00, 336.57s/it]
+Splits: 100%|██████████| 1/1 [05:36<00:00, 336.57s/it]
+[2025-04-12 10:05:54,493] [[32m    INFO[0m]: Terminating local vLLM worker processes (multiproc_worker_utils.py:141)[0m
+[1;36m(VllmWorkerProcess pid=1115942)[0;0m INFO 04-12 10:05:54 multiproc_worker_utils.py:253] Worker exiting
+[1;36m(VllmWorkerProcess pid=1115939)[0;0m INFO 04-12 10:05:54 multiproc_worker_utils.py:253] Worker exiting
+[1;36m(VllmWorkerProcess pid=1115937)[0;0m INFO 04-12 10:05:54 multiproc_worker_utils.py:253] Worker exiting
+[1;36m(VllmWorkerProcess pid=1115943)[0;0m INFO 04-12 10:05:54 multiproc_worker_utils.py:253] Worker exiting
+[1;36m(VllmWorkerProcess pid=1115940)[0;0m INFO 04-12 10:05:54 multiproc_worker_utils.py:253] Worker exiting
+[1;36m(VllmWorkerProcess pid=1115941)[0;0m INFO 04-12 10:05:54 multiproc_worker_utils.py:253] Worker exiting
+[1;36m(VllmWorkerProcess pid=1115936)[0;0m INFO 04-12 10:05:54 multiproc_worker_utils.py:253] Worker exiting
+[2025-04-12 10:05:55,073] [[32m    INFO[0m]: --- COMPUTING METRICS --- (pipeline.py:504)[0m
+[2025-04-12 10:05:55,273] [[32m    INFO[0m]: --- DISPLAYING RESULTS --- (pipeline.py:546)[0m
+[2025-04-12 10:05:55,284] [[32m    INFO[0m]: --- SAVING AND PUSHING RESULTS --- (pipeline.py:536)[0m
+[2025-04-12 10:05:55,284] [[32m    INFO[0m]: Saving experiment tracker (evaluation_tracker.py:180)[0m
+[2025-04-12 10:05:55,335] [[32m    INFO[0m]: Saving results to ~/Projects/nips25_slot/open-r2/data/evals~/Models/Qwen/Qwen2.5-14B/results/_Models_Qwen_Qwen2.5-14B/results_2025-04-12T10-05-55.284376.json (evaluation_tracker.py:234)[0m
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=5, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([5912, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-14B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - hidden_states_orig: torch.Size([5912, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-14B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - hidden_states_orig: torch.Size([5912, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-14B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - hidden_states_orig: torch.Size([5912, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-14B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - hidden_states_orig: torch.Size([5912, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-14B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+|       Task       |Version|     Metric     |Value|   |Stderr|
+|------------------|------:|----------------|----:|---|-----:|
+|all               |       |extractive_match|  0.1|±  |0.0557|
+|lighteval:aime24:0|      1|extractive_match|  0.1|±  |0.0557|
+

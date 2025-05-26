@@ -1,0 +1,148 @@
+[2025-04-22 23:36:41,233] [[32m    INFO[0m]: PyTorch version 2.5.1 available. (config.py:58)[0m
+INFO 04-22 23:36:46 __init__.py:190] Automatically detected platform cuda.
+[2025-04-22 23:36:48,462] [[32m    INFO[0m]: --- LOADING MODEL --- (pipeline.py:189)[0m
+[2025-04-22 23:36:57,600] [[32m    INFO[0m]: This model supports multiple tasks: {'embed', 'classify', 'reward', 'score', 'generate'}. Defaulting to 'generate'. (config.py:542)[0m
+[2025-04-22 23:36:57,603] [[32m    INFO[0m]: Initializing a V0 LLM engine (v0.7.2) with config: model='~/Models/deepseek-ai/DeepSeek-R1-Distill-Llama-8B', speculative_config=None, tokenizer='~/Models/deepseek-ai/DeepSeek-R1-Distill-Llama-8B', skip_tokenizer_init=False, tokenizer_mode=auto, revision=main, override_neuron_config=None, tokenizer_revision=main, trust_remote_code=False, dtype=torch.bfloat16, max_seq_len=32768, download_dir=None, load_format=LoadFormat.AUTO, tensor_parallel_size=1, pipeline_parallel_size=1, disable_custom_all_reduce=False, quantization=None, enforce_eager=False, kv_cache_dtype=auto,  device_config=cuda, decoding_config=DecodingConfig(guided_decoding_backend='xgrammar'), observability_config=ObservabilityConfig(otlp_traces_endpoint=None, collect_model_forward_time=False, collect_model_execute_time=False), seed=1234, served_model_name=~/Models/deepseek-ai/DeepSeek-R1-Distill-Llama-8B, num_scheduler_steps=1, multi_step_stream_outputs=True, enable_prefix_caching=False, chunked_prefill_enabled=False, use_async_output_proc=True, disable_mm_preprocessor_cache=False, mm_processor_kwargs=None, pooler_config=None, compilation_config={"splitting_ops":[],"compile_sizes":[],"cudagraph_capture_sizes":[128,120,112,104,96,88,80,72,64,56,48,40,32,24,16,8,4,2,1],"max_capture_size":128}, use_cached_outputs=False,  (llm_engine.py:234)[0m
+[2025-04-22 23:36:58,688] [[32m    INFO[0m]: Using Flash Attention backend. (cuda.py:230)[0m
+[2025-04-22 23:36:59,280] [[32m    INFO[0m]: Starting to load model ~/Models/deepseek-ai/DeepSeek-R1-Distill-Llama-8B... (model_runner.py:1110)[0m
+
+Loading safetensors checkpoint shards:   0% Completed | 0/2 [00:00<?, ?it/s]
+
+Loading safetensors checkpoint shards:  50% Completed | 1/2 [00:04<00:04,  4.29s/it]
+
+Loading safetensors checkpoint shards: 100% Completed | 2/2 [00:09<00:00,  4.64s/it]
+
+Loading safetensors checkpoint shards: 100% Completed | 2/2 [00:09<00:00,  4.59s/it]
+
+[2025-04-22 23:37:09,875] [[32m    INFO[0m]: Loading model weights took 14.9888 GB (model_runner.py:1115)[0m
+[2025-04-22 23:37:11,411] [[32m    INFO[0m]: Memory profiling takes 1.38 seconds
+the current vLLM instance can use total_gpu_memory (79.22GiB) x gpu_memory_utilization (0.90) = 71.29GiB
+model weights take 14.99GiB; non_torch_memory takes 0.16GiB; PyTorch activation peak memory takes 3.41GiB; the rest of the memory reserved for KV Cache is 52.74GiB. (worker.py:267)[0m
+[2025-04-22 23:37:11,570] [[32m    INFO[0m]: # CUDA blocks: 27003, # CPU blocks: 2048 (executor_base.py:110)[0m
+[2025-04-22 23:37:11,570] [[32m    INFO[0m]: Maximum concurrency for 32768 tokens per request: 13.19x (executor_base.py:115)[0m
+[2025-04-22 23:37:13,336] [[32m    INFO[0m]: Capturing cudagraphs for decoding. This may lead to unexpected consequences if the model is not static. To run the model in eager mode, set 'enforce_eager=True' or use '--enforce-eager' in the CLI. If out-of-memory error occurs during cudagraph capture, consider decreasing `gpu_memory_utilization` or switching to eager mode. You can also reduce the `max_num_seqs` as needed to decrease memory usage. (model_runner.py:1434)[0m
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.1
+
+Capturing CUDA graph shapes:   0%|          | 0/19 [00:00<?, ?it/s]
+Capturing CUDA graph shapes:   5%|▌         | 1/19 [00:00<00:10,  1.66it/s]
+Capturing CUDA graph shapes:  11%|█         | 2/19 [00:01<00:09,  1.74it/s]
+Capturing CUDA graph shapes:  16%|█▌        | 3/19 [00:01<00:07,  2.16it/s]
+Capturing CUDA graph shapes:  21%|██        | 4/19 [00:01<00:06,  2.43it/s]
+Capturing CUDA graph shapes:  26%|██▋       | 5/19 [00:02<00:05,  2.53it/s]
+Capturing CUDA graph shapes:  32%|███▏      | 6/19 [00:02<00:06,  2.04it/s]
+Capturing CUDA graph shapes:  37%|███▋      | 7/19 [00:03<00:05,  2.28it/s]
+Capturing CUDA graph shapes:  42%|████▏     | 8/19 [00:03<00:04,  2.42it/s]
+Capturing CUDA graph shapes:  47%|████▋     | 9/19 [00:03<00:04,  2.48it/s]
+Capturing CUDA graph shapes:  53%|█████▎    | 10/19 [00:04<00:03,  2.39it/s]
+Capturing CUDA graph shapes:  58%|█████▊    | 11/19 [00:05<00:04,  1.99it/s]
+Capturing CUDA graph shapes:  63%|██████▎   | 12/19 [00:05<00:03,  2.22it/s]
+Capturing CUDA graph shapes:  68%|██████▊   | 13/19 [00:05<00:02,  2.42it/s]
+Capturing CUDA graph shapes:  74%|███████▎  | 14/19 [00:06<00:01,  2.57it/s]
+Capturing CUDA graph shapes:  79%|███████▉  | 15/19 [00:06<00:01,  2.13it/s]
+Capturing CUDA graph shapes:  84%|████████▍ | 16/19 [00:07<00:01,  2.33it/s]
+Capturing CUDA graph shapes:  89%|████████▉ | 17/19 [00:07<00:00,  2.51it/s]
+Capturing CUDA graph shapes:  95%|█████████▍| 18/19 [00:07<00:00,  2.63it/s]
+Capturing CUDA graph shapes: 100%|██████████| 19/19 [00:08<00:00,  2.70it/s]
+Capturing CUDA graph shapes: 100%|██████████| 19/19 [00:08<00:00,  2.35it/s]
+[2025-04-22 23:37:21,467] [[32m    INFO[0m]: Graph capturing finished in 8 secs, took 0.21 GiB (model_runner.py:1562)[0m
+[2025-04-22 23:37:21,468] [[32m    INFO[0m]: init engine (profile, create kv cache, warmup model) took 11.59 seconds (llm_engine.py:431)[0m
+[2025-04-22 23:37:21,729] [[32m    INFO[0m]: --- INIT SEEDS --- (pipeline.py:263)[0m
+[2025-04-22 23:37:21,730] [[32m    INFO[0m]: --- LOADING TASKS --- (pipeline.py:216)[0m
+[2025-04-22 23:37:21,730] [[32m    INFO[0m]: Found 1 custom tasks in ~/Projects/nips25_slot/open-r2/openr1/lib/python3.11/site-packages/lighteval/tasks/extended/ifeval/main.py (registry.py:142)[0m
+[2025-04-22 23:37:21,730] [[32m    INFO[0m]: Found 6 custom tasks in ~/Projects/nips25_slot/open-r2/openr1/lib/python3.11/site-packages/lighteval/tasks/extended/tiny_benchmarks/main.py (registry.py:142)[0m
+[2025-04-22 23:37:21,730] [[32m    INFO[0m]: Found 1 custom tasks in ~/Projects/nips25_slot/open-r2/openr1/lib/python3.11/site-packages/lighteval/tasks/extended/mt_bench/main.py (registry.py:142)[0m
+[2025-04-22 23:37:21,730] [[32m    INFO[0m]: Found 4 custom tasks in ~/Projects/nips25_slot/open-r2/openr1/lib/python3.11/site-packages/lighteval/tasks/extended/mix_eval/main.py (registry.py:142)[0m
+[2025-04-22 23:37:21,730] [[32m    INFO[0m]: Found 5 custom tasks in ~/Projects/nips25_slot/open-r2/openr1/lib/python3.11/site-packages/lighteval/tasks/extended/olympiade_bench/main.py (registry.py:142)[0m
+[2025-04-22 23:37:21,730] [[32m    INFO[0m]: Found 1 custom tasks in ~/Projects/nips25_slot/open-r2/openr1/lib/python3.11/site-packages/lighteval/tasks/extended/hle/main.py (registry.py:142)[0m
+[2025-04-22 23:37:21,730] [[32m    INFO[0m]: Found 21 custom tasks in ~/Projects/nips25_slot/open-r2/openr1/lib/python3.11/site-packages/lighteval/tasks/extended/lcb/main.py (registry.py:142)[0m
+[2025-04-22 23:37:21,731] [[32m    INFO[0m]: HuggingFaceH4/aime_2024 default (lighteval_task.py:187)[0m
+[2025-04-22 23:37:21,732] [[33m WARNING[0m]: Careful, the task lighteval|aime24 is using evaluation data to build the few shot examples. (lighteval_task.py:260)[0m
+Using the latest cached version of the dataset since HuggingFaceH4/aime_2024 couldn't be found on the Hugging Face Hub
+[2025-04-22 23:37:46,297] [[33m WARNING[0m]: Using the latest cached version of the dataset since HuggingFaceH4/aime_2024 couldn't be found on the Hugging Face Hub (load.py:1631)[0m
+Found the latest cached dataset configuration 'default' at ~/.cache/huggingface/datasets/HuggingFaceH4___aime_2024/default/0.0.0/2fe88a2f1091d5048c0f36abc874fb997b3dd99a (last modified on Tue Apr  8 15:12:43 2025).
+[2025-04-22 23:37:46,300] [[33m WARNING[0m]: Found the latest cached dataset configuration 'default' at ~/.cache/huggingface/datasets/HuggingFaceH4___aime_2024/default/0.0.0/2fe88a2f1091d5048c0f36abc874fb997b3dd99a (last modified on Tue Apr  8 15:12:43 2025). (cache.py:95)[0m
+[2025-04-22 23:37:46,325] [[32m    INFO[0m]: --- RUNNING MODEL --- (pipeline.py:468)[0m
+[2025-04-22 23:37:46,325] [[32m    INFO[0m]: Running RequestType.GREEDY_UNTIL requests (pipeline.py:472)[0m
+[2025-04-22 23:37:46,331] [[33m WARNING[0m]: You cannot select the number of dataset splits for a generative evaluation at the moment. Automatically inferring. (data.py:260)[0m
+HuggingFaceH4/aime_2024
+default
+False
+None
+
+Splits:   0%|          | 0/1 [00:00<?, ?it/s][2025-04-22 23:37:46,337] [[33m WARNING[0m]: context_size + max_new_tokens=33219 which is greater than self.max_length=32768. Truncating context to 0 tokens. (vllm_model.py:270)[0m
+
+
+Processed prompts:   0%|          | 0/30 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s][A
+
+Processed prompts:   3%|▎         | 1/30 [00:30<14:42, 30.44s/it, est. speed input: 6.87 toks/s, output: 87.75 toks/s][A
+
+Processed prompts:   7%|▋         | 2/30 [00:36<07:25, 15.90s/it, est. speed input: 11.86 toks/s, output: 159.06 toks/s][A
+
+Processed prompts:  10%|█         | 3/30 [00:38<04:26,  9.85s/it, est. speed input: 16.20 toks/s, output: 232.63 toks/s][A
+
+Processed prompts:  13%|█▎        | 4/30 [00:41<03:05,  7.12s/it, est. speed input: 18.32 toks/s, output: 300.00 toks/s][A
+
+Processed prompts:  17%|█▋        | 5/30 [00:45<02:26,  5.84s/it, est. speed input: 19.74 toks/s, output: 359.33 toks/s][A
+
+Processed prompts:  20%|██        | 6/30 [00:52<02:31,  6.32s/it, est. speed input: 19.27 toks/s, output: 391.29 toks/s][A
+
+Processed prompts:  23%|██▎       | 7/30 [00:54<01:52,  4.88s/it, est. speed input: 21.81 toks/s, output: 458.57 toks/s][A
+
+Processed prompts:  27%|██▋       | 8/30 [01:31<05:29, 14.97s/it, est. speed input: 14.95 toks/s, output: 348.77 toks/s][A
+
+Processed prompts:  30%|███       | 9/30 [01:44<05:03, 14.44s/it, est. speed input: 15.20 toks/s, output: 376.68 toks/s][A
+
+Processed prompts:  37%|███▋      | 11/30 [01:45<02:28,  7.83s/it, est. speed input: 18.23 toks/s, output: 517.45 toks/s][A
+
+Processed prompts:  40%|████      | 12/30 [01:56<02:36,  8.72s/it, est. speed input: 17.60 toks/s, output: 537.60 toks/s][A
+
+Processed prompts:  43%|████▎     | 13/30 [01:57<01:53,  6.70s/it, est. speed input: 18.89 toks/s, output: 602.80 toks/s][A
+
+Processed prompts:  47%|████▋     | 14/30 [02:29<03:37, 13.60s/it, est. speed input: 15.93 toks/s, output: 540.44 toks/s][A
+
+Processed prompts:  50%|█████     | 15/30 [02:43<03:27, 13.81s/it, est. speed input: 15.31 toks/s, output: 558.57 toks/s][A
+
+Processed prompts:  53%|█████▎    | 16/30 [02:49<02:39, 11.40s/it, est. speed input: 15.76 toks/s, output: 606.10 toks/s][A
+
+Processed prompts:  57%|█████▋    | 17/30 [02:55<02:10, 10.03s/it, est. speed input: 16.02 toks/s, output: 648.29 toks/s][A
+
+Processed prompts:  60%|██████    | 18/30 [03:03<01:50,  9.21s/it, est. speed input: 16.17 toks/s, output: 687.85 toks/s][A
+
+Processed prompts:  63%|██████▎   | 19/30 [03:09<01:32,  8.38s/it, est. speed input: 16.50 toks/s, output: 729.72 toks/s][A
+
+Processed prompts:  67%|██████▋   | 20/30 [03:14<01:13,  7.38s/it, est. speed input: 16.86 toks/s, output: 776.06 toks/s][A
+
+Processed prompts:  70%|███████   | 21/30 [03:39<01:54, 12.72s/it, est. speed input: 15.52 toks/s, output: 751.92 toks/s][A
+
+Processed prompts:  73%|███████▎  | 22/30 [03:41<01:14,  9.37s/it, est. speed input: 16.21 toks/s, output: 812.05 toks/s][A
+
+Processed prompts:  77%|███████▋  | 23/30 [03:49<01:03,  9.05s/it, est. speed input: 16.66 toks/s, output: 847.81 toks/s][A
+
+Processed prompts:  80%|████████  | 24/30 [03:53<00:45,  7.55s/it, est. speed input: 17.04 toks/s, output: 898.28 toks/s][A
+
+Processed prompts:  83%|████████▎ | 25/30 [04:04<00:42,  8.52s/it, est. speed input: 16.89 toks/s, output: 923.70 toks/s][A
+
+Processed prompts:  87%|████████▋ | 26/30 [04:20<00:42, 10.65s/it, est. speed input: 16.58 toks/s, output: 933.13 toks/s][A
+
+Processed prompts:  90%|█████████ | 27/30 [04:37<00:38, 12.70s/it, est. speed input: 17.16 toks/s, output: 939.08 toks/s][A
+
+Processed prompts:  93%|█████████▎| 28/30 [05:14<00:39, 19.82s/it, est. speed input: 16.04 toks/s, output: 897.48 toks/s][A
+
+Processed prompts: 100%|██████████| 30/30 [05:22<00:00, 12.61s/it, est. speed input: 16.75 toks/s, output: 1008.02 toks/s][A
+Processed prompts: 100%|██████████| 30/30 [05:22<00:00, 10.75s/it, est. speed input: 16.75 toks/s, output: 1008.02 toks/s]
+
+Splits: 100%|██████████| 1/1 [05:22<00:00, 322.56s/it]
+Splits: 100%|██████████| 1/1 [05:22<00:00, 322.56s/it]
+[2025-04-22 23:43:09,978] [[32m    INFO[0m]: --- COMPUTING METRICS --- (pipeline.py:504)[0m
+[2025-04-22 23:43:10,134] [[32m    INFO[0m]: --- DISPLAYING RESULTS --- (pipeline.py:546)[0m
+[2025-04-22 23:43:10,144] [[32m    INFO[0m]: --- SAVING AND PUSHING RESULTS --- (pipeline.py:536)[0m
+[2025-04-22 23:43:10,144] [[32m    INFO[0m]: Saving experiment tracker (evaluation_tracker.py:180)[0m
+[2025-04-22 23:43:10,325] [[32m    INFO[0m]: Saving results to ~/Projects/nips25_slot/open-r2/data/evals~/Models/deepseek-ai/DeepSeek-R1-Distill-Llama-8B/results/_Models_deepseek-ai_DeepSeek-R1-Distill-Llama-8B/results_2025-04-22T23-43-10.144574.json (evaluation_tracker.py:234)[0m
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.1
+|       Task       |Version|     Metric     |Value |   |Stderr|
+|------------------|------:|----------------|-----:|---|-----:|
+|all               |       |extractive_match|0.3667|±  |0.0895|
+|lighteval:aime24:0|      1|extractive_match|0.3667|±  |0.0895|
+

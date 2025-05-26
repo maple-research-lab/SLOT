@@ -1,0 +1,1661 @@
+[2025-04-12 17:06:44,466] [[32m    INFO[0m]: PyTorch version 2.5.1 available. (config.py:54)[0m
+INFO 04-12 17:06:49 __init__.py:190] Automatically detected platform cuda.
+[2025-04-12 17:06:50,568] [[32m    INFO[0m]: --- LOADING MODEL --- (pipeline.py:189)[0m
+[2025-04-12 17:06:59,301] [[32m    INFO[0m]: This model supports multiple tasks: {'classify', 'reward', 'embed', 'generate', 'score'}. Defaulting to 'generate'. (config.py:542)[0m
+[2025-04-12 17:06:59,511] [[32m    INFO[0m]: Defaulting to use mp for distributed inference (config.py:1401)[0m
+[2025-04-12 17:06:59,514] [[32m    INFO[0m]: Initializing a V0 LLM engine (v0.7.2) with config: model='~/Models/deepseek-ai/DeepSeek-R1-Distill-Qwen-1.5B', speculative_config=None, tokenizer='~/Models/deepseek-ai/DeepSeek-R1-Distill-Qwen-1.5B', skip_tokenizer_init=False, tokenizer_mode=auto, revision=main, override_neuron_config=None, tokenizer_revision=main, trust_remote_code=False, dtype=torch.bfloat16, max_seq_len=32768, download_dir=None, load_format=LoadFormat.AUTO, tensor_parallel_size=4, pipeline_parallel_size=1, disable_custom_all_reduce=False, quantization=None, enforce_eager=False, kv_cache_dtype=auto,  device_config=cuda, decoding_config=DecodingConfig(guided_decoding_backend='xgrammar'), observability_config=ObservabilityConfig(otlp_traces_endpoint=None, collect_model_forward_time=False, collect_model_execute_time=False), seed=1234, served_model_name=~/Models/deepseek-ai/DeepSeek-R1-Distill-Qwen-1.5B, num_scheduler_steps=1, multi_step_stream_outputs=True, enable_prefix_caching=False, chunked_prefill_enabled=False, use_async_output_proc=True, disable_mm_preprocessor_cache=False, mm_processor_kwargs=None, pooler_config=None, compilation_config={"splitting_ops":[],"compile_sizes":[],"cudagraph_capture_sizes":[128,120,112,104,96,88,80,72,64,56,48,40,32,24,16,8,4,2,1],"max_capture_size":128}, use_cached_outputs=False,  (llm_engine.py:234)[0m
+[2025-04-12 17:06:59,805] [[33m WARNING[0m]: Reducing Torch parallelism from 64 threads to 1 to avoid unnecessary CPU contention. Set OMP_NUM_THREADS in the external environment to tune this value as needed. (multiproc_worker_utils.py:300)[0m
+[2025-04-12 17:06:59,822] [[32m    INFO[0m]: Setting Triton cache manager to: vllm.triton_utils.custom_cache_manager:CustomCacheManager (custom_cache_manager.py:19)[0m
+[2025-04-12 17:07:00,561] [[32m    INFO[0m]: Using Flash Attention backend. (cuda.py:230)[0m
+INFO 04-12 17:07:04 __init__.py:190] Automatically detected platform cuda.
+INFO 04-12 17:07:05 __init__.py:190] Automatically detected platform cuda.
+INFO 04-12 17:07:05 __init__.py:190] Automatically detected platform cuda.
+[1;36m(VllmWorkerProcess pid=3919560)[0;0m INFO 04-12 17:07:06 multiproc_worker_utils.py:229] Worker ready; awaiting tasks
+[1;36m(VllmWorkerProcess pid=3919561)[0;0m INFO 04-12 17:07:06 multiproc_worker_utils.py:229] Worker ready; awaiting tasks
+[1;36m(VllmWorkerProcess pid=3919559)[0;0m INFO 04-12 17:07:06 multiproc_worker_utils.py:229] Worker ready; awaiting tasks
+[1;36m(VllmWorkerProcess pid=3919560)[0;0m INFO 04-12 17:07:09 cuda.py:230] Using Flash Attention backend.
+[1;36m(VllmWorkerProcess pid=3919561)[0;0m INFO 04-12 17:07:09 cuda.py:230] Using Flash Attention backend.
+[1;36m(VllmWorkerProcess pid=3919559)[0;0m INFO 04-12 17:07:09 cuda.py:230] Using Flash Attention backend.
+[1;36m(VllmWorkerProcess pid=3919561)[0;0m INFO 04-12 17:07:10 utils.py:950] Found nccl from library libnccl.so.2
+[1;36m(VllmWorkerProcess pid=3919559)[0;0m INFO 04-12 17:07:10 utils.py:950] Found nccl from library libnccl.so.2
+[1;36m(VllmWorkerProcess pid=3919560)[0;0m INFO 04-12 17:07:10 utils.py:950] Found nccl from library libnccl.so.2
+[2025-04-12 17:07:10,800] [[32m    INFO[0m]: Found nccl from library libnccl.so.2 (utils.py:950)[0m
+[1;36m(VllmWorkerProcess pid=3919561)[0;0m INFO 04-12 17:07:10 pynccl.py:69] vLLM is using nccl==2.21.5
+[1;36m(VllmWorkerProcess pid=3919559)[0;0m INFO 04-12 17:07:10 pynccl.py:69] vLLM is using nccl==2.21.5
+[1;36m(VllmWorkerProcess pid=3919560)[0;0m INFO 04-12 17:07:10 pynccl.py:69] vLLM is using nccl==2.21.5
+[2025-04-12 17:07:10,800] [[32m    INFO[0m]: vLLM is using nccl==2.21.5 (pynccl.py:69)[0m
+[1;36m(VllmWorkerProcess pid=3919560)[0;0m INFO 04-12 17:07:13 custom_all_reduce_utils.py:244] reading GPU P2P access cache from ~/.cache/vllm/gpu_p2p_access_cache_for_4,5,6,7.json
+[1;36m(VllmWorkerProcess pid=3919561)[0;0m INFO 04-12 17:07:13 custom_all_reduce_utils.py:244] reading GPU P2P access cache from ~/.cache/vllm/gpu_p2p_access_cache_for_4,5,6,7.json
+[1;36m(VllmWorkerProcess pid=3919559)[0;0m INFO 04-12 17:07:13 custom_all_reduce_utils.py:244] reading GPU P2P access cache from ~/.cache/vllm/gpu_p2p_access_cache_for_4,5,6,7.json
+[2025-04-12 17:07:13,464] [[32m    INFO[0m]: reading GPU P2P access cache from ~/.cache/vllm/gpu_p2p_access_cache_for_4,5,6,7.json (custom_all_reduce_utils.py:244)[0m
+[2025-04-12 17:07:13,796] [[32m    INFO[0m]: vLLM message queue communication handle: Handle(connect_ip='127.0.0.1', local_reader_ranks=[1, 2, 3], buffer_handle=(3, 4194304, 6, 'psm_73499ba0'), local_subscribe_port=41497, remote_subscribe_port=None) (shm_broadcast.py:258)[0m
+[2025-04-12 17:07:13,826] [[32m    INFO[0m]: Starting to load model ~/Models/deepseek-ai/DeepSeek-R1-Distill-Qwen-1.5B... (model_runner.py:1110)[0m
+[1;36m(VllmWorkerProcess pid=3919559)[0;0m INFO 04-12 17:07:13 model_runner.py:1110] Starting to load model ~/Models/deepseek-ai/DeepSeek-R1-Distill-Qwen-1.5B...
+[1;36m(VllmWorkerProcess pid=3919560)[0;0m INFO 04-12 17:07:13 model_runner.py:1110] Starting to load model ~/Models/deepseek-ai/DeepSeek-R1-Distill-Qwen-1.5B...
+[1;36m(VllmWorkerProcess pid=3919561)[0;0m INFO 04-12 17:07:13 model_runner.py:1110] Starting to load model ~/Models/deepseek-ai/DeepSeek-R1-Distill-Qwen-1.5B...
+
+Loading safetensors checkpoint shards:   0% Completed | 0/1 [00:00<?, ?it/s]
+
+Loading safetensors checkpoint shards: 100% Completed | 1/1 [00:00<00:00,  1.97it/s]
+
+Loading safetensors checkpoint shards: 100% Completed | 1/1 [00:00<00:00,  1.96it/s]
+
+[1;36m(VllmWorkerProcess pid=3919560)[0;0m INFO 04-12 17:07:14 model_runner.py:1115] Loading model weights took 0.8985 GB
+[1;36m(VllmWorkerProcess pid=3919561)[0;0m INFO 04-12 17:07:14 model_runner.py:1115] Loading model weights took 0.8985 GB
+[1;36m(VllmWorkerProcess pid=3919559)[0;0m INFO 04-12 17:07:15 model_runner.py:1115] Loading model weights took 0.8985 GB
+[2025-04-12 17:07:15,077] [[32m    INFO[0m]: Loading model weights took 0.8985 GB (model_runner.py:1115)[0m
+[1;36m(VllmWorkerProcess pid=3919561)[0;0m [2025-04-12 17:07:17,653] [[33m WARNING[0m]: ~/Projects/nips25_slot/open-r2/openr1/lib/python3.11/site-packages/vllm/worker/model_runner.py:1828: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+[1;36m(VllmWorkerProcess pid=3919559)[0;0m [2025-04-12 17:07:17,653] [[33m WARNING[0m]: ~/Projects/nips25_slot/open-r2/openr1/lib/python3.11/site-packages/vllm/worker/model_runner.py:1828: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+[1;36m(VllmWorkerProcess pid=3919561)[0;0m   lm_head_weight = torch.load(lm_local, map_location=hidden_states_cur.device).to(dtype=torch.bfloat16)
+[1;36m(VllmWorkerProcess pid=3919560)[0;0m [2025-04-12 17:07:17,653] [[33m WARNING[0m]: ~/Projects/nips25_slot/open-r2/openr1/lib/python3.11/site-packages/vllm/worker/model_runner.py:1828: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+[2025-04-12 17:07:17,653] [[33m WARNING[0m]: ~/Projects/nips25_slot/open-r2/openr1/lib/python3.11/site-packages/vllm/worker/model_runner.py:1828: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  lm_head_weight = torch.load(lm_local, map_location=hidden_states_cur.device).to(dtype=torch.bfloat16)
+ (warnings.py:110)[0m
+[1;36m(VllmWorkerProcess pid=3919559)[0;0m   lm_head_weight = torch.load(lm_local, map_location=hidden_states_cur.device).to(dtype=torch.bfloat16)
+[1;36m(VllmWorkerProcess pid=3919561)[0;0m  (warnings.py:110)[0m
+[1;36m(VllmWorkerProcess pid=3919560)[0;0m   lm_head_weight = torch.load(lm_local, map_location=hidden_states_cur.device).to(dtype=torch.bfloat16)
+[1;36m(VllmWorkerProcess pid=3919559)[0;0m  (warnings.py:110)[0m
+[1;36m(VllmWorkerProcess pid=3919560)[0;0m  (warnings.py:110)[0m
+[1;36m(VllmWorkerProcess pid=3919559)[0;0m DEBUG - Starting CHOT optimization
+[1;36m(VllmWorkerProcess pid=3919559)[0;0m DEBUG - CHOT parameters: steps=3, lr=1.0
+[1;36m(VllmWorkerProcess pid=3919559)[0;0m DEBUG - hidden_states_orig: torch.Size([32768, 1536]), torch.bfloat16
+[1;36m(VllmWorkerProcess pid=3919559)[0;0m Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+[1;36m(VllmWorkerProcess pid=3919559)[0;0m cuda:1 torch.Size([151936, 1536])
+[1;36m(VllmWorkerProcess pid=3919559)[0;0m DEBUG - hidden_states_orig: torch.Size([32768, 1536]), torch.bfloat16
+[1;36m(VllmWorkerProcess pid=3919559)[0;0m Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+[1;36m(VllmWorkerProcess pid=3919559)[0;0m cuda:1 torch.Size([151936, 1536])
+[1;36m(VllmWorkerProcess pid=3919559)[0;0m DEBUG - hidden_states_orig: torch.Size([32768, 1536]), torch.bfloat16
+[1;36m(VllmWorkerProcess pid=3919559)[0;0m Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+[1;36m(VllmWorkerProcess pid=3919559)[0;0m cuda:1 torch.Size([151936, 1536])
+[1;36m(VllmWorkerProcess pid=3919559)[0;0m INFO 04-12 17:07:22 worker.py:267] Memory profiling takes 7.03 seconds
+[1;36m(VllmWorkerProcess pid=3919559)[0;0m INFO 04-12 17:07:22 worker.py:267] the current vLLM instance can use total_gpu_memory (79.22GiB) x gpu_memory_utilization (0.80) = 63.37GiB
+[1;36m(VllmWorkerProcess pid=3919559)[0;0m INFO 04-12 17:07:22 worker.py:267] model weights take 0.90GiB; non_torch_memory takes 2.38GiB; PyTorch activation peak memory takes 47.12GiB; the rest of the memory reserved for KV Cache is 12.97GiB.
+[1;36m(VllmWorkerProcess pid=3919560)[0;0m DEBUG - Starting CHOT optimization
+[1;36m(VllmWorkerProcess pid=3919560)[0;0m DEBUG - CHOT parameters: steps=3, lr=1.0
+[1;36m(VllmWorkerProcess pid=3919560)[0;0m DEBUG - hidden_states_orig: torch.Size([32768, 1536]), torch.bfloat16
+[1;36m(VllmWorkerProcess pid=3919560)[0;0m Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+[1;36m(VllmWorkerProcess pid=3919560)[0;0m cuda:2 torch.Size([151936, 1536])
+[1;36m(VllmWorkerProcess pid=3919560)[0;0m DEBUG - hidden_states_orig: torch.Size([32768, 1536]), torch.bfloat16
+[1;36m(VllmWorkerProcess pid=3919560)[0;0m Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+[1;36m(VllmWorkerProcess pid=3919560)[0;0m cuda:2 torch.Size([151936, 1536])
+[1;36m(VllmWorkerProcess pid=3919560)[0;0m DEBUG - hidden_states_orig: torch.Size([32768, 1536]), torch.bfloat16
+[1;36m(VllmWorkerProcess pid=3919560)[0;0m Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+[1;36m(VllmWorkerProcess pid=3919560)[0;0m cuda:2 torch.Size([151936, 1536])
+[1;36m(VllmWorkerProcess pid=3919560)[0;0m INFO 04-12 17:07:22 worker.py:267] Memory profiling takes 7.03 seconds
+[1;36m(VllmWorkerProcess pid=3919560)[0;0m INFO 04-12 17:07:22 worker.py:267] the current vLLM instance can use total_gpu_memory (79.22GiB) x gpu_memory_utilization (0.80) = 63.37GiB
+[1;36m(VllmWorkerProcess pid=3919560)[0;0m INFO 04-12 17:07:22 worker.py:267] model weights take 0.90GiB; non_torch_memory takes 2.38GiB; PyTorch activation peak memory takes 47.12GiB; the rest of the memory reserved for KV Cache is 12.97GiB.
+[1;36m(VllmWorkerProcess pid=3919561)[0;0m DEBUG - Starting CHOT optimization
+[1;36m(VllmWorkerProcess pid=3919561)[0;0m DEBUG - CHOT parameters: steps=3, lr=1.0
+[1;36m(VllmWorkerProcess pid=3919561)[0;0m DEBUG - hidden_states_orig: torch.Size([32768, 1536]), torch.bfloat16
+[1;36m(VllmWorkerProcess pid=3919561)[0;0m Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+[1;36m(VllmWorkerProcess pid=3919561)[0;0m cuda:3 torch.Size([151936, 1536])
+[1;36m(VllmWorkerProcess pid=3919561)[0;0m DEBUG - hidden_states_orig: torch.Size([32768, 1536]), torch.bfloat16
+[1;36m(VllmWorkerProcess pid=3919561)[0;0m Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+[1;36m(VllmWorkerProcess pid=3919561)[0;0m cuda:3 torch.Size([151936, 1536])
+[1;36m(VllmWorkerProcess pid=3919561)[0;0m DEBUG - hidden_states_orig: torch.Size([32768, 1536]), torch.bfloat16
+[1;36m(VllmWorkerProcess pid=3919561)[0;0m Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+[1;36m(VllmWorkerProcess pid=3919561)[0;0m cuda:3 torch.Size([151936, 1536])
+[1;36m(VllmWorkerProcess pid=3919561)[0;0m INFO 04-12 17:07:22 worker.py:267] Memory profiling takes 7.03 seconds
+[1;36m(VllmWorkerProcess pid=3919561)[0;0m INFO 04-12 17:07:22 worker.py:267] the current vLLM instance can use total_gpu_memory (79.22GiB) x gpu_memory_utilization (0.80) = 63.37GiB
+[1;36m(VllmWorkerProcess pid=3919561)[0;0m INFO 04-12 17:07:22 worker.py:267] model weights take 0.90GiB; non_torch_memory takes 2.38GiB; PyTorch activation peak memory takes 47.12GiB; the rest of the memory reserved for KV Cache is 12.97GiB.
+[2025-04-12 17:07:22,475] [[32m    INFO[0m]: Memory profiling takes 7.19 seconds
+the current vLLM instance can use total_gpu_memory (79.22GiB) x gpu_memory_utilization (0.80) = 63.37GiB
+model weights take 0.90GiB; non_torch_memory takes 2.82GiB; PyTorch activation peak memory takes 47.12GiB; the rest of the memory reserved for KV Cache is 12.53GiB. (worker.py:267)[0m
+[2025-04-12 17:07:22,680] [[32m    INFO[0m]: # CUDA blocks: 58670, # CPU blocks: 18724 (executor_base.py:110)[0m
+[2025-04-12 17:07:22,681] [[32m    INFO[0m]: Maximum concurrency for 32768 tokens per request: 28.65x (executor_base.py:115)[0m
+[2025-04-12 17:07:25,514] [[32m    INFO[0m]: Capturing cudagraphs for decoding. This may lead to unexpected consequences if the model is not static. To run the model in eager mode, set 'enforce_eager=True' or use '--enforce-eager' in the CLI. If out-of-memory error occurs during cudagraph capture, consider decreasing `gpu_memory_utilization` or switching to eager mode. You can also reduce the `max_num_seqs` as needed to decrease memory usage. (model_runner.py:1434)[0m
+[1;36m(VllmWorkerProcess pid=3919560)[0;0m INFO 04-12 17:07:25 model_runner.py:1434] Capturing cudagraphs for decoding. This may lead to unexpected consequences if the model is not static. To run the model in eager mode, set 'enforce_eager=True' or use '--enforce-eager' in the CLI. If out-of-memory error occurs during cudagraph capture, consider decreasing `gpu_memory_utilization` or switching to eager mode. You can also reduce the `max_num_seqs` as needed to decrease memory usage.
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=3, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([32768, 1536]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - hidden_states_orig: torch.Size([32768, 1536]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - hidden_states_orig: torch.Size([32768, 1536]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+
+Capturing CUDA graph shapes:   0%|          | 0/19 [00:00<?, ?it/s][1;36m(VllmWorkerProcess pid=3919561)[0;0m INFO 04-12 17:07:25 model_runner.py:1434] Capturing cudagraphs for decoding. This may lead to unexpected consequences if the model is not static. To run the model in eager mode, set 'enforce_eager=True' or use '--enforce-eager' in the CLI. If out-of-memory error occurs during cudagraph capture, consider decreasing `gpu_memory_utilization` or switching to eager mode. You can also reduce the `max_num_seqs` as needed to decrease memory usage.
+[1;36m(VllmWorkerProcess pid=3919559)[0;0m INFO 04-12 17:07:25 model_runner.py:1434] Capturing cudagraphs for decoding. This may lead to unexpected consequences if the model is not static. To run the model in eager mode, set 'enforce_eager=True' or use '--enforce-eager' in the CLI. If out-of-memory error occurs during cudagraph capture, consider decreasing `gpu_memory_utilization` or switching to eager mode. You can also reduce the `max_num_seqs` as needed to decrease memory usage.
+
+Capturing CUDA graph shapes:   5%|▌         | 1/19 [00:00<00:09,  1.91it/s]
+Capturing CUDA graph shapes:  11%|█         | 2/19 [00:00<00:08,  2.04it/s]
+Capturing CUDA graph shapes:  16%|█▌        | 3/19 [00:01<00:07,  2.09it/s]
+Capturing CUDA graph shapes:  21%|██        | 4/19 [00:01<00:07,  2.06it/s]
+Capturing CUDA graph shapes:  26%|██▋       | 5/19 [00:02<00:06,  2.01it/s]
+Capturing CUDA graph shapes:  32%|███▏      | 6/19 [00:02<00:06,  2.03it/s]
+Capturing CUDA graph shapes:  37%|███▋      | 7/19 [00:03<00:05,  2.04it/s]
+Capturing CUDA graph shapes:  42%|████▏     | 8/19 [00:03<00:05,  2.05it/s]
+Capturing CUDA graph shapes:  47%|████▋     | 9/19 [00:04<00:04,  2.08it/s]
+Capturing CUDA graph shapes:  53%|█████▎    | 10/19 [00:04<00:04,  2.11it/s]
+Capturing CUDA graph shapes:  58%|█████▊    | 11/19 [00:05<00:03,  2.11it/s]
+Capturing CUDA graph shapes:  63%|██████▎   | 12/19 [00:05<00:03,  2.07it/s]
+Capturing CUDA graph shapes:  68%|██████▊   | 13/19 [00:06<00:02,  2.06it/s]
+Capturing CUDA graph shapes:  74%|███████▎  | 14/19 [00:06<00:02,  2.08it/s]
+Capturing CUDA graph shapes:  79%|███████▉  | 15/19 [00:07<00:01,  2.10it/s]
+Capturing CUDA graph shapes:  84%|████████▍ | 16/19 [00:07<00:01,  2.12it/s][1;36m(VllmWorkerProcess pid=3919560)[0;0m INFO 04-12 17:07:33 custom_all_reduce.py:226] Registering 1083 cuda graph addresses
+[1;36m(VllmWorkerProcess pid=3919561)[0;0m INFO 04-12 17:07:33 custom_all_reduce.py:226] Registering 1083 cuda graph addresses
+
+Capturing CUDA graph shapes:  89%|████████▉ | 17/19 [00:08<00:00,  2.17it/s][1;36m(VllmWorkerProcess pid=3919559)[0;0m INFO 04-12 17:07:33 custom_all_reduce.py:226] Registering 1083 cuda graph addresses
+
+Capturing CUDA graph shapes:  95%|█████████▍| 18/19 [00:08<00:00,  2.30it/s]
+Capturing CUDA graph shapes: 100%|██████████| 19/19 [00:09<00:00,  2.00it/s]
+Capturing CUDA graph shapes: 100%|██████████| 19/19 [00:09<00:00,  2.07it/s]
+[2025-04-12 17:07:34,693] [[32m    INFO[0m]: Registering 1083 cuda graph addresses (custom_all_reduce.py:226)[0m
+[1;36m(VllmWorkerProcess pid=3919561)[0;0m INFO 04-12 17:07:34 model_runner.py:1562] Graph capturing finished in 9 secs, took 0.15 GiB
+[1;36m(VllmWorkerProcess pid=3919560)[0;0m INFO 04-12 17:07:34 model_runner.py:1562] Graph capturing finished in 9 secs, took 0.15 GiB
+[2025-04-12 17:07:34,746] [[32m    INFO[0m]: Graph capturing finished in 9 secs, took 0.15 GiB (model_runner.py:1562)[0m
+[1;36m(VllmWorkerProcess pid=3919559)[0;0m INFO 04-12 17:07:34 model_runner.py:1562] Graph capturing finished in 9 secs, took 0.15 GiB
+[2025-04-12 17:07:34,747] [[32m    INFO[0m]: init engine (profile, create kv cache, warmup model) took 19.67 seconds (llm_engine.py:431)[0m
+[2025-04-12 17:07:35,409] [[32m    INFO[0m]: --- INIT SEEDS --- (pipeline.py:263)[0m
+[2025-04-12 17:07:35,409] [[32m    INFO[0m]: --- LOADING TASKS --- (pipeline.py:216)[0m
+[2025-04-12 17:07:35,409] [[32m    INFO[0m]: Found 1 custom tasks in ~/Projects/nips25_slot/open-r2/openr1/lib/python3.11/site-packages/lighteval/tasks/extended/ifeval/main.py (registry.py:142)[0m
+[2025-04-12 17:07:35,409] [[32m    INFO[0m]: Found 6 custom tasks in ~/Projects/nips25_slot/open-r2/openr1/lib/python3.11/site-packages/lighteval/tasks/extended/tiny_benchmarks/main.py (registry.py:142)[0m
+[2025-04-12 17:07:35,409] [[32m    INFO[0m]: Found 1 custom tasks in ~/Projects/nips25_slot/open-r2/openr1/lib/python3.11/site-packages/lighteval/tasks/extended/mt_bench/main.py (registry.py:142)[0m
+[2025-04-12 17:07:35,409] [[32m    INFO[0m]: Found 4 custom tasks in ~/Projects/nips25_slot/open-r2/openr1/lib/python3.11/site-packages/lighteval/tasks/extended/mix_eval/main.py (registry.py:142)[0m
+[2025-04-12 17:07:35,409] [[32m    INFO[0m]: Found 5 custom tasks in ~/Projects/nips25_slot/open-r2/openr1/lib/python3.11/site-packages/lighteval/tasks/extended/olympiade_bench/main.py (registry.py:142)[0m
+[2025-04-12 17:07:35,409] [[32m    INFO[0m]: Found 1 custom tasks in ~/Projects/nips25_slot/open-r2/openr1/lib/python3.11/site-packages/lighteval/tasks/extended/hle/main.py (registry.py:142)[0m
+[2025-04-12 17:07:35,409] [[32m    INFO[0m]: Found 21 custom tasks in ~/Projects/nips25_slot/open-r2/openr1/lib/python3.11/site-packages/lighteval/tasks/extended/lcb/main.py (registry.py:142)[0m
+[2025-04-12 17:07:35,411] [[32m    INFO[0m]: Idavidrein/gpqa gpqa_diamond (lighteval_task.py:187)[0m
+[2025-04-12 17:07:35,411] [[33m WARNING[0m]: Careful, the task lighteval|gpqa:diamond is using evaluation data to build the few shot examples. (lighteval_task.py:260)[0m
+Using the latest cached version of the dataset since Idavidrein/gpqa couldn't be found on the Hugging Face Hub
+[2025-04-12 17:09:01,407] [[33m WARNING[0m]: Using the latest cached version of the dataset since Idavidrein/gpqa couldn't be found on the Hugging Face Hub (load.py:1377)[0m
+Found the latest cached dataset configuration 'gpqa_diamond' at ~/.cache/huggingface/datasets/Idavidrein___gpqa/gpqa_diamond/0.0.0/90b8e5be2b1d3d2dbfe016cdab47981150600c4a (last modified on Sat Apr 12 16:41:50 2025).
+[2025-04-12 17:09:01,409] [[33m WARNING[0m]: Found the latest cached dataset configuration 'gpqa_diamond' at ~/.cache/huggingface/datasets/Idavidrein___gpqa/gpqa_diamond/0.0.0/90b8e5be2b1d3d2dbfe016cdab47981150600c4a (last modified on Sat Apr 12 16:41:50 2025). (cache.py:94)[0m
+[2025-04-12 17:09:01,576] [[32m    INFO[0m]: --- RUNNING MODEL --- (pipeline.py:468)[0m
+[2025-04-12 17:09:01,576] [[32m    INFO[0m]: Running RequestType.GREEDY_UNTIL requests (pipeline.py:472)[0m
+[2025-04-12 17:09:01,629] [[33m WARNING[0m]: You cannot select the number of dataset splits for a generative evaluation at the moment. Automatically inferring. (data.py:260)[0m
+Idavidrein/gpqa
+gpqa_diamond
+True
+None
+
+Splits:   0%|          | 0/1 [00:00<?, ?it/s][2025-04-12 17:09:01,681] [[33m WARNING[0m]: context_size + max_new_tokens=35585 which is greater than self.max_length=32768. Truncating context to 0 tokens. (vllm_model.py:270)[0m
+
+
+Processed prompts:   0%|          | 0/198 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s][A[2025-04-12 17:09:01,797] [[33m WARNING[0m]: ~/Projects/nips25_slot/open-r2/openr1/lib/python3.11/site-packages/vllm/worker/model_runner.py:1828: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  lm_head_weight = torch.load(lm_local, map_location=hidden_states_cur.device).to(dtype=torch.bfloat16)
+ (warnings.py:110)[0m
+
+
+Processed prompts:   1%|          | 1/198 [00:16<53:28, 16.28s/it, est. speed input: 17.44 toks/s, output: 67.42 toks/s][A
+
+Processed prompts:   1%|          | 2/198 [00:28<46:11, 14.14s/it, est. speed input: 20.26 toks/s, output: 104.62 toks/s][A
+
+Processed prompts:   2%|▏         | 3/198 [00:32<30:45,  9.46s/it, est. speed input: 30.14 toks/s, output: 158.17 toks/s][A
+
+Processed prompts:   2%|▏         | 4/198 [00:39<27:06,  8.38s/it, est. speed input: 33.00 toks/s, output: 196.79 toks/s][A
+
+Processed prompts:   3%|▎         | 5/198 [00:42<20:14,  6.29s/it, est. speed input: 36.62 toks/s, output: 248.32 toks/s][A
+
+Processed prompts:   3%|▎         | 6/198 [00:43<14:16,  4.46s/it, est. speed input: 40.78 toks/s, output: 306.02 toks/s][A
+
+Processed prompts:   4%|▎         | 7/198 [00:47<13:41,  4.30s/it, est. speed input: 42.63 toks/s, output: 342.52 toks/s][A
+
+Processed prompts:   4%|▍         | 8/198 [00:54<16:52,  5.33s/it, est. speed input: 40.91 toks/s, output: 357.19 toks/s][A
+
+Processed prompts:   5%|▍         | 9/198 [00:55<12:48,  4.07s/it, est. speed input: 44.40 toks/s, output: 410.25 toks/s][A
+
+Processed prompts:   5%|▌         | 10/198 [00:59<12:19,  3.93s/it, est. speed input: 45.35 toks/s, output: 445.94 toks/s][A
+
+Processed prompts:   6%|▌         | 11/198 [01:16<24:20,  7.81s/it, est. speed input: 39.13 toks/s, output: 407.53 toks/s][A
+
+Processed prompts:   6%|▌         | 12/198 [01:20<20:53,  6.74s/it, est. speed input: 40.12 toks/s, output: 443.97 toks/s][A
+
+Processed prompts:   7%|▋         | 13/198 [01:21<15:46,  5.11s/it, est. speed input: 42.26 toks/s, output: 494.28 toks/s][A
+
+Processed prompts:   7%|▋         | 14/198 [01:25<14:02,  4.58s/it, est. speed input: 43.90 toks/s, output: 532.12 toks/s][A
+
+Processed prompts:   8%|▊         | 15/198 [01:31<15:51,  5.20s/it, est. speed input: 45.45 toks/s, output: 550.17 toks/s][A
+
+Processed prompts:   8%|▊         | 16/198 [01:39<17:58,  5.93s/it, est. speed input: 43.96 toks/s, output: 536.21 toks/s][A
+
+Processed prompts:   9%|▊         | 17/198 [01:59<30:58, 10.27s/it, est. speed input: 38.05 toks/s, output: 453.11 toks/s][A
+
+Processed prompts:   9%|▉         | 18/198 [02:00<22:08,  7.38s/it, est. speed input: 39.51 toks/s, output: 485.75 toks/s][A
+
+Processed prompts:  10%|▉         | 19/198 [02:12<26:00,  8.72s/it, est. speed input: 37.54 toks/s, output: 491.72 toks/s][A
+
+Processed prompts:  10%|█         | 20/198 [02:15<21:05,  7.11s/it, est. speed input: 39.57 toks/s, output: 528.51 toks/s][A
+
+Processed prompts:  11%|█         | 21/198 [02:16<15:46,  5.35s/it, est. speed input: 40.97 toks/s, output: 572.34 toks/s][A
+
+Processed prompts:  11%|█         | 22/198 [02:28<21:19,  7.27s/it, est. speed input: 39.14 toks/s, output: 574.35 toks/s][A
+
+Processed prompts:  12%|█▏        | 23/198 [02:29<15:18,  5.25s/it, est. speed input: 40.49 toks/s, output: 619.41 toks/s][A
+
+Processed prompts:  12%|█▏        | 24/198 [02:29<11:23,  3.93s/it, est. speed input: 41.62 toks/s, output: 662.82 toks/s][A
+
+Processed prompts:  13%|█▎        | 25/198 [02:34<12:19,  4.28s/it, est. speed input: 41.59 toks/s, output: 687.33 toks/s][A
+
+Processed prompts:  13%|█▎        | 26/198 [02:44<16:25,  5.73s/it, est. speed input: 40.52 toks/s, output: 694.48 toks/s][A
+
+Processed prompts:  14%|█▎        | 27/198 [02:51<17:20,  6.08s/it, est. speed input: 40.23 toks/s, output: 711.17 toks/s][A
+
+Processed prompts:  14%|█▍        | 28/198 [02:53<14:10,  5.00s/it, est. speed input: 41.06 toks/s, output: 745.42 toks/s][A
+
+Processed prompts:  15%|█▍        | 29/198 [03:03<18:02,  6.41s/it, est. speed input: 40.36 toks/s, output: 749.45 toks/s][A[2025-04-12 17:12:09,826] [[33m WARNING[0m]: Sequence group 156 is preempted by PreemptionMode.RECOMPUTE mode because there is not enough KV cache space. This can affect the end-to-end performance. Increase gpu_memory_utilization or tensor_parallel_size to provide more KV cache memory. total_num_cumulative_preemption=1 (scheduler.py:1560)[0m
+
+
+Processed prompts:  15%|█▌        | 30/198 [03:38<42:14, 15.08s/it, est. speed input: 34.94 toks/s, output: 669.72 toks/s][A
+
+Processed prompts:  16%|█▌        | 31/198 [03:39<29:59, 10.78s/it, est. speed input: 35.84 toks/s, output: 708.93 toks/s][A
+
+Processed prompts:  16%|█▌        | 32/198 [03:43<24:26,  8.84s/it, est. speed input: 36.17 toks/s, output: 736.43 toks/s][A
+
+Processed prompts:  17%|█▋        | 33/198 [03:44<17:41,  6.44s/it, est. speed input: 37.36 toks/s, output: 774.81 toks/s][A
+
+Processed prompts:  17%|█▋        | 34/198 [04:03<28:10, 10.31s/it, est. speed input: 36.07 toks/s, output: 753.67 toks/s][A
+
+Processed prompts:  18%|█▊        | 35/198 [04:04<20:13,  7.45s/it, est. speed input: 37.09 toks/s, output: 791.61 toks/s][A
+
+Processed prompts:  18%|█▊        | 36/198 [04:08<17:24,  6.44s/it, est. speed input: 39.73 toks/s, output: 818.63 toks/s][A
+
+Processed prompts:  19%|█▊        | 37/198 [04:10<13:48,  5.14s/it, est. speed input: 40.64 toks/s, output: 851.70 toks/s][A
+
+Processed prompts:  19%|█▉        | 38/198 [04:12<11:10,  4.19s/it, est. speed input: 41.23 toks/s, output: 884.98 toks/s][A
+
+Processed prompts:  20%|█▉        | 39/198 [04:16<11:10,  4.22s/it, est. speed input: 41.97 toks/s, output: 909.98 toks/s][A
+
+Processed prompts:  20%|██        | 40/198 [04:18<08:53,  3.38s/it, est. speed input: 43.14 toks/s, output: 944.55 toks/s][A
+
+Processed prompts:  21%|██        | 41/198 [04:18<06:17,  2.40s/it, est. speed input: 44.27 toks/s, output: 983.71 toks/s][A
+
+Processed prompts:  21%|██        | 42/198 [04:19<05:11,  2.00s/it, est. speed input: 45.39 toks/s, output: 1019.24 toks/s][A
+
+Processed prompts:  22%|██▏       | 43/198 [04:23<06:38,  2.57s/it, est. speed input: 46.14 toks/s, output: 1043.48 toks/s][A
+
+Processed prompts:  22%|██▏       | 44/198 [04:24<05:25,  2.12s/it, est. speed input: 46.76 toks/s, output: 1078.54 toks/s][A
+
+Processed prompts:  23%|██▎       | 45/198 [04:27<05:45,  2.26s/it, est. speed input: 47.46 toks/s, output: 1107.21 toks/s][A
+
+Processed prompts:  23%|██▎       | 46/198 [04:38<12:55,  5.10s/it, est. speed input: 46.36 toks/s, output: 1099.28 toks/s][A
+
+Processed prompts:  24%|██▎       | 47/198 [04:58<23:40,  9.41s/it, est. speed input: 44.24 toks/s, output: 1065.81 toks/s][A
+
+Processed prompts:  24%|██▍       | 48/198 [05:02<19:20,  7.73s/it, est. speed input: 44.70 toks/s, output: 1090.55 toks/s][A
+
+Processed prompts:  25%|██▍       | 49/198 [05:02<14:00,  5.64s/it, est. speed input: 45.73 toks/s, output: 1125.93 toks/s][A
+
+Processed prompts:  25%|██▌       | 50/198 [05:15<18:55,  7.67s/it, est. speed input: 45.64 toks/s, output: 1119.53 toks/s][A
+
+Processed prompts:  26%|██▌       | 51/198 [05:16<13:55,  5.68s/it, est. speed input: 46.57 toks/s, output: 1153.73 toks/s][A
+
+Processed prompts:  26%|██▋       | 52/198 [05:20<12:44,  5.24s/it, est. speed input: 47.75 toks/s, output: 1176.35 toks/s][A
+
+Processed prompts:  27%|██▋       | 53/198 [05:34<18:58,  7.85s/it, est. speed input: 46.98 toks/s, output: 1164.84 toks/s][A
+
+Processed prompts:  27%|██▋       | 54/198 [05:37<15:05,  6.29s/it, est. speed input: 47.42 toks/s, output: 1193.17 toks/s][A
+
+Processed prompts:  28%|██▊       | 55/198 [05:37<10:55,  4.59s/it, est. speed input: 48.17 toks/s, output: 1228.40 toks/s][A
+
+Processed prompts:  28%|██▊       | 56/198 [05:40<09:12,  3.89s/it, est. speed input: 48.55 toks/s, output: 1257.54 toks/s][A
+
+Processed prompts:  29%|██▉       | 57/198 [05:44<09:48,  4.17s/it, est. speed input: 49.73 toks/s, output: 1277.21 toks/s][A
+
+Processed prompts:  29%|██▉       | 58/198 [05:48<09:11,  3.94s/it, est. speed input: 50.17 toks/s, output: 1301.98 toks/s][A
+
+Processed prompts:  30%|██▉       | 59/198 [05:51<08:44,  3.77s/it, est. speed input: 50.46 toks/s, output: 1326.54 toks/s][A
+
+Processed prompts:  30%|███       | 60/198 [05:54<08:15,  3.59s/it, est. speed input: 51.03 toks/s, output: 1351.76 toks/s][A
+
+Processed prompts:  31%|███       | 61/198 [06:05<13:15,  5.81s/it, est. speed input: 50.13 toks/s, output: 1348.11 toks/s][A
+
+Processed prompts:  31%|███▏      | 62/198 [06:07<10:28,  4.62s/it, est. speed input: 50.79 toks/s, output: 1378.19 toks/s][A
+
+Processed prompts:  32%|███▏      | 63/198 [06:10<09:26,  4.19s/it, est. speed input: 51.23 toks/s, output: 1403.17 toks/s][A
+
+Processed prompts:  32%|███▏      | 64/198 [06:11<07:04,  3.16s/it, est. speed input: 51.81 toks/s, output: 1437.06 toks/s][A
+
+Processed prompts:  33%|███▎      | 65/198 [06:23<12:47,  5.77s/it, est. speed input: 51.22 toks/s, output: 1429.29 toks/s][A
+
+Processed prompts:  33%|███▎      | 66/198 [06:25<10:27,  4.75s/it, est. speed input: 51.68 toks/s, output: 1457.08 toks/s][A
+
+Processed prompts:  34%|███▍      | 67/198 [06:36<14:13,  6.51s/it, est. speed input: 50.82 toks/s, output: 1452.68 toks/s][A
+
+Processed prompts:  34%|███▍      | 68/198 [06:37<10:50,  5.00s/it, est. speed input: 51.34 toks/s, output: 1483.76 toks/s][A[2025-04-12 17:15:45,043] [[33m WARNING[0m]: Sequence group 128 is preempted by PreemptionMode.RECOMPUTE mode because there is not enough KV cache space. This can affect the end-to-end performance. Increase gpu_memory_utilization or tensor_parallel_size to provide more KV cache memory. total_num_cumulative_preemption=51 (scheduler.py:1560)[0m
+
+
+Processed prompts:  35%|███▍      | 69/198 [06:54<18:12,  8.47s/it, est. speed input: 49.83 toks/s, output: 1460.84 toks/s][A
+
+Processed prompts:  35%|███▌      | 70/198 [06:59<16:01,  7.51s/it, est. speed input: 49.81 toks/s, output: 1478.80 toks/s][A
+
+Processed prompts:  36%|███▌      | 71/198 [07:00<11:33,  5.46s/it, est. speed input: 50.35 toks/s, output: 1512.68 toks/s][A
+
+Processed prompts:  36%|███▋      | 72/198 [07:04<10:23,  4.95s/it, est. speed input: 50.92 toks/s, output: 1535.48 toks/s][A
+
+Processed prompts:  37%|███▋      | 73/198 [07:10<10:52,  5.22s/it, est. speed input: 50.76 toks/s, output: 1550.65 toks/s][A
+
+Processed prompts:  37%|███▋      | 74/198 [07:11<08:26,  4.09s/it, est. speed input: 51.11 toks/s, output: 1581.56 toks/s][A
+
+Processed prompts:  38%|███▊      | 75/198 [07:26<15:00,  7.32s/it, est. speed input: 50.04 toks/s, output: 1564.70 toks/s][A
+
+Processed prompts:  38%|███▊      | 76/198 [07:30<12:56,  6.36s/it, est. speed input: 50.44 toks/s, output: 1586.12 toks/s][A
+
+Processed prompts:  39%|███▉      | 77/198 [07:37<13:31,  6.71s/it, est. speed input: 50.25 toks/s, output: 1595.78 toks/s][A
+
+Processed prompts:  39%|███▉      | 78/198 [07:42<11:55,  5.96s/it, est. speed input: 50.34 toks/s, output: 1616.89 toks/s][A
+
+Processed prompts:  40%|███▉      | 79/198 [07:43<09:06,  4.59s/it, est. speed input: 50.79 toks/s, output: 1647.61 toks/s][A
+
+Processed prompts:  40%|████      | 80/198 [07:48<09:22,  4.77s/it, est. speed input: 50.63 toks/s, output: 1637.56 toks/s][A
+
+Processed prompts:  41%|████      | 81/198 [08:04<15:29,  7.95s/it, est. speed input: 49.44 toks/s, output: 1601.55 toks/s][A
+
+Processed prompts:  41%|████▏     | 82/198 [08:12<15:22,  7.95s/it, est. speed input: 49.17 toks/s, output: 1611.17 toks/s][A
+
+Processed prompts:  42%|████▏     | 83/198 [08:13<11:19,  5.91s/it, est. speed input: 49.59 toks/s, output: 1642.99 toks/s][A
+
+Processed prompts:  42%|████▏     | 84/198 [08:16<09:37,  5.07s/it, est. speed input: 49.73 toks/s, output: 1668.13 toks/s][A
+
+Processed prompts:  43%|████▎     | 85/198 [08:22<10:21,  5.50s/it, est. speed input: 49.59 toks/s, output: 1681.95 toks/s][A
+
+Processed prompts:  43%|████▎     | 86/198 [08:39<16:26,  8.81s/it, est. speed input: 48.86 toks/s, output: 1663.79 toks/s][A
+
+Processed prompts:  44%|████▍     | 87/198 [08:43<13:29,  7.29s/it, est. speed input: 49.00 toks/s, output: 1687.24 toks/s][A
+
+Processed prompts:  44%|████▍     | 88/198 [08:52<14:22,  7.84s/it, est. speed input: 48.78 toks/s, output: 1693.65 toks/s][A
+
+Processed prompts:  45%|████▍     | 89/198 [08:59<13:42,  7.55s/it, est. speed input: 48.53 toks/s, output: 1693.85 toks/s][A
+
+Processed prompts:  45%|████▌     | 90/198 [09:00<10:31,  5.84s/it, est. speed input: 48.71 toks/s, output: 1696.44 toks/s][A
+
+Processed prompts:  46%|████▌     | 91/198 [09:12<13:39,  7.66s/it, est. speed input: 48.03 toks/s, output: 1685.53 toks/s][A
+
+Processed prompts:  46%|████▋     | 92/198 [09:20<13:41,  7.75s/it, est. speed input: 47.85 toks/s, output: 1696.73 toks/s][A
+
+Processed prompts:  47%|████▋     | 93/198 [09:33<16:10,  9.24s/it, est. speed input: 47.30 toks/s, output: 1694.26 toks/s][A
+
+Processed prompts:  47%|████▋     | 94/198 [09:34<11:51,  6.84s/it, est. speed input: 47.77 toks/s, output: 1725.74 toks/s][A
+
+Processed prompts:  48%|████▊     | 95/198 [09:39<10:33,  6.15s/it, est. speed input: 47.70 toks/s, output: 1714.35 toks/s][A
+
+Processed prompts:  48%|████▊     | 96/198 [09:39<07:31,  4.42s/it, est. speed input: 48.61 toks/s, output: 1748.21 toks/s][A[2025-04-12 17:18:48,020] [[33m WARNING[0m]: Sequence group 191 is preempted by PreemptionMode.RECOMPUTE mode because there is not enough KV cache space. This can affect the end-to-end performance. Increase gpu_memory_utilization or tensor_parallel_size to provide more KV cache memory. total_num_cumulative_preemption=101 (scheduler.py:1560)[0m
+
+
+Processed prompts:  49%|████▉     | 97/198 [09:51<11:08,  6.62s/it, est. speed input: 48.08 toks/s, output: 1748.46 toks/s][A
+
+Processed prompts:  49%|████▉     | 98/198 [09:52<08:11,  4.91s/it, est. speed input: 48.37 toks/s, output: 1780.64 toks/s][A
+
+Processed prompts:  50%|█████     | 99/198 [09:58<08:39,  5.24s/it, est. speed input: 48.32 toks/s, output: 1797.60 toks/s][A
+
+Processed prompts:  51%|█████     | 100/198 [10:00<07:08,  4.37s/it, est. speed input: 48.74 toks/s, output: 1825.50 toks/s][A
+
+Processed prompts:  51%|█████     | 101/198 [10:11<09:57,  6.16s/it, est. speed input: 48.17 toks/s, output: 1796.31 toks/s][A
+
+Processed prompts:  52%|█████▏    | 102/198 [10:11<07:11,  4.49s/it, est. speed input: 48.51 toks/s, output: 1829.33 toks/s][A
+
+Processed prompts:  52%|█████▏    | 103/198 [10:13<06:01,  3.80s/it, est. speed input: 48.74 toks/s, output: 1857.61 toks/s][A
+
+Processed prompts:  53%|█████▎    | 104/198 [10:18<06:25,  4.10s/it, est. speed input: 48.57 toks/s, output: 1844.85 toks/s][A
+
+Processed prompts:  53%|█████▎    | 105/198 [10:21<05:56,  3.83s/it, est. speed input: 48.59 toks/s, output: 1837.87 toks/s][A
+
+Processed prompts:  54%|█████▎    | 106/198 [10:22<04:27,  2.91s/it, est. speed input: 49.07 toks/s, output: 1870.36 toks/s][A
+
+Processed prompts:  54%|█████▍    | 107/198 [10:31<07:02,  4.64s/it, est. speed input: 48.62 toks/s, output: 1847.14 toks/s][A
+
+Processed prompts:  55%|█████▍    | 108/198 [10:36<07:25,  4.95s/it, est. speed input: 48.93 toks/s, output: 1865.37 toks/s][A
+
+Processed prompts:  55%|█████▌    | 109/198 [10:42<07:38,  5.15s/it, est. speed input: 48.64 toks/s, output: 1851.81 toks/s][A
+
+Processed prompts:  56%|█████▌    | 110/198 [10:43<05:49,  3.97s/it, est. speed input: 48.78 toks/s, output: 1851.53 toks/s][A
+
+Processed prompts:  56%|█████▌    | 111/198 [10:44<04:08,  2.85s/it, est. speed input: 48.93 toks/s, output: 1853.64 toks/s][A
+
+Processed prompts:  57%|█████▋    | 112/198 [10:49<05:21,  3.74s/it, est. speed input: 48.69 toks/s, output: 1840.08 toks/s][A
+
+Processed prompts:  57%|█████▋    | 113/198 [11:01<08:45,  6.18s/it, est. speed input: 52.07 toks/s, output: 1841.52 toks/s][A
+
+Processed prompts:  58%|█████▊    | 114/198 [11:04<07:04,  5.05s/it, est. speed input: 52.07 toks/s, output: 1838.18 toks/s][A
+
+Processed prompts:  58%|█████▊    | 115/198 [11:05<05:30,  3.98s/it, est. speed input: 52.26 toks/s, output: 1855.32 toks/s][A
+
+Processed prompts:  59%|█████▊    | 116/198 [11:13<06:59,  5.12s/it, est. speed input: 51.89 toks/s, output: 1838.22 toks/s][A
+
+Processed prompts:  59%|█████▉    | 117/198 [11:15<05:35,  4.14s/it, est. speed input: 52.00 toks/s, output: 1838.59 toks/s][A[2025-04-12 17:20:29,165] [[33m WARNING[0m]: Sequence group 178 is preempted by PreemptionMode.RECOMPUTE mode because there is not enough KV cache space. This can affect the end-to-end performance. Increase gpu_memory_utilization or tensor_parallel_size to provide more KV cache memory. total_num_cumulative_preemption=151 (scheduler.py:1560)[0m
+
+
+Processed prompts:  60%|█████▉    | 118/198 [11:32<10:45,  8.07s/it, est. speed input: 50.96 toks/s, output: 1799.68 toks/s][A
+
+Processed prompts:  60%|██████    | 119/198 [11:46<12:58,  9.85s/it, est. speed input: 50.20 toks/s, output: 1771.29 toks/s][A
+
+Processed prompts:  61%|██████    | 120/198 [11:48<09:54,  7.62s/it, est. speed input: 50.27 toks/s, output: 1771.74 toks/s][A
+
+Processed prompts:  61%|██████    | 121/198 [11:56<09:53,  7.70s/it, est. speed input: 49.99 toks/s, output: 1767.73 toks/s][A
+
+Processed prompts:  62%|██████▏   | 122/198 [12:02<09:01,  7.13s/it, est. speed input: 49.85 toks/s, output: 1768.25 toks/s][A
+
+Processed prompts:  62%|██████▏   | 123/198 [12:10<09:03,  7.25s/it, est. speed input: 49.58 toks/s, output: 1760.23 toks/s][A
+
+Processed prompts:  63%|██████▎   | 124/198 [12:14<07:53,  6.40s/it, est. speed input: 49.55 toks/s, output: 1770.65 toks/s][A
+
+Processed prompts:  63%|██████▎   | 125/198 [12:22<08:23,  6.90s/it, est. speed input: 49.37 toks/s, output: 1785.69 toks/s][A
+
+Processed prompts:  64%|██████▎   | 126/198 [12:54<17:15, 14.39s/it, est. speed input: 47.56 toks/s, output: 1720.43 toks/s][A
+
+Processed prompts:  64%|██████▍   | 127/198 [13:04<15:26, 13.04s/it, est. speed input: 47.20 toks/s, output: 1717.73 toks/s][A
+
+Processed prompts:  65%|██████▍   | 128/198 [13:52<27:39, 23.71s/it, est. speed input: 44.68 toks/s, output: 1637.00 toks/s][A
+
+Processed prompts:  65%|██████▌   | 129/198 [13:59<21:20, 18.56s/it, est. speed input: 44.58 toks/s, output: 1658.45 toks/s][A
+
+Processed prompts:  66%|██████▌   | 130/198 [14:13<19:21, 17.08s/it, est. speed input: 44.11 toks/s, output: 1664.19 toks/s][A
+
+Processed prompts:  66%|██████▌   | 131/198 [14:20<15:41, 14.05s/it, est. speed input: 43.97 toks/s, output: 1663.31 toks/s][A
+
+Processed prompts:  67%|██████▋   | 132/198 [14:33<15:15, 13.87s/it, est. speed input: 43.56 toks/s, output: 1671.97 toks/s][A
+
+Processed prompts:  67%|██████▋   | 133/198 [14:37<11:45, 10.85s/it, est. speed input: 43.72 toks/s, output: 1698.96 toks/s][A
+
+Processed prompts:  68%|██████▊   | 134/198 [14:41<09:24,  8.82s/it, est. speed input: 43.81 toks/s, output: 1725.28 toks/s][A
+
+Processed prompts:  68%|██████▊   | 135/198 [15:04<13:44, 13.09s/it, est. speed input: 42.88 toks/s, output: 1692.63 toks/s][A
+
+Processed prompts:  69%|██████▊   | 136/198 [15:07<10:24, 10.08s/it, est. speed input: 42.94 toks/s, output: 1702.39 toks/s][A
+
+Processed prompts:  69%|██████▉   | 137/198 [15:13<08:51,  8.71s/it, est. speed input: 42.95 toks/s, output: 1726.31 toks/s][A
+
+Processed prompts:  70%|██████▉   | 138/198 [15:29<10:55, 10.93s/it, est. speed input: 42.47 toks/s, output: 1730.53 toks/s][A
+
+Processed prompts:  70%|███████   | 139/198 [15:32<08:31,  8.67s/it, est. speed input: 43.29 toks/s, output: 1758.39 toks/s][A
+
+Processed prompts:  71%|███████   | 140/198 [15:35<06:35,  6.82s/it, est. speed input: 43.33 toks/s, output: 1757.12 toks/s][A
+
+Processed prompts:  71%|███████   | 141/198 [15:41<06:28,  6.82s/it, est. speed input: 43.33 toks/s, output: 1778.52 toks/s][A
+
+Processed prompts:  72%|███████▏  | 142/198 [15:44<05:05,  5.45s/it, est. speed input: 43.48 toks/s, output: 1808.39 toks/s][A
+
+Processed prompts:  72%|███████▏  | 143/198 [15:44<03:40,  4.01s/it, est. speed input: 44.00 toks/s, output: 1841.29 toks/s][A
+
+Processed prompts:  74%|███████▎  | 146/198 [15:46<01:42,  1.98s/it, est. speed input: 45.15 toks/s, output: 1911.95 toks/s][A
+
+Processed prompts:  74%|███████▍  | 147/198 [15:46<01:28,  1.74s/it, est. speed input: 45.58 toks/s, output: 1944.36 toks/s][A
+
+Processed prompts:  75%|███████▍  | 148/198 [15:49<01:34,  1.89s/it, est. speed input: 45.83 toks/s, output: 1973.68 toks/s][A
+
+Processed prompts:  75%|███████▌  | 149/198 [15:49<01:17,  1.58s/it, est. speed input: 46.14 toks/s, output: 2006.51 toks/s][A
+
+Processed prompts:  76%|███████▌  | 150/198 [15:50<00:59,  1.24s/it, est. speed input: 46.45 toks/s, output: 2040.01 toks/s][A
+
+Processed prompts:  76%|███████▋  | 151/198 [15:50<00:44,  1.05it/s, est. speed input: 46.76 toks/s, output: 2073.82 toks/s][A
+
+Processed prompts:  77%|███████▋  | 152/198 [15:50<00:39,  1.17it/s, est. speed input: 47.02 toks/s, output: 2106.63 toks/s][A
+
+Processed prompts:  77%|███████▋  | 153/198 [15:51<00:33,  1.33it/s, est. speed input: 47.26 toks/s, output: 2139.73 toks/s][A
+
+Processed prompts:  78%|███████▊  | 154/198 [15:51<00:26,  1.69it/s, est. speed input: 47.51 toks/s, output: 2173.46 toks/s][A
+
+Processed prompts:  78%|███████▊  | 155/198 [15:51<00:20,  2.09it/s, est. speed input: 47.75 toks/s, output: 2207.17 toks/s][A
+
+Processed prompts:  79%|███████▉  | 157/198 [15:52<00:12,  3.18it/s, est. speed input: 48.22 toks/s, output: 2274.98 toks/s][A
+
+Processed prompts:  81%|████████  | 160/198 [15:52<00:07,  5.10it/s, est. speed input: 48.89 toks/s, output: 2376.97 toks/s][A
+
+Processed prompts:  81%|████████▏ | 161/198 [16:03<01:25,  2.32s/it, est. speed input: 48.49 toks/s, output: 2358.49 toks/s][A
+
+Processed prompts:  82%|████████▏ | 162/198 [16:07<01:33,  2.59s/it, est. speed input: 48.49 toks/s, output: 2364.09 toks/s][A
+
+Processed prompts:  82%|████████▏ | 163/198 [16:12<01:51,  3.17s/it, est. speed input: 48.42 toks/s, output: 2364.06 toks/s][A
+
+Processed prompts:  83%|████████▎ | 164/198 [16:15<01:47,  3.17s/it, est. speed input: 48.42 toks/s, output: 2363.56 toks/s][A
+
+Processed prompts:  83%|████████▎ | 165/198 [16:19<01:51,  3.37s/it, est. speed input: 48.38 toks/s, output: 2360.65 toks/s][A
+
+Processed prompts:  84%|████████▍ | 166/198 [16:26<02:21,  4.42s/it, est. speed input: 48.19 toks/s, output: 2351.48 toks/s][A
+
+Processed prompts:  84%|████████▍ | 167/198 [16:30<02:11,  4.23s/it, est. speed input: 48.16 toks/s, output: 2349.38 toks/s][A
+
+Processed prompts:  85%|████████▍ | 168/198 [16:37<02:30,  5.01s/it, est. speed input: 47.92 toks/s, output: 2337.85 toks/s][A
+
+Processed prompts:  85%|████████▌ | 169/198 [16:39<02:00,  4.14s/it, est. speed input: 48.02 toks/s, output: 2365.70 toks/s][A
+
+Processed prompts:  86%|████████▌ | 170/198 [16:41<01:38,  3.53s/it, est. speed input: 48.11 toks/s, output: 2380.00 toks/s][A
+
+Processed prompts:  86%|████████▋ | 171/198 [16:44<01:33,  3.45s/it, est. speed input: 48.11 toks/s, output: 2381.64 toks/s][A
+
+Processed prompts:  87%|████████▋ | 172/198 [16:48<01:35,  3.68s/it, est. speed input: 48.07 toks/s, output: 2383.24 toks/s][A
+
+Processed prompts:  88%|████████▊ | 174/198 [16:49<00:49,  2.08s/it, est. speed input: 48.41 toks/s, output: 2424.64 toks/s][A
+
+Processed prompts:  88%|████████▊ | 175/198 [16:51<00:49,  2.15s/it, est. speed input: 48.47 toks/s, output: 2432.09 toks/s][A
+
+Processed prompts:  89%|████████▉ | 176/198 [16:53<00:48,  2.20s/it, est. speed input: 48.52 toks/s, output: 2439.40 toks/s][A
+
+Processed prompts:  89%|████████▉ | 177/198 [17:03<01:28,  4.22s/it, est. speed input: 48.26 toks/s, output: 2448.27 toks/s][A
+
+Processed prompts:  90%|████████▉ | 178/198 [17:05<01:11,  3.56s/it, est. speed input: 48.33 toks/s, output: 2455.99 toks/s][A
+
+Processed prompts:  90%|█████████ | 179/198 [17:05<00:49,  2.62s/it, est. speed input: 48.47 toks/s, output: 2468.24 toks/s][A
+
+Processed prompts:  91%|█████████ | 180/198 [17:09<00:55,  3.06s/it, est. speed input: 48.41 toks/s, output: 2466.49 toks/s][A
+
+Processed prompts:  91%|█████████▏| 181/198 [17:14<00:58,  3.43s/it, est. speed input: 48.30 toks/s, output: 2463.69 toks/s][A
+
+Processed prompts:  92%|█████████▏| 182/198 [17:19<01:01,  3.84s/it, est. speed input: 48.20 toks/s, output: 2460.89 toks/s][A
+
+Processed prompts:  92%|█████████▏| 183/198 [17:20<00:47,  3.14s/it, est. speed input: 48.24 toks/s, output: 2465.88 toks/s][A
+
+Processed prompts:  93%|█████████▎| 184/198 [17:27<01:01,  4.39s/it, est. speed input: 48.04 toks/s, output: 2458.52 toks/s][A
+
+Processed prompts:  94%|█████████▍| 186/198 [17:34<00:46,  3.85s/it, est. speed input: 47.98 toks/s, output: 2462.20 toks/s][A
+
+Processed prompts:  95%|█████████▍| 188/198 [17:38<00:31,  3.16s/it, est. speed input: 48.04 toks/s, output: 2473.65 toks/s][A
+
+Processed prompts:  95%|█████████▌| 189/198 [17:44<00:33,  3.68s/it, est. speed input: 47.93 toks/s, output: 2472.16 toks/s][A
+
+Processed prompts:  96%|█████████▌| 190/198 [17:56<00:47,  5.90s/it, est. speed input: 47.48 toks/s, output: 2454.52 toks/s][A
+
+Processed prompts:  96%|█████████▋| 191/198 [17:57<00:31,  4.56s/it, est. speed input: 47.57 toks/s, output: 2464.70 toks/s][A
+
+Processed prompts:  97%|█████████▋| 192/198 [18:06<00:34,  5.71s/it, est. speed input: 47.31 toks/s, output: 2457.63 toks/s][A
+
+Processed prompts:  97%|█████████▋| 193/198 [18:08<00:23,  4.62s/it, est. speed input: 47.41 toks/s, output: 2483.56 toks/s][A
+
+Processed prompts:  98%|█████████▊| 194/198 [18:14<00:20,  5.17s/it, est. speed input: 47.27 toks/s, output: 2482.71 toks/s][A
+
+Processed prompts:  98%|█████████▊| 195/198 [18:18<00:14,  4.70s/it, est. speed input: 47.29 toks/s, output: 2504.34 toks/s][A
+
+Processed prompts:  99%|█████████▉| 196/198 [18:23<00:09,  4.75s/it, est. speed input: 47.25 toks/s, output: 2516.32 toks/s][A
+
+Processed prompts:  99%|█████████▉| 197/198 [19:43<00:27, 27.08s/it, est. speed input: 44.15 toks/s, output: 2366.11 toks/s][A
+
+Processed prompts: 100%|██████████| 198/198 [20:01<00:00, 24.40s/it, est. speed input: 43.62 toks/s, output: 2357.80 toks/s][A
+Processed prompts: 100%|██████████| 198/198 [20:01<00:00,  6.07s/it, est. speed input: 43.62 toks/s, output: 2357.80 toks/s]
+
+Splits: 100%|██████████| 1/1 [20:03<00:00, 1203.38s/it]
+Splits: 100%|██████████| 1/1 [20:03<00:00, 1203.39s/it]
+[2025-04-12 17:29:06,096] [[32m    INFO[0m]: Terminating local vLLM worker processes (multiproc_worker_utils.py:141)[0m
+[1;36m(VllmWorkerProcess pid=3919561)[0;0m INFO 04-12 17:29:06 multiproc_worker_utils.py:253] Worker exiting
+[1;36m(VllmWorkerProcess pid=3919559)[0;0m INFO 04-12 17:29:06 multiproc_worker_utils.py:253] Worker exiting
+[1;36m(VllmWorkerProcess pid=3919560)[0;0m INFO 04-12 17:29:06 multiproc_worker_utils.py:253] Worker exiting
+[2025-04-12 17:29:09,218] [[32m    INFO[0m]: --- COMPUTING METRICS --- (pipeline.py:504)[0m
+[2025-04-12 17:29:09,636] [[32m    INFO[0m]: --- DISPLAYING RESULTS --- (pipeline.py:546)[0m
+[2025-04-12 17:29:09,646] [[32m    INFO[0m]: --- SAVING AND PUSHING RESULTS --- (pipeline.py:536)[0m
+[2025-04-12 17:29:09,646] [[32m    INFO[0m]: Saving experiment tracker (evaluation_tracker.py:180)[0m
+[2025-04-12 17:29:11,069] [[32m    INFO[0m]: Saving results to ~/Projects/nips25_slot/open-r2/data/evals~/Models/deepseek-ai/DeepSeek-R1-Distill-Qwen-1.5B/results/_Models_deepseek-ai_DeepSeek-R1-Distill-Qwen-1.5B/results_2025-04-12T17-29-09.646201.json (evaluation_tracker.py:234)[0m
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=3, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([32639, 1536]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - hidden_states_orig: torch.Size([32639, 1536]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - hidden_states_orig: torch.Size([32639, 1536]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=3, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([8598, 1536]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - hidden_states_orig: torch.Size([8598, 1536]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - hidden_states_orig: torch.Size([8598, 1536]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=3, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([202, 1536]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - hidden_states_orig: torch.Size([202, 1536]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - hidden_states_orig: torch.Size([202, 1536]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=3, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([201, 1536]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - hidden_states_orig: torch.Size([201, 1536]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - hidden_states_orig: torch.Size([201, 1536]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=3, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([201, 1536]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - hidden_states_orig: torch.Size([201, 1536]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - hidden_states_orig: torch.Size([201, 1536]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=3, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([200, 1536]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - hidden_states_orig: torch.Size([200, 1536]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - hidden_states_orig: torch.Size([200, 1536]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=3, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([198, 1536]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - hidden_states_orig: torch.Size([198, 1536]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - hidden_states_orig: torch.Size([198, 1536]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=3, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([196, 1536]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - hidden_states_orig: torch.Size([196, 1536]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - hidden_states_orig: torch.Size([196, 1536]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=3, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([195, 1536]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - hidden_states_orig: torch.Size([195, 1536]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - hidden_states_orig: torch.Size([195, 1536]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=3, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([195, 1536]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - hidden_states_orig: torch.Size([195, 1536]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - hidden_states_orig: torch.Size([195, 1536]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=3, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([194, 1536]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - hidden_states_orig: torch.Size([194, 1536]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - hidden_states_orig: torch.Size([194, 1536]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=3, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([194, 1536]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - hidden_states_orig: torch.Size([194, 1536]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - hidden_states_orig: torch.Size([194, 1536]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=3, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([191, 1536]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - hidden_states_orig: torch.Size([191, 1536]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - hidden_states_orig: torch.Size([191, 1536]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=3, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([190, 1536]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - hidden_states_orig: torch.Size([190, 1536]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - hidden_states_orig: torch.Size([190, 1536]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=3, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([189, 1536]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - hidden_states_orig: torch.Size([189, 1536]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - hidden_states_orig: torch.Size([189, 1536]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=3, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([189, 1536]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - hidden_states_orig: torch.Size([189, 1536]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - hidden_states_orig: torch.Size([189, 1536]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=3, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([188, 1536]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - hidden_states_orig: torch.Size([188, 1536]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - hidden_states_orig: torch.Size([188, 1536]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=3, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([186, 1536]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - hidden_states_orig: torch.Size([186, 1536]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - hidden_states_orig: torch.Size([186, 1536]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=3, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([183, 1536]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - hidden_states_orig: torch.Size([183, 1536]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - hidden_states_orig: torch.Size([183, 1536]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=3, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([182, 1536]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - hidden_states_orig: torch.Size([182, 1536]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - hidden_states_orig: torch.Size([182, 1536]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=3, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([181, 1536]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - hidden_states_orig: torch.Size([181, 1536]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - hidden_states_orig: torch.Size([181, 1536]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=3, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([181, 1536]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - hidden_states_orig: torch.Size([181, 1536]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - hidden_states_orig: torch.Size([181, 1536]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=3, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([178, 1536]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - hidden_states_orig: torch.Size([178, 1536]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - hidden_states_orig: torch.Size([178, 1536]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=3, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([177, 1536]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - hidden_states_orig: torch.Size([177, 1536]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - hidden_states_orig: torch.Size([177, 1536]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=3, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([177, 1536]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - hidden_states_orig: torch.Size([177, 1536]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - hidden_states_orig: torch.Size([177, 1536]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=3, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([175, 1536]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - hidden_states_orig: torch.Size([175, 1536]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - hidden_states_orig: torch.Size([175, 1536]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=3, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([175, 1536]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - hidden_states_orig: torch.Size([175, 1536]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - hidden_states_orig: torch.Size([175, 1536]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=3, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([175, 1536]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - hidden_states_orig: torch.Size([175, 1536]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - hidden_states_orig: torch.Size([175, 1536]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=3, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([173, 1536]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - hidden_states_orig: torch.Size([173, 1536]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - hidden_states_orig: torch.Size([173, 1536]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=3, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([172, 1536]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - hidden_states_orig: torch.Size([172, 1536]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - hidden_states_orig: torch.Size([172, 1536]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=3, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([171, 1536]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - hidden_states_orig: torch.Size([171, 1536]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - hidden_states_orig: torch.Size([171, 1536]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=3, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([9245, 1536]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - hidden_states_orig: torch.Size([9245, 1536]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - hidden_states_orig: torch.Size([9245, 1536]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=3, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([9150, 1536]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - hidden_states_orig: torch.Size([9150, 1536]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - hidden_states_orig: torch.Size([9150, 1536]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=3, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([9946, 1536]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - hidden_states_orig: torch.Size([9946, 1536]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - hidden_states_orig: torch.Size([9946, 1536]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=3, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([10051, 1536]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - hidden_states_orig: torch.Size([10051, 1536]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - hidden_states_orig: torch.Size([10051, 1536]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=3, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([9839, 1536]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - hidden_states_orig: torch.Size([9839, 1536]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - hidden_states_orig: torch.Size([9839, 1536]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=3, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([9958, 1536]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - hidden_states_orig: torch.Size([9958, 1536]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - hidden_states_orig: torch.Size([9958, 1536]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=3, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([9735, 1536]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - hidden_states_orig: torch.Size([9735, 1536]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - hidden_states_orig: torch.Size([9735, 1536]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=3, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([9591, 1536]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - hidden_states_orig: torch.Size([9591, 1536]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - hidden_states_orig: torch.Size([9591, 1536]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=3, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([9252, 1536]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - hidden_states_orig: torch.Size([9252, 1536]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - hidden_states_orig: torch.Size([9252, 1536]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=3, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([9060, 1536]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - hidden_states_orig: torch.Size([9060, 1536]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - hidden_states_orig: torch.Size([9060, 1536]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=3, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([11461, 1536]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - hidden_states_orig: torch.Size([11461, 1536]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - hidden_states_orig: torch.Size([11461, 1536]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=3, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([10996, 1536]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - hidden_states_orig: torch.Size([10996, 1536]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - hidden_states_orig: torch.Size([10996, 1536]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=3, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([11753, 1536]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - hidden_states_orig: torch.Size([11753, 1536]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - hidden_states_orig: torch.Size([11753, 1536]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=3, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([12716, 1536]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - hidden_states_orig: torch.Size([12716, 1536]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - hidden_states_orig: torch.Size([12716, 1536]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=3, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([12114, 1536]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - hidden_states_orig: torch.Size([12114, 1536]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - hidden_states_orig: torch.Size([12114, 1536]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=3, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([11137, 1536]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - hidden_states_orig: torch.Size([11137, 1536]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - hidden_states_orig: torch.Size([11137, 1536]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=3, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([10608, 1536]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - hidden_states_orig: torch.Size([10608, 1536]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - hidden_states_orig: torch.Size([10608, 1536]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=3, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([10322, 1536]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - hidden_states_orig: torch.Size([10322, 1536]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - hidden_states_orig: torch.Size([10322, 1536]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=3, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([10540, 1536]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - hidden_states_orig: torch.Size([10540, 1536]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - hidden_states_orig: torch.Size([10540, 1536]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=3, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([9626, 1536]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - hidden_states_orig: torch.Size([9626, 1536]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - hidden_states_orig: torch.Size([9626, 1536]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=3, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([17193, 1536]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - hidden_states_orig: torch.Size([17193, 1536]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - hidden_states_orig: torch.Size([17193, 1536]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=3, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([9567, 1536]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - hidden_states_orig: torch.Size([9567, 1536]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - hidden_states_orig: torch.Size([9567, 1536]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=3, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([17832, 1536]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - hidden_states_orig: torch.Size([17832, 1536]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - hidden_states_orig: torch.Size([17832, 1536]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=3, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([10953, 1536]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - hidden_states_orig: torch.Size([10953, 1536]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - hidden_states_orig: torch.Size([10953, 1536]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=3, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([11113, 1536]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - hidden_states_orig: torch.Size([11113, 1536]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - hidden_states_orig: torch.Size([11113, 1536]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=3, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([18295, 1536]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - hidden_states_orig: torch.Size([18295, 1536]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - hidden_states_orig: torch.Size([18295, 1536]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=3, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([6751, 1536]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - hidden_states_orig: torch.Size([6751, 1536]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - hidden_states_orig: torch.Size([6751, 1536]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=3, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([6263, 1536]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - hidden_states_orig: torch.Size([6263, 1536]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - hidden_states_orig: torch.Size([6263, 1536]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=3, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([17204, 1536]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - hidden_states_orig: torch.Size([17204, 1536]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - hidden_states_orig: torch.Size([17204, 1536]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=3, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([6433, 1536]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - hidden_states_orig: torch.Size([6433, 1536]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - hidden_states_orig: torch.Size([6433, 1536]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=3, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([6051, 1536]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - hidden_states_orig: torch.Size([6051, 1536]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - hidden_states_orig: torch.Size([6051, 1536]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=3, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([5469, 1536]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - hidden_states_orig: torch.Size([5469, 1536]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - hidden_states_orig: torch.Size([5469, 1536]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=3, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([10193, 1536]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - hidden_states_orig: torch.Size([10193, 1536]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - hidden_states_orig: torch.Size([10193, 1536]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=3, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([15252, 1536]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - hidden_states_orig: torch.Size([15252, 1536]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - hidden_states_orig: torch.Size([15252, 1536]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=3, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([7311, 1536]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - hidden_states_orig: torch.Size([7311, 1536]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - hidden_states_orig: torch.Size([7311, 1536]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=3, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([17417, 1536]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - hidden_states_orig: torch.Size([17417, 1536]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - hidden_states_orig: torch.Size([17417, 1536]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=3, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([12185, 1536]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - hidden_states_orig: torch.Size([12185, 1536]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - hidden_states_orig: torch.Size([12185, 1536]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=3, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([9092, 1536]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - hidden_states_orig: torch.Size([9092, 1536]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - hidden_states_orig: torch.Size([9092, 1536]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=3, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([11325, 1536]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - hidden_states_orig: torch.Size([11325, 1536]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - hidden_states_orig: torch.Size([11325, 1536]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=3, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([14390, 1536]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - hidden_states_orig: torch.Size([14390, 1536]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - hidden_states_orig: torch.Size([14390, 1536]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=3, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([12680, 1536]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - hidden_states_orig: torch.Size([12680, 1536]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - hidden_states_orig: torch.Size([12680, 1536]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=3, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([2814, 1536]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - hidden_states_orig: torch.Size([2814, 1536]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - hidden_states_orig: torch.Size([2814, 1536]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=3, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([2387, 1536]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - hidden_states_orig: torch.Size([2387, 1536]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - hidden_states_orig: torch.Size([2387, 1536]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=3, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([5550, 1536]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - hidden_states_orig: torch.Size([5550, 1536]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - hidden_states_orig: torch.Size([5550, 1536]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=3, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([15438, 1536]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - hidden_states_orig: torch.Size([15438, 1536]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - hidden_states_orig: torch.Size([15438, 1536]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=3, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([13750, 1536]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - hidden_states_orig: torch.Size([13750, 1536]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - hidden_states_orig: torch.Size([13750, 1536]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=3, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([19704, 1536]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - hidden_states_orig: torch.Size([19704, 1536]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - hidden_states_orig: torch.Size([19704, 1536]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=3, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([3652, 1536]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - hidden_states_orig: torch.Size([3652, 1536]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - hidden_states_orig: torch.Size([3652, 1536]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=3, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([11656, 1536]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - hidden_states_orig: torch.Size([11656, 1536]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - hidden_states_orig: torch.Size([11656, 1536]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=3, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([3634, 1536]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - hidden_states_orig: torch.Size([3634, 1536]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - hidden_states_orig: torch.Size([3634, 1536]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=3, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([16706, 1536]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - hidden_states_orig: torch.Size([16706, 1536]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - hidden_states_orig: torch.Size([16706, 1536]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=3, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([6442, 1536]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - hidden_states_orig: torch.Size([6442, 1536]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - hidden_states_orig: torch.Size([6442, 1536]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=3, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([4560, 1536]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - hidden_states_orig: torch.Size([4560, 1536]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - hidden_states_orig: torch.Size([4560, 1536]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=3, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([4960, 1536]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - hidden_states_orig: torch.Size([4960, 1536]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - hidden_states_orig: torch.Size([4960, 1536]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=3, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([16849, 1536]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - hidden_states_orig: torch.Size([16849, 1536]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - hidden_states_orig: torch.Size([16849, 1536]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=3, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([6808, 1536]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - hidden_states_orig: torch.Size([6808, 1536]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - hidden_states_orig: torch.Size([6808, 1536]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=3, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([10143, 1536]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - hidden_states_orig: torch.Size([10143, 1536]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - hidden_states_orig: torch.Size([10143, 1536]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=3, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([19228, 1536]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - hidden_states_orig: torch.Size([19228, 1536]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - hidden_states_orig: torch.Size([19228, 1536]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=3, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([16592, 1536]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - hidden_states_orig: torch.Size([16592, 1536]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - hidden_states_orig: torch.Size([16592, 1536]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=3, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([22988, 1536]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - hidden_states_orig: torch.Size([22988, 1536]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - hidden_states_orig: torch.Size([22988, 1536]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=3, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([25186, 1536]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - hidden_states_orig: torch.Size([25186, 1536]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - hidden_states_orig: torch.Size([25186, 1536]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=3, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([27807, 1536]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - hidden_states_orig: torch.Size([27807, 1536]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - hidden_states_orig: torch.Size([27807, 1536]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=3, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([10726, 1536]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - hidden_states_orig: torch.Size([10726, 1536]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - hidden_states_orig: torch.Size([10726, 1536]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=3, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([24994, 1536]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - hidden_states_orig: torch.Size([24994, 1536]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - hidden_states_orig: torch.Size([24994, 1536]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=3, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([19523, 1536]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - hidden_states_orig: torch.Size([19523, 1536]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - hidden_states_orig: torch.Size([19523, 1536]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=3, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([30867, 1536]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - hidden_states_orig: torch.Size([30867, 1536]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - hidden_states_orig: torch.Size([30867, 1536]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=3, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([14808, 1536]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - hidden_states_orig: torch.Size([14808, 1536]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - hidden_states_orig: torch.Size([14808, 1536]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+|          Task          |Version|     Metric     |Value |   |Stderr|
+|------------------------|------:|----------------|-----:|---|-----:|
+|all                     |       |extractive_match|0.3535|±  |0.0341|
+|lighteval:gpqa:diamond:0|      0|extractive_match|0.3535|±  |0.0341|
+

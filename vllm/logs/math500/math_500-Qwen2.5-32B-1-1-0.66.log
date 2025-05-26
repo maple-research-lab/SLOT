@@ -1,0 +1,2769 @@
+[2025-04-14 20:04:43,356] [[32m    INFO[0m]: PyTorch version 2.5.1 available. (config.py:58)[0m
+INFO 04-14 20:04:51 __init__.py:190] Automatically detected platform cuda.
+[2025-04-14 20:04:52,898] [[32m    INFO[0m]: --- LOADING MODEL --- (pipeline.py:189)[0m
+[2025-04-14 20:05:01,516] [[32m    INFO[0m]: This model supports multiple tasks: {'reward', 'generate', 'classify', 'embed', 'score'}. Defaulting to 'generate'. (config.py:542)[0m
+[2025-04-14 20:05:01,870] [[32m    INFO[0m]: Defaulting to use mp for distributed inference (config.py:1401)[0m
+[2025-04-14 20:05:01,874] [[32m    INFO[0m]: Initializing a V0 LLM engine (v0.7.2) with config: model='~/Models/Qwen/Qwen2.5-32B', speculative_config=None, tokenizer='~/Models/Qwen/Qwen2.5-32B', skip_tokenizer_init=False, tokenizer_mode=auto, revision=main, override_neuron_config=None, tokenizer_revision=main, trust_remote_code=False, dtype=torch.bfloat16, max_seq_len=32768, download_dir=None, load_format=LoadFormat.AUTO, tensor_parallel_size=8, pipeline_parallel_size=1, disable_custom_all_reduce=False, quantization=None, enforce_eager=False, kv_cache_dtype=auto,  device_config=cuda, decoding_config=DecodingConfig(guided_decoding_backend='xgrammar'), observability_config=ObservabilityConfig(otlp_traces_endpoint=None, collect_model_forward_time=False, collect_model_execute_time=False), seed=1234, served_model_name=~/Models/Qwen/Qwen2.5-32B, num_scheduler_steps=1, multi_step_stream_outputs=True, enable_prefix_caching=False, chunked_prefill_enabled=False, use_async_output_proc=True, disable_mm_preprocessor_cache=False, mm_processor_kwargs=None, pooler_config=None, compilation_config={"splitting_ops":[],"compile_sizes":[],"cudagraph_capture_sizes":[128,120,112,104,96,88,80,72,64,56,48,40,32,24,16,8,4,2,1],"max_capture_size":128}, use_cached_outputs=False,  (llm_engine.py:234)[0m
+[2025-04-14 20:05:02,092] [[33m WARNING[0m]: Reducing Torch parallelism from 64 threads to 1 to avoid unnecessary CPU contention. Set OMP_NUM_THREADS in the external environment to tune this value as needed. (multiproc_worker_utils.py:300)[0m
+[2025-04-14 20:05:02,095] [[32m    INFO[0m]: Setting Triton cache manager to: vllm.triton_utils.custom_cache_manager:CustomCacheManager (custom_cache_manager.py:19)[0m
+[2025-04-14 20:05:02,812] [[32m    INFO[0m]: Using Flash Attention backend. (cuda.py:230)[0m
+INFO 04-14 20:05:08 __init__.py:190] Automatically detected platform cuda.
+INFO 04-14 20:05:08 __init__.py:190] Automatically detected platform cuda.
+INFO 04-14 20:05:09 __init__.py:190] Automatically detected platform cuda.
+INFO 04-14 20:05:09 __init__.py:190] Automatically detected platform cuda.
+INFO 04-14 20:05:09 __init__.py:190] Automatically detected platform cuda.
+INFO 04-14 20:05:09 __init__.py:190] Automatically detected platform cuda.
+INFO 04-14 20:05:09 __init__.py:190] Automatically detected platform cuda.
+[1;36m(VllmWorkerProcess pid=3736662)[0;0m INFO 04-14 20:05:11 multiproc_worker_utils.py:229] Worker ready; awaiting tasks
+[1;36m(VllmWorkerProcess pid=3736660)[0;0m INFO 04-14 20:05:11 multiproc_worker_utils.py:229] Worker ready; awaiting tasks
+[1;36m(VllmWorkerProcess pid=3736666)[0;0m INFO 04-14 20:05:12 multiproc_worker_utils.py:229] Worker ready; awaiting tasks
+[1;36m(VllmWorkerProcess pid=3736661)[0;0m INFO 04-14 20:05:12 multiproc_worker_utils.py:229] Worker ready; awaiting tasks
+[1;36m(VllmWorkerProcess pid=3736668)[0;0m INFO 04-14 20:05:12 multiproc_worker_utils.py:229] Worker ready; awaiting tasks
+[1;36m(VllmWorkerProcess pid=3736665)[0;0m INFO 04-14 20:05:12 multiproc_worker_utils.py:229] Worker ready; awaiting tasks
+[1;36m(VllmWorkerProcess pid=3736667)[0;0m INFO 04-14 20:05:12 multiproc_worker_utils.py:229] Worker ready; awaiting tasks
+[1;36m(VllmWorkerProcess pid=3736662)[0;0m INFO 04-14 20:05:16 cuda.py:230] Using Flash Attention backend.
+[1;36m(VllmWorkerProcess pid=3736660)[0;0m INFO 04-14 20:05:17 cuda.py:230] Using Flash Attention backend.
+[1;36m(VllmWorkerProcess pid=3736666)[0;0m INFO 04-14 20:05:17 cuda.py:230] Using Flash Attention backend.
+[1;36m(VllmWorkerProcess pid=3736665)[0;0m INFO 04-14 20:05:17 cuda.py:230] Using Flash Attention backend.
+[1;36m(VllmWorkerProcess pid=3736667)[0;0m INFO 04-14 20:05:18 cuda.py:230] Using Flash Attention backend.
+[1;36m(VllmWorkerProcess pid=3736668)[0;0m INFO 04-14 20:05:18 cuda.py:230] Using Flash Attention backend.
+[1;36m(VllmWorkerProcess pid=3736661)[0;0m INFO 04-14 20:05:18 cuda.py:230] Using Flash Attention backend.
+[1;36m(VllmWorkerProcess pid=3736660)[0;0m INFO 04-14 20:05:21 utils.py:950] Found nccl from library libnccl.so.2
+[1;36m(VllmWorkerProcess pid=3736665)[0;0m INFO 04-14 20:05:21 utils.py:950] Found nccl from library libnccl.so.2
+[2025-04-14 20:05:21,751] [[32m    INFO[0m]: Found nccl from library libnccl.so.2 (utils.py:950)[0m
+[1;36m(VllmWorkerProcess pid=3736667)[0;0m INFO 04-14 20:05:21 utils.py:950] Found nccl from library libnccl.so.2
+[1;36m(VllmWorkerProcess pid=3736666)[0;0m INFO 04-14 20:05:21 utils.py:950] Found nccl from library libnccl.so.2
+[1;36m(VllmWorkerProcess pid=3736660)[0;0m INFO 04-14 20:05:21 pynccl.py:69] vLLM is using nccl==2.21.5
+[1;36m(VllmWorkerProcess pid=3736668)[0;0m INFO 04-14 20:05:21 utils.py:950] Found nccl from library libnccl.so.2
+[1;36m(VllmWorkerProcess pid=3736662)[0;0m INFO 04-14 20:05:21 utils.py:950] Found nccl from library libnccl.so.2
+[1;36m(VllmWorkerProcess pid=3736661)[0;0m INFO 04-14 20:05:21 utils.py:950] Found nccl from library libnccl.so.2
+[1;36m(VllmWorkerProcess pid=3736667)[0;0m INFO 04-14 20:05:21 pynccl.py:69] vLLM is using nccl==2.21.5
+[1;36m(VllmWorkerProcess pid=3736666)[0;0m INFO 04-14 20:05:21 pynccl.py:69] vLLM is using nccl==2.21.5
+[1;36m(VllmWorkerProcess pid=3736665)[0;0m INFO 04-14 20:05:21 pynccl.py:69] vLLM is using nccl==2.21.5
+[1;36m(VllmWorkerProcess pid=3736668)[0;0m INFO 04-14 20:05:21 pynccl.py:69] vLLM is using nccl==2.21.5
+[1;36m(VllmWorkerProcess pid=3736662)[0;0m INFO 04-14 20:05:21 pynccl.py:69] vLLM is using nccl==2.21.5
+[2025-04-14 20:05:21,752] [[32m    INFO[0m]: vLLM is using nccl==2.21.5 (pynccl.py:69)[0m
+[1;36m(VllmWorkerProcess pid=3736661)[0;0m INFO 04-14 20:05:21 pynccl.py:69] vLLM is using nccl==2.21.5
+[1;36m(VllmWorkerProcess pid=3736667)[0;0m INFO 04-14 20:05:29 custom_all_reduce_utils.py:244] reading GPU P2P access cache from ~/.cache/vllm/gpu_p2p_access_cache_for_0,1,2,3,4,5,6,7.json
+[1;36m(VllmWorkerProcess pid=3736661)[0;0m INFO 04-14 20:05:29 custom_all_reduce_utils.py:244] reading GPU P2P access cache from ~/.cache/vllm/gpu_p2p_access_cache_for_0,1,2,3,4,5,6,7.json
+[2025-04-14 20:05:29,011] [[32m    INFO[0m]: reading GPU P2P access cache from ~/.cache/vllm/gpu_p2p_access_cache_for_0,1,2,3,4,5,6,7.json (custom_all_reduce_utils.py:244)[0m
+[1;36m(VllmWorkerProcess pid=3736660)[0;0m INFO 04-14 20:05:29 custom_all_reduce_utils.py:244] reading GPU P2P access cache from ~/.cache/vllm/gpu_p2p_access_cache_for_0,1,2,3,4,5,6,7.json
+[1;36m(VllmWorkerProcess pid=3736666)[0;0m INFO 04-14 20:05:29 custom_all_reduce_utils.py:244] reading GPU P2P access cache from ~/.cache/vllm/gpu_p2p_access_cache_for_0,1,2,3,4,5,6,7.json
+[1;36m(VllmWorkerProcess pid=3736662)[0;0m INFO 04-14 20:05:29 custom_all_reduce_utils.py:244] reading GPU P2P access cache from ~/.cache/vllm/gpu_p2p_access_cache_for_0,1,2,3,4,5,6,7.json
+[1;36m(VllmWorkerProcess pid=3736665)[0;0m INFO 04-14 20:05:29 custom_all_reduce_utils.py:244] reading GPU P2P access cache from ~/.cache/vllm/gpu_p2p_access_cache_for_0,1,2,3,4,5,6,7.json
+[1;36m(VllmWorkerProcess pid=3736668)[0;0m INFO 04-14 20:05:29 custom_all_reduce_utils.py:244] reading GPU P2P access cache from ~/.cache/vllm/gpu_p2p_access_cache_for_0,1,2,3,4,5,6,7.json
+[2025-04-14 20:05:29,444] [[32m    INFO[0m]: vLLM message queue communication handle: Handle(connect_ip='127.0.0.1', local_reader_ranks=[1, 2, 3, 4, 5, 6, 7], buffer_handle=(7, 4194304, 6, 'psm_6ab255e1'), local_subscribe_port=42633, remote_subscribe_port=None) (shm_broadcast.py:258)[0m
+[2025-04-14 20:05:29,455] [[32m    INFO[0m]: Starting to load model ~/Models/Qwen/Qwen2.5-32B... (model_runner.py:1110)[0m
+[1;36m(VllmWorkerProcess pid=3736660)[0;0m INFO 04-14 20:05:29 model_runner.py:1110] Starting to load model ~/Models/Qwen/Qwen2.5-32B...
+[1;36m(VllmWorkerProcess pid=3736666)[0;0m INFO 04-14 20:05:29 model_runner.py:1110] Starting to load model ~/Models/Qwen/Qwen2.5-32B...
+[1;36m(VllmWorkerProcess pid=3736661)[0;0m INFO 04-14 20:05:29 model_runner.py:1110] Starting to load model ~/Models/Qwen/Qwen2.5-32B...
+[1;36m(VllmWorkerProcess pid=3736665)[0;0m INFO 04-14 20:05:29 model_runner.py:1110] Starting to load model ~/Models/Qwen/Qwen2.5-32B...
+[1;36m(VllmWorkerProcess pid=3736668)[0;0m INFO 04-14 20:05:29 model_runner.py:1110] Starting to load model ~/Models/Qwen/Qwen2.5-32B...
+[1;36m(VllmWorkerProcess pid=3736662)[0;0m INFO 04-14 20:05:29 model_runner.py:1110] Starting to load model ~/Models/Qwen/Qwen2.5-32B...
+[1;36m(VllmWorkerProcess pid=3736667)[0;0m INFO 04-14 20:05:29 model_runner.py:1110] Starting to load model ~/Models/Qwen/Qwen2.5-32B...
+
+Loading safetensors checkpoint shards:   0% Completed | 0/17 [00:00<?, ?it/s]
+
+Loading safetensors checkpoint shards:   6% Completed | 1/17 [00:01<00:19,  1.23s/it]
+
+Loading safetensors checkpoint shards:  12% Completed | 2/17 [00:02<00:18,  1.21s/it]
+
+Loading safetensors checkpoint shards:  18% Completed | 3/17 [00:03<00:13,  1.06it/s]
+
+Loading safetensors checkpoint shards:  24% Completed | 4/17 [00:03<00:11,  1.13it/s]
+
+Loading safetensors checkpoint shards:  29% Completed | 5/17 [00:04<00:09,  1.22it/s]
+
+Loading safetensors checkpoint shards:  35% Completed | 6/17 [00:05<00:08,  1.36it/s]
+
+Loading safetensors checkpoint shards:  41% Completed | 7/17 [00:05<00:06,  1.53it/s]
+
+Loading safetensors checkpoint shards:  47% Completed | 8/17 [00:06<00:05,  1.71it/s]
+[1;36m(VllmWorkerProcess pid=3736660)[0;0m INFO 04-14 20:05:35 model_runner.py:1115] Loading model weights took 7.7085 GB
+
+Loading safetensors checkpoint shards:  53% Completed | 9/17 [00:06<00:04,  1.90it/s]
+
+Loading safetensors checkpoint shards:  59% Completed | 10/17 [00:06<00:03,  2.08it/s]
+[1;36m(VllmWorkerProcess pid=3736665)[0;0m INFO 04-14 20:05:36 model_runner.py:1115] Loading model weights took 7.7085 GB
+[1;36m(VllmWorkerProcess pid=3736668)[0;0m INFO 04-14 20:05:36 model_runner.py:1115] Loading model weights took 7.7085 GB
+
+Loading safetensors checkpoint shards:  65% Completed | 11/17 [00:07<00:02,  2.23it/s]
+
+Loading safetensors checkpoint shards:  71% Completed | 12/17 [00:07<00:02,  2.36it/s]
+
+Loading safetensors checkpoint shards:  76% Completed | 13/17 [00:07<00:01,  2.49it/s]
+[1;36m(VllmWorkerProcess pid=3736661)[0;0m INFO 04-14 20:05:37 model_runner.py:1115] Loading model weights took 7.7085 GB
+
+Loading safetensors checkpoint shards:  82% Completed | 14/17 [00:08<00:01,  2.62it/s]
+
+Loading safetensors checkpoint shards:  88% Completed | 15/17 [00:08<00:00,  2.90it/s]
+[1;36m(VllmWorkerProcess pid=3736666)[0;0m INFO 04-14 20:05:38 model_runner.py:1115] Loading model weights took 7.7085 GB
+
+Loading safetensors checkpoint shards:  94% Completed | 16/17 [00:08<00:00,  3.08it/s]
+
+Loading safetensors checkpoint shards: 100% Completed | 17/17 [00:09<00:00,  3.27it/s]
+
+Loading safetensors checkpoint shards: 100% Completed | 17/17 [00:09<00:00,  1.88it/s]
+
+[2025-04-14 20:05:39,060] [[32m    INFO[0m]: Loading model weights took 7.7085 GB (model_runner.py:1115)[0m
+[1;36m(VllmWorkerProcess pid=3736662)[0;0m INFO 04-14 20:05:39 model_runner.py:1115] Loading model weights took 7.7085 GB
+[1;36m(VllmWorkerProcess pid=3736667)[0;0m INFO 04-14 20:05:39 model_runner.py:1115] Loading model weights took 7.7085 GB
+[1;36m(VllmWorkerProcess pid=3736660)[0;0m [2025-04-14 20:05:42,898] [[33m WARNING[0m]: ~/Projects/nips25_slot/open-r2/openr1/lib/python3.11/site-packages/vllm/worker/model_runner.py:1828: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+[1;36m(VllmWorkerProcess pid=3736662)[0;0m [2025-04-14 20:05:42,898] [[33m WARNING[0m]: ~/Projects/nips25_slot/open-r2/openr1/lib/python3.11/site-packages/vllm/worker/model_runner.py:1828: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+[1;36m(VllmWorkerProcess pid=3736660)[0;0m   lm_head_weight = torch.load(lm_local, map_location=hidden_states_cur.device).to(dtype=torch.bfloat16)
+[1;36m(VllmWorkerProcess pid=3736660)[0;0m  (warnings.py:110)[0m
+[1;36m(VllmWorkerProcess pid=3736662)[0;0m   lm_head_weight = torch.load(lm_local, map_location=hidden_states_cur.device).to(dtype=torch.bfloat16)
+[1;36m(VllmWorkerProcess pid=3736662)[0;0m  (warnings.py:110)[0m
+[1;36m(VllmWorkerProcess pid=3736661)[0;0m [2025-04-14 20:05:42,898] [[33m WARNING[0m]: ~/Projects/nips25_slot/open-r2/openr1/lib/python3.11/site-packages/vllm/worker/model_runner.py:1828: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+[1;36m(VllmWorkerProcess pid=3736661)[0;0m   lm_head_weight = torch.load(lm_local, map_location=hidden_states_cur.device).to(dtype=torch.bfloat16)
+[1;36m(VllmWorkerProcess pid=3736661)[0;0m  (warnings.py:110)[0m
+[2025-04-14 20:05:42,899] [[33m WARNING[0m]: ~/Projects/nips25_slot/open-r2/openr1/lib/python3.11/site-packages/vllm/worker/model_runner.py:1828: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  lm_head_weight = torch.load(lm_local, map_location=hidden_states_cur.device).to(dtype=torch.bfloat16)
+ (warnings.py:110)[0m
+[1;36m(VllmWorkerProcess pid=3736666)[0;0m [2025-04-14 20:05:42,899] [[33m WARNING[0m]: ~/Projects/nips25_slot/open-r2/openr1/lib/python3.11/site-packages/vllm/worker/model_runner.py:1828: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+[1;36m(VllmWorkerProcess pid=3736666)[0;0m   lm_head_weight = torch.load(lm_local, map_location=hidden_states_cur.device).to(dtype=torch.bfloat16)
+[1;36m(VllmWorkerProcess pid=3736666)[0;0m  (warnings.py:110)[0m
+[1;36m(VllmWorkerProcess pid=3736667)[0;0m [2025-04-14 20:05:42,899] [[33m WARNING[0m]: ~/Projects/nips25_slot/open-r2/openr1/lib/python3.11/site-packages/vllm/worker/model_runner.py:1828: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+[1;36m(VllmWorkerProcess pid=3736667)[0;0m   lm_head_weight = torch.load(lm_local, map_location=hidden_states_cur.device).to(dtype=torch.bfloat16)
+[1;36m(VllmWorkerProcess pid=3736667)[0;0m  (warnings.py:110)[0m
+[1;36m(VllmWorkerProcess pid=3736665)[0;0m [2025-04-14 20:05:42,899] [[33m WARNING[0m]: ~/Projects/nips25_slot/open-r2/openr1/lib/python3.11/site-packages/vllm/worker/model_runner.py:1828: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+[1;36m(VllmWorkerProcess pid=3736668)[0;0m [2025-04-14 20:05:42,899] [[33m WARNING[0m]: ~/Projects/nips25_slot/open-r2/openr1/lib/python3.11/site-packages/vllm/worker/model_runner.py:1828: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+[1;36m(VllmWorkerProcess pid=3736665)[0;0m   lm_head_weight = torch.load(lm_local, map_location=hidden_states_cur.device).to(dtype=torch.bfloat16)
+[1;36m(VllmWorkerProcess pid=3736668)[0;0m   lm_head_weight = torch.load(lm_local, map_location=hidden_states_cur.device).to(dtype=torch.bfloat16)
+[1;36m(VllmWorkerProcess pid=3736665)[0;0m  (warnings.py:110)[0m
+[1;36m(VllmWorkerProcess pid=3736668)[0;0m  (warnings.py:110)[0m
+[1;36m(VllmWorkerProcess pid=3736666)[0;0m DEBUG - Starting CHOT optimization
+[1;36m(VllmWorkerProcess pid=3736666)[0;0m DEBUG - CHOT parameters: steps=1, lr=1.0
+[1;36m(VllmWorkerProcess pid=3736666)[0;0m DEBUG - hidden_states_orig: torch.Size([32768, 5120]), torch.bfloat16
+[1;36m(VllmWorkerProcess pid=3736666)[0;0m Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+[1;36m(VllmWorkerProcess pid=3736666)[0;0m cuda:5 torch.Size([152064, 5120])
+[1;36m(VllmWorkerProcess pid=3736666)[0;0m INFO 04-14 20:05:49 worker.py:267] Memory profiling takes 9.98 seconds
+[1;36m(VllmWorkerProcess pid=3736666)[0;0m INFO 04-14 20:05:49 worker.py:267] the current vLLM instance can use total_gpu_memory (79.22GiB) x gpu_memory_utilization (0.80) = 63.37GiB
+[1;36m(VllmWorkerProcess pid=3736666)[0;0m INFO 04-14 20:05:49 worker.py:267] model weights take 7.71GiB; non_torch_memory takes 3.48GiB; PyTorch activation peak memory takes 48.83GiB; the rest of the memory reserved for KV Cache is 3.36GiB.
+[1;36m(VllmWorkerProcess pid=3736661)[0;0m DEBUG - Starting CHOT optimization
+[1;36m(VllmWorkerProcess pid=3736661)[0;0m DEBUG - CHOT parameters: steps=1, lr=1.0
+[1;36m(VllmWorkerProcess pid=3736661)[0;0m DEBUG - hidden_states_orig: torch.Size([32768, 5120]), torch.bfloat16
+[1;36m(VllmWorkerProcess pid=3736661)[0;0m Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+[1;36m(VllmWorkerProcess pid=3736661)[0;0m cuda:2 torch.Size([152064, 5120])
+[1;36m(VllmWorkerProcess pid=3736661)[0;0m INFO 04-14 20:05:49 worker.py:267] Memory profiling takes 10.02 seconds
+[1;36m(VllmWorkerProcess pid=3736661)[0;0m INFO 04-14 20:05:49 worker.py:267] the current vLLM instance can use total_gpu_memory (79.22GiB) x gpu_memory_utilization (0.80) = 63.37GiB
+[1;36m(VllmWorkerProcess pid=3736661)[0;0m INFO 04-14 20:05:49 worker.py:267] model weights take 7.71GiB; non_torch_memory takes 3.48GiB; PyTorch activation peak memory takes 48.83GiB; the rest of the memory reserved for KV Cache is 3.36GiB.
+[1;36m(VllmWorkerProcess pid=3736660)[0;0m DEBUG - Starting CHOT optimization
+[1;36m(VllmWorkerProcess pid=3736660)[0;0m DEBUG - CHOT parameters: steps=1, lr=1.0
+[1;36m(VllmWorkerProcess pid=3736660)[0;0m DEBUG - hidden_states_orig: torch.Size([32768, 5120]), torch.bfloat16
+[1;36m(VllmWorkerProcess pid=3736660)[0;0m Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+[1;36m(VllmWorkerProcess pid=3736660)[0;0m cuda:1 torch.Size([152064, 5120])
+[1;36m(VllmWorkerProcess pid=3736660)[0;0m INFO 04-14 20:05:49 worker.py:267] Memory profiling takes 10.03 seconds
+[1;36m(VllmWorkerProcess pid=3736660)[0;0m INFO 04-14 20:05:49 worker.py:267] the current vLLM instance can use total_gpu_memory (79.22GiB) x gpu_memory_utilization (0.80) = 63.37GiB
+[1;36m(VllmWorkerProcess pid=3736660)[0;0m INFO 04-14 20:05:49 worker.py:267] model weights take 7.71GiB; non_torch_memory takes 3.48GiB; PyTorch activation peak memory takes 48.83GiB; the rest of the memory reserved for KV Cache is 3.36GiB.
+[1;36m(VllmWorkerProcess pid=3736662)[0;0m DEBUG - Starting CHOT optimization
+[1;36m(VllmWorkerProcess pid=3736662)[0;0m DEBUG - CHOT parameters: steps=1, lr=1.0
+[1;36m(VllmWorkerProcess pid=3736662)[0;0m DEBUG - hidden_states_orig: torch.Size([32768, 5120]), torch.bfloat16
+[1;36m(VllmWorkerProcess pid=3736662)[0;0m Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+[1;36m(VllmWorkerProcess pid=3736662)[0;0m cuda:3 torch.Size([152064, 5120])
+[1;36m(VllmWorkerProcess pid=3736662)[0;0m INFO 04-14 20:05:49 worker.py:267] Memory profiling takes 10.06 seconds
+[1;36m(VllmWorkerProcess pid=3736662)[0;0m INFO 04-14 20:05:49 worker.py:267] the current vLLM instance can use total_gpu_memory (79.22GiB) x gpu_memory_utilization (0.80) = 63.37GiB
+[1;36m(VllmWorkerProcess pid=3736662)[0;0m INFO 04-14 20:05:49 worker.py:267] model weights take 7.71GiB; non_torch_memory takes 3.48GiB; PyTorch activation peak memory takes 48.83GiB; the rest of the memory reserved for KV Cache is 3.36GiB.
+[1;36m(VllmWorkerProcess pid=3736665)[0;0m DEBUG - Starting CHOT optimization
+[1;36m(VllmWorkerProcess pid=3736665)[0;0m DEBUG - CHOT parameters: steps=1, lr=1.0
+[1;36m(VllmWorkerProcess pid=3736665)[0;0m DEBUG - hidden_states_orig: torch.Size([32768, 5120]), torch.bfloat16
+[1;36m(VllmWorkerProcess pid=3736665)[0;0m Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+[1;36m(VllmWorkerProcess pid=3736665)[0;0m cuda:4 torch.Size([152064, 5120])
+[1;36m(VllmWorkerProcess pid=3736665)[0;0m INFO 04-14 20:05:49 worker.py:267] Memory profiling takes 9.98 seconds
+[1;36m(VllmWorkerProcess pid=3736665)[0;0m INFO 04-14 20:05:49 worker.py:267] the current vLLM instance can use total_gpu_memory (79.22GiB) x gpu_memory_utilization (0.80) = 63.37GiB
+[1;36m(VllmWorkerProcess pid=3736665)[0;0m INFO 04-14 20:05:49 worker.py:267] model weights take 7.71GiB; non_torch_memory takes 3.48GiB; PyTorch activation peak memory takes 48.83GiB; the rest of the memory reserved for KV Cache is 3.36GiB.
+[1;36m(VllmWorkerProcess pid=3736668)[0;0m DEBUG - Starting CHOT optimization
+[1;36m(VllmWorkerProcess pid=3736668)[0;0m DEBUG - CHOT parameters: steps=1, lr=1.0
+[1;36m(VllmWorkerProcess pid=3736668)[0;0m DEBUG - hidden_states_orig: torch.Size([32768, 5120]), torch.bfloat16
+[1;36m(VllmWorkerProcess pid=3736668)[0;0m Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+[1;36m(VllmWorkerProcess pid=3736668)[0;0m cuda:7 torch.Size([152064, 5120])
+[1;36m(VllmWorkerProcess pid=3736668)[0;0m INFO 04-14 20:05:49 worker.py:267] Memory profiling takes 9.98 seconds
+[1;36m(VllmWorkerProcess pid=3736668)[0;0m INFO 04-14 20:05:49 worker.py:267] the current vLLM instance can use total_gpu_memory (79.22GiB) x gpu_memory_utilization (0.80) = 63.37GiB
+[1;36m(VllmWorkerProcess pid=3736668)[0;0m INFO 04-14 20:05:49 worker.py:267] model weights take 7.71GiB; non_torch_memory takes 3.17GiB; PyTorch activation peak memory takes 48.83GiB; the rest of the memory reserved for KV Cache is 3.67GiB.
+[1;36m(VllmWorkerProcess pid=3736667)[0;0m DEBUG - Starting CHOT optimization
+[1;36m(VllmWorkerProcess pid=3736667)[0;0m DEBUG - CHOT parameters: steps=1, lr=1.0
+[1;36m(VllmWorkerProcess pid=3736667)[0;0m DEBUG - hidden_states_orig: torch.Size([32768, 5120]), torch.bfloat16
+[1;36m(VllmWorkerProcess pid=3736667)[0;0m Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+[1;36m(VllmWorkerProcess pid=3736667)[0;0m cuda:6 torch.Size([152064, 5120])
+[1;36m(VllmWorkerProcess pid=3736667)[0;0m INFO 04-14 20:05:49 worker.py:267] Memory profiling takes 10.06 seconds
+[1;36m(VllmWorkerProcess pid=3736667)[0;0m INFO 04-14 20:05:49 worker.py:267] the current vLLM instance can use total_gpu_memory (79.22GiB) x gpu_memory_utilization (0.80) = 63.37GiB
+[1;36m(VllmWorkerProcess pid=3736667)[0;0m INFO 04-14 20:05:49 worker.py:267] model weights take 7.71GiB; non_torch_memory takes 3.48GiB; PyTorch activation peak memory takes 48.83GiB; the rest of the memory reserved for KV Cache is 3.36GiB.
+[2025-04-14 20:05:49,796] [[32m    INFO[0m]: Memory profiling takes 10.04 seconds
+the current vLLM instance can use total_gpu_memory (79.22GiB) x gpu_memory_utilization (0.80) = 63.37GiB
+model weights take 7.71GiB; non_torch_memory takes 4.48GiB; PyTorch activation peak memory takes 48.83GiB; the rest of the memory reserved for KV Cache is 2.36GiB. (worker.py:267)[0m
+[2025-04-14 20:05:50,020] [[32m    INFO[0m]: # CUDA blocks: 4825, # CPU blocks: 8192 (executor_base.py:110)[0m
+[2025-04-14 20:05:50,020] [[32m    INFO[0m]: Maximum concurrency for 32768 tokens per request: 2.36x (executor_base.py:115)[0m
+[1;36m(VllmWorkerProcess pid=3736661)[0;0m INFO 04-14 20:05:52 model_runner.py:1434] Capturing cudagraphs for decoding. This may lead to unexpected consequences if the model is not static. To run the model in eager mode, set 'enforce_eager=True' or use '--enforce-eager' in the CLI. If out-of-memory error occurs during cudagraph capture, consider decreasing `gpu_memory_utilization` or switching to eager mode. You can also reduce the `max_num_seqs` as needed to decrease memory usage.
+[1;36m(VllmWorkerProcess pid=3736660)[0;0m INFO 04-14 20:05:52 model_runner.py:1434] Capturing cudagraphs for decoding. This may lead to unexpected consequences if the model is not static. To run the model in eager mode, set 'enforce_eager=True' or use '--enforce-eager' in the CLI. If out-of-memory error occurs during cudagraph capture, consider decreasing `gpu_memory_utilization` or switching to eager mode. You can also reduce the `max_num_seqs` as needed to decrease memory usage.
+[1;36m(VllmWorkerProcess pid=3736662)[0;0m INFO 04-14 20:05:52 model_runner.py:1434] Capturing cudagraphs for decoding. This may lead to unexpected consequences if the model is not static. To run the model in eager mode, set 'enforce_eager=True' or use '--enforce-eager' in the CLI. If out-of-memory error occurs during cudagraph capture, consider decreasing `gpu_memory_utilization` or switching to eager mode. You can also reduce the `max_num_seqs` as needed to decrease memory usage.
+[1;36m(VllmWorkerProcess pid=3736666)[0;0m INFO 04-14 20:05:52 model_runner.py:1434] Capturing cudagraphs for decoding. This may lead to unexpected consequences if the model is not static. To run the model in eager mode, set 'enforce_eager=True' or use '--enforce-eager' in the CLI. If out-of-memory error occurs during cudagraph capture, consider decreasing `gpu_memory_utilization` or switching to eager mode. You can also reduce the `max_num_seqs` as needed to decrease memory usage.
+[1;36m(VllmWorkerProcess pid=3736665)[0;0m INFO 04-14 20:05:52 model_runner.py:1434] Capturing cudagraphs for decoding. This may lead to unexpected consequences if the model is not static. To run the model in eager mode, set 'enforce_eager=True' or use '--enforce-eager' in the CLI. If out-of-memory error occurs during cudagraph capture, consider decreasing `gpu_memory_utilization` or switching to eager mode. You can also reduce the `max_num_seqs` as needed to decrease memory usage.
+[2025-04-14 20:05:52,232] [[32m    INFO[0m]: Capturing cudagraphs for decoding. This may lead to unexpected consequences if the model is not static. To run the model in eager mode, set 'enforce_eager=True' or use '--enforce-eager' in the CLI. If out-of-memory error occurs during cudagraph capture, consider decreasing `gpu_memory_utilization` or switching to eager mode. You can also reduce the `max_num_seqs` as needed to decrease memory usage. (model_runner.py:1434)[0m
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([32768, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+
+Capturing CUDA graph shapes:   0%|          | 0/19 [00:00<?, ?it/s][1;36m(VllmWorkerProcess pid=3736668)[0;0m INFO 04-14 20:05:52 model_runner.py:1434] Capturing cudagraphs for decoding. This may lead to unexpected consequences if the model is not static. To run the model in eager mode, set 'enforce_eager=True' or use '--enforce-eager' in the CLI. If out-of-memory error occurs during cudagraph capture, consider decreasing `gpu_memory_utilization` or switching to eager mode. You can also reduce the `max_num_seqs` as needed to decrease memory usage.
+[1;36m(VllmWorkerProcess pid=3736667)[0;0m INFO 04-14 20:05:52 model_runner.py:1434] Capturing cudagraphs for decoding. This may lead to unexpected consequences if the model is not static. To run the model in eager mode, set 'enforce_eager=True' or use '--enforce-eager' in the CLI. If out-of-memory error occurs during cudagraph capture, consider decreasing `gpu_memory_utilization` or switching to eager mode. You can also reduce the `max_num_seqs` as needed to decrease memory usage.
+
+Capturing CUDA graph shapes:   5%|▌         | 1/19 [00:00<00:09,  1.92it/s]
+Capturing CUDA graph shapes:  11%|█         | 2/19 [00:01<00:08,  1.89it/s]
+Capturing CUDA graph shapes:  16%|█▌        | 3/19 [00:01<00:08,  1.94it/s]
+Capturing CUDA graph shapes:  21%|██        | 4/19 [00:02<00:07,  1.94it/s]
+Capturing CUDA graph shapes:  26%|██▋       | 5/19 [00:02<00:07,  1.89it/s]
+Capturing CUDA graph shapes:  32%|███▏      | 6/19 [00:03<00:06,  1.88it/s]
+Capturing CUDA graph shapes:  37%|███▋      | 7/19 [00:03<00:06,  1.89it/s]
+Capturing CUDA graph shapes:  42%|████▏     | 8/19 [00:04<00:05,  1.89it/s]
+Capturing CUDA graph shapes:  47%|████▋     | 9/19 [00:04<00:05,  1.91it/s]
+Capturing CUDA graph shapes:  53%|█████▎    | 10/19 [00:05<00:04,  1.90it/s]
+Capturing CUDA graph shapes:  58%|█████▊    | 11/19 [00:05<00:04,  1.92it/s]
+Capturing CUDA graph shapes:  63%|██████▎   | 12/19 [00:06<00:03,  1.93it/s]
+Capturing CUDA graph shapes:  68%|██████▊   | 13/19 [00:06<00:03,  1.92it/s]
+Capturing CUDA graph shapes:  74%|███████▎  | 14/19 [00:07<00:02,  1.93it/s]
+Capturing CUDA graph shapes:  79%|███████▉  | 15/19 [00:07<00:02,  1.92it/s]
+Capturing CUDA graph shapes:  84%|████████▍ | 16/19 [00:08<00:01,  1.93it/s][1;36m(VllmWorkerProcess pid=3736665)[0;0m INFO 04-14 20:06:01 custom_all_reduce.py:226] Registering 2451 cuda graph addresses
+
+Capturing CUDA graph shapes:  89%|████████▉ | 17/19 [00:08<00:01,  1.94it/s][1;36m(VllmWorkerProcess pid=3736660)[0;0m INFO 04-14 20:06:01 custom_all_reduce.py:226] Registering 2451 cuda graph addresses
+[1;36m(VllmWorkerProcess pid=3736662)[0;0m INFO 04-14 20:06:01 custom_all_reduce.py:226] Registering 2451 cuda graph addresses
+[1;36m(VllmWorkerProcess pid=3736668)[0;0m INFO 04-14 20:06:01 custom_all_reduce.py:226] Registering 2451 cuda graph addresses
+[1;36m(VllmWorkerProcess pid=3736661)[0;0m INFO 04-14 20:06:01 custom_all_reduce.py:226] Registering 2451 cuda graph addresses
+[1;36m(VllmWorkerProcess pid=3736667)[0;0m INFO 04-14 20:06:01 custom_all_reduce.py:226] Registering 2451 cuda graph addresses
+
+Capturing CUDA graph shapes:  95%|█████████▍| 18/19 [00:09<00:00,  1.99it/s][1;36m(VllmWorkerProcess pid=3736666)[0;0m INFO 04-14 20:06:01 custom_all_reduce.py:226] Registering 2451 cuda graph addresses
+
+Capturing CUDA graph shapes: 100%|██████████| 19/19 [00:10<00:00,  1.77it/s]
+Capturing CUDA graph shapes: 100%|██████████| 19/19 [00:10<00:00,  1.89it/s]
+[2025-04-14 20:06:02,283] [[32m    INFO[0m]: Registering 2451 cuda graph addresses (custom_all_reduce.py:226)[0m
+[1;36m(VllmWorkerProcess pid=3736662)[0;0m INFO 04-14 20:06:02 model_runner.py:1562] Graph capturing finished in 11 secs, took 0.24 GiB
+[1;36m(VllmWorkerProcess pid=3736666)[0;0m INFO 04-14 20:06:02 model_runner.py:1562] Graph capturing finished in 11 secs, took 0.24 GiB
+[1;36m(VllmWorkerProcess pid=3736661)[0;0m INFO 04-14 20:06:02 model_runner.py:1562] Graph capturing finished in 11 secs, took 0.24 GiB
+[1;36m(VllmWorkerProcess pid=3736665)[0;0m INFO 04-14 20:06:02 model_runner.py:1562] Graph capturing finished in 11 secs, took 0.24 GiB
+[1;36m(VllmWorkerProcess pid=3736667)[0;0m INFO 04-14 20:06:02 model_runner.py:1562] Graph capturing finished in 11 secs, took 0.24 GiB
+[2025-04-14 20:06:02,989] [[32m    INFO[0m]: Graph capturing finished in 11 secs, took 0.24 GiB (model_runner.py:1562)[0m
+[1;36m(VllmWorkerProcess pid=3736660)[0;0m INFO 04-14 20:06:02 model_runner.py:1562] Graph capturing finished in 11 secs, took 0.24 GiB
+[1;36m(VllmWorkerProcess pid=3736668)[0;0m INFO 04-14 20:06:03 model_runner.py:1562] Graph capturing finished in 11 secs, took 0.24 GiB
+[2025-04-14 20:06:03,008] [[32m    INFO[0m]: init engine (profile, create kv cache, warmup model) took 23.49 seconds (llm_engine.py:431)[0m
+[2025-04-14 20:06:03,047] [[32m    INFO[0m]: --- INIT SEEDS --- (pipeline.py:263)[0m
+[2025-04-14 20:06:03,047] [[32m    INFO[0m]: --- LOADING TASKS --- (pipeline.py:216)[0m
+[2025-04-14 20:06:03,047] [[32m    INFO[0m]: Found 1 custom tasks in ~/Projects/nips25_slot/open-r2/openr1/lib/python3.11/site-packages/lighteval/tasks/extended/ifeval/main.py (registry.py:142)[0m
+[2025-04-14 20:06:03,047] [[32m    INFO[0m]: Found 6 custom tasks in ~/Projects/nips25_slot/open-r2/openr1/lib/python3.11/site-packages/lighteval/tasks/extended/tiny_benchmarks/main.py (registry.py:142)[0m
+[2025-04-14 20:06:03,047] [[32m    INFO[0m]: Found 1 custom tasks in ~/Projects/nips25_slot/open-r2/openr1/lib/python3.11/site-packages/lighteval/tasks/extended/mt_bench/main.py (registry.py:142)[0m
+[2025-04-14 20:06:03,047] [[32m    INFO[0m]: Found 4 custom tasks in ~/Projects/nips25_slot/open-r2/openr1/lib/python3.11/site-packages/lighteval/tasks/extended/mix_eval/main.py (registry.py:142)[0m
+[2025-04-14 20:06:03,047] [[32m    INFO[0m]: Found 5 custom tasks in ~/Projects/nips25_slot/open-r2/openr1/lib/python3.11/site-packages/lighteval/tasks/extended/olympiade_bench/main.py (registry.py:142)[0m
+[2025-04-14 20:06:03,047] [[32m    INFO[0m]: Found 1 custom tasks in ~/Projects/nips25_slot/open-r2/openr1/lib/python3.11/site-packages/lighteval/tasks/extended/hle/main.py (registry.py:142)[0m
+[2025-04-14 20:06:03,047] [[32m    INFO[0m]: Found 21 custom tasks in ~/Projects/nips25_slot/open-r2/openr1/lib/python3.11/site-packages/lighteval/tasks/extended/lcb/main.py (registry.py:142)[0m
+[2025-04-14 20:06:03,049] [[32m    INFO[0m]: HuggingFaceH4/MATH-500 default (lighteval_task.py:187)[0m
+[2025-04-14 20:06:03,049] [[33m WARNING[0m]: Careful, the task lighteval|math_500 is using evaluation data to build the few shot examples. (lighteval_task.py:260)[0m
+Using the latest cached version of the dataset since HuggingFaceH4/MATH-500 couldn't be found on the Hugging Face Hub
+[2025-04-14 20:06:15,480] [[33m WARNING[0m]: Using the latest cached version of the dataset since HuggingFaceH4/MATH-500 couldn't be found on the Hugging Face Hub (load.py:1631)[0m
+Found the latest cached dataset configuration 'default' at ~/.cache/huggingface/datasets/HuggingFaceH4___math-500/default/0.0.0/ff5b20257d8185524591543f8ff5993951537bb8 (last modified on Sat Apr 12 16:09:28 2025).
+[2025-04-14 20:06:15,482] [[33m WARNING[0m]: Found the latest cached dataset configuration 'default' at ~/.cache/huggingface/datasets/HuggingFaceH4___math-500/default/0.0.0/ff5b20257d8185524591543f8ff5993951537bb8 (last modified on Sat Apr 12 16:09:28 2025). (cache.py:95)[0m
+[2025-04-14 20:06:15,621] [[32m    INFO[0m]: --- RUNNING MODEL --- (pipeline.py:468)[0m
+[2025-04-14 20:06:15,621] [[32m    INFO[0m]: Running RequestType.GREEDY_UNTIL requests (pipeline.py:472)[0m
+[2025-04-14 20:06:15,715] [[33m WARNING[0m]: You cannot select the number of dataset splits for a generative evaluation at the moment. Automatically inferring. (data.py:260)[0m
+HuggingFaceH4/MATH-500
+default
+False
+None
+
+Splits:   0%|          | 0/1 [00:00<?, ?it/s][2025-04-14 20:06:15,803] [[33m WARNING[0m]: context_size + max_new_tokens=33649 which is greater than self.max_length=32768. Truncating context to 0 tokens. (vllm_model.py:270)[0m
+
+
+Processed prompts:   0%|          | 0/500 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s][A[2025-04-14 20:06:16,001] [[33m WARNING[0m]: ~/Projects/nips25_slot/open-r2/openr1/lib/python3.11/site-packages/vllm/worker/model_runner.py:1828: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  lm_head_weight = torch.load(lm_local, map_location=hidden_states_cur.device).to(dtype=torch.bfloat16)
+ (warnings.py:110)[0m
+
+
+Processed prompts:   0%|          | 1/500 [00:03<32:14,  3.88s/it, est. speed input: 77.64 toks/s, output: 34.05 toks/s][A
+
+Processed prompts:   0%|          | 2/500 [00:04<17:29,  2.11s/it, est. speed input: 103.01 toks/s, output: 58.56 toks/s][A
+
+Processed prompts:   1%|          | 3/500 [00:05<11:49,  1.43s/it, est. speed input: 142.64 toks/s, output: 79.43 toks/s][A
+
+Processed prompts:   1%|          | 4/500 [00:06<09:16,  1.12s/it, est. speed input: 155.53 toks/s, output: 96.04 toks/s][A
+
+Processed prompts:   1%|          | 5/500 [00:06<08:34,  1.04s/it, est. speed input: 163.62 toks/s, output: 107.92 toks/s][A
+
+Processed prompts:   1%|          | 6/500 [00:07<07:35,  1.08it/s, est. speed input: 183.51 toks/s, output: 120.94 toks/s][A
+
+Processed prompts:   1%|▏         | 7/500 [00:08<07:50,  1.05it/s, est. speed input: 185.14 toks/s, output: 127.76 toks/s][A
+
+Processed prompts:   2%|▏         | 8/500 [00:09<07:34,  1.08it/s, est. speed input: 186.34 toks/s, output: 136.88 toks/s][A
+
+Processed prompts:   2%|▏         | 9/500 [00:10<07:23,  1.11it/s, est. speed input: 199.04 toks/s, output: 145.85 toks/s][A
+
+Processed prompts:   2%|▏         | 10/500 [00:11<07:21,  1.11it/s, est. speed input: 211.33 toks/s, output: 154.30 toks/s][A
+
+Processed prompts:   2%|▏         | 11/500 [00:11<06:44,  1.21it/s, est. speed input: 226.19 toks/s, output: 165.08 toks/s][A
+
+Processed prompts:   2%|▏         | 12/500 [00:12<06:12,  1.31it/s, est. speed input: 232.96 toks/s, output: 175.50 toks/s][A
+
+Processed prompts:   3%|▎         | 13/500 [00:13<05:55,  1.37it/s, est. speed input: 240.12 toks/s, output: 184.68 toks/s][A
+
+Processed prompts:   3%|▎         | 14/500 [00:14<06:37,  1.22it/s, est. speed input: 253.32 toks/s, output: 189.61 toks/s][A
+
+Processed prompts:   3%|▎         | 15/500 [00:14<06:10,  1.31it/s, est. speed input: 256.85 toks/s, output: 199.04 toks/s][A
+
+Processed prompts:   3%|▎         | 16/500 [00:15<05:42,  1.41it/s, est. speed input: 269.00 toks/s, output: 208.61 toks/s][A
+
+Processed prompts:   4%|▎         | 18/500 [00:16<04:14,  1.89it/s, est. speed input: 288.74 toks/s, output: 233.07 toks/s][A
+
+Processed prompts:   4%|▍         | 19/500 [00:16<04:36,  1.74it/s, est. speed input: 288.55 toks/s, output: 239.27 toks/s][A
+
+Processed prompts:   4%|▍         | 20/500 [00:17<04:56,  1.62it/s, est. speed input: 299.55 toks/s, output: 245.14 toks/s][A
+
+Processed prompts:   4%|▍         | 21/500 [00:18<04:55,  1.62it/s, est. speed input: 301.13 toks/s, output: 252.32 toks/s][A
+
+Processed prompts:   4%|▍         | 22/500 [00:18<05:00,  1.59it/s, est. speed input: 302.70 toks/s, output: 258.69 toks/s][A
+
+Processed prompts:   5%|▍         | 23/500 [00:19<05:03,  1.57it/s, est. speed input: 309.04 toks/s, output: 264.82 toks/s][A
+
+Processed prompts:   5%|▍         | 24/500 [00:20<05:02,  1.57it/s, est. speed input: 307.76 toks/s, output: 270.97 toks/s][A
+
+Processed prompts:   5%|▌         | 25/500 [00:20<05:21,  1.48it/s, est. speed input: 304.52 toks/s, output: 275.34 toks/s][A
+
+Processed prompts:   5%|▌         | 27/500 [00:21<04:29,  1.76it/s, est. speed input: 315.74 toks/s, output: 292.68 toks/s][A
+
+Processed prompts:   6%|▌         | 28/500 [00:22<04:55,  1.60it/s, est. speed input: 314.84 toks/s, output: 296.85 toks/s][A
+
+Processed prompts:   6%|▌         | 29/500 [00:23<05:08,  1.53it/s, est. speed input: 312.58 toks/s, output: 301.87 toks/s][A
+
+Processed prompts:   6%|▌         | 30/500 [00:23<05:05,  1.54it/s, est. speed input: 313.37 toks/s, output: 308.01 toks/s][A
+
+Processed prompts:   6%|▌         | 31/500 [00:24<04:55,  1.59it/s, est. speed input: 314.50 toks/s, output: 314.67 toks/s][A
+
+Processed prompts:   6%|▋         | 32/500 [00:25<05:11,  1.50it/s, est. speed input: 315.06 toks/s, output: 319.02 toks/s][A
+
+Processed prompts:   7%|▋         | 33/500 [00:25<05:15,  1.48it/s, est. speed input: 313.79 toks/s, output: 324.09 toks/s][A
+
+Processed prompts:   7%|▋         | 34/500 [00:26<05:09,  1.51it/s, est. speed input: 312.56 toks/s, output: 324.19 toks/s][A
+
+Processed prompts:   7%|▋         | 35/500 [00:27<05:02,  1.54it/s, est. speed input: 314.08 toks/s, output: 330.05 toks/s][A
+
+Processed prompts:   7%|▋         | 36/500 [00:27<04:56,  1.56it/s, est. speed input: 313.34 toks/s, output: 335.72 toks/s][A
+
+Processed prompts:   7%|▋         | 37/500 [00:28<04:47,  1.61it/s, est. speed input: 312.82 toks/s, output: 335.56 toks/s][A
+
+Processed prompts:   8%|▊         | 38/500 [00:29<04:51,  1.59it/s, est. speed input: 312.61 toks/s, output: 340.56 toks/s][A
+
+Processed prompts:   8%|▊         | 39/500 [00:29<04:43,  1.63it/s, est. speed input: 312.73 toks/s, output: 346.31 toks/s][A
+
+Processed prompts:   8%|▊         | 40/500 [00:30<05:01,  1.52it/s, est. speed input: 310.77 toks/s, output: 350.01 toks/s][A
+
+Processed prompts:   8%|▊         | 41/500 [00:31<05:04,  1.51it/s, est. speed input: 310.53 toks/s, output: 354.59 toks/s][A
+
+Processed prompts:   8%|▊         | 42/500 [00:31<04:57,  1.54it/s, est. speed input: 310.70 toks/s, output: 359.71 toks/s][A
+
+Processed prompts:   9%|▉         | 44/500 [00:32<03:39,  2.07it/s, est. speed input: 319.15 toks/s, output: 376.97 toks/s][A
+
+Processed prompts:   9%|▉         | 45/500 [00:32<04:05,  1.85it/s, est. speed input: 325.24 toks/s, output: 380.55 toks/s][A
+
+Processed prompts:   9%|▉         | 47/500 [00:33<03:25,  2.21it/s, est. speed input: 334.18 toks/s, output: 396.29 toks/s][A
+
+Processed prompts:  10%|▉         | 48/500 [00:34<03:54,  1.93it/s, est. speed input: 352.65 toks/s, output: 399.42 toks/s][A
+
+Processed prompts:  10%|▉         | 49/500 [00:35<04:15,  1.76it/s, est. speed input: 353.73 toks/s, output: 402.85 toks/s][A
+
+Processed prompts:  10%|█         | 50/500 [00:35<04:16,  1.76it/s, est. speed input: 356.00 toks/s, output: 407.81 toks/s][A
+
+Processed prompts:  10%|█         | 52/500 [00:36<03:24,  2.19it/s, est. speed input: 359.35 toks/s, output: 423.44 toks/s][A
+
+Processed prompts:  11%|█         | 54/500 [00:36<02:55,  2.54it/s, est. speed input: 364.75 toks/s, output: 434.93 toks/s][A
+
+Processed prompts:  11%|█         | 55/500 [00:37<03:19,  2.23it/s, est. speed input: 364.54 toks/s, output: 438.35 toks/s][A
+
+Processed prompts:  11%|█         | 56/500 [00:38<03:53,  1.90it/s, est. speed input: 361.46 toks/s, output: 435.75 toks/s][A
+
+Processed prompts:  11%|█▏        | 57/500 [00:38<04:16,  1.73it/s, est. speed input: 359.44 toks/s, output: 438.56 toks/s][A
+
+Processed prompts:  12%|█▏        | 58/500 [00:39<04:15,  1.73it/s, est. speed input: 360.88 toks/s, output: 443.10 toks/s][A
+
+Processed prompts:  12%|█▏        | 59/500 [00:40<04:24,  1.67it/s, est. speed input: 359.17 toks/s, output: 446.69 toks/s][A
+
+Processed prompts:  12%|█▏        | 60/500 [00:40<04:28,  1.64it/s, est. speed input: 361.24 toks/s, output: 450.46 toks/s][A
+
+Processed prompts:  12%|█▏        | 61/500 [00:41<04:23,  1.67it/s, est. speed input: 362.10 toks/s, output: 454.81 toks/s][A
+
+Processed prompts:  13%|█▎        | 63/500 [00:42<03:44,  1.95it/s, est. speed input: 363.28 toks/s, output: 467.04 toks/s][A
+
+Processed prompts:  13%|█▎        | 64/500 [00:43<04:14,  1.72it/s, est. speed input: 363.78 toks/s, output: 469.09 toks/s][A
+
+Processed prompts:  13%|█▎        | 66/500 [00:43<03:20,  2.16it/s, est. speed input: 368.08 toks/s, output: 484.04 toks/s][A
+
+Processed prompts:  13%|█▎        | 67/500 [00:44<03:41,  1.96it/s, est. speed input: 366.10 toks/s, output: 480.60 toks/s][A
+
+Processed prompts:  14%|█▎        | 68/500 [00:44<03:53,  1.85it/s, est. speed input: 365.20 toks/s, output: 484.21 toks/s][A
+
+Processed prompts:  14%|█▍        | 69/500 [00:45<04:37,  1.55it/s, est. speed input: 362.79 toks/s, output: 484.93 toks/s][A
+
+Processed prompts:  14%|█▍        | 70/500 [00:46<04:33,  1.57it/s, est. speed input: 363.67 toks/s, output: 489.01 toks/s][A
+
+Processed prompts:  14%|█▍        | 72/500 [00:47<03:40,  1.94it/s, est. speed input: 368.23 toks/s, output: 502.42 toks/s][A
+
+Processed prompts:  15%|█▍        | 73/500 [00:47<03:50,  1.85it/s, est. speed input: 367.06 toks/s, output: 506.35 toks/s][A
+
+Processed prompts:  15%|█▌        | 75/500 [00:48<03:21,  2.10it/s, est. speed input: 368.61 toks/s, output: 519.12 toks/s][A
+
+Processed prompts:  15%|█▌        | 76/500 [00:49<03:38,  1.94it/s, est. speed input: 367.17 toks/s, output: 522.58 toks/s][A
+
+Processed prompts:  15%|█▌        | 77/500 [00:49<03:56,  1.79it/s, est. speed input: 366.83 toks/s, output: 525.63 toks/s][A
+
+Processed prompts:  16%|█▌        | 78/500 [00:50<03:57,  1.77it/s, est. speed input: 369.37 toks/s, output: 529.91 toks/s][A
+
+Processed prompts:  16%|█▌        | 79/500 [00:51<04:03,  1.73it/s, est. speed input: 372.12 toks/s, output: 533.69 toks/s][A
+
+Processed prompts:  16%|█▌        | 80/500 [00:51<04:16,  1.64it/s, est. speed input: 374.15 toks/s, output: 536.65 toks/s][A
+
+Processed prompts:  16%|█▋        | 82/500 [00:52<03:27,  2.02it/s, est. speed input: 377.96 toks/s, output: 549.58 toks/s][A
+
+Processed prompts:  17%|█▋        | 84/500 [00:53<02:56,  2.36it/s, est. speed input: 379.94 toks/s, output: 556.04 toks/s][A
+
+Processed prompts:  17%|█▋        | 85/500 [00:53<03:31,  1.96it/s, est. speed input: 377.18 toks/s, output: 552.67 toks/s][A
+
+Processed prompts:  17%|█▋        | 86/500 [00:54<03:59,  1.73it/s, est. speed input: 374.47 toks/s, output: 547.27 toks/s][A
+
+Processed prompts:  17%|█▋        | 87/500 [00:55<03:58,  1.73it/s, est. speed input: 376.43 toks/s, output: 551.65 toks/s][A
+
+Processed prompts:  18%|█▊        | 88/500 [00:55<04:02,  1.70it/s, est. speed input: 377.08 toks/s, output: 555.55 toks/s][A
+
+Processed prompts:  18%|█▊        | 89/500 [00:56<04:04,  1.68it/s, est. speed input: 376.10 toks/s, output: 559.39 toks/s][A
+
+Processed prompts:  18%|█▊        | 90/500 [00:57<04:25,  1.55it/s, est. speed input: 378.63 toks/s, output: 561.74 toks/s][A
+
+Processed prompts:  18%|█▊        | 91/500 [00:57<04:21,  1.57it/s, est. speed input: 380.40 toks/s, output: 565.63 toks/s][A
+
+Processed prompts:  18%|█▊        | 92/500 [00:58<04:20,  1.57it/s, est. speed input: 378.86 toks/s, output: 561.83 toks/s][A
+
+Processed prompts:  19%|█▊        | 93/500 [00:59<04:11,  1.62it/s, est. speed input: 377.74 toks/s, output: 558.24 toks/s][A
+
+Processed prompts:  19%|█▉        | 94/500 [00:59<04:13,  1.60it/s, est. speed input: 376.68 toks/s, output: 561.96 toks/s][A
+
+Processed prompts:  19%|█▉        | 95/500 [01:00<04:06,  1.64it/s, est. speed input: 375.90 toks/s, output: 566.21 toks/s][A
+
+Processed prompts:  19%|█▉        | 96/500 [01:01<04:09,  1.62it/s, est. speed input: 375.55 toks/s, output: 569.85 toks/s][A
+
+Processed prompts:  19%|█▉        | 97/500 [01:01<04:03,  1.65it/s, est. speed input: 374.64 toks/s, output: 568.65 toks/s][A
+
+Processed prompts:  20%|█▉        | 98/500 [01:02<04:06,  1.63it/s, est. speed input: 375.05 toks/s, output: 572.21 toks/s][A
+
+Processed prompts:  20%|█▉        | 99/500 [01:03<04:38,  1.44it/s, est. speed input: 372.57 toks/s, output: 573.69 toks/s][A
+
+Processed prompts:  20%|██        | 100/500 [01:03<04:28,  1.49it/s, est. speed input: 371.52 toks/s, output: 573.47 toks/s][A
+
+Processed prompts:  20%|██        | 101/500 [01:04<04:21,  1.53it/s, est. speed input: 370.46 toks/s, output: 572.65 toks/s][A
+
+Processed prompts:  20%|██        | 102/500 [01:04<04:11,  1.58it/s, est. speed input: 369.88 toks/s, output: 576.87 toks/s][A
+
+Processed prompts:  21%|██        | 104/500 [01:05<03:31,  1.87it/s, est. speed input: 370.07 toks/s, output: 579.76 toks/s][A
+
+Processed prompts:  21%|██        | 105/500 [01:06<03:39,  1.80it/s, est. speed input: 369.65 toks/s, output: 583.68 toks/s][A
+
+Processed prompts:  21%|██        | 106/500 [01:07<03:47,  1.73it/s, est. speed input: 368.54 toks/s, output: 583.19 toks/s][A
+
+Processed prompts:  21%|██▏       | 107/500 [01:07<03:53,  1.69it/s, est. speed input: 367.45 toks/s, output: 582.46 toks/s][A
+
+Processed prompts:  22%|██▏       | 108/500 [01:08<03:59,  1.64it/s, est. speed input: 367.87 toks/s, output: 586.05 toks/s][A
+
+Processed prompts:  22%|██▏       | 109/500 [01:09<04:13,  1.54it/s, est. speed input: 366.66 toks/s, output: 588.97 toks/s][A
+
+Processed prompts:  22%|██▏       | 110/500 [01:09<04:11,  1.55it/s, est. speed input: 365.83 toks/s, output: 592.75 toks/s][A
+
+Processed prompts:  22%|██▏       | 112/500 [01:10<03:07,  2.07it/s, est. speed input: 367.76 toks/s, output: 602.89 toks/s][A
+
+Processed prompts:  23%|██▎       | 113/500 [01:10<03:25,  1.89it/s, est. speed input: 366.64 toks/s, output: 606.23 toks/s][A
+
+Processed prompts:  23%|██▎       | 114/500 [01:11<03:35,  1.79it/s, est. speed input: 365.64 toks/s, output: 606.18 toks/s][A
+
+Processed prompts:  23%|██▎       | 115/500 [01:12<03:51,  1.66it/s, est. speed input: 364.17 toks/s, output: 604.14 toks/s][A
+
+Processed prompts:  23%|██▎       | 116/500 [01:12<03:57,  1.62it/s, est. speed input: 363.12 toks/s, output: 604.54 toks/s][A
+
+Processed prompts:  23%|██▎       | 117/500 [01:13<04:01,  1.59it/s, est. speed input: 362.03 toks/s, output: 603.56 toks/s][A
+
+Processed prompts:  24%|██▎       | 118/500 [01:14<04:06,  1.55it/s, est. speed input: 360.81 toks/s, output: 601.79 toks/s][A
+
+Processed prompts:  24%|██▍       | 119/500 [01:14<04:09,  1.53it/s, est. speed input: 359.59 toks/s, output: 599.85 toks/s][A
+
+Processed prompts:  24%|██▍       | 120/500 [01:15<03:59,  1.59it/s, est. speed input: 359.04 toks/s, output: 601.97 toks/s][A
+
+Processed prompts:  24%|██▍       | 121/500 [01:16<03:57,  1.60it/s, est. speed input: 358.36 toks/s, output: 605.95 toks/s][A
+
+Processed prompts:  24%|██▍       | 122/500 [01:16<03:50,  1.64it/s, est. speed input: 358.07 toks/s, output: 610.21 toks/s][A
+
+Processed prompts:  25%|██▍       | 123/500 [01:17<03:53,  1.62it/s, est. speed input: 357.81 toks/s, output: 613.95 toks/s][A
+
+Processed prompts:  25%|██▍       | 124/500 [01:17<03:47,  1.65it/s, est. speed input: 357.07 toks/s, output: 611.62 toks/s][A
+
+Processed prompts:  25%|██▌       | 125/500 [01:18<03:50,  1.63it/s, est. speed input: 356.23 toks/s, output: 611.65 toks/s][A
+
+Processed prompts:  25%|██▌       | 127/500 [01:19<02:56,  2.11it/s, est. speed input: 357.57 toks/s, output: 617.96 toks/s][A
+
+Processed prompts:  26%|██▌       | 128/500 [01:19<03:05,  2.01it/s, est. speed input: 357.02 toks/s, output: 618.49 toks/s][A
+
+Processed prompts:  26%|██▌       | 129/500 [01:20<03:16,  1.89it/s, est. speed input: 356.70 toks/s, output: 622.29 toks/s][A
+
+Processed prompts:  26%|██▌       | 130/500 [01:20<03:20,  1.85it/s, est. speed input: 356.27 toks/s, output: 626.33 toks/s][A
+
+Processed prompts:  26%|██▌       | 131/500 [01:21<03:35,  1.71it/s, est. speed input: 355.55 toks/s, output: 629.44 toks/s][A
+
+Processed prompts:  26%|██▋       | 132/500 [01:22<03:42,  1.65it/s, est. speed input: 355.60 toks/s, output: 632.84 toks/s][A
+
+Processed prompts:  27%|██▋       | 133/500 [01:22<03:43,  1.64it/s, est. speed input: 355.11 toks/s, output: 636.51 toks/s][A
+
+Processed prompts:  27%|██▋       | 134/500 [01:23<03:50,  1.59it/s, est. speed input: 354.33 toks/s, output: 639.74 toks/s][A
+
+Processed prompts:  27%|██▋       | 135/500 [01:24<03:43,  1.63it/s, est. speed input: 354.39 toks/s, output: 643.71 toks/s][A
+
+Processed prompts:  28%|██▊       | 139/500 [01:24<01:59,  3.01it/s, est. speed input: 358.97 toks/s, output: 653.50 toks/s][A
+
+Processed prompts:  28%|██▊       | 140/500 [01:25<02:23,  2.50it/s, est. speed input: 357.84 toks/s, output: 651.71 toks/s][A
+
+Processed prompts:  28%|██▊       | 141/500 [01:26<02:47,  2.15it/s, est. speed input: 356.55 toks/s, output: 648.17 toks/s][A
+
+Processed prompts:  28%|██▊       | 142/500 [01:26<02:55,  2.04it/s, est. speed input: 355.95 toks/s, output: 647.11 toks/s][A
+
+Processed prompts:  29%|██▊       | 143/500 [01:27<03:15,  1.83it/s, est. speed input: 355.27 toks/s, output: 650.09 toks/s][A
+
+Processed prompts:  29%|██▉       | 144/500 [01:28<03:20,  1.77it/s, est. speed input: 354.99 toks/s, output: 653.79 toks/s][A
+
+Processed prompts:  29%|██▉       | 145/500 [01:28<03:33,  1.66it/s, est. speed input: 355.88 toks/s, output: 656.89 toks/s][A
+
+Processed prompts:  29%|██▉       | 146/500 [01:29<03:50,  1.53it/s, est. speed input: 354.95 toks/s, output: 659.45 toks/s][A
+
+Processed prompts:  29%|██▉       | 147/500 [01:30<03:42,  1.59it/s, est. speed input: 354.62 toks/s, output: 663.48 toks/s][A
+
+Processed prompts:  30%|██▉       | 149/500 [01:30<02:52,  2.04it/s, est. speed input: 355.46 toks/s, output: 664.96 toks/s][A
+
+Processed prompts:  30%|███       | 150/500 [01:31<02:58,  1.96it/s, est. speed input: 354.95 toks/s, output: 665.02 toks/s][A
+
+Processed prompts:  30%|███       | 151/500 [01:32<03:13,  1.81it/s, est. speed input: 354.51 toks/s, output: 668.27 toks/s][A
+
+Processed prompts:  30%|███       | 152/500 [01:32<03:22,  1.72it/s, est. speed input: 353.61 toks/s, output: 666.39 toks/s][A
+
+Processed prompts:  31%|███       | 153/500 [01:33<03:27,  1.67it/s, est. speed input: 352.78 toks/s, output: 664.34 toks/s][A
+
+Processed prompts:  31%|███       | 154/500 [01:34<03:28,  1.66it/s, est. speed input: 352.01 toks/s, output: 661.99 toks/s][A
+
+Processed prompts:  31%|███       | 155/500 [01:34<03:37,  1.58it/s, est. speed input: 350.99 toks/s, output: 659.94 toks/s][A
+
+Processed prompts:  31%|███       | 156/500 [01:35<03:35,  1.59it/s, est. speed input: 350.43 toks/s, output: 661.24 toks/s][A
+
+Processed prompts:  31%|███▏      | 157/500 [01:36<03:41,  1.55it/s, est. speed input: 349.52 toks/s, output: 660.24 toks/s][A
+
+Processed prompts:  32%|███▏      | 158/500 [01:36<03:45,  1.52it/s, est. speed input: 348.60 toks/s, output: 659.11 toks/s][A
+
+Processed prompts:  32%|███▏      | 159/500 [01:37<03:48,  1.49it/s, est. speed input: 347.59 toks/s, output: 656.45 toks/s][A
+
+Processed prompts:  32%|███▏      | 160/500 [01:38<03:46,  1.50it/s, est. speed input: 346.89 toks/s, output: 656.45 toks/s][A
+
+Processed prompts:  32%|███▏      | 162/500 [01:38<02:49,  1.99it/s, est. speed input: 347.63 toks/s, output: 655.97 toks/s][A
+
+Processed prompts:  33%|███▎      | 163/500 [01:39<03:37,  1.55it/s, est. speed input: 345.40 toks/s, output: 653.19 toks/s][A
+
+Processed prompts:  33%|███▎      | 164/500 [01:40<03:41,  1.52it/s, est. speed input: 344.45 toks/s, output: 651.13 toks/s][A
+
+Processed prompts:  33%|███▎      | 165/500 [01:41<03:38,  1.53it/s, est. speed input: 343.81 toks/s, output: 651.01 toks/s][A
+
+Processed prompts:  34%|███▎      | 168/500 [01:41<02:18,  2.40it/s, est. speed input: 346.05 toks/s, output: 656.35 toks/s][A
+
+Processed prompts:  34%|███▍      | 169/500 [01:42<02:35,  2.13it/s, est. speed input: 345.11 toks/s, output: 653.31 toks/s][A
+
+Processed prompts:  34%|███▍      | 170/500 [01:43<02:46,  1.98it/s, est. speed input: 344.42 toks/s, output: 651.40 toks/s][A
+
+Processed prompts:  34%|███▍      | 171/500 [01:44<03:36,  1.52it/s, est. speed input: 342.08 toks/s, output: 647.33 toks/s][A
+
+Processed prompts:  34%|███▍      | 172/500 [01:44<03:33,  1.54it/s, est. speed input: 341.51 toks/s, output: 647.84 toks/s][A
+
+Processed prompts:  35%|███▍      | 174/500 [01:45<02:52,  1.90it/s, est. speed input: 342.51 toks/s, output: 653.01 toks/s][A
+
+Processed prompts:  35%|███▌      | 175/500 [01:46<02:59,  1.81it/s, est. speed input: 342.26 toks/s, output: 657.11 toks/s][A
+
+Processed prompts:  35%|███▌      | 176/500 [01:47<03:37,  1.49it/s, est. speed input: 340.28 toks/s, output: 652.65 toks/s][A
+
+Processed prompts:  35%|███▌      | 177/500 [01:47<03:37,  1.49it/s, est. speed input: 339.62 toks/s, output: 653.39 toks/s][A
+
+Processed prompts:  36%|███▌      | 178/500 [01:48<03:40,  1.46it/s, est. speed input: 338.87 toks/s, output: 654.83 toks/s][A
+
+Processed prompts:  36%|███▌      | 180/500 [01:49<02:47,  1.90it/s, est. speed input: 339.46 toks/s, output: 655.36 toks/s][A
+
+Processed prompts:  36%|███▌      | 181/500 [01:49<02:57,  1.80it/s, est. speed input: 338.73 toks/s, output: 653.83 toks/s][A
+
+Processed prompts:  36%|███▋      | 182/500 [01:50<03:02,  1.75it/s, est. speed input: 338.08 toks/s, output: 651.85 toks/s][A
+
+Processed prompts:  37%|███▋      | 183/500 [01:51<03:14,  1.63it/s, est. speed input: 337.26 toks/s, output: 651.81 toks/s][A
+
+Processed prompts:  37%|███▋      | 184/500 [01:51<03:14,  1.62it/s, est. speed input: 336.79 toks/s, output: 653.02 toks/s][A
+
+Processed prompts:  37%|███▋      | 185/500 [01:52<03:10,  1.66it/s, est. speed input: 336.38 toks/s, output: 653.00 toks/s][A
+
+Processed prompts:  37%|███▋      | 186/500 [01:53<03:10,  1.65it/s, est. speed input: 336.19 toks/s, output: 657.44 toks/s][A
+
+Processed prompts:  37%|███▋      | 187/500 [01:53<03:11,  1.64it/s, est. speed input: 335.65 toks/s, output: 656.95 toks/s][A
+
+Processed prompts:  38%|███▊      | 188/500 [01:54<03:18,  1.57it/s, est. speed input: 334.77 toks/s, output: 653.74 toks/s][A
+
+Processed prompts:  38%|███▊      | 189/500 [01:55<03:21,  1.54it/s, est. speed input: 334.21 toks/s, output: 655.81 toks/s][A
+
+Processed prompts:  38%|███▊      | 191/500 [01:55<02:39,  1.94it/s, est. speed input: 334.61 toks/s, output: 656.84 toks/s][A
+
+Processed prompts:  38%|███▊      | 192/500 [01:56<02:47,  1.84it/s, est. speed input: 334.08 toks/s, output: 656.80 toks/s][A
+
+Processed prompts:  39%|███▉      | 194/500 [01:57<02:16,  2.24it/s, est. speed input: 334.75 toks/s, output: 658.54 toks/s][A
+
+Processed prompts:  39%|███▉      | 195/500 [01:57<02:29,  2.05it/s, est. speed input: 334.70 toks/s, output: 662.90 toks/s][A
+
+Processed prompts:  39%|███▉      | 196/500 [01:58<02:39,  1.91it/s, est. speed input: 334.34 toks/s, output: 666.11 toks/s][A
+
+Processed prompts:  40%|███▉      | 198/500 [01:58<02:11,  2.30it/s, est. speed input: 334.94 toks/s, output: 666.56 toks/s][A
+
+Processed prompts:  40%|████      | 200/500 [01:59<02:00,  2.48it/s, est. speed input: 335.34 toks/s, output: 667.46 toks/s][A
+
+Processed prompts:  41%|████      | 203/500 [02:00<01:33,  3.17it/s, est. speed input: 337.13 toks/s, output: 670.81 toks/s][A
+
+Processed prompts:  41%|████      | 205/500 [02:00<01:38,  2.99it/s, est. speed input: 342.75 toks/s, output: 677.58 toks/s][A
+
+Processed prompts:  41%|████      | 206/500 [02:01<01:51,  2.65it/s, est. speed input: 342.38 toks/s, output: 678.92 toks/s][A
+
+Processed prompts:  41%|████▏     | 207/500 [02:02<02:11,  2.23it/s, est. speed input: 341.51 toks/s, output: 677.93 toks/s][A
+
+Processed prompts:  42%|████▏     | 209/500 [02:03<02:00,  2.41it/s, est. speed input: 341.71 toks/s, output: 676.68 toks/s][A
+
+Processed prompts:  42%|████▏     | 210/500 [02:03<02:16,  2.12it/s, est. speed input: 341.19 toks/s, output: 680.70 toks/s][A
+
+Processed prompts:  42%|████▏     | 211/500 [02:04<02:26,  1.98it/s, est. speed input: 340.61 toks/s, output: 679.76 toks/s][A
+
+Processed prompts:  42%|████▏     | 212/500 [02:04<02:30,  1.91it/s, est. speed input: 340.18 toks/s, output: 679.03 toks/s][A
+
+Processed prompts:  43%|████▎     | 213/500 [02:05<02:49,  1.69it/s, est. speed input: 339.28 toks/s, output: 679.47 toks/s][A
+
+Processed prompts:  43%|████▎     | 214/500 [02:06<02:48,  1.70it/s, est. speed input: 338.90 toks/s, output: 680.03 toks/s][A
+
+Processed prompts:  43%|████▎     | 215/500 [02:06<02:53,  1.64it/s, est. speed input: 338.22 toks/s, output: 678.83 toks/s][A
+
+Processed prompts:  43%|████▎     | 216/500 [02:07<02:58,  1.59it/s, est. speed input: 337.58 toks/s, output: 678.90 toks/s][A
+
+Processed prompts:  43%|████▎     | 217/500 [02:08<03:01,  1.56it/s, est. speed input: 337.75 toks/s, output: 683.07 toks/s][A
+
+Processed prompts:  44%|████▎     | 218/500 [02:08<02:57,  1.59it/s, est. speed input: 337.29 toks/s, output: 682.81 toks/s][A
+
+Processed prompts:  44%|████▍     | 219/500 [02:09<02:58,  1.58it/s, est. speed input: 336.68 toks/s, output: 681.65 toks/s][A
+
+Processed prompts:  44%|████▍     | 220/500 [02:10<02:56,  1.59it/s, est. speed input: 336.10 toks/s, output: 679.61 toks/s][A
+
+Processed prompts:  44%|████▍     | 221/500 [02:10<03:02,  1.53it/s, est. speed input: 335.32 toks/s, output: 678.17 toks/s][A
+
+Processed prompts:  44%|████▍     | 222/500 [02:11<02:58,  1.55it/s, est. speed input: 335.38 toks/s, output: 682.63 toks/s][A
+
+Processed prompts:  45%|████▍     | 224/500 [02:12<02:12,  2.08it/s, est. speed input: 336.02 toks/s, output: 684.26 toks/s][A
+
+Processed prompts:  45%|████▌     | 225/500 [02:12<02:22,  1.93it/s, est. speed input: 335.43 toks/s, output: 682.95 toks/s][A
+
+Processed prompts:  45%|████▌     | 226/500 [02:13<02:25,  1.88it/s, est. speed input: 335.01 toks/s, output: 682.00 toks/s][A
+
+Processed prompts:  45%|████▌     | 227/500 [02:13<02:31,  1.80it/s, est. speed input: 334.50 toks/s, output: 680.85 toks/s][A
+
+Processed prompts:  46%|████▌     | 228/500 [02:14<02:40,  1.69it/s, est. speed input: 333.78 toks/s, output: 678.46 toks/s][A
+
+Processed prompts:  46%|████▌     | 229/500 [02:15<02:38,  1.71it/s, est. speed input: 333.49 toks/s, output: 679.76 toks/s][A
+
+Processed prompts:  46%|████▌     | 230/500 [02:15<02:44,  1.64it/s, est. speed input: 332.91 toks/s, output: 679.64 toks/s][A
+
+Processed prompts:  46%|████▌     | 231/500 [02:16<02:46,  1.62it/s, est. speed input: 332.41 toks/s, output: 679.52 toks/s][A
+
+Processed prompts:  46%|████▋     | 232/500 [02:17<02:45,  1.62it/s, est. speed input: 331.96 toks/s, output: 679.70 toks/s][A
+
+Processed prompts:  47%|████▋     | 233/500 [02:17<02:48,  1.59it/s, est. speed input: 331.44 toks/s, output: 679.86 toks/s][A
+
+Processed prompts:  47%|████▋     | 234/500 [02:18<02:57,  1.50it/s, est. speed input: 330.90 toks/s, output: 683.59 toks/s][A
+
+Processed prompts:  47%|████▋     | 235/500 [02:19<02:49,  1.56it/s, est. speed input: 330.49 toks/s, output: 682.30 toks/s][A
+
+Processed prompts:  47%|████▋     | 237/500 [02:19<02:10,  2.01it/s, est. speed input: 330.83 toks/s, output: 681.95 toks/s][A
+
+Processed prompts:  48%|████▊     | 238/500 [02:20<02:25,  1.81it/s, est. speed input: 330.10 toks/s, output: 680.71 toks/s][A
+
+Processed prompts:  48%|████▊     | 239/500 [02:21<02:37,  1.66it/s, est. speed input: 329.35 toks/s, output: 679.80 toks/s][A
+
+Processed prompts:  48%|████▊     | 241/500 [02:21<02:04,  2.07it/s, est. speed input: 329.87 toks/s, output: 682.79 toks/s][A
+
+Processed prompts:  48%|████▊     | 242/500 [02:22<02:09,  1.99it/s, est. speed input: 329.48 toks/s, output: 681.93 toks/s][A
+
+Processed prompts:  49%|████▊     | 243/500 [02:23<02:23,  1.79it/s, est. speed input: 328.71 toks/s, output: 679.39 toks/s][A
+
+Processed prompts:  49%|████▉     | 244/500 [02:23<02:24,  1.78it/s, est. speed input: 328.49 toks/s, output: 681.57 toks/s][A
+
+Processed prompts:  49%|████▉     | 246/500 [02:24<01:55,  2.20it/s, est. speed input: 328.97 toks/s, output: 683.05 toks/s][A
+
+Processed prompts:  49%|████▉     | 247/500 [02:24<02:07,  1.98it/s, est. speed input: 331.23 toks/s, output: 687.24 toks/s][A
+
+Processed prompts:  50%|█████     | 250/500 [02:25<01:30,  2.76it/s, est. speed input: 332.54 toks/s, output: 690.88 toks/s][A
+
+Processed prompts:  50%|█████     | 251/500 [02:26<01:44,  2.39it/s, est. speed input: 331.94 toks/s, output: 688.76 toks/s][A
+
+Processed prompts:  50%|█████     | 252/500 [02:26<01:51,  2.21it/s, est. speed input: 331.52 toks/s, output: 687.11 toks/s][A
+
+Processed prompts:  51%|█████     | 253/500 [02:27<02:10,  1.90it/s, est. speed input: 330.65 toks/s, output: 684.69 toks/s][A
+
+Processed prompts:  51%|█████     | 254/500 [02:28<02:23,  1.71it/s, est. speed input: 329.91 toks/s, output: 683.79 toks/s][A
+
+Processed prompts:  51%|█████     | 255/500 [02:29<02:27,  1.66it/s, est. speed input: 329.42 toks/s, output: 683.88 toks/s][A
+
+Processed prompts:  51%|█████     | 256/500 [02:29<02:29,  1.63it/s, est. speed input: 328.88 toks/s, output: 682.32 toks/s][A
+
+Processed prompts:  51%|█████▏    | 257/500 [02:30<02:31,  1.60it/s, est. speed input: 328.31 toks/s, output: 680.65 toks/s][A
+
+Processed prompts:  52%|█████▏    | 258/500 [02:31<02:37,  1.54it/s, est. speed input: 327.67 toks/s, output: 679.84 toks/s][A
+
+Processed prompts:  52%|█████▏    | 259/500 [02:31<02:31,  1.59it/s, est. speed input: 327.27 toks/s, output: 678.40 toks/s][A
+
+Processed prompts:  52%|█████▏    | 260/500 [02:32<02:47,  1.43it/s, est. speed input: 326.36 toks/s, output: 677.95 toks/s][A
+
+Processed prompts:  52%|█████▏    | 261/500 [02:33<02:46,  1.43it/s, est. speed input: 325.71 toks/s, output: 676.24 toks/s][A
+
+Processed prompts:  52%|█████▏    | 262/500 [02:33<02:43,  1.46it/s, est. speed input: 325.21 toks/s, output: 675.94 toks/s][A
+
+Processed prompts:  53%|█████▎    | 263/500 [02:34<02:46,  1.42it/s, est. speed input: 324.69 toks/s, output: 678.26 toks/s][A
+
+Processed prompts:  53%|█████▎    | 264/500 [02:35<02:36,  1.50it/s, est. speed input: 324.33 toks/s, output: 677.68 toks/s][A
+
+Processed prompts:  53%|█████▎    | 265/500 [02:35<02:36,  1.50it/s, est. speed input: 323.77 toks/s, output: 676.21 toks/s][A
+
+Processed prompts:  53%|█████▎    | 266/500 [02:36<02:30,  1.55it/s, est. speed input: 323.35 toks/s, output: 674.60 toks/s][A
+
+Processed prompts:  53%|█████▎    | 267/500 [02:37<02:28,  1.57it/s, est. speed input: 322.93 toks/s, output: 674.40 toks/s][A
+
+Processed prompts:  54%|█████▎    | 268/500 [02:37<02:29,  1.55it/s, est. speed input: 322.42 toks/s, output: 673.28 toks/s][A
+
+Processed prompts:  54%|█████▍    | 269/500 [02:38<02:34,  1.50it/s, est. speed input: 321.74 toks/s, output: 671.47 toks/s][A
+
+Processed prompts:  54%|█████▍    | 270/500 [02:39<02:27,  1.56it/s, est. speed input: 321.36 toks/s, output: 670.15 toks/s][A
+
+Processed prompts:  54%|█████▍    | 271/500 [02:39<02:25,  1.57it/s, est. speed input: 320.96 toks/s, output: 670.07 toks/s][A
+
+Processed prompts:  54%|█████▍    | 272/500 [02:40<02:32,  1.49it/s, est. speed input: 320.41 toks/s, output: 671.34 toks/s][A
+
+Processed prompts:  55%|█████▍    | 273/500 [02:41<02:31,  1.50it/s, est. speed input: 319.90 toks/s, output: 670.10 toks/s][A
+
+Processed prompts:  55%|█████▍    | 274/500 [02:41<02:27,  1.54it/s, est. speed input: 319.55 toks/s, output: 670.73 toks/s][A
+
+Processed prompts:  55%|█████▌    | 275/500 [02:42<02:25,  1.54it/s, est. speed input: 319.16 toks/s, output: 671.12 toks/s][A
+
+Processed prompts:  56%|█████▌    | 278/500 [02:42<01:26,  2.55it/s, est. speed input: 321.50 toks/s, output: 678.36 toks/s][A
+
+Processed prompts:  56%|█████▌    | 279/500 [02:43<01:38,  2.25it/s, est. speed input: 321.00 toks/s, output: 676.70 toks/s][A
+
+Processed prompts:  56%|█████▌    | 280/500 [02:44<01:47,  2.04it/s, est. speed input: 320.52 toks/s, output: 675.14 toks/s][A
+
+Processed prompts:  56%|█████▌    | 281/500 [02:44<01:52,  1.95it/s, est. speed input: 320.17 toks/s, output: 674.46 toks/s][A
+
+Processed prompts:  56%|█████▋    | 282/500 [02:45<01:58,  1.83it/s, est. speed input: 320.69 toks/s, output: 679.02 toks/s][A
+
+Processed prompts:  57%|█████▋    | 283/500 [02:45<02:00,  1.80it/s, est. speed input: 320.32 toks/s, output: 677.83 toks/s][A
+
+Processed prompts:  57%|█████▋    | 284/500 [02:46<02:03,  1.75it/s, est. speed input: 319.93 toks/s, output: 677.19 toks/s][A
+
+Processed prompts:  57%|█████▋    | 285/500 [02:47<02:05,  1.71it/s, est. speed input: 319.49 toks/s, output: 675.61 toks/s][A
+
+Processed prompts:  57%|█████▋    | 286/500 [02:47<02:08,  1.66it/s, est. speed input: 319.03 toks/s, output: 674.59 toks/s][A
+
+Processed prompts:  57%|█████▋    | 287/500 [02:48<02:06,  1.68it/s, est. speed input: 318.72 toks/s, output: 674.00 toks/s][A
+
+Processed prompts:  58%|█████▊    | 288/500 [02:49<02:07,  1.67it/s, est. speed input: 318.28 toks/s, output: 672.36 toks/s][A
+
+Processed prompts:  58%|█████▊    | 289/500 [02:49<02:07,  1.65it/s, est. speed input: 317.96 toks/s, output: 673.17 toks/s][A
+
+Processed prompts:  58%|█████▊    | 290/500 [02:50<02:11,  1.59it/s, est. speed input: 317.41 toks/s, output: 671.32 toks/s][A
+
+Processed prompts:  58%|█████▊    | 291/500 [02:51<02:18,  1.51it/s, est. speed input: 316.75 toks/s, output: 669.42 toks/s][A
+
+Processed prompts:  58%|█████▊    | 292/500 [02:51<02:24,  1.44it/s, est. speed input: 316.08 toks/s, output: 668.10 toks/s][A
+
+Processed prompts:  59%|█████▊    | 293/500 [02:52<02:18,  1.49it/s, est. speed input: 315.71 toks/s, output: 667.87 toks/s][A
+
+Processed prompts:  59%|█████▉    | 294/500 [02:53<02:12,  1.56it/s, est. speed input: 315.37 toks/s, output: 666.23 toks/s][A
+
+Processed prompts:  59%|█████▉    | 295/500 [02:53<02:09,  1.58it/s, est. speed input: 315.00 toks/s, output: 665.63 toks/s][A
+
+Processed prompts:  59%|█████▉    | 296/500 [02:54<02:05,  1.62it/s, est. speed input: 314.67 toks/s, output: 664.61 toks/s][A
+
+Processed prompts:  60%|█████▉    | 298/500 [02:54<01:39,  2.03it/s, est. speed input: 314.85 toks/s, output: 664.56 toks/s][A
+
+Processed prompts:  60%|█████▉    | 299/500 [02:55<01:55,  1.73it/s, est. speed input: 314.06 toks/s, output: 662.43 toks/s][A
+
+Processed prompts:  60%|██████    | 300/500 [02:56<01:58,  1.69it/s, est. speed input: 313.86 toks/s, output: 665.89 toks/s][A
+
+Processed prompts:  60%|██████    | 301/500 [02:56<01:59,  1.67it/s, est. speed input: 313.57 toks/s, output: 667.21 toks/s][A
+
+Processed prompts:  60%|██████    | 302/500 [02:57<02:04,  1.59it/s, est. speed input: 313.09 toks/s, output: 666.99 toks/s][A
+
+Processed prompts:  61%|██████    | 304/500 [02:58<01:40,  1.95it/s, est. speed input: 313.21 toks/s, output: 667.45 toks/s][A
+
+Processed prompts:  61%|██████    | 305/500 [02:59<01:43,  1.89it/s, est. speed input: 312.92 toks/s, output: 667.10 toks/s][A
+
+Processed prompts:  61%|██████    | 306/500 [02:59<01:48,  1.78it/s, est. speed input: 312.44 toks/s, output: 665.32 toks/s][A
+
+Processed prompts:  61%|██████▏   | 307/500 [03:00<01:52,  1.72it/s, est. speed input: 312.17 toks/s, output: 667.29 toks/s][A
+
+Processed prompts:  62%|██████▏   | 309/500 [03:00<01:26,  2.20it/s, est. speed input: 312.59 toks/s, output: 668.51 toks/s][A
+
+Processed prompts:  62%|██████▏   | 310/500 [03:01<01:33,  2.03it/s, est. speed input: 312.21 toks/s, output: 667.68 toks/s][A
+
+Processed prompts:  62%|██████▏   | 311/500 [03:02<01:43,  1.83it/s, est. speed input: 311.69 toks/s, output: 666.56 toks/s][A
+
+Processed prompts:  62%|██████▏   | 312/500 [03:02<01:49,  1.72it/s, est. speed input: 311.23 toks/s, output: 666.01 toks/s][A
+
+Processed prompts:  63%|██████▎   | 313/500 [03:03<01:52,  1.66it/s, est. speed input: 310.78 toks/s, output: 664.75 toks/s][A
+
+Processed prompts:  63%|██████▎   | 314/500 [03:04<01:54,  1.62it/s, est. speed input: 310.37 toks/s, output: 664.06 toks/s][A
+
+Processed prompts:  63%|██████▎   | 315/500 [03:04<01:51,  1.65it/s, est. speed input: 310.11 toks/s, output: 664.17 toks/s][A
+
+Processed prompts:  63%|██████▎   | 316/500 [03:05<01:55,  1.60it/s, est. speed input: 309.69 toks/s, output: 664.31 toks/s][A
+
+Processed prompts:  63%|██████▎   | 317/500 [03:06<01:54,  1.60it/s, est. speed input: 309.28 toks/s, output: 662.49 toks/s][A
+
+Processed prompts:  64%|██████▎   | 318/500 [03:06<01:51,  1.64it/s, est. speed input: 309.00 toks/s, output: 662.20 toks/s][A
+
+Processed prompts:  64%|██████▍   | 319/500 [03:07<01:50,  1.63it/s, est. speed input: 308.63 toks/s, output: 661.02 toks/s][A
+
+Processed prompts:  64%|██████▍   | 320/500 [03:07<01:48,  1.66it/s, est. speed input: 308.34 toks/s, output: 660.13 toks/s][A
+
+Processed prompts:  64%|██████▍   | 321/500 [03:08<01:50,  1.62it/s, est. speed input: 307.92 toks/s, output: 659.13 toks/s][A
+
+Processed prompts:  64%|██████▍   | 322/500 [03:09<01:49,  1.62it/s, est. speed input: 307.56 toks/s, output: 657.84 toks/s][A
+
+Processed prompts:  65%|██████▍   | 323/500 [03:09<01:53,  1.56it/s, est. speed input: 307.04 toks/s, output: 655.97 toks/s][A
+
+Processed prompts:  65%|██████▍   | 324/500 [03:10<01:49,  1.61it/s, est. speed input: 306.77 toks/s, output: 655.44 toks/s][A
+
+Processed prompts:  65%|██████▌   | 325/500 [03:10<01:48,  1.61it/s, est. speed input: 306.42 toks/s, output: 654.44 toks/s][A
+
+Processed prompts:  65%|██████▌   | 326/500 [03:11<02:05,  1.39it/s, est. speed input: 305.52 toks/s, output: 651.97 toks/s][A
+
+Processed prompts:  65%|██████▌   | 327/500 [03:12<02:02,  1.41it/s, est. speed input: 305.05 toks/s, output: 650.48 toks/s][A
+
+Processed prompts:  66%|██████▌   | 328/500 [03:13<01:59,  1.44it/s, est. speed input: 304.66 toks/s, output: 649.73 toks/s][A
+
+Processed prompts:  66%|██████▌   | 330/500 [03:13<01:27,  1.94it/s, est. speed input: 304.93 toks/s, output: 649.89 toks/s][A
+
+Processed prompts:  66%|██████▌   | 331/500 [03:14<01:31,  1.85it/s, est. speed input: 304.63 toks/s, output: 650.13 toks/s][A
+
+Processed prompts:  67%|██████▋   | 333/500 [03:15<01:12,  2.29it/s, est. speed input: 305.03 toks/s, output: 652.04 toks/s][A
+
+Processed prompts:  67%|██████▋   | 334/500 [03:15<01:21,  2.05it/s, est. speed input: 304.60 toks/s, output: 650.66 toks/s][A
+
+Processed prompts:  67%|██████▋   | 335/500 [03:16<01:30,  1.83it/s, est. speed input: 304.08 toks/s, output: 649.38 toks/s][A
+
+Processed prompts:  67%|██████▋   | 336/500 [03:17<01:32,  1.77it/s, est. speed input: 303.74 toks/s, output: 648.26 toks/s][A
+
+Processed prompts:  67%|██████▋   | 337/500 [03:17<01:34,  1.72it/s, est. speed input: 303.39 toks/s, output: 647.29 toks/s][A
+
+Processed prompts:  68%|██████▊   | 338/500 [03:18<01:37,  1.66it/s, est. speed input: 302.97 toks/s, output: 646.01 toks/s][A
+
+Processed prompts:  68%|██████▊   | 339/500 [03:18<01:36,  1.68it/s, est. speed input: 302.73 toks/s, output: 646.16 toks/s][A
+
+Processed prompts:  68%|██████▊   | 340/500 [03:19<01:36,  1.66it/s, est. speed input: 302.45 toks/s, output: 646.81 toks/s][A
+
+Processed prompts:  68%|██████▊   | 341/500 [03:20<01:36,  1.64it/s, est. speed input: 302.12 toks/s, output: 646.12 toks/s][A
+
+Processed prompts:  69%|██████▊   | 343/500 [03:20<01:12,  2.16it/s, est. speed input: 302.45 toks/s, output: 646.60 toks/s][A
+
+Processed prompts:  69%|██████▉   | 344/500 [03:21<01:17,  2.00it/s, est. speed input: 302.08 toks/s, output: 644.92 toks/s][A
+
+Processed prompts:  69%|██████▉   | 345/500 [03:22<01:23,  1.85it/s, est. speed input: 301.75 toks/s, output: 645.50 toks/s][A
+
+Processed prompts:  69%|██████▉   | 346/500 [03:22<01:25,  1.81it/s, est. speed input: 301.47 toks/s, output: 644.60 toks/s][A
+
+Processed prompts:  69%|██████▉   | 347/500 [03:23<01:28,  1.74it/s, est. speed input: 301.09 toks/s, output: 643.18 toks/s][A
+
+Processed prompts:  70%|██████▉   | 348/500 [03:24<01:36,  1.57it/s, est. speed input: 300.51 toks/s, output: 641.66 toks/s][A
+
+Processed prompts:  70%|███████   | 350/500 [03:24<01:13,  2.04it/s, est. speed input: 300.80 toks/s, output: 642.87 toks/s][A
+
+Processed prompts:  70%|███████   | 351/500 [03:25<01:17,  1.91it/s, est. speed input: 300.64 toks/s, output: 645.81 toks/s][A
+
+Processed prompts:  70%|███████   | 352/500 [03:25<01:21,  1.83it/s, est. speed input: 300.32 toks/s, output: 645.07 toks/s][A
+
+Processed prompts:  71%|███████   | 353/500 [03:26<01:23,  1.77it/s, est. speed input: 300.01 toks/s, output: 644.27 toks/s][A
+
+Processed prompts:  71%|███████   | 354/500 [03:27<01:29,  1.64it/s, est. speed input: 299.53 toks/s, output: 643.06 toks/s][A
+
+Processed prompts:  71%|███████   | 355/500 [03:28<01:34,  1.53it/s, est. speed input: 299.08 toks/s, output: 643.85 toks/s][A
+
+Processed prompts:  71%|███████▏  | 357/500 [03:28<01:13,  1.95it/s, est. speed input: 299.32 toks/s, output: 645.89 toks/s][A
+
+Processed prompts:  72%|███████▏  | 358/500 [03:29<01:15,  1.89it/s, est. speed input: 299.10 toks/s, output: 646.12 toks/s][A
+
+Processed prompts:  72%|███████▏  | 359/500 [03:29<01:20,  1.76it/s, est. speed input: 298.67 toks/s, output: 644.67 toks/s][A
+
+Processed prompts:  72%|███████▏  | 360/500 [03:30<01:19,  1.75it/s, est. speed input: 298.50 toks/s, output: 646.11 toks/s][A
+
+Processed prompts:  72%|███████▏  | 362/500 [03:31<01:04,  2.14it/s, est. speed input: 298.68 toks/s, output: 646.69 toks/s][A
+
+Processed prompts:  73%|███████▎  | 363/500 [03:31<01:08,  1.99it/s, est. speed input: 298.43 toks/s, output: 647.26 toks/s][A
+
+Processed prompts:  73%|███████▎  | 364/500 [03:32<01:17,  1.76it/s, est. speed input: 297.88 toks/s, output: 645.57 toks/s][A
+
+Processed prompts:  73%|███████▎  | 365/500 [03:33<01:19,  1.70it/s, est. speed input: 297.53 toks/s, output: 644.63 toks/s][A
+
+Processed prompts:  73%|███████▎  | 366/500 [03:33<01:19,  1.68it/s, est. speed input: 297.20 toks/s, output: 643.37 toks/s][A
+
+Processed prompts:  73%|███████▎  | 367/500 [03:34<01:20,  1.66it/s, est. speed input: 296.93 toks/s, output: 643.71 toks/s][A
+
+Processed prompts:  74%|███████▎  | 368/500 [03:35<01:22,  1.60it/s, est. speed input: 296.48 toks/s, output: 641.84 toks/s][A
+
+Processed prompts:  74%|███████▍  | 369/500 [03:35<01:22,  1.58it/s, est. speed input: 296.35 toks/s, output: 645.41 toks/s][A
+
+Processed prompts:  74%|███████▍  | 370/500 [03:36<01:20,  1.61it/s, est. speed input: 296.12 toks/s, output: 645.70 toks/s][A
+
+Processed prompts:  74%|███████▍  | 371/500 [03:37<01:27,  1.48it/s, est. speed input: 295.53 toks/s, output: 643.74 toks/s][A
+
+Processed prompts:  74%|███████▍  | 372/500 [03:37<01:22,  1.55it/s, est. speed input: 295.27 toks/s, output: 642.91 toks/s][A
+
+Processed prompts:  75%|███████▍  | 373/500 [03:38<01:22,  1.54it/s, est. speed input: 294.96 toks/s, output: 643.18 toks/s][A
+
+Processed prompts:  76%|███████▌  | 378/500 [03:38<00:28,  4.29it/s, est. speed input: 297.45 toks/s, output: 650.17 toks/s][A
+
+Processed prompts:  76%|███████▌  | 381/500 [03:38<00:19,  6.26it/s, est. speed input: 298.88 toks/s, output: 652.85 toks/s][A
+
+Processed prompts:  77%|███████▋  | 383/500 [03:38<00:15,  7.61it/s, est. speed input: 299.92 toks/s, output: 657.47 toks/s][A
+
+Processed prompts:  78%|███████▊  | 389/500 [03:38<00:08, 13.43it/s, est. speed input: 302.93 toks/s, output: 664.61 toks/s][A
+
+Processed prompts:  78%|███████▊  | 392/500 [03:39<00:06, 15.43it/s, est. speed input: 304.33 toks/s, output: 667.41 toks/s][A
+
+Processed prompts:  79%|███████▉  | 396/500 [03:39<00:05, 17.41it/s, est. speed input: 306.15 toks/s, output: 670.64 toks/s][A
+
+Processed prompts:  80%|███████▉  | 399/500 [03:39<00:05, 16.92it/s, est. speed input: 307.41 toks/s, output: 672.78 toks/s][A
+
+Processed prompts:  81%|████████  | 403/500 [03:39<00:05, 19.28it/s, est. speed input: 309.18 toks/s, output: 675.40 toks/s][A
+
+Processed prompts:  81%|████████  | 406/500 [03:39<00:05, 17.77it/s, est. speed input: 310.47 toks/s, output: 678.66 toks/s][A
+
+Processed prompts:  82%|████████▏ | 409/500 [03:40<00:05, 16.38it/s, est. speed input: 311.74 toks/s, output: 682.68 toks/s][A
+
+Processed prompts:  82%|████████▏ | 411/500 [03:40<00:05, 16.73it/s, est. speed input: 312.52 toks/s, output: 683.42 toks/s][A
+
+Processed prompts:  83%|████████▎ | 414/500 [03:40<00:04, 19.02it/s, est. speed input: 313.83 toks/s, output: 685.51 toks/s][A
+
+Processed prompts:  84%|████████▎ | 418/500 [03:40<00:04, 20.19it/s, est. speed input: 315.71 toks/s, output: 692.04 toks/s][A
+
+Processed prompts:  84%|████████▍ | 421/500 [03:40<00:05, 15.30it/s, est. speed input: 316.81 toks/s, output: 695.51 toks/s][A
+
+Processed prompts:  85%|████████▌ | 426/500 [03:40<00:04, 17.96it/s, est. speed input: 319.18 toks/s, output: 704.18 toks/s][A
+
+Processed prompts:  86%|████████▌ | 428/500 [03:41<00:04, 16.77it/s, est. speed input: 319.96 toks/s, output: 706.16 toks/s][A
+
+Processed prompts:  86%|████████▌ | 430/500 [03:41<00:04, 16.78it/s, est. speed input: 320.90 toks/s, output: 710.84 toks/s][A
+
+Processed prompts:  86%|████████▋ | 432/500 [03:41<00:03, 17.42it/s, est. speed input: 321.83 toks/s, output: 714.50 toks/s][A
+
+Processed prompts:  87%|████████▋ | 435/500 [03:41<00:03, 18.85it/s, est. speed input: 323.17 toks/s, output: 718.70 toks/s][A
+
+Processed prompts:  88%|████████▊ | 439/500 [03:41<00:02, 22.09it/s, est. speed input: 325.02 toks/s, output: 724.64 toks/s][A
+
+Processed prompts:  88%|████████▊ | 442/500 [03:41<00:02, 23.29it/s, est. speed input: 326.42 toks/s, output: 730.26 toks/s][A
+
+Processed prompts:  89%|████████▉ | 445/500 [03:41<00:02, 19.22it/s, est. speed input: 327.53 toks/s, output: 733.21 toks/s][A
+
+Processed prompts:  90%|████████▉ | 449/500 [03:42<00:02, 21.84it/s, est. speed input: 329.32 toks/s, output: 738.69 toks/s][A
+
+Processed prompts:  90%|█████████ | 452/500 [03:42<00:02, 19.40it/s, est. speed input: 330.60 toks/s, output: 744.26 toks/s][A
+
+Processed prompts:  91%|█████████ | 455/500 [03:42<00:02, 17.54it/s, est. speed input: 331.83 toks/s, output: 749.29 toks/s][A
+
+Processed prompts:  92%|█████████▏| 458/500 [03:42<00:02, 17.75it/s, est. speed input: 333.06 toks/s, output: 753.36 toks/s][A
+
+Processed prompts:  92%|█████████▏| 460/500 [03:42<00:02, 17.10it/s, est. speed input: 334.04 toks/s, output: 760.10 toks/s][A
+
+Processed prompts:  93%|█████████▎| 463/500 [03:42<00:01, 19.70it/s, est. speed input: 335.43 toks/s, output: 766.28 toks/s][A
+
+Processed prompts:  93%|█████████▎| 466/500 [03:44<00:05,  6.19it/s, est. speed input: 335.23 toks/s, output: 771.18 toks/s][A
+
+Processed prompts:  94%|█████████▎| 468/500 [03:44<00:04,  6.72it/s, est. speed input: 335.93 toks/s, output: 775.55 toks/s][A
+
+Processed prompts:  94%|█████████▍| 470/500 [03:44<00:04,  7.32it/s, est. speed input: 336.58 toks/s, output: 778.52 toks/s][A
+
+Processed prompts:  94%|█████████▍| 472/500 [03:45<00:07,  3.68it/s, est. speed input: 335.64 toks/s, output: 779.42 toks/s][A
+
+Processed prompts:  95%|█████████▍| 473/500 [03:46<00:07,  3.41it/s, est. speed input: 335.53 toks/s, output: 780.76 toks/s][A
+
+Processed prompts:  95%|█████████▍| 474/500 [03:47<00:10,  2.50it/s, est. speed input: 334.83 toks/s, output: 783.39 toks/s][A
+
+Processed prompts:  95%|█████████▌| 475/500 [03:47<00:11,  2.22it/s, est. speed input: 334.59 toks/s, output: 788.60 toks/s][A
+
+Processed prompts:  95%|█████████▌| 476/500 [03:48<00:12,  1.88it/s, est. speed input: 334.04 toks/s, output: 792.43 toks/s][A
+
+Processed prompts:  95%|█████████▌| 477/500 [03:49<00:11,  1.92it/s, est. speed input: 333.83 toks/s, output: 794.52 toks/s][A
+
+Processed prompts:  96%|█████████▌| 478/500 [03:50<00:14,  1.51it/s, est. speed input: 332.97 toks/s, output: 798.81 toks/s][A
+
+Processed prompts:  96%|█████████▌| 480/500 [03:51<00:13,  1.48it/s, est. speed input: 332.23 toks/s, output: 808.43 toks/s][A
+
+Processed prompts:  96%|█████████▌| 481/500 [03:54<00:22,  1.18s/it, est. speed input: 328.72 toks/s, output: 803.86 toks/s][A
+
+Processed prompts:  96%|█████████▋| 482/500 [03:56<00:25,  1.41s/it, est. speed input: 326.29 toks/s, output: 802.64 toks/s][A
+
+Processed prompts:  97%|█████████▋| 483/500 [03:57<00:22,  1.32s/it, est. speed input: 325.33 toks/s, output: 806.04 toks/s][A
+
+Processed prompts:  97%|█████████▋| 484/500 [04:02<00:35,  2.22s/it, est. speed input: 319.74 toks/s, output: 801.08 toks/s][A
+
+Processed prompts:  97%|█████████▋| 485/500 [04:04<00:33,  2.27s/it, est. speed input: 317.22 toks/s, output: 804.04 toks/s][A
+
+Processed prompts:  97%|█████████▋| 486/500 [04:10<00:48,  3.48s/it, est. speed input: 309.63 toks/s, output: 796.60 toks/s][A
+
+Processed prompts:  97%|█████████▋| 487/500 [04:11<00:35,  2.76s/it, est. speed input: 309.05 toks/s, output: 808.68 toks/s][A[2025-04-14 20:10:55,835] [[33m WARNING[0m]: Sequence group 384 is preempted by PreemptionMode.RECOMPUTE mode because there is not enough KV cache space. This can affect the end-to-end performance. Increase gpu_memory_utilization or tensor_parallel_size to provide more KV cache memory. total_num_cumulative_preemption=1 (scheduler.py:1560)[0m
+
+
+Processed prompts:  98%|█████████▊| 488/500 [12:25<29:19, 146.62s/it, est. speed input: 105.48 toks/s, output: 316.27 toks/s][A[2025-04-14 20:18:41,475] [[33m WARNING[0m]: ~/Projects/nips25_slot/open-r2/openr1/lib/python3.11/site-packages/vllm/worker/model_runner.py:1828: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  lm_head_weight = torch.load(lm_local, map_location=hidden_states_cur.device).to(dtype=torch.bfloat16)
+ (warnings.py:110)[0m
+
+
+Processed prompts:  98%|█████████▊| 489/500 [12:36<19:33, 106.66s/it, est. speed input: 104.17 toks/s, output: 354.61 toks/s][A
+
+Processed prompts:  98%|█████████▊| 490/500 [14:40<18:37, 111.75s/it, est. speed input: 89.72 toks/s, output: 341.76 toks/s] [A
+
+Processed prompts:  98%|█████████▊| 491/500 [16:53<17:41, 117.92s/it, est. speed input: 78.15 toks/s, output: 329.25 toks/s][A
+
+Processed prompts:  98%|█████████▊| 492/500 [18:24<14:39, 109.92s/it, est. speed input: 71.85 toks/s, output: 331.61 toks/s][A
+
+Processed prompts:  99%|█████████▊| 493/500 [21:03<14:32, 124.64s/it, est. speed input: 62.92 toks/s, output: 315.65 toks/s][A
+
+Processed prompts:  99%|█████████▉| 494/500 [23:14<12:40, 126.67s/it, est. speed input: 57.10 toks/s, output: 309.29 toks/s][A
+
+Processed prompts:  99%|█████████▉| 495/500 [25:10<10:16, 123.33s/it, est. speed input: 52.83 toks/s, output: 307.23 toks/s][A
+
+Processed prompts:  99%|█████████▉| 496/500 [27:34<08:38, 129.71s/it, est. speed input: 48.31 toks/s, output: 300.09 toks/s][A
+
+Processed prompts:  99%|█████████▉| 497/500 [29:46<06:30, 130.28s/it, est. speed input: 44.83 toks/s, output: 296.25 toks/s][A
+
+Processed prompts: 100%|█████████▉| 498/500 [31:59<04:21, 130.97s/it, est. speed input: 41.80 toks/s, output: 292.79 toks/s][A
+
+Processed prompts: 100%|█████████▉| 499/500 [34:10<02:11, 131.08s/it, est. speed input: 39.18 toks/s, output: 289.95 toks/s][A
+
+Processed prompts: 100%|██████████| 500/500 [36:11<00:00, 128.06s/it, est. speed input: 37.06 toks/s, output: 288.83 toks/s][A
+Processed prompts: 100%|██████████| 500/500 [36:11<00:00,  4.34s/it, est. speed input: 37.06 toks/s, output: 288.83 toks/s] 
+
+Splits: 100%|██████████| 1/1 [36:11<00:00, 2171.81s/it]
+Splits: 100%|██████████| 1/1 [36:11<00:00, 2171.81s/it]
+[2025-04-14 20:42:28,270] [[32m    INFO[0m]: Terminating local vLLM worker processes (multiproc_worker_utils.py:141)[0m
+[1;36m(VllmWorkerProcess pid=3736661)[0;0m INFO 04-14 20:42:28 multiproc_worker_utils.py:253] Worker exiting
+[1;36m(VllmWorkerProcess pid=3736666)[0;0m INFO 04-14 20:42:28 multiproc_worker_utils.py:253] Worker exiting
+[1;36m(VllmWorkerProcess pid=3736662)[0;0m INFO 04-14 20:42:28 multiproc_worker_utils.py:253] Worker exiting
+[1;36m(VllmWorkerProcess pid=3736660)[0;0m INFO 04-14 20:42:28 multiproc_worker_utils.py:253] Worker exiting
+[1;36m(VllmWorkerProcess pid=3736667)[0;0m INFO 04-14 20:42:28 multiproc_worker_utils.py:253] Worker exiting
+[1;36m(VllmWorkerProcess pid=3736665)[0;0m INFO 04-14 20:42:28 multiproc_worker_utils.py:253] Worker exiting
+[1;36m(VllmWorkerProcess pid=3736668)[0;0m INFO 04-14 20:42:28 multiproc_worker_utils.py:253] Worker exiting
+[2025-04-14 20:42:29,003] [[32m    INFO[0m]: --- COMPUTING METRICS --- (pipeline.py:504)[0m
+[2025-04-14 20:42:35,155] [[32m    INFO[0m]: --- DISPLAYING RESULTS --- (pipeline.py:546)[0m
+[2025-04-14 20:42:35,165] [[32m    INFO[0m]: --- SAVING AND PUSHING RESULTS --- (pipeline.py:536)[0m
+[2025-04-14 20:42:35,165] [[32m    INFO[0m]: Saving experiment tracker (evaluation_tracker.py:180)[0m
+[2025-04-14 20:42:35,578] [[32m    INFO[0m]: Saving results to ~/Projects/nips25_slot/open-r2/data/evals~/Models/Qwen/Qwen2.5-32B/results/_Models_Qwen_Qwen2.5-32B/results_2025-04-14T20-42-35.165833.json (evaluation_tracker.py:234)[0m
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([31349, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([168, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([167, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([167, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([166, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([165, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([165, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([165, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([165, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([165, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([165, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([164, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([164, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([164, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([163, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([163, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([326, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([162, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([162, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([162, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([162, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([161, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([161, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([161, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([322, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([160, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([160, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([159, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([159, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([159, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([159, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([159, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([159, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([158, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([158, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([157, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([157, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([156, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([156, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([156, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([311, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([155, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([310, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([155, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([155, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([154, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([308, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([308, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([154, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([154, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([154, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([153, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([153, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([153, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([153, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([304, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([152, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([304, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([152, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([151, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([151, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([151, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([300, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([150, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([298, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([148, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([148, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([148, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([148, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([148, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([296, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([294, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([147, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([147, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([146, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([146, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([146, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([146, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([146, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([145, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([145, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([145, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([145, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([144, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([144, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([144, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([144, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([144, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([144, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([144, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([288, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([143, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([143, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([143, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([143, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([143, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([142, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([284, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([142, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([142, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([142, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([141, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([141, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([141, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([141, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([141, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([141, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([140, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([140, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([140, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([140, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([280, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([140, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([140, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([140, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([140, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([139, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([139, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([139, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([139, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([553, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([138, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([138, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([137, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([137, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([137, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([137, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([137, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([137, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([273, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([136, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([136, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([136, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([136, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([135, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([135, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([135, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([135, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([134, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([134, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([133, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([266, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([133, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([133, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([133, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([399, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([132, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([132, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([132, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([132, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([262, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([131, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([131, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([131, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([131, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([261, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([130, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([130, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([130, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([130, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([130, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([130, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([130, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([130, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([129, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([258, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([129, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([258, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([129, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([129, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([257, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([256, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([384, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([256, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([128, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([127, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([254, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([127, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([127, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([127, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([127, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([126, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([126, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([126, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([126, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([126, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([126, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([126, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([126, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([126, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([250, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([125, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([125, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([125, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([125, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([125, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([125, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([124, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([124, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([124, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([124, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([124, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([248, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([124, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([124, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([247, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([123, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([123, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([123, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([246, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([123, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([368, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([122, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([122, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([122, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([122, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([122, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([122, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([122, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([122, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([122, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([122, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([122, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([121, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([121, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([121, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([121, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([120, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([120, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([120, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([120, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([120, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([120, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([120, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([120, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([120, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([119, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([357, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([119, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([119, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([119, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([118, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([118, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([118, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([118, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([117, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([117, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([117, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([117, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([117, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([117, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([117, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([116, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([116, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([116, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([116, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([232, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([116, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([115, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([115, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([115, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([230, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([115, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([115, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([114, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([228, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([114, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([114, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([114, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([114, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([113, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([113, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([113, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([113, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([113, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([113, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([113, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([113, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([113, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([112, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([112, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([112, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([112, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([112, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([112, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([223, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([111, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([222, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([111, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([111, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([111, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([111, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([111, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([110, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([110, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([110, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([219, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([109, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([109, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([109, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([109, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([109, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([218, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([108, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([108, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([108, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([107, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([107, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([212, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([106, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([106, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([106, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([209, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([104, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([104, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([104, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([103, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([103, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([103, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([103, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([102, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([101, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([100, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([98, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([25522, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([18938, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([27633, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([20786, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([24363, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([31666, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([9321, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([26925, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([6428, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([31828, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([15910, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([30547, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([18572, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([23256, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([18882, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([11193, 5120]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-32B_lm_head.pt
+cuda:0 torch.Size([152064, 5120])
+|        Task        |Version|     Metric     |Value|   |Stderr|
+|--------------------|------:|----------------|----:|---|-----:|
+|all                 |       |extractive_match| 0.66|±  |0.0212|
+|lighteval:math_500:0|      1|extractive_match| 0.66|±  |0.0212|
+

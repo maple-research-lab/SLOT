@@ -1,0 +1,683 @@
+[2025-04-23 09:31:39,166] [[32m    INFO[0m]: PyTorch version 2.5.1 available. (config.py:58)[0m
+INFO 04-23 09:31:43 __init__.py:190] Automatically detected platform cuda.
+[2025-04-23 09:31:44,623] [[32m    INFO[0m]: --- LOADING MODEL --- (pipeline.py:189)[0m
+[2025-04-23 09:31:52,690] [[32m    INFO[0m]: This model supports multiple tasks: {'generate', 'classify', 'embed', 'score', 'reward'}. Defaulting to 'generate'. (config.py:542)[0m
+[2025-04-23 09:31:52,692] [[32m    INFO[0m]: Initializing a V0 LLM engine (v0.7.2) with config: model='~/Models/deepseek-ai/DeepSeek-R1-Distill-Llama-8B', speculative_config=None, tokenizer='~/Models/deepseek-ai/DeepSeek-R1-Distill-Llama-8B', skip_tokenizer_init=False, tokenizer_mode=auto, revision=main, override_neuron_config=None, tokenizer_revision=main, trust_remote_code=False, dtype=torch.bfloat16, max_seq_len=32768, download_dir=None, load_format=LoadFormat.AUTO, tensor_parallel_size=1, pipeline_parallel_size=1, disable_custom_all_reduce=False, quantization=None, enforce_eager=False, kv_cache_dtype=auto,  device_config=cuda, decoding_config=DecodingConfig(guided_decoding_backend='xgrammar'), observability_config=ObservabilityConfig(otlp_traces_endpoint=None, collect_model_forward_time=False, collect_model_execute_time=False), seed=1234, served_model_name=~/Models/deepseek-ai/DeepSeek-R1-Distill-Llama-8B, num_scheduler_steps=1, multi_step_stream_outputs=True, enable_prefix_caching=False, chunked_prefill_enabled=False, use_async_output_proc=True, disable_mm_preprocessor_cache=False, mm_processor_kwargs=None, pooler_config=None, compilation_config={"splitting_ops":[],"compile_sizes":[],"cudagraph_capture_sizes":[128,120,112,104,96,88,80,72,64,56,48,40,32,24,16,8,4,2,1],"max_capture_size":128}, use_cached_outputs=False,  (llm_engine.py:234)[0m
+[2025-04-23 09:31:53,772] [[32m    INFO[0m]: Using Flash Attention backend. (cuda.py:230)[0m
+[2025-04-23 09:31:54,341] [[32m    INFO[0m]: Starting to load model ~/Models/deepseek-ai/DeepSeek-R1-Distill-Llama-8B... (model_runner.py:1110)[0m
+
+Loading safetensors checkpoint shards:   0% Completed | 0/2 [00:00<?, ?it/s]
+
+Loading safetensors checkpoint shards:  50% Completed | 1/2 [00:04<00:04,  4.67s/it]
+
+Loading safetensors checkpoint shards: 100% Completed | 2/2 [00:10<00:00,  5.20s/it]
+
+Loading safetensors checkpoint shards: 100% Completed | 2/2 [00:10<00:00,  5.12s/it]
+
+[2025-04-23 09:32:05,166] [[32m    INFO[0m]: Loading model weights took 14.9888 GB (model_runner.py:1115)[0m
+[2025-04-23 09:32:06,397] [[32m    INFO[0m]: Memory profiling takes 1.08 seconds
+the current vLLM instance can use total_gpu_memory (79.22GiB) x gpu_memory_utilization (0.90) = 71.29GiB
+model weights take 14.99GiB; non_torch_memory takes 0.16GiB; PyTorch activation peak memory takes 3.41GiB; the rest of the memory reserved for KV Cache is 52.74GiB. (worker.py:267)[0m
+[2025-04-23 09:32:06,547] [[32m    INFO[0m]: # CUDA blocks: 27003, # CPU blocks: 2048 (executor_base.py:110)[0m
+[2025-04-23 09:32:06,547] [[32m    INFO[0m]: Maximum concurrency for 32768 tokens per request: 13.19x (executor_base.py:115)[0m
+[2025-04-23 09:32:07,793] [[32m    INFO[0m]: Capturing cudagraphs for decoding. This may lead to unexpected consequences if the model is not static. To run the model in eager mode, set 'enforce_eager=True' or use '--enforce-eager' in the CLI. If out-of-memory error occurs during cudagraph capture, consider decreasing `gpu_memory_utilization` or switching to eager mode. You can also reduce the `max_num_seqs` as needed to decrease memory usage. (model_runner.py:1434)[0m
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.1
+
+Capturing CUDA graph shapes:   0%|          | 0/19 [00:00<?, ?it/s]
+Capturing CUDA graph shapes:   5%|▌         | 1/19 [00:00<00:06,  2.68it/s]
+Capturing CUDA graph shapes:  11%|█         | 2/19 [00:00<00:05,  2.93it/s]
+Capturing CUDA graph shapes:  16%|█▌        | 3/19 [00:01<00:05,  3.02it/s]
+Capturing CUDA graph shapes:  21%|██        | 4/19 [00:01<00:04,  3.07it/s]
+Capturing CUDA graph shapes:  26%|██▋       | 5/19 [00:01<00:04,  3.09it/s]
+Capturing CUDA graph shapes:  32%|███▏      | 6/19 [00:02<00:04,  2.99it/s]
+Capturing CUDA graph shapes:  37%|███▋      | 7/19 [00:02<00:03,  3.04it/s]
+Capturing CUDA graph shapes:  42%|████▏     | 8/19 [00:02<00:03,  3.01it/s]
+Capturing CUDA graph shapes:  47%|████▋     | 9/19 [00:02<00:03,  3.05it/s]
+Capturing CUDA graph shapes:  53%|█████▎    | 10/19 [00:03<00:02,  3.07it/s]
+Capturing CUDA graph shapes:  58%|█████▊    | 11/19 [00:03<00:02,  3.09it/s]
+Capturing CUDA graph shapes:  63%|██████▎   | 12/19 [00:03<00:02,  3.11it/s]
+Capturing CUDA graph shapes:  68%|██████▊   | 13/19 [00:04<00:01,  3.12it/s]
+Capturing CUDA graph shapes:  74%|███████▎  | 14/19 [00:04<00:01,  3.14it/s]
+Capturing CUDA graph shapes:  79%|███████▉  | 15/19 [00:04<00:01,  3.13it/s]
+Capturing CUDA graph shapes:  84%|████████▍ | 16/19 [00:05<00:00,  3.14it/s]
+Capturing CUDA graph shapes:  89%|████████▉ | 17/19 [00:05<00:00,  3.15it/s]
+Capturing CUDA graph shapes:  95%|█████████▍| 18/19 [00:05<00:00,  3.13it/s]
+Capturing CUDA graph shapes: 100%|██████████| 19/19 [00:06<00:00,  3.13it/s]
+Capturing CUDA graph shapes: 100%|██████████| 19/19 [00:06<00:00,  3.08it/s]
+[2025-04-23 09:32:13,965] [[32m    INFO[0m]: Graph capturing finished in 6 secs, took 0.21 GiB (model_runner.py:1562)[0m
+[2025-04-23 09:32:13,966] [[32m    INFO[0m]: init engine (profile, create kv cache, warmup model) took 8.80 seconds (llm_engine.py:431)[0m
+[2025-04-23 09:32:14,234] [[32m    INFO[0m]: --- INIT SEEDS --- (pipeline.py:263)[0m
+[2025-04-23 09:32:14,235] [[32m    INFO[0m]: --- LOADING TASKS --- (pipeline.py:216)[0m
+[2025-04-23 09:32:14,235] [[32m    INFO[0m]: Found 1 custom tasks in ~/Projects/nips25_slot/open-r2/openr1/lib/python3.11/site-packages/lighteval/tasks/extended/ifeval/main.py (registry.py:142)[0m
+[2025-04-23 09:32:14,235] [[32m    INFO[0m]: Found 6 custom tasks in ~/Projects/nips25_slot/open-r2/openr1/lib/python3.11/site-packages/lighteval/tasks/extended/tiny_benchmarks/main.py (registry.py:142)[0m
+[2025-04-23 09:32:14,235] [[32m    INFO[0m]: Found 1 custom tasks in ~/Projects/nips25_slot/open-r2/openr1/lib/python3.11/site-packages/lighteval/tasks/extended/mt_bench/main.py (registry.py:142)[0m
+[2025-04-23 09:32:14,235] [[32m    INFO[0m]: Found 4 custom tasks in ~/Projects/nips25_slot/open-r2/openr1/lib/python3.11/site-packages/lighteval/tasks/extended/mix_eval/main.py (registry.py:142)[0m
+[2025-04-23 09:32:14,235] [[32m    INFO[0m]: Found 5 custom tasks in ~/Projects/nips25_slot/open-r2/openr1/lib/python3.11/site-packages/lighteval/tasks/extended/olympiade_bench/main.py (registry.py:142)[0m
+[2025-04-23 09:32:14,235] [[32m    INFO[0m]: Found 1 custom tasks in ~/Projects/nips25_slot/open-r2/openr1/lib/python3.11/site-packages/lighteval/tasks/extended/hle/main.py (registry.py:142)[0m
+[2025-04-23 09:32:14,235] [[32m    INFO[0m]: Found 21 custom tasks in ~/Projects/nips25_slot/open-r2/openr1/lib/python3.11/site-packages/lighteval/tasks/extended/lcb/main.py (registry.py:142)[0m
+[2025-04-23 09:32:14,236] [[32m    INFO[0m]: Idavidrein/gpqa gpqa_diamond (lighteval_task.py:187)[0m
+[2025-04-23 09:32:14,237] [[33m WARNING[0m]: Careful, the task lighteval|gpqa:diamond is using evaluation data to build the few shot examples. (lighteval_task.py:260)[0m
+Using the latest cached version of the dataset since Idavidrein/gpqa couldn't be found on the Hugging Face Hub
+[2025-04-23 09:32:38,815] [[33m WARNING[0m]: Using the latest cached version of the dataset since Idavidrein/gpqa couldn't be found on the Hugging Face Hub (load.py:1631)[0m
+Found the latest cached dataset configuration 'gpqa_diamond' at ~/.cache/huggingface/datasets/Idavidrein___gpqa/gpqa_diamond/0.0.0/90b8e5be2b1d3d2dbfe016cdab47981150600c4a (last modified on Sat Apr 12 16:41:50 2025).
+[2025-04-23 09:32:38,817] [[33m WARNING[0m]: Found the latest cached dataset configuration 'gpqa_diamond' at ~/.cache/huggingface/datasets/Idavidrein___gpqa/gpqa_diamond/0.0.0/90b8e5be2b1d3d2dbfe016cdab47981150600c4a (last modified on Sat Apr 12 16:41:50 2025). (cache.py:95)[0m
+[2025-04-23 09:32:38,953] [[32m    INFO[0m]: --- RUNNING MODEL --- (pipeline.py:468)[0m
+[2025-04-23 09:32:38,953] [[32m    INFO[0m]: Running RequestType.GREEDY_UNTIL requests (pipeline.py:472)[0m
+[2025-04-23 09:32:39,000] [[33m WARNING[0m]: You cannot select the number of dataset splits for a generative evaluation at the moment. Automatically inferring. (data.py:260)[0m
+Idavidrein/gpqa
+gpqa_diamond
+True
+None
+
+Splits:   0%|          | 0/1 [00:00<?, ?it/s][2025-04-23 09:32:39,048] [[33m WARNING[0m]: context_size + max_new_tokens=35582 which is greater than self.max_length=32768. Truncating context to 0 tokens. (vllm_model.py:270)[0m
+
+
+Processed prompts:   0%|          | 0/198 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s][A
+
+Processed prompts:   1%|          | 1/198 [00:25<1:22:14, 25.05s/it, est. speed input: 11.34 toks/s, output: 46.95 toks/s][A
+
+Processed prompts:   1%|          | 2/198 [00:35<54:07, 16.57s/it, est. speed input: 15.05 toks/s, output: 77.63 toks/s]  [A
+
+Processed prompts:   2%|▏         | 3/198 [00:39<35:01, 10.78s/it, est. speed input: 19.76 toks/s, output: 114.06 toks/s][A
+
+Processed prompts:   2%|▏         | 4/198 [00:50<35:10, 10.88s/it, est. speed input: 19.35 toks/s, output: 131.57 toks/s][A
+
+Processed prompts:   3%|▎         | 5/198 [00:53<25:48,  8.02s/it, est. speed input: 25.73 toks/s, output: 165.96 toks/s][A
+
+Processed prompts:   3%|▎         | 6/198 [00:55<18:53,  5.90s/it, est. speed input: 30.57 toks/s, output: 202.02 toks/s][A
+
+Processed prompts:   4%|▎         | 7/198 [00:56<13:32,  4.25s/it, est. speed input: 36.54 toks/s, output: 240.22 toks/s][A
+
+Processed prompts:   4%|▍         | 8/198 [00:57<10:11,  3.22s/it, est. speed input: 43.47 toks/s, output: 277.14 toks/s][A
+
+Processed prompts:   5%|▍         | 9/198 [00:58<08:27,  2.69s/it, est. speed input: 45.82 toks/s, output: 310.97 toks/s][A
+
+Processed prompts:   5%|▌         | 10/198 [01:08<15:11,  4.85s/it, est. speed input: 43.36 toks/s, output: 306.79 toks/s][A
+
+Processed prompts:   6%|▌         | 11/198 [01:13<15:27,  4.96s/it, est. speed input: 44.07 toks/s, output: 324.27 toks/s][A
+
+Processed prompts:   6%|▌         | 12/198 [01:14<11:50,  3.82s/it, est. speed input: 48.33 toks/s, output: 358.13 toks/s][A
+
+Processed prompts:   7%|▋         | 13/198 [01:15<09:07,  2.96s/it, est. speed input: 51.11 toks/s, output: 392.47 toks/s][A
+
+Processed prompts:   7%|▋         | 14/198 [01:20<10:30,  3.42s/it, est. speed input: 50.75 toks/s, output: 409.01 toks/s][A[2025-04-23 09:34:07,320] [[33m WARNING[0m]: Sequence group 141 is preempted by PreemptionMode.RECOMPUTE mode because there is not enough KV cache space. This can affect the end-to-end performance. Increase gpu_memory_utilization or tensor_parallel_size to provide more KV cache memory. total_num_cumulative_preemption=1 (scheduler.py:1560)[0m
+
+
+Processed prompts:   8%|▊         | 15/198 [01:29<15:40,  5.14s/it, est. speed input: 48.89 toks/s, output: 404.82 toks/s][A
+
+Processed prompts:   8%|▊         | 16/198 [01:29<11:11,  3.69s/it, est. speed input: 51.32 toks/s, output: 440.79 toks/s][A
+
+Processed prompts:   9%|▊         | 17/198 [01:33<10:57,  3.63s/it, est. speed input: 51.77 toks/s, output: 461.41 toks/s][A
+
+Processed prompts:   9%|▉         | 18/198 [01:34<08:18,  2.77s/it, est. speed input: 54.62 toks/s, output: 494.84 toks/s][A
+
+Processed prompts:  10%|▉         | 19/198 [01:34<06:35,  2.21s/it, est. speed input: 57.50 toks/s, output: 527.12 toks/s][A
+
+Processed prompts:  10%|█         | 20/198 [01:38<07:57,  2.68s/it, est. speed input: 57.74 toks/s, output: 543.70 toks/s][A
+
+Processed prompts:  11%|█         | 21/198 [01:46<12:29,  4.23s/it, est. speed input: 55.47 toks/s, output: 539.98 toks/s][A
+
+Processed prompts:  11%|█         | 22/198 [02:15<34:12, 11.66s/it, est. speed input: 46.04 toks/s, output: 459.71 toks/s][A
+
+Processed prompts:  12%|█▏        | 23/198 [02:16<25:00,  8.58s/it, est. speed input: 47.37 toks/s, output: 490.25 toks/s][A
+
+Processed prompts:  12%|█▏        | 24/198 [02:24<24:06,  8.31s/it, est. speed input: 46.70 toks/s, output: 499.02 toks/s][A
+
+Processed prompts:  13%|█▎        | 25/198 [02:32<23:29,  8.15s/it, est. speed input: 47.18 toks/s, output: 508.26 toks/s][A[2025-04-23 09:35:24,689] [[33m WARNING[0m]: Sequence group 89 is preempted by PreemptionMode.RECOMPUTE mode because there is not enough KV cache space. This can affect the end-to-end performance. Increase gpu_memory_utilization or tensor_parallel_size to provide more KV cache memory. total_num_cumulative_preemption=51 (scheduler.py:1560)[0m
+
+
+Processed prompts:  13%|█▎        | 26/198 [02:55<36:36, 12.77s/it, est. speed input: 42.65 toks/s, output: 474.43 toks/s][A
+
+Processed prompts:  14%|█▎        | 27/198 [03:00<29:47, 10.45s/it, est. speed input: 45.83 toks/s, output: 495.33 toks/s][A
+
+Processed prompts:  14%|█▍        | 28/198 [03:05<24:08,  8.52s/it, est. speed input: 49.76 toks/s, output: 518.65 toks/s][A
+
+Processed prompts:  15%|█▍        | 29/198 [03:18<28:31, 10.12s/it, est. speed input: 47.85 toks/s, output: 516.47 toks/s][A
+
+Processed prompts:  15%|█▌        | 30/198 [03:33<31:46, 11.35s/it, est. speed input: 46.42 toks/s, output: 515.92 toks/s][A
+
+Processed prompts:  16%|█▌        | 31/198 [03:34<23:12,  8.34s/it, est. speed input: 47.29 toks/s, output: 546.59 toks/s][A
+
+Processed prompts:  16%|█▌        | 32/198 [03:35<16:50,  6.09s/it, est. speed input: 48.42 toks/s, output: 578.31 toks/s][A
+
+Processed prompts:  17%|█▋        | 33/198 [03:44<18:59,  6.91s/it, est. speed input: 47.77 toks/s, output: 589.28 toks/s][A
+
+Processed prompts:  17%|█▋        | 34/198 [03:57<24:08,  8.83s/it, est. speed input: 46.46 toks/s, output: 589.79 toks/s][A
+
+Processed prompts:  18%|█▊        | 35/198 [04:00<19:41,  7.25s/it, est. speed input: 46.86 toks/s, output: 614.61 toks/s][A
+
+Processed prompts:  18%|█▊        | 36/198 [04:03<15:48,  5.85s/it, est. speed input: 47.58 toks/s, output: 641.54 toks/s][A
+
+Processed prompts:  19%|█▊        | 37/198 [04:04<11:22,  4.24s/it, est. speed input: 48.72 toks/s, output: 673.73 toks/s][A
+
+Processed prompts:  19%|█▉        | 38/198 [04:18<19:11,  7.19s/it, est. speed input: 47.31 toks/s, output: 670.24 toks/s][A
+
+Processed prompts:  20%|█▉        | 39/198 [04:22<16:52,  6.37s/it, est. speed input: 48.06 toks/s, output: 692.23 toks/s][A
+
+Processed prompts:  20%|██        | 40/198 [04:37<23:43,  9.01s/it, est. speed input: 47.31 toks/s, output: 687.72 toks/s][A
+
+Processed prompts:  21%|██        | 41/198 [04:44<21:47,  8.33s/it, est. speed input: 47.22 toks/s, output: 704.79 toks/s][A
+
+Processed prompts:  21%|██        | 42/198 [04:44<15:21,  5.91s/it, est. speed input: 48.36 toks/s, output: 737.42 toks/s][A
+
+Processed prompts:  22%|██▏       | 43/198 [04:49<14:18,  5.54s/it, est. speed input: 48.55 toks/s, output: 758.77 toks/s][A
+
+Processed prompts:  22%|██▏       | 44/198 [04:59<17:54,  6.98s/it, est. speed input: 47.79 toks/s, output: 765.93 toks/s][A
+
+Processed prompts:  23%|██▎       | 45/198 [05:01<13:47,  5.41s/it, est. speed input: 48.37 toks/s, output: 794.77 toks/s][A
+
+Processed prompts:  23%|██▎       | 46/198 [05:03<11:21,  4.48s/it, est. speed input: 49.13 toks/s, output: 821.90 toks/s][A
+
+Processed prompts:  24%|██▎       | 47/198 [05:05<08:56,  3.55s/it, est. speed input: 49.99 toks/s, output: 851.40 toks/s][A
+
+Processed prompts:  24%|██▍       | 48/198 [05:17<15:35,  6.24s/it, est. speed input: 48.87 toks/s, output: 851.08 toks/s][A
+
+Processed prompts:  25%|██▍       | 49/198 [05:19<12:13,  4.92s/it, est. speed input: 50.29 toks/s, output: 879.29 toks/s][A
+
+Processed prompts:  25%|██▌       | 50/198 [05:20<09:00,  3.65s/it, est. speed input: 50.99 toks/s, output: 910.51 toks/s][A
+
+Processed prompts:  26%|██▌       | 51/198 [05:20<06:40,  2.72s/it, est. speed input: 52.65 toks/s, output: 942.01 toks/s][A
+
+Processed prompts:  26%|██▋       | 52/198 [05:21<05:07,  2.11s/it, est. speed input: 53.46 toks/s, output: 973.13 toks/s][A
+
+Processed prompts:  27%|██▋       | 53/198 [05:28<08:37,  3.57s/it, est. speed input: 53.39 toks/s, output: 985.46 toks/s][A
+
+Processed prompts:  27%|██▋       | 54/198 [05:34<10:01,  4.18s/it, est. speed input: 53.30 toks/s, output: 1001.95 toks/s][A
+
+Processed prompts:  28%|██▊       | 55/198 [05:37<09:45,  4.09s/it, est. speed input: 53.43 toks/s, output: 1023.41 toks/s][A
+
+Processed prompts:  28%|██▊       | 56/198 [05:38<07:12,  3.04s/it, est. speed input: 54.15 toks/s, output: 1054.61 toks/s][A
+
+Processed prompts:  29%|██▉       | 57/198 [05:40<06:23,  2.72s/it, est. speed input: 54.59 toks/s, output: 1081.48 toks/s][A
+
+Processed prompts:  29%|██▉       | 58/198 [05:42<05:43,  2.46s/it, est. speed input: 55.37 toks/s, output: 1108.62 toks/s][A
+
+Processed prompts:  30%|██▉       | 59/198 [05:43<04:42,  2.03s/it, est. speed input: 56.38 toks/s, output: 1138.19 toks/s][A
+
+Processed prompts:  30%|███       | 60/198 [05:48<06:48,  2.96s/it, est. speed input: 56.42 toks/s, output: 1154.33 toks/s][A
+
+Processed prompts:  31%|███       | 61/198 [05:52<07:37,  3.34s/it, est. speed input: 56.45 toks/s, output: 1173.37 toks/s][A
+
+Processed prompts:  31%|███▏      | 62/198 [05:53<06:05,  2.69s/it, est. speed input: 57.27 toks/s, output: 1202.35 toks/s][A
+
+Processed prompts:  32%|███▏      | 63/198 [05:56<06:07,  2.72s/it, est. speed input: 57.65 toks/s, output: 1225.73 toks/s][A
+
+Processed prompts:  32%|███▏      | 64/198 [06:02<07:55,  3.55s/it, est. speed input: 57.69 toks/s, output: 1240.05 toks/s][A
+
+Processed prompts:  33%|███▎      | 65/198 [06:03<06:18,  2.85s/it, est. speed input: 58.87 toks/s, output: 1268.69 toks/s][A
+
+Processed prompts:  33%|███▎      | 66/198 [06:05<05:46,  2.63s/it, est. speed input: 59.29 toks/s, output: 1294.14 toks/s][A
+
+Processed prompts:  34%|███▍      | 67/198 [06:06<04:28,  2.05s/it, est. speed input: 59.78 toks/s, output: 1303.60 toks/s][A
+
+Processed prompts:  34%|███▍      | 68/198 [06:14<08:22,  3.86s/it, est. speed input: 59.13 toks/s, output: 1298.91 toks/s][A
+
+Processed prompts:  35%|███▍      | 69/198 [06:16<07:18,  3.40s/it, est. speed input: 59.36 toks/s, output: 1306.35 toks/s][A
+
+Processed prompts:  35%|███▌      | 70/198 [06:16<05:15,  2.46s/it, est. speed input: 60.27 toks/s, output: 1338.15 toks/s][A
+
+Processed prompts:  36%|███▌      | 71/198 [06:20<05:42,  2.70s/it, est. speed input: 60.49 toks/s, output: 1359.41 toks/s][A
+
+Processed prompts:  36%|███▋      | 72/198 [06:21<04:34,  2.18s/it, est. speed input: 61.09 toks/s, output: 1388.67 toks/s][A
+
+Processed prompts:  37%|███▋      | 73/198 [06:21<03:39,  1.76s/it, est. speed input: 61.57 toks/s, output: 1403.48 toks/s][A
+
+Processed prompts:  37%|███▋      | 74/198 [06:25<04:50,  2.34s/it, est. speed input: 62.19 toks/s, output: 1422.63 toks/s][A
+
+Processed prompts:  38%|███▊      | 75/198 [06:27<04:32,  2.21s/it, est. speed input: 62.46 toks/s, output: 1430.25 toks/s][A
+
+Processed prompts:  38%|███▊      | 76/198 [06:29<04:12,  2.07s/it, est. speed input: 62.77 toks/s, output: 1441.93 toks/s][A
+
+Processed prompts:  39%|███▉      | 77/198 [06:40<09:55,  4.92s/it, est. speed input: 61.57 toks/s, output: 1431.24 toks/s][A
+
+Processed prompts:  39%|███▉      | 78/198 [06:41<07:11,  3.59s/it, est. speed input: 62.57 toks/s, output: 1462.07 toks/s][A
+
+Processed prompts:  40%|███▉      | 79/198 [06:41<05:21,  2.70s/it, est. speed input: 63.33 toks/s, output: 1492.36 toks/s][A
+
+Processed prompts:  40%|████      | 80/198 [06:43<04:31,  2.30s/it, est. speed input: 64.21 toks/s, output: 1519.82 toks/s][A[2025-04-23 09:39:25,963] [[33m WARNING[0m]: Sequence group 183 is preempted by PreemptionMode.RECOMPUTE mode because there is not enough KV cache space. This can affect the end-to-end performance. Increase gpu_memory_utilization or tensor_parallel_size to provide more KV cache memory. total_num_cumulative_preemption=101 (scheduler.py:1560)[0m
+
+
+Processed prompts:  41%|████      | 81/198 [06:47<05:21,  2.75s/it, est. speed input: 64.51 toks/s, output: 1538.18 toks/s][A
+
+Processed prompts:  41%|████▏     | 82/198 [06:48<04:50,  2.50s/it, est. speed input: 65.36 toks/s, output: 1563.40 toks/s][A
+
+Processed prompts:  42%|████▏     | 83/198 [06:57<08:11,  4.28s/it, est. speed input: 64.50 toks/s, output: 1535.21 toks/s][A
+
+Processed prompts:  42%|████▏     | 84/198 [06:58<06:12,  3.27s/it, est. speed input: 65.09 toks/s, output: 1564.19 toks/s][A[2025-04-23 09:39:45,787] [[33m WARNING[0m]: Sequence group 167 is preempted by PreemptionMode.RECOMPUTE mode because there is not enough KV cache space. This can affect the end-to-end performance. Increase gpu_memory_utilization or tensor_parallel_size to provide more KV cache memory. total_num_cumulative_preemption=151 (scheduler.py:1560)[0m
+
+
+Processed prompts:  43%|████▎     | 85/198 [07:13<12:41,  6.74s/it, est. speed input: 63.37 toks/s, output: 1525.84 toks/s][A
+
+Processed prompts:  43%|████▎     | 86/198 [07:15<10:20,  5.54s/it, est. speed input: 63.52 toks/s, output: 1538.63 toks/s][A
+
+Processed prompts:  44%|████▍     | 87/198 [07:16<07:21,  3.98s/it, est. speed input: 63.86 toks/s, output: 1539.69 toks/s][A
+
+Processed prompts:  44%|████▍     | 88/198 [07:16<05:22,  2.93s/it, est. speed input: 64.68 toks/s, output: 1570.19 toks/s][A
+
+Processed prompts:  45%|████▍     | 89/198 [07:18<04:26,  2.45s/it, est. speed input: 64.91 toks/s, output: 1568.86 toks/s][A
+
+Processed prompts:  45%|████▌     | 90/198 [07:36<12:58,  7.20s/it, est. speed input: 62.81 toks/s, output: 1524.72 toks/s][A[2025-04-23 09:40:19,315] [[33m WARNING[0m]: Sequence group 144 is preempted by PreemptionMode.RECOMPUTE mode because there is not enough KV cache space. This can affect the end-to-end performance. Increase gpu_memory_utilization or tensor_parallel_size to provide more KV cache memory. total_num_cumulative_preemption=201 (scheduler.py:1560)[0m
+
+
+Processed prompts:  46%|████▌     | 91/198 [07:41<11:34,  6.49s/it, est. speed input: 62.61 toks/s, output: 1522.80 toks/s][A
+
+Processed prompts:  46%|████▋     | 92/198 [07:50<12:52,  7.28s/it, est. speed input: 61.92 toks/s, output: 1525.19 toks/s][A
+
+Processed prompts:  47%|████▋     | 93/198 [07:53<10:36,  6.06s/it, est. speed input: 61.95 toks/s, output: 1529.87 toks/s][A
+
+Processed prompts:  47%|████▋     | 94/198 [08:03<12:27,  7.19s/it, est. speed input: 61.24 toks/s, output: 1531.06 toks/s][A
+
+Processed prompts:  48%|████▊     | 95/198 [08:10<12:15,  7.14s/it, est. speed input: 60.75 toks/s, output: 1517.14 toks/s][A
+
+Processed prompts:  48%|████▊     | 96/198 [08:11<08:55,  5.25s/it, est. speed input: 61.14 toks/s, output: 1538.66 toks/s][A
+
+Processed prompts:  49%|████▉     | 97/198 [08:25<13:14,  7.86s/it, est. speed input: 59.91 toks/s, output: 1519.14 toks/s][A
+
+Processed prompts:  49%|████▉     | 98/198 [08:26<09:59,  5.99s/it, est. speed input: 60.14 toks/s, output: 1531.29 toks/s][A
+
+Processed prompts:  50%|█████     | 99/198 [08:32<09:37,  5.83s/it, est. speed input: 60.55 toks/s, output: 1547.21 toks/s][A
+
+Processed prompts:  51%|█████     | 100/198 [08:34<07:48,  4.78s/it, est. speed input: 60.65 toks/s, output: 1549.15 toks/s][A
+
+Processed prompts:  51%|█████     | 101/198 [08:34<05:29,  3.40s/it, est. speed input: 61.08 toks/s, output: 1569.16 toks/s][A
+
+Processed prompts:  52%|█████▏    | 102/198 [08:40<06:39,  4.16s/it, est. speed input: 60.74 toks/s, output: 1559.12 toks/s][A
+
+Processed prompts:  52%|█████▏    | 103/198 [08:41<04:47,  3.03s/it, est. speed input: 61.12 toks/s, output: 1576.94 toks/s][A
+
+Processed prompts:  53%|█████▎    | 104/198 [08:42<04:00,  2.56s/it, est. speed input: 61.40 toks/s, output: 1595.18 toks/s][A
+
+Processed prompts:  53%|█████▎    | 105/198 [08:43<03:04,  1.98s/it, est. speed input: 61.67 toks/s, output: 1599.44 toks/s][A
+
+Processed prompts:  54%|█████▎    | 106/198 [08:57<08:43,  5.69s/it, est. speed input: 60.39 toks/s, output: 1571.65 toks/s][A
+
+Processed prompts:  54%|█████▍    | 107/198 [08:58<06:31,  4.30s/it, est. speed input: 60.59 toks/s, output: 1572.48 toks/s][A
+
+Processed prompts:  55%|█████▍    | 108/198 [09:00<05:22,  3.58s/it, est. speed input: 60.90 toks/s, output: 1599.18 toks/s][A
+
+Processed prompts:  55%|█████▌    | 109/198 [09:01<04:06,  2.77s/it, est. speed input: 61.15 toks/s, output: 1606.52 toks/s][A[2025-04-23 09:41:43,251] [[33m WARNING[0m]: Sequence group 173 is preempted by PreemptionMode.RECOMPUTE mode because there is not enough KV cache space. This can affect the end-to-end performance. Increase gpu_memory_utilization or tensor_parallel_size to provide more KV cache memory. total_num_cumulative_preemption=251 (scheduler.py:1560)[0m
+
+
+Processed prompts:  56%|█████▌    | 110/198 [09:06<05:07,  3.49s/it, est. speed input: 60.86 toks/s, output: 1593.56 toks/s][A
+
+Processed prompts:  56%|█████▌    | 111/198 [09:14<07:05,  4.90s/it, est. speed input: 60.56 toks/s, output: 1602.27 toks/s][A
+
+Processed prompts:  57%|█████▋    | 112/198 [09:21<08:02,  5.60s/it, est. speed input: 60.19 toks/s, output: 1603.90 toks/s][A
+
+Processed prompts:  57%|█████▋    | 113/198 [09:24<06:46,  4.78s/it, est. speed input: 60.17 toks/s, output: 1600.17 toks/s][A
+
+Processed prompts:  58%|█████▊    | 114/198 [09:27<05:45,  4.12s/it, est. speed input: 60.26 toks/s, output: 1609.90 toks/s][A
+
+Processed prompts:  58%|█████▊    | 115/198 [09:30<05:08,  3.72s/it, est. speed input: 60.33 toks/s, output: 1619.42 toks/s][A
+
+Processed prompts:  59%|█████▊    | 116/198 [09:40<07:59,  5.85s/it, est. speed input: 59.58 toks/s, output: 1607.66 toks/s][A
+
+Processed prompts:  59%|█████▉    | 117/198 [09:41<05:41,  4.21s/it, est. speed input: 59.95 toks/s, output: 1631.52 toks/s][A
+
+Processed prompts:  60%|█████▉    | 118/198 [09:47<06:31,  4.89s/it, est. speed input: 59.57 toks/s, output: 1619.44 toks/s][A
+
+Processed prompts:  60%|██████    | 119/198 [09:49<05:07,  3.90s/it, est. speed input: 59.79 toks/s, output: 1636.56 toks/s][A[2025-04-23 09:42:32,330] [[33m WARNING[0m]: Sequence group 185 is preempted by PreemptionMode.RECOMPUTE mode because there is not enough KV cache space. This can affect the end-to-end performance. Increase gpu_memory_utilization or tensor_parallel_size to provide more KV cache memory. total_num_cumulative_preemption=301 (scheduler.py:1560)[0m
+
+
+Processed prompts:  61%|██████    | 120/198 [10:01<08:26,  6.49s/it, est. speed input: 58.89 toks/s, output: 1620.43 toks/s][A
+
+Processed prompts:  61%|██████    | 121/198 [10:03<06:27,  5.03s/it, est. speed input: 59.06 toks/s, output: 1632.88 toks/s][A
+
+Processed prompts:  62%|██████▏   | 122/198 [10:05<05:09,  4.07s/it, est. speed input: 59.29 toks/s, output: 1656.58 toks/s][A
+
+Processed prompts:  62%|██████▏   | 123/198 [10:08<04:39,  3.72s/it, est. speed input: 59.36 toks/s, output: 1668.32 toks/s][A
+
+Processed prompts:  63%|██████▎   | 124/198 [10:11<04:22,  3.54s/it, est. speed input: 59.32 toks/s, output: 1665.29 toks/s][A
+
+Processed prompts:  63%|██████▎   | 125/198 [10:12<03:20,  2.74s/it, est. speed input: 59.61 toks/s, output: 1686.17 toks/s][A
+
+Processed prompts:  64%|██████▎   | 126/198 [10:12<02:27,  2.05s/it, est. speed input: 59.84 toks/s, output: 1691.83 toks/s][A
+
+Processed prompts:  64%|██████▍   | 127/198 [10:13<01:55,  1.62s/it, est. speed input: 60.03 toks/s, output: 1693.85 toks/s][A
+
+Processed prompts:  65%|██████▍   | 128/198 [10:13<01:25,  1.23s/it, est. speed input: 60.36 toks/s, output: 1712.87 toks/s][A
+
+Processed prompts:  65%|██████▌   | 129/198 [10:16<02:01,  1.76s/it, est. speed input: 60.40 toks/s, output: 1723.32 toks/s][A
+
+Processed prompts:  66%|██████▌   | 130/198 [10:17<01:44,  1.53s/it, est. speed input: 60.59 toks/s, output: 1728.44 toks/s][A
+
+Processed prompts:  66%|██████▌   | 131/198 [10:20<02:12,  1.97s/it, est. speed input: 60.44 toks/s, output: 1721.41 toks/s][A
+
+Processed prompts:  67%|██████▋   | 132/198 [10:30<04:51,  4.42s/it, est. speed input: 59.69 toks/s, output: 1696.72 toks/s][A
+
+Processed prompts:  67%|██████▋   | 133/198 [10:32<03:52,  3.58s/it, est. speed input: 59.91 toks/s, output: 1715.81 toks/s][A
+
+Processed prompts:  68%|██████▊   | 134/198 [10:35<03:43,  3.49s/it, est. speed input: 59.88 toks/s, output: 1716.02 toks/s][A
+
+Processed prompts:  68%|██████▊   | 135/198 [10:39<03:48,  3.62s/it, est. speed input: 59.72 toks/s, output: 1708.29 toks/s][A
+
+Processed prompts:  69%|██████▊   | 136/198 [10:49<05:43,  5.53s/it, est. speed input: 59.14 toks/s, output: 1703.81 toks/s][A
+
+Processed prompts:  69%|██████▉   | 137/198 [10:59<06:59,  6.87s/it, est. speed input: 58.55 toks/s, output: 1696.66 toks/s][A
+
+Processed prompts:  70%|██████▉   | 138/198 [11:01<05:14,  5.25s/it, est. speed input: 58.74 toks/s, output: 1712.57 toks/s][A
+
+Processed prompts:  70%|███████   | 139/198 [11:02<04:04,  4.15s/it, est. speed input: 58.97 toks/s, output: 1736.39 toks/s][A
+
+Processed prompts:  71%|███████   | 140/198 [11:03<02:54,  3.01s/it, est. speed input: 59.13 toks/s, output: 1739.21 toks/s][A
+
+Processed prompts:  71%|███████   | 141/198 [11:08<03:37,  3.81s/it, est. speed input: 58.96 toks/s, output: 1745.93 toks/s][A
+
+Processed prompts:  72%|███████▏  | 142/198 [11:11<03:08,  3.37s/it, est. speed input: 59.00 toks/s, output: 1748.81 toks/s][A
+
+Processed prompts:  72%|███████▏  | 143/198 [11:18<04:15,  4.64s/it, est. speed input: 58.54 toks/s, output: 1734.07 toks/s][A
+
+Processed prompts:  73%|███████▎  | 144/198 [11:28<05:36,  6.24s/it, est. speed input: 57.88 toks/s, output: 1714.05 toks/s][A
+
+Processed prompts:  73%|███████▎  | 145/198 [11:29<04:03,  4.59s/it, est. speed input: 58.14 toks/s, output: 1733.95 toks/s][A
+
+Processed prompts:  74%|███████▍  | 147/198 [11:34<03:00,  3.54s/it, est. speed input: 58.24 toks/s, output: 1747.25 toks/s][A
+
+Processed prompts:  75%|███████▍  | 148/198 [11:34<02:20,  2.81s/it, est. speed input: 58.42 toks/s, output: 1754.71 toks/s][A
+
+Processed prompts:  75%|███████▌  | 149/198 [11:40<03:01,  3.70s/it, est. speed input: 58.18 toks/s, output: 1756.17 toks/s][A
+
+Processed prompts:  76%|███████▌  | 150/198 [11:41<02:15,  2.83s/it, est. speed input: 58.39 toks/s, output: 1765.80 toks/s][A
+
+Processed prompts:  76%|███████▋  | 151/198 [11:43<02:04,  2.65s/it, est. speed input: 58.39 toks/s, output: 1766.03 toks/s][A
+
+Processed prompts:  77%|███████▋  | 152/198 [11:47<02:13,  2.91s/it, est. speed input: 58.42 toks/s, output: 1781.07 toks/s][A
+
+Processed prompts:  77%|███████▋  | 153/198 [11:55<03:22,  4.49s/it, est. speed input: 57.98 toks/s, output: 1771.13 toks/s][A
+
+Processed prompts:  78%|███████▊  | 154/198 [11:57<02:44,  3.75s/it, est. speed input: 58.07 toks/s, output: 1780.76 toks/s][A
+
+Processed prompts:  78%|███████▊  | 155/198 [11:59<02:23,  3.34s/it, est. speed input: 58.08 toks/s, output: 1782.48 toks/s][A
+
+Processed prompts:  79%|███████▉  | 156/198 [12:03<02:24,  3.43s/it, est. speed input: 58.06 toks/s, output: 1790.53 toks/s][A
+
+Processed prompts:  79%|███████▉  | 157/198 [12:05<02:02,  2.98s/it, est. speed input: 58.18 toks/s, output: 1802.69 toks/s][A
+
+Processed prompts:  80%|███████▉  | 158/198 [12:09<02:16,  3.41s/it, est. speed input: 58.04 toks/s, output: 1801.45 toks/s][A
+
+Processed prompts:  80%|████████  | 159/198 [12:11<01:52,  2.88s/it, est. speed input: 58.11 toks/s, output: 1805.20 toks/s][A
+
+Processed prompts:  81%|████████▏ | 161/198 [12:17<01:47,  2.91s/it, est. speed input: 58.13 toks/s, output: 1820.31 toks/s][A
+
+Processed prompts:  82%|████████▏ | 162/198 [12:20<01:47,  2.98s/it, est. speed input: 58.04 toks/s, output: 1819.45 toks/s][A
+
+Processed prompts:  82%|████████▏ | 163/198 [12:23<01:41,  2.91s/it, est. speed input: 57.95 toks/s, output: 1819.61 toks/s][A
+
+Processed prompts:  83%|████████▎ | 164/198 [12:24<01:25,  2.51s/it, est. speed input: 58.02 toks/s, output: 1823.43 toks/s][A
+
+Processed prompts:  83%|████████▎ | 165/198 [12:29<01:48,  3.29s/it, est. speed input: 57.82 toks/s, output: 1821.85 toks/s][A
+
+Processed prompts:  84%|████████▍ | 166/198 [12:32<01:34,  2.97s/it, est. speed input: 57.86 toks/s, output: 1825.99 toks/s][A
+
+Processed prompts:  84%|████████▍ | 167/198 [12:50<03:51,  7.46s/it, est. speed input: 56.68 toks/s, output: 1793.64 toks/s][A
+
+Processed prompts:  85%|████████▍ | 168/198 [13:01<04:11,  8.40s/it, est. speed input: 56.05 toks/s, output: 1777.70 toks/s][A
+
+Processed prompts:  85%|████████▌ | 169/198 [13:01<02:54,  6.00s/it, est. speed input: 56.28 toks/s, output: 1794.49 toks/s][A
+
+Processed prompts:  86%|████████▌ | 170/198 [13:04<02:26,  5.23s/it, est. speed input: 56.25 toks/s, output: 1800.14 toks/s][A
+
+Processed prompts:  86%|████████▋ | 171/198 [13:10<02:26,  5.43s/it, est. speed input: 55.96 toks/s, output: 1795.37 toks/s][A
+
+Processed prompts:  87%|████████▋ | 172/198 [13:13<02:00,  4.63s/it, est. speed input: 55.94 toks/s, output: 1798.71 toks/s][A
+
+Processed prompts:  87%|████████▋ | 173/198 [13:19<02:06,  5.06s/it, est. speed input: 55.74 toks/s, output: 1800.52 toks/s][A
+
+Processed prompts:  88%|████████▊ | 174/198 [13:20<01:28,  3.69s/it, est. speed input: 56.01 toks/s, output: 1827.30 toks/s][A
+
+Processed prompts:  88%|████████▊ | 175/198 [13:23<01:23,  3.62s/it, est. speed input: 55.98 toks/s, output: 1833.37 toks/s][A
+
+Processed prompts:  89%|████████▉ | 176/198 [13:31<01:51,  5.05s/it, est. speed input: 55.63 toks/s, output: 1829.88 toks/s][A
+
+Processed prompts:  90%|████████▉ | 178/198 [13:32<00:59,  2.95s/it, est. speed input: 55.93 toks/s, output: 1850.94 toks/s][A
+
+Processed prompts:  90%|█████████ | 179/198 [13:34<00:50,  2.65s/it, est. speed input: 55.99 toks/s, output: 1858.06 toks/s][A
+
+Processed prompts:  91%|█████████ | 180/198 [13:46<01:31,  5.10s/it, est. speed input: 55.38 toks/s, output: 1845.09 toks/s][A
+
+Processed prompts:  91%|█████████▏| 181/198 [13:58<01:57,  6.88s/it, est. speed input: 54.84 toks/s, output: 1841.73 toks/s][A
+
+Processed prompts:  92%|█████████▏| 182/198 [14:09<02:07,  7.98s/it, est. speed input: 54.31 toks/s, output: 1829.95 toks/s][A
+
+Processed prompts:  92%|█████████▏| 183/198 [14:10<01:31,  6.13s/it, est. speed input: 54.40 toks/s, output: 1840.00 toks/s][A
+
+Processed prompts:  93%|█████████▎| 184/198 [14:16<01:23,  5.94s/it, est. speed input: 54.23 toks/s, output: 1842.13 toks/s][A
+
+Processed prompts:  93%|█████████▎| 185/198 [14:20<01:09,  5.35s/it, est. speed input: 54.21 toks/s, output: 1852.40 toks/s][A
+
+Processed prompts:  94%|█████████▍| 186/198 [14:23<00:56,  4.73s/it, est. speed input: 54.12 toks/s, output: 1856.63 toks/s][A
+
+Processed prompts:  94%|█████████▍| 187/198 [14:27<00:50,  4.60s/it, est. speed input: 54.08 toks/s, output: 1867.22 toks/s][A
+
+Processed prompts:  95%|█████████▍| 188/198 [14:34<00:52,  5.21s/it, est. speed input: 53.83 toks/s, output: 1865.57 toks/s][A
+
+Processed prompts:  95%|█████████▌| 189/198 [14:36<00:38,  4.32s/it, est. speed input: 53.81 toks/s, output: 1872.49 toks/s][A
+
+Processed prompts:  96%|█████████▋| 191/198 [14:52<00:42,  6.12s/it, est. speed input: 56.09 toks/s, output: 1882.96 toks/s][A
+
+Processed prompts:  97%|█████████▋| 192/198 [15:03<00:43,  7.23s/it, est. speed input: 55.63 toks/s, output: 1879.97 toks/s][A
+
+Processed prompts:  97%|█████████▋| 193/198 [15:41<01:16, 15.22s/it, est. speed input: 53.58 toks/s, output: 1822.47 toks/s][A
+
+Processed prompts:  98%|█████████▊| 194/198 [15:43<00:46, 11.56s/it, est. speed input: 54.16 toks/s, output: 1853.17 toks/s][A
+
+Processed prompts:  98%|█████████▊| 195/198 [16:06<00:44, 14.93s/it, est. speed input: 52.98 toks/s, output: 1823.60 toks/s][A
+
+Processed prompts:  99%|█████████▉| 196/198 [16:07<00:21, 10.83s/it, est. speed input: 53.11 toks/s, output: 1840.69 toks/s][A
+
+Processed prompts:  99%|█████████▉| 197/198 [16:19<00:11, 11.20s/it, est. speed input: 52.57 toks/s, output: 1833.92 toks/s][A
+
+Processed prompts: 100%|██████████| 198/198 [16:38<00:00, 13.55s/it, est. speed input: 51.69 toks/s, output: 1816.70 toks/s][A
+Processed prompts: 100%|██████████| 198/198 [16:38<00:00,  5.04s/it, est. speed input: 51.69 toks/s, output: 1816.70 toks/s]
+
+Splits: 100%|██████████| 1/1 [16:39<00:00, 999.47s/it]
+Splits: 100%|██████████| 1/1 [16:39<00:00, 999.47s/it]
+[2025-04-23 09:49:19,862] [[32m    INFO[0m]: --- COMPUTING METRICS --- (pipeline.py:504)[0m
+[2025-04-23 09:49:20,114] [[32m    INFO[0m]: --- DISPLAYING RESULTS --- (pipeline.py:546)[0m
+[2025-04-23 09:49:20,124] [[32m    INFO[0m]: --- SAVING AND PUSHING RESULTS --- (pipeline.py:536)[0m
+[2025-04-23 09:49:20,124] [[32m    INFO[0m]: Saving experiment tracker (evaluation_tracker.py:180)[0m
+[2025-04-23 09:49:21,057] [[32m    INFO[0m]: Saving results to ~/Projects/nips25_slot/open-r2/data/evals~/Models/deepseek-ai/DeepSeek-R1-Distill-Llama-8B/results/_Models_deepseek-ai_DeepSeek-R1-Distill-Llama-8B/results_2025-04-23T09-49-20.124210.json (evaluation_tracker.py:234)[0m
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.1
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.1
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.1
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.1
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.1
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.1
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.1
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.1
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.1
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.1
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.1
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.1
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.1
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.1
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.1
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.1
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.1
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.1
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.1
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.1
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.1
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.1
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.1
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.1
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.1
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.1
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.1
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.1
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.1
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.1
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.1
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.1
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.1
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.1
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.1
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.1
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.1
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.1
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.1
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.1
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.1
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.1
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.1
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.1
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.1
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.1
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.1
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.1
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.1
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.1
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.1
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.1
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.1
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.1
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.1
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.1
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.1
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.1
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.1
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.1
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.1
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.1
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.1
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.1
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.1
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.1
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.1
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.1
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.1
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.1
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.1
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.1
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.1
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.1
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.1
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.1
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.1
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.1
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.1
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.1
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.1
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.1
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.1
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.1
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.1
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.1
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.1
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.1
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.1
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.1
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.1
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.1
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.1
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.1
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.1
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.1
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.1
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.1
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.1
+|          Task          |Version|     Metric     |Value |   |Stderr|
+|------------------------|------:|----------------|-----:|---|-----:|
+|all                     |       |extractive_match|0.4747|±  |0.0356|
+|lighteval:gpqa:diamond:0|      0|extractive_match|0.4747|±  |0.0356|
+

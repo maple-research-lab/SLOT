@@ -1,0 +1,660 @@
+[2025-04-15 11:15:24,180] [[32m    INFO[0m]: PyTorch version 2.5.1 available. (config.py:58)[0m
+INFO 04-15 11:15:37 __init__.py:190] Automatically detected platform cuda.
+[2025-04-15 11:15:39,199] [[32m    INFO[0m]: --- LOADING MODEL --- (pipeline.py:189)[0m
+[2025-04-15 11:15:47,967] [[32m    INFO[0m]: This model supports multiple tasks: {'embed', 'score', 'reward', 'classify', 'generate'}. Defaulting to 'generate'. (config.py:542)[0m
+[2025-04-15 11:15:48,139] [[32m    INFO[0m]: Defaulting to use mp for distributed inference (config.py:1401)[0m
+[2025-04-15 11:15:48,149] [[32m    INFO[0m]: Initializing a V0 LLM engine (v0.7.2) with config: model='~/Models/LLM-Research/Llama-3.3-70B-Instruct', speculative_config=None, tokenizer='~/Models/LLM-Research/Llama-3.3-70B-Instruct', skip_tokenizer_init=False, tokenizer_mode=auto, revision=main, override_neuron_config=None, tokenizer_revision=main, trust_remote_code=False, dtype=torch.bfloat16, max_seq_len=32768, download_dir=None, load_format=LoadFormat.AUTO, tensor_parallel_size=8, pipeline_parallel_size=1, disable_custom_all_reduce=False, quantization=None, enforce_eager=False, kv_cache_dtype=auto,  device_config=cuda, decoding_config=DecodingConfig(guided_decoding_backend='xgrammar'), observability_config=ObservabilityConfig(otlp_traces_endpoint=None, collect_model_forward_time=False, collect_model_execute_time=False), seed=1234, served_model_name=~/Models/LLM-Research/Llama-3.3-70B-Instruct, num_scheduler_steps=1, multi_step_stream_outputs=True, enable_prefix_caching=False, chunked_prefill_enabled=False, use_async_output_proc=True, disable_mm_preprocessor_cache=False, mm_processor_kwargs=None, pooler_config=None, compilation_config={"splitting_ops":[],"compile_sizes":[],"cudagraph_capture_sizes":[128,120,112,104,96,88,80,72,64,56,48,40,32,24,16,8,4,2,1],"max_capture_size":128}, use_cached_outputs=False,  (llm_engine.py:234)[0m
+[2025-04-15 11:15:48,546] [[33m WARNING[0m]: Reducing Torch parallelism from 64 threads to 1 to avoid unnecessary CPU contention. Set OMP_NUM_THREADS in the external environment to tune this value as needed. (multiproc_worker_utils.py:300)[0m
+[2025-04-15 11:15:48,566] [[32m    INFO[0m]: Setting Triton cache manager to: vllm.triton_utils.custom_cache_manager:CustomCacheManager (custom_cache_manager.py:19)[0m
+[2025-04-15 11:15:49,380] [[32m    INFO[0m]: Using Flash Attention backend. (cuda.py:230)[0m
+INFO 04-15 11:15:55 __init__.py:190] Automatically detected platform cuda.
+INFO 04-15 11:15:55 __init__.py:190] Automatically detected platform cuda.
+INFO 04-15 11:15:55 __init__.py:190] Automatically detected platform cuda.
+INFO 04-15 11:15:55 __init__.py:190] Automatically detected platform cuda.
+INFO 04-15 11:15:55 __init__.py:190] Automatically detected platform cuda.
+INFO 04-15 11:15:55 __init__.py:190] Automatically detected platform cuda.
+INFO 04-15 11:15:55 __init__.py:190] Automatically detected platform cuda.
+[1;36m(VllmWorkerProcess pid=3313604)[0;0m INFO 04-15 11:15:57 multiproc_worker_utils.py:229] Worker ready; awaiting tasks
+[1;36m(VllmWorkerProcess pid=3313607)[0;0m INFO 04-15 11:15:57 multiproc_worker_utils.py:229] Worker ready; awaiting tasks
+[1;36m(VllmWorkerProcess pid=3313606)[0;0m INFO 04-15 11:15:57 multiproc_worker_utils.py:229] Worker ready; awaiting tasks
+[1;36m(VllmWorkerProcess pid=3313605)[0;0m INFO 04-15 11:15:57 multiproc_worker_utils.py:229] Worker ready; awaiting tasks
+[1;36m(VllmWorkerProcess pid=3313602)[0;0m INFO 04-15 11:15:57 multiproc_worker_utils.py:229] Worker ready; awaiting tasks
+[1;36m(VllmWorkerProcess pid=3313603)[0;0m INFO 04-15 11:15:57 multiproc_worker_utils.py:229] Worker ready; awaiting tasks
+[1;36m(VllmWorkerProcess pid=3313601)[0;0m INFO 04-15 11:15:57 multiproc_worker_utils.py:229] Worker ready; awaiting tasks
+[1;36m(VllmWorkerProcess pid=3313604)[0;0m INFO 04-15 11:16:01 cuda.py:230] Using Flash Attention backend.
+[1;36m(VllmWorkerProcess pid=3313606)[0;0m INFO 04-15 11:16:02 cuda.py:230] Using Flash Attention backend.
+[1;36m(VllmWorkerProcess pid=3313605)[0;0m INFO 04-15 11:16:02 cuda.py:230] Using Flash Attention backend.
+[1;36m(VllmWorkerProcess pid=3313607)[0;0m INFO 04-15 11:16:03 cuda.py:230] Using Flash Attention backend.
+[1;36m(VllmWorkerProcess pid=3313601)[0;0m INFO 04-15 11:16:03 cuda.py:230] Using Flash Attention backend.
+[1;36m(VllmWorkerProcess pid=3313602)[0;0m INFO 04-15 11:16:03 cuda.py:230] Using Flash Attention backend.
+[1;36m(VllmWorkerProcess pid=3313603)[0;0m INFO 04-15 11:16:03 cuda.py:230] Using Flash Attention backend.
+[1;36m(VllmWorkerProcess pid=3313603)[0;0m INFO 04-15 11:16:07 utils.py:950] Found nccl from library libnccl.so.2
+[2025-04-15 11:16:07,216] [[32m    INFO[0m]: Found nccl from library libnccl.so.2 (utils.py:950)[0m
+[1;36m(VllmWorkerProcess pid=3313607)[0;0m INFO 04-15 11:16:07 utils.py:950] Found nccl from library libnccl.so.2
+[1;36m(VllmWorkerProcess pid=3313604)[0;0m INFO 04-15 11:16:07 utils.py:950] Found nccl from library libnccl.so.2
+[1;36m(VllmWorkerProcess pid=3313601)[0;0m INFO 04-15 11:16:07 utils.py:950] Found nccl from library libnccl.so.2
+[1;36m(VllmWorkerProcess pid=3313602)[0;0m INFO 04-15 11:16:07 utils.py:950] Found nccl from library libnccl.so.2
+[1;36m(VllmWorkerProcess pid=3313606)[0;0m INFO 04-15 11:16:07 utils.py:950] Found nccl from library libnccl.so.2
+[1;36m(VllmWorkerProcess pid=3313607)[0;0m INFO 04-15 11:16:07 pynccl.py:69] vLLM is using nccl==2.21.5
+[1;36m(VllmWorkerProcess pid=3313604)[0;0m INFO 04-15 11:16:07 pynccl.py:69] vLLM is using nccl==2.21.5
+[1;36m(VllmWorkerProcess pid=3313605)[0;0m INFO 04-15 11:16:07 utils.py:950] Found nccl from library libnccl.so.2
+[1;36m(VllmWorkerProcess pid=3313602)[0;0m INFO 04-15 11:16:07 pynccl.py:69] vLLM is using nccl==2.21.5
+[2025-04-15 11:16:07,217] [[32m    INFO[0m]: vLLM is using nccl==2.21.5 (pynccl.py:69)[0m
+[1;36m(VllmWorkerProcess pid=3313606)[0;0m INFO 04-15 11:16:07 pynccl.py:69] vLLM is using nccl==2.21.5
+[1;36m(VllmWorkerProcess pid=3313603)[0;0m INFO 04-15 11:16:07 pynccl.py:69] vLLM is using nccl==2.21.5
+[1;36m(VllmWorkerProcess pid=3313601)[0;0m INFO 04-15 11:16:07 pynccl.py:69] vLLM is using nccl==2.21.5
+[1;36m(VllmWorkerProcess pid=3313605)[0;0m INFO 04-15 11:16:07 pynccl.py:69] vLLM is using nccl==2.21.5
+[1;36m(VllmWorkerProcess pid=3313604)[0;0m INFO 04-15 11:16:12 custom_all_reduce_utils.py:244] reading GPU P2P access cache from ~/.cache/vllm/gpu_p2p_access_cache_for_0,1,2,3,4,5,6,7.json
+[1;36m(VllmWorkerProcess pid=3313601)[0;0m INFO 04-15 11:16:12 custom_all_reduce_utils.py:244] reading GPU P2P access cache from ~/.cache/vllm/gpu_p2p_access_cache_for_0,1,2,3,4,5,6,7.json
+[1;36m(VllmWorkerProcess pid=3313607)[0;0m INFO 04-15 11:16:12 custom_all_reduce_utils.py:244] reading GPU P2P access cache from ~/.cache/vllm/gpu_p2p_access_cache_for_0,1,2,3,4,5,6,7.json
+[1;36m(VllmWorkerProcess pid=3313605)[0;0m INFO 04-15 11:16:12 custom_all_reduce_utils.py:244] reading GPU P2P access cache from ~/.cache/vllm/gpu_p2p_access_cache_for_0,1,2,3,4,5,6,7.json
+[1;36m(VllmWorkerProcess pid=3313606)[0;0m INFO 04-15 11:16:12 custom_all_reduce_utils.py:244] reading GPU P2P access cache from ~/.cache/vllm/gpu_p2p_access_cache_for_0,1,2,3,4,5,6,7.json
+[1;36m(VllmWorkerProcess pid=3313602)[0;0m INFO 04-15 11:16:12 custom_all_reduce_utils.py:244] reading GPU P2P access cache from ~/.cache/vllm/gpu_p2p_access_cache_for_0,1,2,3,4,5,6,7.json
+[1;36m(VllmWorkerProcess pid=3313603)[0;0m INFO 04-15 11:16:12 custom_all_reduce_utils.py:244] reading GPU P2P access cache from ~/.cache/vllm/gpu_p2p_access_cache_for_0,1,2,3,4,5,6,7.json
+[2025-04-15 11:16:12,993] [[32m    INFO[0m]: reading GPU P2P access cache from ~/.cache/vllm/gpu_p2p_access_cache_for_0,1,2,3,4,5,6,7.json (custom_all_reduce_utils.py:244)[0m
+[2025-04-15 11:16:13,413] [[32m    INFO[0m]: vLLM message queue communication handle: Handle(connect_ip='127.0.0.1', local_reader_ranks=[1, 2, 3, 4, 5, 6, 7], buffer_handle=(7, 4194304, 6, 'psm_cf05ef9f'), local_subscribe_port=51505, remote_subscribe_port=None) (shm_broadcast.py:258)[0m
+[1;36m(VllmWorkerProcess pid=3313605)[0;0m INFO 04-15 11:16:13 model_runner.py:1110] Starting to load model ~/Models/LLM-Research/Llama-3.3-70B-Instruct...
+[1;36m(VllmWorkerProcess pid=3313604)[0;0m INFO 04-15 11:16:13 model_runner.py:1110] Starting to load model ~/Models/LLM-Research/Llama-3.3-70B-Instruct...
+[2025-04-15 11:16:13,444] [[32m    INFO[0m]: Starting to load model ~/Models/LLM-Research/Llama-3.3-70B-Instruct... (model_runner.py:1110)[0m
+[1;36m(VllmWorkerProcess pid=3313606)[0;0m INFO 04-15 11:16:13 model_runner.py:1110] Starting to load model ~/Models/LLM-Research/Llama-3.3-70B-Instruct...
+[1;36m(VllmWorkerProcess pid=3313602)[0;0m INFO 04-15 11:16:13 model_runner.py:1110] Starting to load model ~/Models/LLM-Research/Llama-3.3-70B-Instruct...
+[1;36m(VllmWorkerProcess pid=3313607)[0;0m INFO 04-15 11:16:13 model_runner.py:1110] Starting to load model ~/Models/LLM-Research/Llama-3.3-70B-Instruct...
+[1;36m(VllmWorkerProcess pid=3313601)[0;0m INFO 04-15 11:16:13 model_runner.py:1110] Starting to load model ~/Models/LLM-Research/Llama-3.3-70B-Instruct...
+[1;36m(VllmWorkerProcess pid=3313603)[0;0m INFO 04-15 11:16:13 model_runner.py:1110] Starting to load model ~/Models/LLM-Research/Llama-3.3-70B-Instruct...
+
+Loading safetensors checkpoint shards:   0% Completed | 0/30 [00:00<?, ?it/s]
+
+Loading safetensors checkpoint shards:   3% Completed | 1/30 [00:03<01:31,  3.17s/it]
+
+Loading safetensors checkpoint shards:   7% Completed | 2/30 [00:06<01:32,  3.29s/it]
+
+Loading safetensors checkpoint shards:  10% Completed | 3/30 [00:10<01:34,  3.48s/it]
+
+Loading safetensors checkpoint shards:  13% Completed | 4/30 [00:12<01:14,  2.85s/it]
+
+Loading safetensors checkpoint shards:  17% Completed | 5/30 [00:13<00:59,  2.38s/it]
+
+Loading safetensors checkpoint shards:  20% Completed | 6/30 [00:15<00:55,  2.30s/it]
+
+Loading safetensors checkpoint shards:  23% Completed | 7/30 [00:20<01:13,  3.19s/it]
+
+Loading safetensors checkpoint shards:  27% Completed | 8/30 [00:21<00:55,  2.53s/it]
+
+Loading safetensors checkpoint shards:  30% Completed | 9/30 [00:23<00:49,  2.35s/it]
+
+Loading safetensors checkpoint shards:  33% Completed | 10/30 [00:26<00:47,  2.36s/it]
+
+Loading safetensors checkpoint shards:  37% Completed | 11/30 [00:28<00:42,  2.22s/it]
+
+Loading safetensors checkpoint shards:  40% Completed | 12/30 [00:29<00:36,  2.02s/it]
+
+Loading safetensors checkpoint shards:  43% Completed | 13/30 [00:31<00:32,  1.94s/it]
+
+Loading safetensors checkpoint shards:  47% Completed | 14/30 [00:33<00:30,  1.89s/it]
+
+Loading safetensors checkpoint shards:  50% Completed | 15/30 [00:34<00:27,  1.81s/it]
+
+Loading safetensors checkpoint shards:  53% Completed | 16/30 [00:36<00:24,  1.72s/it]
+
+Loading safetensors checkpoint shards:  57% Completed | 17/30 [00:37<00:20,  1.54s/it]
+
+Loading safetensors checkpoint shards:  60% Completed | 18/30 [00:38<00:18,  1.51s/it]
+
+Loading safetensors checkpoint shards:  63% Completed | 19/30 [00:39<00:14,  1.33s/it]
+
+Loading safetensors checkpoint shards:  67% Completed | 20/30 [00:41<00:12,  1.27s/it]
+
+Loading safetensors checkpoint shards:  70% Completed | 21/30 [00:41<00:10,  1.15s/it]
+
+Loading safetensors checkpoint shards:  73% Completed | 22/30 [00:43<00:09,  1.24s/it]
+
+Loading safetensors checkpoint shards:  77% Completed | 23/30 [00:44<00:08,  1.28s/it]
+
+Loading safetensors checkpoint shards:  80% Completed | 24/30 [00:47<00:09,  1.62s/it]
+
+Loading safetensors checkpoint shards:  83% Completed | 25/30 [00:51<00:12,  2.43s/it]
+
+Loading safetensors checkpoint shards:  87% Completed | 26/30 [00:53<00:09,  2.33s/it]
+
+Loading safetensors checkpoint shards:  90% Completed | 27/30 [00:53<00:05,  1.69s/it]
+
+Loading safetensors checkpoint shards:  93% Completed | 28/30 [00:55<00:03,  1.61s/it]
+
+Loading safetensors checkpoint shards:  97% Completed | 29/30 [00:56<00:01,  1.65s/it]
+
+Loading safetensors checkpoint shards: 100% Completed | 30/30 [00:59<00:00,  1.81s/it]
+
+Loading safetensors checkpoint shards: 100% Completed | 30/30 [00:59<00:00,  1.97s/it]
+
+[1;36m(VllmWorkerProcess pid=3313606)[0;0m INFO 04-15 11:17:13 model_runner.py:1115] Loading model weights took 16.4606 GB
+[1;36m(VllmWorkerProcess pid=3313607)[0;0m INFO 04-15 11:17:13 model_runner.py:1115] Loading model weights took 16.4606 GB
+[1;36m(VllmWorkerProcess pid=3313604)[0;0m INFO 04-15 11:17:13 model_runner.py:1115] Loading model weights took 16.4606 GB
+[1;36m(VllmWorkerProcess pid=3313605)[0;0m INFO 04-15 11:17:13 model_runner.py:1115] Loading model weights took 16.4606 GB
+[2025-04-15 11:17:13,285] [[32m    INFO[0m]: Loading model weights took 16.4606 GB (model_runner.py:1115)[0m
+[1;36m(VllmWorkerProcess pid=3313603)[0;0m INFO 04-15 11:17:13 model_runner.py:1115] Loading model weights took 16.4606 GB
+[1;36m(VllmWorkerProcess pid=3313601)[0;0m INFO 04-15 11:17:13 model_runner.py:1115] Loading model weights took 16.4606 GB
+[1;36m(VllmWorkerProcess pid=3313602)[0;0m INFO 04-15 11:17:13 model_runner.py:1115] Loading model weights took 16.4606 GB
+[1;36m(VllmWorkerProcess pid=3313604)[0;0m DEBUG - Starting CHOT optimization
+[1;36m(VllmWorkerProcess pid=3313604)[0;0m DEBUG - CHOT parameters: steps=0, lr=0.01
+[1;36m(VllmWorkerProcess pid=3313604)[0;0m INFO 04-15 11:17:22 worker.py:267] Memory profiling takes 8.98 seconds
+[1;36m(VllmWorkerProcess pid=3313604)[0;0m INFO 04-15 11:17:22 worker.py:267] the current vLLM instance can use total_gpu_memory (79.22GiB) x gpu_memory_utilization (0.90) = 71.29GiB
+[1;36m(VllmWorkerProcess pid=3313604)[0;0m INFO 04-15 11:17:22 worker.py:267] model weights take 16.46GiB; non_torch_memory takes 3.48GiB; PyTorch activation peak memory takes 2.75GiB; the rest of the memory reserved for KV Cache is 48.60GiB.
+[1;36m(VllmWorkerProcess pid=3313605)[0;0m DEBUG - Starting CHOT optimization
+[1;36m(VllmWorkerProcess pid=3313605)[0;0m DEBUG - CHOT parameters: steps=0, lr=0.01
+[1;36m(VllmWorkerProcess pid=3313605)[0;0m INFO 04-15 11:17:22 worker.py:267] Memory profiling takes 8.97 seconds
+[1;36m(VllmWorkerProcess pid=3313605)[0;0m INFO 04-15 11:17:22 worker.py:267] the current vLLM instance can use total_gpu_memory (79.22GiB) x gpu_memory_utilization (0.90) = 71.29GiB
+[1;36m(VllmWorkerProcess pid=3313605)[0;0m INFO 04-15 11:17:22 worker.py:267] model weights take 16.46GiB; non_torch_memory takes 3.48GiB; PyTorch activation peak memory takes 2.75GiB; the rest of the memory reserved for KV Cache is 48.60GiB.
+[1;36m(VllmWorkerProcess pid=3313607)[0;0m DEBUG - Starting CHOT optimization
+[1;36m(VllmWorkerProcess pid=3313607)[0;0m DEBUG - CHOT parameters: steps=0, lr=0.01
+[1;36m(VllmWorkerProcess pid=3313607)[0;0m INFO 04-15 11:17:22 worker.py:267] Memory profiling takes 8.98 seconds
+[1;36m(VllmWorkerProcess pid=3313607)[0;0m INFO 04-15 11:17:22 worker.py:267] the current vLLM instance can use total_gpu_memory (79.22GiB) x gpu_memory_utilization (0.90) = 71.29GiB
+[1;36m(VllmWorkerProcess pid=3313607)[0;0m INFO 04-15 11:17:22 worker.py:267] model weights take 16.46GiB; non_torch_memory takes 3.17GiB; PyTorch activation peak memory takes 2.75GiB; the rest of the memory reserved for KV Cache is 48.92GiB.
+[1;36m(VllmWorkerProcess pid=3313606)[0;0m DEBUG - Starting CHOT optimization
+[1;36m(VllmWorkerProcess pid=3313606)[0;0m DEBUG - CHOT parameters: steps=0, lr=0.01
+[1;36m(VllmWorkerProcess pid=3313606)[0;0m INFO 04-15 11:17:22 worker.py:267] Memory profiling takes 8.99 seconds
+[1;36m(VllmWorkerProcess pid=3313606)[0;0m INFO 04-15 11:17:22 worker.py:267] the current vLLM instance can use total_gpu_memory (79.22GiB) x gpu_memory_utilization (0.90) = 71.29GiB
+[1;36m(VllmWorkerProcess pid=3313606)[0;0m INFO 04-15 11:17:22 worker.py:267] model weights take 16.46GiB; non_torch_memory takes 3.48GiB; PyTorch activation peak memory takes 2.75GiB; the rest of the memory reserved for KV Cache is 48.60GiB.
+[1;36m(VllmWorkerProcess pid=3313602)[0;0m DEBUG - Starting CHOT optimization
+[1;36m(VllmWorkerProcess pid=3313602)[0;0m DEBUG - CHOT parameters: steps=0, lr=0.01
+[1;36m(VllmWorkerProcess pid=3313602)[0;0m INFO 04-15 11:17:22 worker.py:267] Memory profiling takes 8.98 seconds
+[1;36m(VllmWorkerProcess pid=3313602)[0;0m INFO 04-15 11:17:22 worker.py:267] the current vLLM instance can use total_gpu_memory (79.22GiB) x gpu_memory_utilization (0.90) = 71.29GiB
+[1;36m(VllmWorkerProcess pid=3313602)[0;0m INFO 04-15 11:17:22 worker.py:267] model weights take 16.46GiB; non_torch_memory takes 3.48GiB; PyTorch activation peak memory takes 2.75GiB; the rest of the memory reserved for KV Cache is 48.60GiB.
+[1;36m(VllmWorkerProcess pid=3313603)[0;0m DEBUG - Starting CHOT optimization
+[1;36m(VllmWorkerProcess pid=3313603)[0;0m DEBUG - CHOT parameters: steps=0, lr=0.01
+[1;36m(VllmWorkerProcess pid=3313603)[0;0m INFO 04-15 11:17:22 worker.py:267] Memory profiling takes 9.07 seconds
+[1;36m(VllmWorkerProcess pid=3313603)[0;0m INFO 04-15 11:17:22 worker.py:267] the current vLLM instance can use total_gpu_memory (79.22GiB) x gpu_memory_utilization (0.90) = 71.29GiB
+[1;36m(VllmWorkerProcess pid=3313603)[0;0m INFO 04-15 11:17:22 worker.py:267] model weights take 16.46GiB; non_torch_memory takes 3.48GiB; PyTorch activation peak memory takes 2.75GiB; the rest of the memory reserved for KV Cache is 48.60GiB.
+[2025-04-15 11:17:22,708] [[32m    INFO[0m]: Memory profiling takes 9.05 seconds
+the current vLLM instance can use total_gpu_memory (79.22GiB) x gpu_memory_utilization (0.90) = 71.29GiB
+model weights take 16.46GiB; non_torch_memory takes 4.48GiB; PyTorch activation peak memory takes 2.75GiB; the rest of the memory reserved for KV Cache is 47.60GiB. (worker.py:267)[0m
+[1;36m(VllmWorkerProcess pid=3313601)[0;0m DEBUG - Starting CHOT optimization
+[1;36m(VllmWorkerProcess pid=3313601)[0;0m DEBUG - CHOT parameters: steps=0, lr=0.01
+[1;36m(VllmWorkerProcess pid=3313601)[0;0m INFO 04-15 11:17:22 worker.py:267] Memory profiling takes 9.11 seconds
+[1;36m(VllmWorkerProcess pid=3313601)[0;0m INFO 04-15 11:17:22 worker.py:267] the current vLLM instance can use total_gpu_memory (79.22GiB) x gpu_memory_utilization (0.90) = 71.29GiB
+[1;36m(VllmWorkerProcess pid=3313601)[0;0m INFO 04-15 11:17:22 worker.py:267] model weights take 16.46GiB; non_torch_memory takes 3.48GiB; PyTorch activation peak memory takes 2.75GiB; the rest of the memory reserved for KV Cache is 48.60GiB.
+[2025-04-15 11:17:23,065] [[32m    INFO[0m]: # CUDA blocks: 77994, # CPU blocks: 6553 (executor_base.py:110)[0m
+[2025-04-15 11:17:23,066] [[32m    INFO[0m]: Maximum concurrency for 32768 tokens per request: 38.08x (executor_base.py:115)[0m
+[1;36m(VllmWorkerProcess pid=3313602)[0;0m INFO 04-15 11:17:25 model_runner.py:1434] Capturing cudagraphs for decoding. This may lead to unexpected consequences if the model is not static. To run the model in eager mode, set 'enforce_eager=True' or use '--enforce-eager' in the CLI. If out-of-memory error occurs during cudagraph capture, consider decreasing `gpu_memory_utilization` or switching to eager mode. You can also reduce the `max_num_seqs` as needed to decrease memory usage.
+[1;36m(VllmWorkerProcess pid=3313601)[0;0m INFO 04-15 11:17:25 model_runner.py:1434] Capturing cudagraphs for decoding. This may lead to unexpected consequences if the model is not static. To run the model in eager mode, set 'enforce_eager=True' or use '--enforce-eager' in the CLI. If out-of-memory error occurs during cudagraph capture, consider decreasing `gpu_memory_utilization` or switching to eager mode. You can also reduce the `max_num_seqs` as needed to decrease memory usage.
+[1;36m(VllmWorkerProcess pid=3313603)[0;0m INFO 04-15 11:17:25 model_runner.py:1434] Capturing cudagraphs for decoding. This may lead to unexpected consequences if the model is not static. To run the model in eager mode, set 'enforce_eager=True' or use '--enforce-eager' in the CLI. If out-of-memory error occurs during cudagraph capture, consider decreasing `gpu_memory_utilization` or switching to eager mode. You can also reduce the `max_num_seqs` as needed to decrease memory usage.
+[2025-04-15 11:17:25,319] [[32m    INFO[0m]: Capturing cudagraphs for decoding. This may lead to unexpected consequences if the model is not static. To run the model in eager mode, set 'enforce_eager=True' or use '--enforce-eager' in the CLI. If out-of-memory error occurs during cudagraph capture, consider decreasing `gpu_memory_utilization` or switching to eager mode. You can also reduce the `max_num_seqs` as needed to decrease memory usage. (model_runner.py:1434)[0m
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.01
+
+Capturing CUDA graph shapes:   0%|          | 0/19 [00:00<?, ?it/s][1;36m(VllmWorkerProcess pid=3313604)[0;0m INFO 04-15 11:17:25 model_runner.py:1434] Capturing cudagraphs for decoding. This may lead to unexpected consequences if the model is not static. To run the model in eager mode, set 'enforce_eager=True' or use '--enforce-eager' in the CLI. If out-of-memory error occurs during cudagraph capture, consider decreasing `gpu_memory_utilization` or switching to eager mode. You can also reduce the `max_num_seqs` as needed to decrease memory usage.
+[1;36m(VllmWorkerProcess pid=3313605)[0;0m INFO 04-15 11:17:25 model_runner.py:1434] Capturing cudagraphs for decoding. This may lead to unexpected consequences if the model is not static. To run the model in eager mode, set 'enforce_eager=True' or use '--enforce-eager' in the CLI. If out-of-memory error occurs during cudagraph capture, consider decreasing `gpu_memory_utilization` or switching to eager mode. You can also reduce the `max_num_seqs` as needed to decrease memory usage.
+[1;36m(VllmWorkerProcess pid=3313607)[0;0m INFO 04-15 11:17:25 model_runner.py:1434] Capturing cudagraphs for decoding. This may lead to unexpected consequences if the model is not static. To run the model in eager mode, set 'enforce_eager=True' or use '--enforce-eager' in the CLI. If out-of-memory error occurs during cudagraph capture, consider decreasing `gpu_memory_utilization` or switching to eager mode. You can also reduce the `max_num_seqs` as needed to decrease memory usage.
+[1;36m(VllmWorkerProcess pid=3313606)[0;0m INFO 04-15 11:17:25 model_runner.py:1434] Capturing cudagraphs for decoding. This may lead to unexpected consequences if the model is not static. To run the model in eager mode, set 'enforce_eager=True' or use '--enforce-eager' in the CLI. If out-of-memory error occurs during cudagraph capture, consider decreasing `gpu_memory_utilization` or switching to eager mode. You can also reduce the `max_num_seqs` as needed to decrease memory usage.
+
+Capturing CUDA graph shapes:   5%|▌         | 1/19 [00:00<00:10,  1.68it/s]
+Capturing CUDA graph shapes:  11%|█         | 2/19 [00:01<00:09,  1.74it/s]
+Capturing CUDA graph shapes:  16%|█▌        | 3/19 [00:01<00:08,  1.85it/s]
+Capturing CUDA graph shapes:  21%|██        | 4/19 [00:02<00:07,  1.94it/s]
+Capturing CUDA graph shapes:  26%|██▋       | 5/19 [00:02<00:07,  1.97it/s]
+Capturing CUDA graph shapes:  32%|███▏      | 6/19 [00:03<00:06,  1.99it/s]
+Capturing CUDA graph shapes:  37%|███▋      | 7/19 [00:03<00:05,  2.02it/s]
+Capturing CUDA graph shapes:  42%|████▏     | 8/19 [00:04<00:05,  2.04it/s]
+Capturing CUDA graph shapes:  47%|████▋     | 9/19 [00:04<00:04,  2.04it/s]
+Capturing CUDA graph shapes:  53%|█████▎    | 10/19 [00:05<00:04,  2.04it/s]
+Capturing CUDA graph shapes:  58%|█████▊    | 11/19 [00:05<00:03,  2.06it/s]
+Capturing CUDA graph shapes:  63%|██████▎   | 12/19 [00:06<00:03,  2.05it/s]
+Capturing CUDA graph shapes:  68%|██████▊   | 13/19 [00:06<00:02,  2.04it/s]
+Capturing CUDA graph shapes:  74%|███████▎  | 14/19 [00:07<00:02,  2.03it/s]
+Capturing CUDA graph shapes:  79%|███████▉  | 15/19 [00:07<00:01,  2.04it/s]
+Capturing CUDA graph shapes:  84%|████████▍ | 16/19 [00:08<00:01,  2.02it/s]
+Capturing CUDA graph shapes:  89%|████████▉ | 17/19 [00:08<00:00,  2.02it/s][1;36m(VllmWorkerProcess pid=3313602)[0;0m INFO 04-15 11:17:34 custom_all_reduce.py:226] Registering 3059 cuda graph addresses
+[1;36m(VllmWorkerProcess pid=3313604)[0;0m INFO 04-15 11:17:34 custom_all_reduce.py:226] Registering 3059 cuda graph addresses
+
+Capturing CUDA graph shapes:  95%|█████████▍| 18/19 [00:09<00:00,  1.98it/s][1;36m(VllmWorkerProcess pid=3313605)[0;0m INFO 04-15 11:17:34 custom_all_reduce.py:226] Registering 3059 cuda graph addresses
+[1;36m(VllmWorkerProcess pid=3313607)[0;0m INFO 04-15 11:17:34 custom_all_reduce.py:226] Registering 3059 cuda graph addresses
+[1;36m(VllmWorkerProcess pid=3313606)[0;0m INFO 04-15 11:17:34 custom_all_reduce.py:226] Registering 3059 cuda graph addresses
+[1;36m(VllmWorkerProcess pid=3313601)[0;0m INFO 04-15 11:17:34 custom_all_reduce.py:226] Registering 3059 cuda graph addresses
+[1;36m(VllmWorkerProcess pid=3313603)[0;0m INFO 04-15 11:17:34 custom_all_reduce.py:226] Registering 3059 cuda graph addresses
+
+Capturing CUDA graph shapes: 100%|██████████| 19/19 [00:09<00:00,  1.80it/s]
+Capturing CUDA graph shapes: 100%|██████████| 19/19 [00:09<00:00,  1.96it/s]
+[2025-04-15 11:17:35,030] [[32m    INFO[0m]: Registering 3059 cuda graph addresses (custom_all_reduce.py:226)[0m
+[1;36m(VllmWorkerProcess pid=3313605)[0;0m INFO 04-15 11:17:35 model_runner.py:1562] Graph capturing finished in 10 secs, took 0.29 GiB
+[1;36m(VllmWorkerProcess pid=3313606)[0;0m INFO 04-15 11:17:35 model_runner.py:1562] Graph capturing finished in 10 secs, took 0.29 GiB
+[1;36m(VllmWorkerProcess pid=3313604)[0;0m INFO 04-15 11:17:35 model_runner.py:1562] Graph capturing finished in 10 secs, took 0.29 GiB
+[1;36m(VllmWorkerProcess pid=3313607)[0;0m INFO 04-15 11:17:35 model_runner.py:1562] Graph capturing finished in 10 secs, took 0.29 GiB
+[2025-04-15 11:17:35,575] [[32m    INFO[0m]: Graph capturing finished in 10 secs, took 0.29 GiB (model_runner.py:1562)[0m
+[1;36m(VllmWorkerProcess pid=3313603)[0;0m INFO 04-15 11:17:35 model_runner.py:1562] Graph capturing finished in 10 secs, took 0.29 GiB
+[1;36m(VllmWorkerProcess pid=3313602)[0;0m INFO 04-15 11:17:35 model_runner.py:1562] Graph capturing finished in 10 secs, took 0.29 GiB
+[1;36m(VllmWorkerProcess pid=3313601)[0;0m INFO 04-15 11:17:35 model_runner.py:1562] Graph capturing finished in 10 secs, took 0.29 GiB
+[2025-04-15 11:17:35,584] [[32m    INFO[0m]: init engine (profile, create kv cache, warmup model) took 22.15 seconds (llm_engine.py:431)[0m
+[2025-04-15 11:17:36,252] [[32m    INFO[0m]: --- INIT SEEDS --- (pipeline.py:263)[0m
+[2025-04-15 11:17:36,253] [[32m    INFO[0m]: --- LOADING TASKS --- (pipeline.py:216)[0m
+[2025-04-15 11:17:36,253] [[32m    INFO[0m]: Found 1 custom tasks in ~/Projects/nips25_slot/open-r2/openr1/lib/python3.11/site-packages/lighteval/tasks/extended/ifeval/main.py (registry.py:142)[0m
+[2025-04-15 11:17:36,253] [[32m    INFO[0m]: Found 6 custom tasks in ~/Projects/nips25_slot/open-r2/openr1/lib/python3.11/site-packages/lighteval/tasks/extended/tiny_benchmarks/main.py (registry.py:142)[0m
+[2025-04-15 11:17:36,253] [[32m    INFO[0m]: Found 1 custom tasks in ~/Projects/nips25_slot/open-r2/openr1/lib/python3.11/site-packages/lighteval/tasks/extended/mt_bench/main.py (registry.py:142)[0m
+[2025-04-15 11:17:36,253] [[32m    INFO[0m]: Found 4 custom tasks in ~/Projects/nips25_slot/open-r2/openr1/lib/python3.11/site-packages/lighteval/tasks/extended/mix_eval/main.py (registry.py:142)[0m
+[2025-04-15 11:17:36,253] [[32m    INFO[0m]: Found 5 custom tasks in ~/Projects/nips25_slot/open-r2/openr1/lib/python3.11/site-packages/lighteval/tasks/extended/olympiade_bench/main.py (registry.py:142)[0m
+[2025-04-15 11:17:36,253] [[32m    INFO[0m]: Found 1 custom tasks in ~/Projects/nips25_slot/open-r2/openr1/lib/python3.11/site-packages/lighteval/tasks/extended/hle/main.py (registry.py:142)[0m
+[2025-04-15 11:17:36,253] [[32m    INFO[0m]: Found 21 custom tasks in ~/Projects/nips25_slot/open-r2/openr1/lib/python3.11/site-packages/lighteval/tasks/extended/lcb/main.py (registry.py:142)[0m
+[2025-04-15 11:17:36,255] [[32m    INFO[0m]: Idavidrein/gpqa gpqa_diamond (lighteval_task.py:187)[0m
+[2025-04-15 11:17:36,255] [[33m WARNING[0m]: Careful, the task lighteval|gpqa:diamond is using evaluation data to build the few shot examples. (lighteval_task.py:260)[0m
+Using the latest cached version of the dataset since Idavidrein/gpqa couldn't be found on the Hugging Face Hub
+[2025-04-15 11:17:39,335] [[33m WARNING[0m]: Using the latest cached version of the dataset since Idavidrein/gpqa couldn't be found on the Hugging Face Hub (load.py:1631)[0m
+Found the latest cached dataset configuration 'gpqa_diamond' at ~/.cache/huggingface/datasets/Idavidrein___gpqa/gpqa_diamond/0.0.0/90b8e5be2b1d3d2dbfe016cdab47981150600c4a (last modified on Sat Apr 12 16:41:50 2025).
+[2025-04-15 11:17:39,338] [[33m WARNING[0m]: Found the latest cached dataset configuration 'gpqa_diamond' at ~/.cache/huggingface/datasets/Idavidrein___gpqa/gpqa_diamond/0.0.0/90b8e5be2b1d3d2dbfe016cdab47981150600c4a (last modified on Sat Apr 12 16:41:50 2025). (cache.py:95)[0m
+[2025-04-15 11:17:39,524] [[32m    INFO[0m]: --- RUNNING MODEL --- (pipeline.py:468)[0m
+[2025-04-15 11:17:39,524] [[32m    INFO[0m]: Running RequestType.GREEDY_UNTIL requests (pipeline.py:472)[0m
+[2025-04-15 11:17:39,579] [[33m WARNING[0m]: You cannot select the number of dataset splits for a generative evaluation at the moment. Automatically inferring. (data.py:260)[0m
+Idavidrein/gpqa
+gpqa_diamond
+True
+None
+
+Splits:   0%|          | 0/1 [00:00<?, ?it/s][2025-04-15 11:17:39,632] [[33m WARNING[0m]: context_size + max_new_tokens=35612 which is greater than self.max_length=32768. Truncating context to 0 tokens. (vllm_model.py:270)[0m
+
+
+Processed prompts:   0%|          | 0/198 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s][A
+
+Processed prompts:   1%|          | 1/198 [00:10<34:30, 10.51s/it, est. speed input: 22.27 toks/s, output: 25.98 toks/s][A
+
+Processed prompts:   1%|          | 2/198 [00:12<17:03,  5.22s/it, est. speed input: 39.56 toks/s, output: 49.70 toks/s][A
+
+Processed prompts:   2%|▏         | 3/198 [00:12<10:09,  3.13s/it, est. speed input: 61.98 toks/s, output: 74.54 toks/s][A
+
+Processed prompts:   2%|▏         | 4/198 [00:14<07:51,  2.43s/it, est. speed input: 77.73 toks/s, output: 95.27 toks/s][A
+
+Processed prompts:   3%|▎         | 5/198 [00:14<05:19,  1.66s/it, est. speed input: 101.24 toks/s, output: 121.36 toks/s][A
+
+Processed prompts:   3%|▎         | 6/198 [00:14<03:58,  1.24s/it, est. speed input: 113.91 toks/s, output: 145.91 toks/s][A
+
+Processed prompts:   4%|▎         | 7/198 [00:15<02:55,  1.09it/s, est. speed input: 128.87 toks/s, output: 171.58 toks/s][A
+
+Processed prompts:   4%|▍         | 8/198 [00:15<02:11,  1.45it/s, est. speed input: 188.97 toks/s, output: 197.52 toks/s][A
+
+Processed prompts:   5%|▍         | 9/198 [00:15<01:57,  1.61it/s, est. speed input: 198.39 toks/s, output: 220.03 toks/s][A
+
+Processed prompts:   5%|▌         | 10/198 [00:15<01:27,  2.16it/s, est. speed input: 214.38 toks/s, output: 246.76 toks/s][A
+
+Processed prompts:   6%|▌         | 11/198 [00:16<01:34,  1.97it/s, est. speed input: 221.82 toks/s, output: 266.11 toks/s][A
+
+Processed prompts:   6%|▌         | 12/198 [00:16<01:17,  2.41it/s, est. speed input: 234.13 toks/s, output: 291.39 toks/s][A
+
+Processed prompts:   7%|▋         | 13/198 [00:16<00:59,  3.09it/s, est. speed input: 248.46 toks/s, output: 317.89 toks/s][A
+
+Processed prompts:   7%|▋         | 14/198 [00:17<01:05,  2.80it/s, est. speed input: 262.23 toks/s, output: 338.43 toks/s][A
+
+Processed prompts:   8%|▊         | 15/198 [00:17<01:01,  2.97it/s, est. speed input: 305.04 toks/s, output: 361.44 toks/s][A
+
+Processed prompts:   8%|▊         | 16/198 [00:17<00:55,  3.28it/s, est. speed input: 332.21 toks/s, output: 385.38 toks/s][A
+
+Processed prompts:   9%|▊         | 17/198 [00:17<00:51,  3.54it/s, est. speed input: 346.16 toks/s, output: 409.10 toks/s][A
+
+Processed prompts:   9%|▉         | 18/198 [00:18<00:49,  3.63it/s, est. speed input: 359.23 toks/s, output: 431.95 toks/s][A
+
+Processed prompts:  10%|█         | 20/198 [00:18<00:39,  4.52it/s, est. speed input: 383.03 toks/s, output: 481.60 toks/s][A
+
+Processed prompts:  11%|█         | 22/198 [00:18<00:30,  5.79it/s, est. speed input: 415.34 toks/s, output: 533.64 toks/s][A
+
+Processed prompts:  12%|█▏        | 23/198 [00:19<00:38,  4.60it/s, est. speed input: 421.38 toks/s, output: 551.84 toks/s][A
+
+Processed prompts:  13%|█▎        | 25/198 [00:19<00:29,  5.82it/s, est. speed input: 459.90 toks/s, output: 603.36 toks/s][A
+
+Processed prompts:  14%|█▎        | 27/198 [00:19<00:23,  7.38it/s, est. speed input: 485.74 toks/s, output: 656.19 toks/s][A
+
+Processed prompts:  14%|█▍        | 28/198 [00:19<00:25,  6.72it/s, est. speed input: 493.17 toks/s, output: 678.10 toks/s][A
+
+Processed prompts:  15%|█▌        | 30/198 [00:19<00:19,  8.74it/s, est. speed input: 522.85 toks/s, output: 731.43 toks/s][A
+
+Processed prompts:  16%|█▌        | 32/198 [00:19<00:17,  9.61it/s, est. speed input: 558.85 toks/s, output: 782.17 toks/s][A
+
+Processed prompts:  17%|█▋        | 34/198 [00:20<00:15, 10.50it/s, est. speed input: 586.36 toks/s, output: 832.99 toks/s][A
+
+Processed prompts:  18%|█▊        | 36/198 [00:20<00:20,  7.76it/s, est. speed input: 611.49 toks/s, output: 873.37 toks/s][A
+
+Processed prompts:  19%|█▉        | 38/198 [00:20<00:20,  7.91it/s, est. speed input: 641.94 toks/s, output: 919.91 toks/s][A
+
+Processed prompts:  20%|█▉        | 39/198 [00:20<00:19,  8.06it/s, est. speed input: 670.65 toks/s, output: 943.46 toks/s][A
+
+Processed prompts:  21%|██        | 41/198 [00:20<00:15, 10.00it/s, est. speed input: 697.31 toks/s, output: 995.53 toks/s][A
+
+Processed prompts:  22%|██▏       | 43/198 [00:20<00:13, 11.46it/s, est. speed input: 717.53 toks/s, output: 1046.53 toks/s][A
+
+Processed prompts:  23%|██▎       | 45/198 [00:21<00:20,  7.30it/s, est. speed input: 735.44 toks/s, output: 1079.67 toks/s][A
+
+Processed prompts:  24%|██▎       | 47/198 [00:21<00:20,  7.45it/s, est. speed input: 751.59 toks/s, output: 1123.73 toks/s][A
+
+Processed prompts:  25%|██▍       | 49/198 [00:21<00:16,  8.94it/s, est. speed input: 776.24 toks/s, output: 1174.22 toks/s][A
+
+Processed prompts:  26%|██▌       | 51/198 [00:22<00:19,  7.68it/s, est. speed input: 797.43 toks/s, output: 1212.98 toks/s][A
+
+Processed prompts:  26%|██▋       | 52/198 [00:22<00:30,  4.87it/s, est. speed input: 793.99 toks/s, output: 1212.29 toks/s][A
+
+Processed prompts:  27%|██▋       | 53/198 [00:22<00:28,  5.04it/s, est. speed input: 805.03 toks/s, output: 1231.86 toks/s][A
+
+Processed prompts:  27%|██▋       | 54/198 [00:23<00:29,  4.87it/s, est. speed input: 806.92 toks/s, output: 1248.31 toks/s][A
+
+Processed prompts:  28%|██▊       | 55/198 [00:23<00:26,  5.47it/s, est. speed input: 817.76 toks/s, output: 1270.91 toks/s][A
+
+Processed prompts:  30%|██▉       | 59/198 [00:23<00:14,  9.34it/s, est. speed input: 863.58 toks/s, output: 1373.15 toks/s][A
+
+Processed prompts:  31%|███       | 61/198 [00:24<00:24,  5.52it/s, est. speed input: 862.96 toks/s, output: 1389.45 toks/s][A
+
+Processed prompts:  31%|███▏      | 62/198 [00:24<00:29,  4.66it/s, est. speed input: 863.48 toks/s, output: 1397.01 toks/s][A
+
+Processed prompts:  32%|███▏      | 63/198 [00:24<00:27,  5.00it/s, est. speed input: 869.68 toks/s, output: 1417.75 toks/s][A
+
+Processed prompts:  32%|███▏      | 64/198 [00:24<00:26,  5.00it/s, est. speed input: 875.18 toks/s, output: 1435.17 toks/s][A
+
+Processed prompts:  33%|███▎      | 65/198 [00:25<00:30,  4.40it/s, est. speed input: 879.78 toks/s, output: 1446.03 toks/s][A
+
+Processed prompts:  34%|███▍      | 67/198 [00:25<00:24,  5.38it/s, est. speed input: 912.61 toks/s, output: 1489.20 toks/s][A
+
+Processed prompts:  35%|███▍      | 69/198 [00:25<00:17,  7.33it/s, est. speed input: 1037.20 toks/s, output: 1540.67 toks/s][A
+
+Processed prompts:  36%|███▌      | 71/198 [00:25<00:17,  7.25it/s, est. speed input: 1048.36 toks/s, output: 1581.14 toks/s][A
+
+Processed prompts:  36%|███▋      | 72/198 [00:26<00:18,  6.79it/s, est. speed input: 1051.92 toks/s, output: 1598.78 toks/s][A
+
+Processed prompts:  37%|███▋      | 74/198 [00:26<00:20,  6.06it/s, est. speed input: 1064.26 toks/s, output: 1632.49 toks/s][A
+
+Processed prompts:  38%|███▊      | 75/198 [00:26<00:19,  6.33it/s, est. speed input: 1069.08 toks/s, output: 1653.48 toks/s][A
+
+Processed prompts:  38%|███▊      | 76/198 [00:26<00:17,  6.86it/s, est. speed input: 1079.34 toks/s, output: 1676.08 toks/s][A
+
+Processed prompts:  39%|███▉      | 77/198 [00:26<00:17,  6.74it/s, est. speed input: 1085.69 toks/s, output: 1695.42 toks/s][A
+
+Processed prompts:  39%|███▉      | 78/198 [00:27<00:22,  5.25it/s, est. speed input: 1082.58 toks/s, output: 1705.18 toks/s][A
+
+Processed prompts:  40%|███▉      | 79/198 [00:27<00:21,  5.52it/s, est. speed input: 1085.94 toks/s, output: 1724.72 toks/s][A
+
+Processed prompts:  40%|████      | 80/198 [00:27<00:24,  4.78it/s, est. speed input: 1091.97 toks/s, output: 1736.49 toks/s][A
+
+Processed prompts:  41%|████▏     | 82/198 [00:27<00:16,  7.19it/s, est. speed input: 1106.80 toks/s, output: 1773.51 toks/s][A
+
+Processed prompts:  42%|████▏     | 83/198 [00:27<00:19,  6.00it/s, est. speed input: 1105.35 toks/s, output: 1786.86 toks/s][A
+
+Processed prompts:  43%|████▎     | 86/198 [00:28<00:14,  7.49it/s, est. speed input: 1132.86 toks/s, output: 1855.68 toks/s][A
+
+Processed prompts:  44%|████▍     | 88/198 [00:28<00:15,  6.98it/s, est. speed input: 1139.77 toks/s, output: 1876.91 toks/s][A
+
+Processed prompts:  45%|████▍     | 89/198 [00:28<00:19,  5.50it/s, est. speed input: 1138.42 toks/s, output: 1884.14 toks/s][A
+
+Processed prompts:  45%|████▌     | 90/198 [00:29<00:20,  5.39it/s, est. speed input: 1140.68 toks/s, output: 1901.14 toks/s][A
+
+Processed prompts:  47%|████▋     | 93/198 [00:29<00:18,  5.56it/s, est. speed input: 1149.24 toks/s, output: 1956.89 toks/s][A
+
+Processed prompts:  48%|████▊     | 96/198 [00:29<00:13,  7.32it/s, est. speed input: 1170.29 toks/s, output: 2015.03 toks/s][A
+
+Processed prompts:  49%|████▉     | 97/198 [00:30<00:18,  5.52it/s, est. speed input: 1164.22 toks/s, output: 2017.95 toks/s][A
+
+Processed prompts:  49%|████▉     | 98/198 [00:30<00:20,  4.96it/s, est. speed input: 1158.73 toks/s, output: 2008.52 toks/s][A
+
+Processed prompts:  50%|█████     | 99/198 [00:30<00:23,  4.25it/s, est. speed input: 1163.61 toks/s, output: 2015.64 toks/s][A
+
+Processed prompts:  51%|█████     | 100/198 [00:31<00:25,  3.78it/s, est. speed input: 1157.34 toks/s, output: 2010.30 toks/s][A
+
+Processed prompts:  52%|█████▏    | 102/198 [00:31<00:25,  3.79it/s, est. speed input: 1155.16 toks/s, output: 2038.12 toks/s][A
+
+Processed prompts:  52%|█████▏    | 103/198 [00:31<00:22,  4.31it/s, est. speed input: 1160.82 toks/s, output: 2061.33 toks/s][A
+
+Processed prompts:  53%|█████▎    | 104/198 [00:32<00:20,  4.51it/s, est. speed input: 1162.23 toks/s, output: 2080.16 toks/s][A
+
+Processed prompts:  53%|█████▎    | 105/198 [00:32<00:22,  4.11it/s, est. speed input: 1157.59 toks/s, output: 2075.50 toks/s][A
+
+Processed prompts:  55%|█████▍    | 108/198 [00:32<00:19,  4.67it/s, est. speed input: 1163.47 toks/s, output: 2112.49 toks/s][A
+
+Processed prompts:  57%|█████▋    | 113/198 [00:33<00:09,  8.81it/s, est. speed input: 1190.33 toks/s, output: 2211.60 toks/s][A
+
+Processed prompts:  58%|█████▊    | 115/198 [00:33<00:08,  9.25it/s, est. speed input: 1197.17 toks/s, output: 2244.43 toks/s][A
+
+Processed prompts:  59%|█████▉    | 117/198 [00:33<00:11,  6.94it/s, est. speed input: 1193.52 toks/s, output: 2257.20 toks/s][A
+
+Processed prompts:  60%|█████▉    | 118/198 [00:34<00:11,  6.68it/s, est. speed input: 1193.30 toks/s, output: 2261.81 toks/s][A
+
+Processed prompts:  61%|██████    | 121/198 [00:34<00:08,  8.56it/s, est. speed input: 1201.17 toks/s, output: 2300.21 toks/s][A
+
+Processed prompts:  62%|██████▏   | 123/198 [00:34<00:11,  6.35it/s, est. speed input: 1195.36 toks/s, output: 2311.74 toks/s][A
+
+Processed prompts:  63%|██████▎   | 125/198 [00:34<00:10,  7.10it/s, est. speed input: 1199.26 toks/s, output: 2328.73 toks/s][A
+
+Processed prompts:  64%|██████▎   | 126/198 [00:35<00:10,  7.00it/s, est. speed input: 1200.74 toks/s, output: 2350.70 toks/s][A
+
+Processed prompts:  64%|██████▍   | 127/198 [00:35<00:09,  7.33it/s, est. speed input: 1202.72 toks/s, output: 2359.92 toks/s][A
+
+Processed prompts:  65%|██████▌   | 129/198 [00:35<00:07,  9.35it/s, est. speed input: 1209.67 toks/s, output: 2383.77 toks/s][A
+
+Processed prompts:  66%|██████▌   | 131/198 [00:35<00:08,  7.53it/s, est. speed input: 1212.43 toks/s, output: 2423.79 toks/s][A
+
+Processed prompts:  67%|██████▋   | 133/198 [00:35<00:06,  9.34it/s, est. speed input: 1217.63 toks/s, output: 2442.88 toks/s][A
+
+Processed prompts:  68%|██████▊   | 135/198 [00:36<00:08,  7.30it/s, est. speed input: 1223.84 toks/s, output: 2464.49 toks/s][A
+
+Processed prompts:  69%|██████▉   | 137/198 [00:36<00:07,  7.92it/s, est. speed input: 1227.72 toks/s, output: 2485.80 toks/s][A
+
+Processed prompts:  71%|███████   | 140/198 [00:36<00:05, 10.89it/s, est. speed input: 1246.67 toks/s, output: 2556.28 toks/s][A
+
+Processed prompts:  72%|███████▏  | 142/198 [00:36<00:05,  9.49it/s, est. speed input: 1249.19 toks/s, output: 2585.94 toks/s][A
+
+Processed prompts:  73%|███████▎  | 145/198 [00:37<00:04, 10.71it/s, est. speed input: 1259.37 toks/s, output: 2637.74 toks/s][A
+
+Processed prompts:  74%|███████▍  | 147/198 [00:37<00:04, 11.17it/s, est. speed input: 1263.25 toks/s, output: 2657.95 toks/s][A
+
+Processed prompts:  75%|███████▌  | 149/198 [00:37<00:07,  6.90it/s, est. speed input: 1254.94 toks/s, output: 2657.88 toks/s][A
+
+Processed prompts:  76%|███████▋  | 151/198 [00:37<00:06,  7.76it/s, est. speed input: 1261.21 toks/s, output: 2697.31 toks/s][A
+
+Processed prompts:  77%|███████▋  | 153/198 [00:38<00:07,  6.14it/s, est. speed input: 1254.01 toks/s, output: 2696.50 toks/s][A
+
+Processed prompts:  78%|███████▊  | 154/198 [00:38<00:07,  5.97it/s, est. speed input: 1253.05 toks/s, output: 2702.72 toks/s][A
+
+Processed prompts:  78%|███████▊  | 155/198 [00:39<00:09,  4.39it/s, est. speed input: 1244.85 toks/s, output: 2703.79 toks/s][A
+
+Processed prompts:  79%|███████▉  | 156/198 [00:39<00:09,  4.47it/s, est. speed input: 1243.98 toks/s, output: 2715.16 toks/s][A
+
+Processed prompts:  80%|███████▉  | 158/198 [00:39<00:06,  6.26it/s, est. speed input: 1249.43 toks/s, output: 2744.20 toks/s][A
+
+Processed prompts:  81%|████████  | 160/198 [00:39<00:06,  5.69it/s, est. speed input: 1248.49 toks/s, output: 2775.30 toks/s][A
+
+Processed prompts:  81%|████████▏ | 161/198 [00:39<00:06,  5.87it/s, est. speed input: 1249.74 toks/s, output: 2799.36 toks/s][A
+
+Processed prompts:  82%|████████▏ | 162/198 [00:40<00:08,  4.17it/s, est. speed input: 1241.28 toks/s, output: 2800.64 toks/s][A
+
+Processed prompts:  82%|████████▏ | 163/198 [00:40<00:08,  4.02it/s, est. speed input: 1236.10 toks/s, output: 2798.48 toks/s][A
+
+Processed prompts:  83%|████████▎ | 164/198 [00:40<00:07,  4.69it/s, est. speed input: 1235.99 toks/s, output: 2807.69 toks/s][A
+
+Processed prompts:  83%|████████▎ | 165/198 [00:41<00:07,  4.17it/s, est. speed input: 1232.18 toks/s, output: 2821.32 toks/s][A
+
+Processed prompts:  84%|████████▍ | 167/198 [00:41<00:05,  5.47it/s, est. speed input: 1236.13 toks/s, output: 2860.23 toks/s][A
+
+Processed prompts:  85%|████████▌ | 169/198 [00:41<00:06,  4.49it/s, est. speed input: 1227.23 toks/s, output: 2860.79 toks/s][A
+
+Processed prompts:  86%|████████▌ | 170/198 [00:42<00:06,  4.44it/s, est. speed input: 1225.80 toks/s, output: 2873.92 toks/s][A
+
+Processed prompts:  87%|████████▋ | 172/198 [00:42<00:06,  4.20it/s, est. speed input: 1223.87 toks/s, output: 2909.74 toks/s][A
+
+Processed prompts:  88%|████████▊ | 174/198 [00:43<00:05,  4.62it/s, est. speed input: 1222.03 toks/s, output: 2928.39 toks/s][A
+
+Processed prompts:  89%|████████▉ | 176/198 [00:43<00:04,  5.32it/s, est. speed input: 1226.84 toks/s, output: 2971.46 toks/s][A
+
+Processed prompts:  90%|█████████ | 179/198 [00:43<00:02,  6.35it/s, est. speed input: 1230.73 toks/s, output: 3019.62 toks/s][A
+
+Processed prompts:  91%|█████████ | 180/198 [00:43<00:02,  6.48it/s, est. speed input: 1234.48 toks/s, output: 3046.33 toks/s][A
+
+Processed prompts:  92%|█████████▏| 182/198 [00:44<00:02,  5.42it/s, est. speed input: 1228.69 toks/s, output: 3057.48 toks/s][A
+
+Processed prompts:  92%|█████████▏| 183/198 [00:44<00:03,  3.84it/s, est. speed input: 1216.26 toks/s, output: 3039.44 toks/s][A
+
+Processed prompts:  93%|█████████▎| 184/198 [00:46<00:06,  2.22it/s, est. speed input: 1190.12 toks/s, output: 2989.29 toks/s][A
+
+Processed prompts:  93%|█████████▎| 185/198 [00:46<00:07,  1.80it/s, est. speed input: 1171.02 toks/s, output: 2956.63 toks/s][A
+
+Processed prompts:  94%|█████████▍| 187/198 [00:47<00:03,  2.79it/s, est. speed input: 1178.99 toks/s, output: 3013.47 toks/s][A
+
+Processed prompts:  95%|█████████▍| 188/198 [00:47<00:04,  2.10it/s, est. speed input: 1162.23 toks/s, output: 2996.05 toks/s][A
+
+Processed prompts:  95%|█████████▌| 189/198 [00:49<00:06,  1.30it/s, est. speed input: 1125.02 toks/s, output: 2917.43 toks/s][A
+
+Processed prompts:  96%|█████████▌| 190/198 [00:50<00:06,  1.25it/s, est. speed input: 1108.23 toks/s, output: 2891.95 toks/s][A
+
+Processed prompts:  96%|█████████▋| 191/198 [00:52<00:08,  1.22s/it, est. speed input: 1062.02 toks/s, output: 2791.82 toks/s][A
+
+Processed prompts:  98%|█████████▊| 194/198 [00:53<00:02,  1.62it/s, est. speed input: 1066.74 toks/s, output: 2865.13 toks/s][A
+
+Processed prompts:  98%|█████████▊| 195/198 [00:55<00:02,  1.04it/s, est. speed input: 1025.55 toks/s, output: 2777.14 toks/s][A
+
+Processed prompts:  99%|█████████▉| 196/198 [00:59<00:03,  1.73s/it, est. speed input: 954.29 toks/s, output: 2610.51 toks/s] [A
+
+Processed prompts:  99%|█████████▉| 197/198 [01:05<00:02,  2.72s/it, est. speed input: 873.14 toks/s, output: 2420.36 toks/s][A
+
+Processed prompts: 100%|██████████| 198/198 [10:09<00:00, 142.23s/it, est. speed input: 94.35 toks/s, output: 314.14 toks/s] [A
+Processed prompts: 100%|██████████| 198/198 [10:09<00:00,  3.08s/it, est. speed input: 94.35 toks/s, output: 314.14 toks/s] 
+
+Splits: 100%|██████████| 1/1 [10:10<00:00, 610.13s/it]
+Splits: 100%|██████████| 1/1 [10:10<00:00, 610.13s/it]
+[2025-04-15 11:27:50,361] [[32m    INFO[0m]: Terminating local vLLM worker processes (multiproc_worker_utils.py:141)[0m
+[1;36m(VllmWorkerProcess pid=3313603)[0;0m INFO 04-15 11:27:50 multiproc_worker_utils.py:253] Worker exiting
+[1;36m(VllmWorkerProcess pid=3313602)[0;0m INFO 04-15 11:27:50 multiproc_worker_utils.py:253] Worker exiting
+[1;36m(VllmWorkerProcess pid=3313605)[0;0m INFO 04-15 11:27:50 multiproc_worker_utils.py:253] Worker exiting
+[1;36m(VllmWorkerProcess pid=3313601)[0;0m INFO 04-15 11:27:50 multiproc_worker_utils.py:253] Worker exiting
+[1;36m(VllmWorkerProcess pid=3313604)[0;0m INFO 04-15 11:27:50 multiproc_worker_utils.py:253] Worker exiting
+[1;36m(VllmWorkerProcess pid=3313606)[0;0m INFO 04-15 11:27:50 multiproc_worker_utils.py:253] Worker exiting
+[1;36m(VllmWorkerProcess pid=3313607)[0;0m INFO 04-15 11:27:50 multiproc_worker_utils.py:253] Worker exiting
+[2025-04-15 11:27:51,177] [[32m    INFO[0m]: --- COMPUTING METRICS --- (pipeline.py:504)[0m
+[2025-04-15 11:27:51,218] [[32m    INFO[0m]: --- DISPLAYING RESULTS --- (pipeline.py:546)[0m
+[2025-04-15 11:27:51,230] [[32m    INFO[0m]: --- SAVING AND PUSHING RESULTS --- (pipeline.py:536)[0m
+[2025-04-15 11:27:51,230] [[32m    INFO[0m]: Saving experiment tracker (evaluation_tracker.py:180)[0m
+[2025-04-15 11:27:51,397] [[32m    INFO[0m]: Saving results to ~/Projects/nips25_slot/open-r2/data/evals~/Models/LLM-Research/Llama-3.3-70B-Instruct/results/_Models_LLM-Research_Llama-3.3-70B-Instruct/results_2025-04-15T11-27-51.230933.json (evaluation_tracker.py:234)[0m
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.01
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.01
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.01
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.01
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.01
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.01
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.01
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.01
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.01
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.01
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.01
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.01
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.01
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.01
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.01
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.01
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.01
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.01
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.01
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.01
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.01
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.01
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.01
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.01
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.01
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.01
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.01
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.01
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.01
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.01
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.01
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.01
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.01
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.01
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.01
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.01
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.01
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.01
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.01
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.01
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.01
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.01
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.01
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.01
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.01
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.01
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.01
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.01
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.01
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.01
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.01
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.01
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.01
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.01
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.01
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.01
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.01
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.01
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.01
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.01
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.01
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.01
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.01
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.01
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.01
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.01
+|          Task          |Version|     Metric     |Value |   |Stderr|
+|------------------------|------:|----------------|-----:|---|-----:|
+|all                     |       |extractive_match|0.5404|±  |0.0355|
+|lighteval:gpqa:diamond:0|      0|extractive_match|0.5404|±  |0.0355|
+
