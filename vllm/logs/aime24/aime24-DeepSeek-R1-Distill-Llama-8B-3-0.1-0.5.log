@@ -1,0 +1,350 @@
+[2025-04-23 00:02:28,312] [[32m    INFO[0m]: PyTorch version 2.5.1 available. (config.py:58)[0m
+INFO 04-23 00:02:34 __init__.py:190] Automatically detected platform cuda.
+[2025-04-23 00:02:35,321] [[32m    INFO[0m]: --- LOADING MODEL --- (pipeline.py:189)[0m
+[2025-04-23 00:02:44,546] [[32m    INFO[0m]: This model supports multiple tasks: {'classify', 'reward', 'embed', 'score', 'generate'}. Defaulting to 'generate'. (config.py:542)[0m
+[2025-04-23 00:02:44,547] [[32m    INFO[0m]: Initializing a V0 LLM engine (v0.7.2) with config: model='~/Models/deepseek-ai/DeepSeek-R1-Distill-Llama-8B', speculative_config=None, tokenizer='~/Models/deepseek-ai/DeepSeek-R1-Distill-Llama-8B', skip_tokenizer_init=False, tokenizer_mode=auto, revision=main, override_neuron_config=None, tokenizer_revision=main, trust_remote_code=False, dtype=torch.bfloat16, max_seq_len=32768, download_dir=None, load_format=LoadFormat.AUTO, tensor_parallel_size=1, pipeline_parallel_size=1, disable_custom_all_reduce=False, quantization=None, enforce_eager=False, kv_cache_dtype=auto,  device_config=cuda, decoding_config=DecodingConfig(guided_decoding_backend='xgrammar'), observability_config=ObservabilityConfig(otlp_traces_endpoint=None, collect_model_forward_time=False, collect_model_execute_time=False), seed=1234, served_model_name=~/Models/deepseek-ai/DeepSeek-R1-Distill-Llama-8B, num_scheduler_steps=1, multi_step_stream_outputs=True, enable_prefix_caching=False, chunked_prefill_enabled=False, use_async_output_proc=True, disable_mm_preprocessor_cache=False, mm_processor_kwargs=None, pooler_config=None, compilation_config={"splitting_ops":[],"compile_sizes":[],"cudagraph_capture_sizes":[128,120,112,104,96,88,80,72,64,56,48,40,32,24,16,8,4,2,1],"max_capture_size":128}, use_cached_outputs=False,  (llm_engine.py:234)[0m
+[2025-04-23 00:02:45,642] [[32m    INFO[0m]: Using Flash Attention backend. (cuda.py:230)[0m
+[2025-04-23 00:02:46,961] [[32m    INFO[0m]: Starting to load model ~/Models/deepseek-ai/DeepSeek-R1-Distill-Llama-8B... (model_runner.py:1110)[0m
+
+Loading safetensors checkpoint shards:   0% Completed | 0/2 [00:00<?, ?it/s]
+
+Loading safetensors checkpoint shards:  50% Completed | 1/2 [00:02<00:02,  2.40s/it]
+
+Loading safetensors checkpoint shards: 100% Completed | 2/2 [00:05<00:00,  2.72s/it]
+
+Loading safetensors checkpoint shards: 100% Completed | 2/2 [00:05<00:00,  2.67s/it]
+
+[2025-04-23 00:02:52,745] [[32m    INFO[0m]: Loading model weights took 14.9888 GB (model_runner.py:1115)[0m
+[2025-04-23 00:02:53,082] [[33m WARNING[0m]: ~/Projects/nips25_slot/open-r2/openr1/lib/python3.11/site-packages/vllm/worker/model_runner.py:1832: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  lm_head_weight = torch.load(lm_local, map_location=hidden_states_cur.device).to(dtype=torch.bfloat16)
+ (warnings.py:110)[0m
+[2025-04-23 00:02:55,585] [[32m    INFO[0m]: Memory profiling takes 2.68 seconds
+the current vLLM instance can use total_gpu_memory (79.22GiB) x gpu_memory_utilization (0.90) = 71.29GiB
+model weights take 14.99GiB; non_torch_memory takes 0.16GiB; PyTorch activation peak memory takes 40.90GiB; the rest of the memory reserved for KV Cache is 15.25GiB. (worker.py:267)[0m
+[2025-04-23 00:02:55,746] [[32m    INFO[0m]: # CUDA blocks: 7806, # CPU blocks: 2048 (executor_base.py:110)[0m
+[2025-04-23 00:02:55,746] [[32m    INFO[0m]: Maximum concurrency for 32768 tokens per request: 3.81x (executor_base.py:115)[0m
+[2025-04-23 00:02:57,544] [[32m    INFO[0m]: Capturing cudagraphs for decoding. This may lead to unexpected consequences if the model is not static. To run the model in eager mode, set 'enforce_eager=True' or use '--enforce-eager' in the CLI. If out-of-memory error occurs during cudagraph capture, consider decreasing `gpu_memory_utilization` or switching to eager mode. You can also reduce the `max_num_seqs` as needed to decrease memory usage. (model_runner.py:1434)[0m
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=3, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([32768, 4096]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25_slot/open-r2/lm_head/DeepSeek-R1-Distill-Llama-8B_lm_head.pt
+cuda:0 torch.Size([128256, 4096])
+DEBUG - hidden_states_orig: torch.Size([32768, 4096]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25_slot/open-r2/lm_head/DeepSeek-R1-Distill-Llama-8B_lm_head.pt
+cuda:0 torch.Size([128256, 4096])
+DEBUG - hidden_states_orig: torch.Size([32768, 4096]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25_slot/open-r2/lm_head/DeepSeek-R1-Distill-Llama-8B_lm_head.pt
+cuda:0 torch.Size([128256, 4096])
+
+Capturing CUDA graph shapes:   0%|          | 0/19 [00:00<?, ?it/s]
+Capturing CUDA graph shapes:   5%|▌         | 1/19 [00:00<00:08,  2.25it/s]
+Capturing CUDA graph shapes:  11%|█         | 2/19 [00:01<00:09,  1.82it/s]
+Capturing CUDA graph shapes:  16%|█▌        | 3/19 [00:01<00:07,  2.16it/s]
+Capturing CUDA graph shapes:  21%|██        | 4/19 [00:01<00:06,  2.39it/s]
+Capturing CUDA graph shapes:  26%|██▋       | 5/19 [00:02<00:05,  2.60it/s]
+Capturing CUDA graph shapes:  32%|███▏      | 6/19 [00:02<00:04,  2.76it/s]
+Capturing CUDA graph shapes:  37%|███▋      | 7/19 [00:03<00:05,  2.27it/s]
+Capturing CUDA graph shapes:  42%|████▏     | 8/19 [00:03<00:04,  2.39it/s]
+Capturing CUDA graph shapes:  47%|████▋     | 9/19 [00:03<00:03,  2.55it/s]
+Capturing CUDA graph shapes:  53%|█████▎    | 10/19 [00:04<00:03,  2.48it/s]
+Capturing CUDA graph shapes:  58%|█████▊    | 11/19 [00:04<00:03,  2.46it/s]
+Capturing CUDA graph shapes:  63%|██████▎   | 12/19 [00:05<00:03,  2.04it/s]
+Capturing CUDA graph shapes:  68%|██████▊   | 13/19 [00:05<00:02,  2.02it/s]
+Capturing CUDA graph shapes:  74%|███████▎  | 14/19 [00:06<00:02,  1.88it/s]
+Capturing CUDA graph shapes:  79%|███████▉  | 15/19 [00:06<00:02,  1.87it/s]
+Capturing CUDA graph shapes:  84%|████████▍ | 16/19 [00:07<00:01,  2.12it/s]
+Capturing CUDA graph shapes:  89%|████████▉ | 17/19 [00:07<00:00,  2.33it/s]
+Capturing CUDA graph shapes:  95%|█████████▍| 18/19 [00:07<00:00,  2.50it/s]
+Capturing CUDA graph shapes: 100%|██████████| 19/19 [00:08<00:00,  2.64it/s]
+Capturing CUDA graph shapes: 100%|██████████| 19/19 [00:08<00:00,  2.31it/s]
+[2025-04-23 00:03:05,782] [[32m    INFO[0m]: Graph capturing finished in 8 secs, took 0.22 GiB (model_runner.py:1562)[0m
+[2025-04-23 00:03:05,783] [[32m    INFO[0m]: init engine (profile, create kv cache, warmup model) took 13.04 seconds (llm_engine.py:431)[0m
+[2025-04-23 00:03:05,814] [[32m    INFO[0m]: --- INIT SEEDS --- (pipeline.py:263)[0m
+[2025-04-23 00:03:05,814] [[32m    INFO[0m]: --- LOADING TASKS --- (pipeline.py:216)[0m
+[2025-04-23 00:03:05,814] [[32m    INFO[0m]: Found 1 custom tasks in ~/Projects/nips25_slot/open-r2/openr1/lib/python3.11/site-packages/lighteval/tasks/extended/ifeval/main.py (registry.py:142)[0m
+[2025-04-23 00:03:05,814] [[32m    INFO[0m]: Found 6 custom tasks in ~/Projects/nips25_slot/open-r2/openr1/lib/python3.11/site-packages/lighteval/tasks/extended/tiny_benchmarks/main.py (registry.py:142)[0m
+[2025-04-23 00:03:05,814] [[32m    INFO[0m]: Found 1 custom tasks in ~/Projects/nips25_slot/open-r2/openr1/lib/python3.11/site-packages/lighteval/tasks/extended/mt_bench/main.py (registry.py:142)[0m
+[2025-04-23 00:03:05,814] [[32m    INFO[0m]: Found 4 custom tasks in ~/Projects/nips25_slot/open-r2/openr1/lib/python3.11/site-packages/lighteval/tasks/extended/mix_eval/main.py (registry.py:142)[0m
+[2025-04-23 00:03:05,814] [[32m    INFO[0m]: Found 5 custom tasks in ~/Projects/nips25_slot/open-r2/openr1/lib/python3.11/site-packages/lighteval/tasks/extended/olympiade_bench/main.py (registry.py:142)[0m
+[2025-04-23 00:03:05,814] [[32m    INFO[0m]: Found 1 custom tasks in ~/Projects/nips25_slot/open-r2/openr1/lib/python3.11/site-packages/lighteval/tasks/extended/hle/main.py (registry.py:142)[0m
+[2025-04-23 00:03:05,814] [[32m    INFO[0m]: Found 21 custom tasks in ~/Projects/nips25_slot/open-r2/openr1/lib/python3.11/site-packages/lighteval/tasks/extended/lcb/main.py (registry.py:142)[0m
+[2025-04-23 00:03:05,816] [[32m    INFO[0m]: HuggingFaceH4/aime_2024 default (lighteval_task.py:187)[0m
+[2025-04-23 00:03:05,816] [[33m WARNING[0m]: Careful, the task lighteval|aime24 is using evaluation data to build the few shot examples. (lighteval_task.py:260)[0m
+Using the latest cached version of the dataset since HuggingFaceH4/aime_2024 couldn't be found on the Hugging Face Hub
+[2025-04-23 00:03:30,361] [[33m WARNING[0m]: Using the latest cached version of the dataset since HuggingFaceH4/aime_2024 couldn't be found on the Hugging Face Hub (load.py:1631)[0m
+Found the latest cached dataset configuration 'default' at ~/.cache/huggingface/datasets/HuggingFaceH4___aime_2024/default/0.0.0/2fe88a2f1091d5048c0f36abc874fb997b3dd99a (last modified on Tue Apr  8 15:12:43 2025).
+[2025-04-23 00:03:30,363] [[33m WARNING[0m]: Found the latest cached dataset configuration 'default' at ~/.cache/huggingface/datasets/HuggingFaceH4___aime_2024/default/0.0.0/2fe88a2f1091d5048c0f36abc874fb997b3dd99a (last modified on Tue Apr  8 15:12:43 2025). (cache.py:95)[0m
+[2025-04-23 00:03:30,387] [[32m    INFO[0m]: --- RUNNING MODEL --- (pipeline.py:468)[0m
+[2025-04-23 00:03:30,388] [[32m    INFO[0m]: Running RequestType.GREEDY_UNTIL requests (pipeline.py:472)[0m
+[2025-04-23 00:03:30,394] [[33m WARNING[0m]: You cannot select the number of dataset splits for a generative evaluation at the moment. Automatically inferring. (data.py:260)[0m
+HuggingFaceH4/aime_2024
+default
+False
+None
+
+Splits:   0%|          | 0/1 [00:00<?, ?it/s][2025-04-23 00:03:30,399] [[33m WARNING[0m]: context_size + max_new_tokens=33219 which is greater than self.max_length=32768. Truncating context to 0 tokens. (vllm_model.py:270)[0m
+
+
+Processed prompts:   0%|          | 0/30 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s][A
+
+Processed prompts:   3%|▎         | 1/30 [00:44<21:24, 44.28s/it, est. speed input: 4.52 toks/s, output: 81.26 toks/s][A
+
+Processed prompts:   7%|▋         | 2/30 [00:46<09:10, 19.66s/it, est. speed input: 8.76 toks/s, output: 157.74 toks/s][A
+
+Processed prompts:  10%|█         | 3/30 [00:48<05:12, 11.57s/it, est. speed input: 10.83 toks/s, output: 231.76 toks/s][A
+
+Processed prompts:  13%|█▎        | 4/30 [00:49<03:14,  7.49s/it, est. speed input: 14.03 toks/s, output: 306.08 toks/s][A
+
+Processed prompts:  17%|█▋        | 5/30 [00:57<03:05,  7.41s/it, est. speed input: 16.10 toks/s, output: 345.93 toks/s][A[2025-04-23 00:04:32,039] [[33m WARNING[0m]: Sequence group 28 is preempted by PreemptionMode.RECOMPUTE mode because there is not enough KV cache space. This can affect the end-to-end performance. Increase gpu_memory_utilization or tensor_parallel_size to provide more KV cache memory. total_num_cumulative_preemption=1 (scheduler.py:1560)[0m
+
+
+Processed prompts:  20%|██        | 6/30 [01:04<02:54,  7.26s/it, est. speed input: 16.37 toks/s, output: 385.89 toks/s][A
+
+Processed prompts:  23%|██▎       | 7/30 [01:05<01:58,  5.17s/it, est. speed input: 18.25 toks/s, output: 458.19 toks/s][A
+
+Processed prompts:  27%|██▋       | 8/30 [01:10<01:55,  5.25s/it, est. speed input: 19.33 toks/s, output: 498.53 toks/s][A
+
+Processed prompts:  30%|███       | 9/30 [01:11<01:25,  4.07s/it, est. speed input: 22.06 toks/s, output: 562.67 toks/s][A
+
+Processed prompts:  33%|███▎      | 10/30 [01:19<01:42,  5.15s/it, est. speed input: 21.75 toks/s, output: 582.42 toks/s][A
+
+Processed prompts:  37%|███▋      | 11/30 [01:31<02:15,  7.12s/it, est. speed input: 20.44 toks/s, output: 579.38 toks/s][A
+
+Processed prompts:  40%|████      | 12/30 [01:48<03:02, 10.12s/it, est. speed input: 18.70 toks/s, output: 557.56 toks/s][A
+
+Processed prompts:  43%|████▎     | 13/30 [02:33<05:53, 20.78s/it, est. speed input: 14.72 toks/s, output: 461.84 toks/s][A
+
+Processed prompts:  47%|████▋     | 14/30 [03:07<06:35, 24.69s/it, est. speed input: 12.91 toks/s, output: 447.14 toks/s][A
+
+Processed prompts:  50%|█████     | 15/30 [03:12<04:44, 18.94s/it, est. speed input: 13.42 toks/s, output: 502.07 toks/s][A
+
+Processed prompts:  53%|█████▎    | 16/30 [03:15<03:19, 14.22s/it, est. speed input: 14.05 toks/s, output: 561.30 toks/s][A
+
+Processed prompts:  57%|█████▋    | 17/30 [03:29<03:02, 14.01s/it, est. speed input: 14.13 toks/s, output: 592.05 toks/s][A
+
+Processed prompts:  60%|██████    | 18/30 [03:40<02:37, 13.13s/it, est. speed input: 14.22 toks/s, output: 628.84 toks/s][A
+
+Processed prompts:  63%|██████▎   | 19/30 [04:08<03:12, 17.52s/it, est. speed input: 13.24 toks/s, output: 615.00 toks/s][A
+
+Processed prompts:  67%|██████▋   | 20/30 [05:01<04:42, 28.24s/it, est. speed input: 11.63 toks/s, output: 570.79 toks/s][A
+
+Processed prompts:  70%|███████   | 21/30 [05:17<03:40, 24.55s/it, est. speed input: 11.50 toks/s, output: 576.96 toks/s][A
+
+Processed prompts:  73%|███████▎  | 22/30 [06:17<04:41, 35.19s/it, est. speed input: 10.08 toks/s, output: 537.06 toks/s][A
+
+Processed prompts:  77%|███████▋  | 23/30 [06:20<02:58, 25.57s/it, est. speed input: 11.18 toks/s, output: 594.26 toks/s][A
+
+Processed prompts:  80%|████████  | 24/30 [06:30<02:05, 20.91s/it, est. speed input: 11.27 toks/s, output: 622.96 toks/s][A
+
+Processed prompts:  83%|████████▎ | 25/30 [06:36<01:21, 16.40s/it, est. speed input: 11.43 toks/s, output: 632.43 toks/s][A
+
+Processed prompts:  87%|████████▋ | 26/30 [06:37<00:46, 11.63s/it, est. speed input: 12.10 toks/s, output: 692.63 toks/s][A
+
+Processed prompts:  90%|█████████ | 27/30 [06:57<00:42, 14.32s/it, est. speed input: 11.94 toks/s, output: 719.04 toks/s][A
+
+Processed prompts:  93%|█████████▎| 28/30 [07:06<00:25, 12.82s/it, est. speed input: 11.97 toks/s, output: 722.91 toks/s][A
+
+Processed prompts:  97%|█████████▋| 29/30 [07:14<00:11, 11.18s/it, est. speed input: 12.13 toks/s, output: 770.57 toks/s][A
+
+Processed prompts: 100%|██████████| 30/30 [07:56<00:00, 20.47s/it, est. speed input: 11.34 toks/s, output: 735.62 toks/s][A
+Processed prompts: 100%|██████████| 30/30 [07:56<00:00, 15.88s/it, est. speed input: 11.34 toks/s, output: 735.62 toks/s]
+
+Splits: 100%|██████████| 1/1 [07:56<00:00, 476.53s/it]
+Splits: 100%|██████████| 1/1 [07:56<00:00, 476.53s/it]
+[2025-04-23 00:11:27,510] [[32m    INFO[0m]: --- COMPUTING METRICS --- (pipeline.py:504)[0m
+[2025-04-23 00:11:27,766] [[32m    INFO[0m]: --- DISPLAYING RESULTS --- (pipeline.py:546)[0m
+[2025-04-23 00:11:27,775] [[32m    INFO[0m]: --- SAVING AND PUSHING RESULTS --- (pipeline.py:536)[0m
+[2025-04-23 00:11:27,775] [[32m    INFO[0m]: Saving experiment tracker (evaluation_tracker.py:180)[0m
+[2025-04-23 00:11:27,964] [[32m    INFO[0m]: Saving results to ~/Projects/nips25_slot/open-r2/data/evals~/Models/deepseek-ai/DeepSeek-R1-Distill-Llama-8B/results/_Models_deepseek-ai_DeepSeek-R1-Distill-Llama-8B/results_2025-04-23T00-11-27.775701.json (evaluation_tracker.py:234)[0m
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=3, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([5402, 4096]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25_slot/open-r2/lm_head/DeepSeek-R1-Distill-Llama-8B_lm_head.pt
+cuda:0 torch.Size([128256, 4096])
+DEBUG - hidden_states_orig: torch.Size([5402, 4096]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25_slot/open-r2/lm_head/DeepSeek-R1-Distill-Llama-8B_lm_head.pt
+cuda:0 torch.Size([128256, 4096])
+DEBUG - hidden_states_orig: torch.Size([5402, 4096]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25_slot/open-r2/lm_head/DeepSeek-R1-Distill-Llama-8B_lm_head.pt
+cuda:0 torch.Size([128256, 4096])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=3, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([4934, 4096]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25_slot/open-r2/lm_head/DeepSeek-R1-Distill-Llama-8B_lm_head.pt
+cuda:0 torch.Size([128256, 4096])
+DEBUG - hidden_states_orig: torch.Size([4934, 4096]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25_slot/open-r2/lm_head/DeepSeek-R1-Distill-Llama-8B_lm_head.pt
+cuda:0 torch.Size([128256, 4096])
+DEBUG - hidden_states_orig: torch.Size([4934, 4096]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25_slot/open-r2/lm_head/DeepSeek-R1-Distill-Llama-8B_lm_head.pt
+cuda:0 torch.Size([128256, 4096])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=3, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([5150, 4096]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25_slot/open-r2/lm_head/DeepSeek-R1-Distill-Llama-8B_lm_head.pt
+cuda:0 torch.Size([128256, 4096])
+DEBUG - hidden_states_orig: torch.Size([5150, 4096]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25_slot/open-r2/lm_head/DeepSeek-R1-Distill-Llama-8B_lm_head.pt
+cuda:0 torch.Size([128256, 4096])
+DEBUG - hidden_states_orig: torch.Size([5150, 4096]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25_slot/open-r2/lm_head/DeepSeek-R1-Distill-Llama-8B_lm_head.pt
+cuda:0 torch.Size([128256, 4096])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=3, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([5602, 4096]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25_slot/open-r2/lm_head/DeepSeek-R1-Distill-Llama-8B_lm_head.pt
+cuda:0 torch.Size([128256, 4096])
+DEBUG - hidden_states_orig: torch.Size([5602, 4096]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25_slot/open-r2/lm_head/DeepSeek-R1-Distill-Llama-8B_lm_head.pt
+cuda:0 torch.Size([128256, 4096])
+DEBUG - hidden_states_orig: torch.Size([5602, 4096]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25_slot/open-r2/lm_head/DeepSeek-R1-Distill-Llama-8B_lm_head.pt
+cuda:0 torch.Size([128256, 4096])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=3, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([6508, 4096]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25_slot/open-r2/lm_head/DeepSeek-R1-Distill-Llama-8B_lm_head.pt
+cuda:0 torch.Size([128256, 4096])
+DEBUG - hidden_states_orig: torch.Size([6508, 4096]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25_slot/open-r2/lm_head/DeepSeek-R1-Distill-Llama-8B_lm_head.pt
+cuda:0 torch.Size([128256, 4096])
+DEBUG - hidden_states_orig: torch.Size([6508, 4096]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25_slot/open-r2/lm_head/DeepSeek-R1-Distill-Llama-8B_lm_head.pt
+cuda:0 torch.Size([128256, 4096])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=3, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([7279, 4096]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25_slot/open-r2/lm_head/DeepSeek-R1-Distill-Llama-8B_lm_head.pt
+cuda:0 torch.Size([128256, 4096])
+DEBUG - hidden_states_orig: torch.Size([7279, 4096]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25_slot/open-r2/lm_head/DeepSeek-R1-Distill-Llama-8B_lm_head.pt
+cuda:0 torch.Size([128256, 4096])
+DEBUG - hidden_states_orig: torch.Size([7279, 4096]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25_slot/open-r2/lm_head/DeepSeek-R1-Distill-Llama-8B_lm_head.pt
+cuda:0 torch.Size([128256, 4096])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=3, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([10340, 4096]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25_slot/open-r2/lm_head/DeepSeek-R1-Distill-Llama-8B_lm_head.pt
+cuda:0 torch.Size([128256, 4096])
+DEBUG - hidden_states_orig: torch.Size([10340, 4096]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25_slot/open-r2/lm_head/DeepSeek-R1-Distill-Llama-8B_lm_head.pt
+cuda:0 torch.Size([128256, 4096])
+DEBUG - hidden_states_orig: torch.Size([10340, 4096]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25_slot/open-r2/lm_head/DeepSeek-R1-Distill-Llama-8B_lm_head.pt
+cuda:0 torch.Size([128256, 4096])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=3, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([12423, 4096]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25_slot/open-r2/lm_head/DeepSeek-R1-Distill-Llama-8B_lm_head.pt
+cuda:0 torch.Size([128256, 4096])
+DEBUG - hidden_states_orig: torch.Size([12423, 4096]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25_slot/open-r2/lm_head/DeepSeek-R1-Distill-Llama-8B_lm_head.pt
+cuda:0 torch.Size([128256, 4096])
+DEBUG - hidden_states_orig: torch.Size([12423, 4096]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25_slot/open-r2/lm_head/DeepSeek-R1-Distill-Llama-8B_lm_head.pt
+cuda:0 torch.Size([128256, 4096])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=3, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([10934, 4096]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25_slot/open-r2/lm_head/DeepSeek-R1-Distill-Llama-8B_lm_head.pt
+cuda:0 torch.Size([128256, 4096])
+DEBUG - hidden_states_orig: torch.Size([10934, 4096]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25_slot/open-r2/lm_head/DeepSeek-R1-Distill-Llama-8B_lm_head.pt
+cuda:0 torch.Size([128256, 4096])
+DEBUG - hidden_states_orig: torch.Size([10934, 4096]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25_slot/open-r2/lm_head/DeepSeek-R1-Distill-Llama-8B_lm_head.pt
+cuda:0 torch.Size([128256, 4096])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=3, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([18404, 4096]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25_slot/open-r2/lm_head/DeepSeek-R1-Distill-Llama-8B_lm_head.pt
+cuda:0 torch.Size([128256, 4096])
+DEBUG - hidden_states_orig: torch.Size([18404, 4096]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25_slot/open-r2/lm_head/DeepSeek-R1-Distill-Llama-8B_lm_head.pt
+cuda:0 torch.Size([128256, 4096])
+DEBUG - hidden_states_orig: torch.Size([18404, 4096]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25_slot/open-r2/lm_head/DeepSeek-R1-Distill-Llama-8B_lm_head.pt
+cuda:0 torch.Size([128256, 4096])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=3, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([9017, 4096]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25_slot/open-r2/lm_head/DeepSeek-R1-Distill-Llama-8B_lm_head.pt
+cuda:0 torch.Size([128256, 4096])
+DEBUG - hidden_states_orig: torch.Size([9017, 4096]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25_slot/open-r2/lm_head/DeepSeek-R1-Distill-Llama-8B_lm_head.pt
+cuda:0 torch.Size([128256, 4096])
+DEBUG - hidden_states_orig: torch.Size([9017, 4096]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25_slot/open-r2/lm_head/DeepSeek-R1-Distill-Llama-8B_lm_head.pt
+cuda:0 torch.Size([128256, 4096])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=3, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([15676, 4096]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25_slot/open-r2/lm_head/DeepSeek-R1-Distill-Llama-8B_lm_head.pt
+cuda:0 torch.Size([128256, 4096])
+DEBUG - hidden_states_orig: torch.Size([15676, 4096]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25_slot/open-r2/lm_head/DeepSeek-R1-Distill-Llama-8B_lm_head.pt
+cuda:0 torch.Size([128256, 4096])
+DEBUG - hidden_states_orig: torch.Size([15676, 4096]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25_slot/open-r2/lm_head/DeepSeek-R1-Distill-Llama-8B_lm_head.pt
+cuda:0 torch.Size([128256, 4096])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=3, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([16900, 4096]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25_slot/open-r2/lm_head/DeepSeek-R1-Distill-Llama-8B_lm_head.pt
+cuda:0 torch.Size([128256, 4096])
+DEBUG - hidden_states_orig: torch.Size([16900, 4096]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25_slot/open-r2/lm_head/DeepSeek-R1-Distill-Llama-8B_lm_head.pt
+cuda:0 torch.Size([128256, 4096])
+DEBUG - hidden_states_orig: torch.Size([16900, 4096]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25_slot/open-r2/lm_head/DeepSeek-R1-Distill-Llama-8B_lm_head.pt
+cuda:0 torch.Size([128256, 4096])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=3, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([24407, 4096]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25_slot/open-r2/lm_head/DeepSeek-R1-Distill-Llama-8B_lm_head.pt
+cuda:0 torch.Size([128256, 4096])
+DEBUG - hidden_states_orig: torch.Size([24407, 4096]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25_slot/open-r2/lm_head/DeepSeek-R1-Distill-Llama-8B_lm_head.pt
+cuda:0 torch.Size([128256, 4096])
+DEBUG - hidden_states_orig: torch.Size([24407, 4096]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25_slot/open-r2/lm_head/DeepSeek-R1-Distill-Llama-8B_lm_head.pt
+cuda:0 torch.Size([128256, 4096])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=3, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([7772, 4096]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25_slot/open-r2/lm_head/DeepSeek-R1-Distill-Llama-8B_lm_head.pt
+cuda:0 torch.Size([128256, 4096])
+DEBUG - hidden_states_orig: torch.Size([7772, 4096]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25_slot/open-r2/lm_head/DeepSeek-R1-Distill-Llama-8B_lm_head.pt
+cuda:0 torch.Size([128256, 4096])
+DEBUG - hidden_states_orig: torch.Size([7772, 4096]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25_slot/open-r2/lm_head/DeepSeek-R1-Distill-Llama-8B_lm_head.pt
+cuda:0 torch.Size([128256, 4096])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=3, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([25256, 4096]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25_slot/open-r2/lm_head/DeepSeek-R1-Distill-Llama-8B_lm_head.pt
+cuda:0 torch.Size([128256, 4096])
+DEBUG - hidden_states_orig: torch.Size([25256, 4096]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25_slot/open-r2/lm_head/DeepSeek-R1-Distill-Llama-8B_lm_head.pt
+cuda:0 torch.Size([128256, 4096])
+DEBUG - hidden_states_orig: torch.Size([25256, 4096]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25_slot/open-r2/lm_head/DeepSeek-R1-Distill-Llama-8B_lm_head.pt
+cuda:0 torch.Size([128256, 4096])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=3, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([12631, 4096]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25_slot/open-r2/lm_head/DeepSeek-R1-Distill-Llama-8B_lm_head.pt
+cuda:0 torch.Size([128256, 4096])
+DEBUG - hidden_states_orig: torch.Size([12631, 4096]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25_slot/open-r2/lm_head/DeepSeek-R1-Distill-Llama-8B_lm_head.pt
+cuda:0 torch.Size([128256, 4096])
+DEBUG - hidden_states_orig: torch.Size([12631, 4096]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25_slot/open-r2/lm_head/DeepSeek-R1-Distill-Llama-8B_lm_head.pt
+cuda:0 torch.Size([128256, 4096])
+|       Task       |Version|     Metric     |Value|   |Stderr|
+|------------------|------:|----------------|----:|---|-----:|
+|all               |       |extractive_match|  0.5|±  |0.0928|
+|lighteval:aime24:0|      1|extractive_match|  0.5|±  |0.0928|
+

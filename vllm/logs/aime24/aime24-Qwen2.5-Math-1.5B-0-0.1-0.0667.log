@@ -1,0 +1,138 @@
+[2025-04-23 15:13:53,375] [[32m    INFO[0m]: PyTorch version 2.5.1 available. (config.py:58)[0m
+INFO 04-23 15:13:58 __init__.py:190] Automatically detected platform cuda.
+[2025-04-23 15:13:58,833] [[32m    INFO[0m]: --- LOADING MODEL --- (pipeline.py:189)[0m
+[2025-04-23 15:14:07,106] [[32m    INFO[0m]: This model supports multiple tasks: {'embed', 'generate', 'classify', 'score', 'reward'}. Defaulting to 'generate'. (config.py:542)[0m
+[2025-04-23 15:14:07,107] [[32m    INFO[0m]: Initializing a V0 LLM engine (v0.7.2) with config: model='~/Models/Qwen/Qwen2.5-Math-1.5B', speculative_config=None, tokenizer='~/Models/Qwen/Qwen2.5-Math-1.5B', skip_tokenizer_init=False, tokenizer_mode=auto, revision=main, override_neuron_config=None, tokenizer_revision=main, trust_remote_code=False, dtype=torch.bfloat16, max_seq_len=4096, download_dir=None, load_format=LoadFormat.AUTO, tensor_parallel_size=1, pipeline_parallel_size=1, disable_custom_all_reduce=False, quantization=None, enforce_eager=False, kv_cache_dtype=auto,  device_config=cuda, decoding_config=DecodingConfig(guided_decoding_backend='xgrammar'), observability_config=ObservabilityConfig(otlp_traces_endpoint=None, collect_model_forward_time=False, collect_model_execute_time=False), seed=1234, served_model_name=~/Models/Qwen/Qwen2.5-Math-1.5B, num_scheduler_steps=1, multi_step_stream_outputs=True, enable_prefix_caching=False, chunked_prefill_enabled=False, use_async_output_proc=True, disable_mm_preprocessor_cache=False, mm_processor_kwargs=None, pooler_config=None, compilation_config={"splitting_ops":[],"compile_sizes":[],"cudagraph_capture_sizes":[128,120,112,104,96,88,80,72,64,56,48,40,32,24,16,8,4,2,1],"max_capture_size":128}, use_cached_outputs=False,  (llm_engine.py:234)[0m
+[2025-04-23 15:14:08,060] [[32m    INFO[0m]: Using Flash Attention backend. (cuda.py:230)[0m
+[2025-04-23 15:14:08,634] [[32m    INFO[0m]: Starting to load model ~/Models/Qwen/Qwen2.5-Math-1.5B... (model_runner.py:1110)[0m
+
+Loading safetensors checkpoint shards:   0% Completed | 0/1 [00:00<?, ?it/s]
+
+Loading safetensors checkpoint shards: 100% Completed | 1/1 [00:01<00:00,  1.10s/it]
+
+Loading safetensors checkpoint shards: 100% Completed | 1/1 [00:01<00:00,  1.10s/it]
+
+[2025-04-23 15:14:10,152] [[32m    INFO[0m]: Loading model weights took 2.8797 GB (model_runner.py:1115)[0m
+[2025-04-23 15:14:10,793] [[32m    INFO[0m]: Memory profiling takes 0.45 seconds
+the current vLLM instance can use total_gpu_memory (79.22GiB) x gpu_memory_utilization (0.90) = 71.29GiB
+model weights take 2.88GiB; non_torch_memory takes 0.16GiB; PyTorch activation peak memory takes 0.74GiB; the rest of the memory reserved for KV Cache is 67.51GiB. (worker.py:267)[0m
+[2025-04-23 15:14:10,994] [[32m    INFO[0m]: # CUDA blocks: 158023, # CPU blocks: 9362 (executor_base.py:110)[0m
+[2025-04-23 15:14:10,994] [[32m    INFO[0m]: Maximum concurrency for 4096 tokens per request: 617.28x (executor_base.py:115)[0m
+[2025-04-23 15:14:14,157] [[32m    INFO[0m]: Capturing cudagraphs for decoding. This may lead to unexpected consequences if the model is not static. To run the model in eager mode, set 'enforce_eager=True' or use '--enforce-eager' in the CLI. If out-of-memory error occurs during cudagraph capture, consider decreasing `gpu_memory_utilization` or switching to eager mode. You can also reduce the `max_num_seqs` as needed to decrease memory usage. (model_runner.py:1434)[0m
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.001
+
+Capturing CUDA graph shapes:   0%|          | 0/19 [00:00<?, ?it/s]
+Capturing CUDA graph shapes:   5%|▌         | 1/19 [00:00<00:06,  2.61it/s]
+Capturing CUDA graph shapes:  11%|█         | 2/19 [00:00<00:05,  2.89it/s]
+Capturing CUDA graph shapes:  16%|█▌        | 3/19 [00:01<00:08,  1.86it/s]
+Capturing CUDA graph shapes:  21%|██        | 4/19 [00:01<00:06,  2.16it/s]
+Capturing CUDA graph shapes:  26%|██▋       | 5/19 [00:02<00:05,  2.42it/s]
+Capturing CUDA graph shapes:  32%|███▏      | 6/19 [00:02<00:04,  2.63it/s]
+Capturing CUDA graph shapes:  37%|███▋      | 7/19 [00:03<00:05,  2.28it/s]
+Capturing CUDA graph shapes:  42%|████▏     | 8/19 [00:03<00:05,  2.14it/s]
+Capturing CUDA graph shapes:  47%|████▋     | 9/19 [00:03<00:04,  2.34it/s]
+Capturing CUDA graph shapes:  53%|█████▎    | 10/19 [00:04<00:03,  2.52it/s]
+Capturing CUDA graph shapes:  58%|█████▊    | 11/19 [00:04<00:03,  2.66it/s]
+Capturing CUDA graph shapes:  63%|██████▎   | 12/19 [00:05<00:03,  2.25it/s]
+Capturing CUDA graph shapes:  68%|██████▊   | 13/19 [00:05<00:02,  2.26it/s]
+Capturing CUDA graph shapes:  74%|███████▎  | 14/19 [00:06<00:02,  2.29it/s]
+Capturing CUDA graph shapes:  79%|███████▉  | 15/19 [00:06<00:01,  2.35it/s]
+Capturing CUDA graph shapes:  84%|████████▍ | 16/19 [00:07<00:01,  2.05it/s]
+Capturing CUDA graph shapes:  89%|████████▉ | 17/19 [00:07<00:00,  2.22it/s]
+Capturing CUDA graph shapes:  95%|█████████▍| 18/19 [00:07<00:00,  2.41it/s]
+Capturing CUDA graph shapes: 100%|██████████| 19/19 [00:08<00:00,  2.53it/s]
+Capturing CUDA graph shapes: 100%|██████████| 19/19 [00:08<00:00,  2.35it/s]
+[2025-04-23 15:14:22,248] [[32m    INFO[0m]: Graph capturing finished in 8 secs, took 0.21 GiB (model_runner.py:1562)[0m
+[2025-04-23 15:14:22,249] [[32m    INFO[0m]: init engine (profile, create kv cache, warmup model) took 12.10 seconds (llm_engine.py:431)[0m
+[2025-04-23 15:14:23,597] [[32m    INFO[0m]: --- INIT SEEDS --- (pipeline.py:263)[0m
+[2025-04-23 15:14:23,598] [[32m    INFO[0m]: --- LOADING TASKS --- (pipeline.py:216)[0m
+[2025-04-23 15:14:23,598] [[32m    INFO[0m]: Found 1 custom tasks in ~/Projects/nips25_slot/open-r2/openr1/lib/python3.11/site-packages/lighteval/tasks/extended/ifeval/main.py (registry.py:142)[0m
+[2025-04-23 15:14:23,598] [[32m    INFO[0m]: Found 6 custom tasks in ~/Projects/nips25_slot/open-r2/openr1/lib/python3.11/site-packages/lighteval/tasks/extended/tiny_benchmarks/main.py (registry.py:142)[0m
+[2025-04-23 15:14:23,598] [[32m    INFO[0m]: Found 1 custom tasks in ~/Projects/nips25_slot/open-r2/openr1/lib/python3.11/site-packages/lighteval/tasks/extended/mt_bench/main.py (registry.py:142)[0m
+[2025-04-23 15:14:23,598] [[32m    INFO[0m]: Found 4 custom tasks in ~/Projects/nips25_slot/open-r2/openr1/lib/python3.11/site-packages/lighteval/tasks/extended/mix_eval/main.py (registry.py:142)[0m
+[2025-04-23 15:14:23,598] [[32m    INFO[0m]: Found 5 custom tasks in ~/Projects/nips25_slot/open-r2/openr1/lib/python3.11/site-packages/lighteval/tasks/extended/olympiade_bench/main.py (registry.py:142)[0m
+[2025-04-23 15:14:23,598] [[32m    INFO[0m]: Found 1 custom tasks in ~/Projects/nips25_slot/open-r2/openr1/lib/python3.11/site-packages/lighteval/tasks/extended/hle/main.py (registry.py:142)[0m
+[2025-04-23 15:14:23,598] [[32m    INFO[0m]: Found 21 custom tasks in ~/Projects/nips25_slot/open-r2/openr1/lib/python3.11/site-packages/lighteval/tasks/extended/lcb/main.py (registry.py:142)[0m
+[2025-04-23 15:14:23,601] [[32m    INFO[0m]: HuggingFaceH4/aime_2024 default (lighteval_task.py:187)[0m
+[2025-04-23 15:14:23,601] [[33m WARNING[0m]: Careful, the task lighteval|aime24 is using evaluation data to build the few shot examples. (lighteval_task.py:260)[0m
+Using the latest cached version of the dataset since HuggingFaceH4/aime_2024 couldn't be found on the Hugging Face Hub
+[2025-04-23 15:14:32,123] [[33m WARNING[0m]: Using the latest cached version of the dataset since HuggingFaceH4/aime_2024 couldn't be found on the Hugging Face Hub (load.py:1631)[0m
+Found the latest cached dataset configuration 'default' at ~/.cache/huggingface/datasets/HuggingFaceH4___aime_2024/default/0.0.0/2fe88a2f1091d5048c0f36abc874fb997b3dd99a (last modified on Tue Apr  8 15:12:43 2025).
+[2025-04-23 15:14:32,125] [[33m WARNING[0m]: Found the latest cached dataset configuration 'default' at ~/.cache/huggingface/datasets/HuggingFaceH4___aime_2024/default/0.0.0/2fe88a2f1091d5048c0f36abc874fb997b3dd99a (last modified on Tue Apr  8 15:12:43 2025). (cache.py:95)[0m
+[2025-04-23 15:14:32,151] [[32m    INFO[0m]: --- RUNNING MODEL --- (pipeline.py:468)[0m
+[2025-04-23 15:14:32,151] [[32m    INFO[0m]: Running RequestType.GREEDY_UNTIL requests (pipeline.py:472)[0m
+[2025-04-23 15:14:32,158] [[33m WARNING[0m]: You cannot select the number of dataset splits for a generative evaluation at the moment. Automatically inferring. (data.py:260)[0m
+HuggingFaceH4/aime_2024
+default
+False
+None
+
+Splits:   0%|          | 0/1 [00:00<?, ?it/s][2025-04-23 15:14:32,165] [[33m WARNING[0m]: context_size + max_new_tokens=4588 which is greater than self.max_length=4096. Truncating context to 0 tokens. (vllm_model.py:270)[0m
+
+
+Processed prompts:   0%|          | 0/30 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s][A
+
+Processed prompts:   3%|▎         | 1/30 [00:00<00:20,  1.42it/s, est. speed input: 217.04 toks/s, output: 18.44 toks/s][A
+
+Processed prompts:   7%|▋         | 2/30 [00:02<00:39,  1.41s/it, est. speed input: 129.57 toks/s, output: 149.50 toks/s][A
+
+Processed prompts:  13%|█▎        | 4/30 [00:02<00:15,  1.72it/s, est. speed input: 293.43 toks/s, output: 427.91 toks/s][A
+
+Processed prompts:  17%|█▋        | 5/30 [00:03<00:13,  1.79it/s, est. speed input: 296.49 toks/s, output: 516.35 toks/s][A
+
+Processed prompts:  23%|██▎       | 7/30 [00:03<00:08,  2.70it/s, est. speed input: 391.96 toks/s, output: 770.60 toks/s][A
+
+Processed prompts:  27%|██▋       | 8/30 [00:03<00:07,  2.97it/s, est. speed input: 409.28 toks/s, output: 883.34 toks/s][A
+
+Processed prompts:  30%|███       | 9/30 [00:04<00:07,  2.97it/s, est. speed input: 418.16 toks/s, output: 975.78 toks/s][A
+
+Processed prompts:  33%|███▎      | 10/30 [00:05<00:09,  2.07it/s, est. speed input: 379.64 toks/s, output: 977.51 toks/s][A
+
+Processed prompts:  40%|████      | 12/30 [00:07<00:14,  1.25it/s, est. speed input: 309.00 toks/s, output: 957.84 toks/s][A
+
+Processed prompts:  43%|████▎     | 13/30 [00:09<00:17,  1.00s/it, est. speed input: 277.79 toks/s, output: 965.76 toks/s][A
+
+Processed prompts:  47%|████▋     | 14/30 [00:10<00:18,  1.16s/it, est. speed input: 257.62 toks/s, output: 1000.97 toks/s][A
+
+Processed prompts:  53%|█████▎    | 16/30 [00:10<00:09,  1.43it/s, est. speed input: 289.82 toks/s, output: 1352.07 toks/s][A
+
+Processed prompts:  57%|█████▋    | 17/30 [00:12<00:12,  1.02it/s, est. speed input: 259.75 toks/s, output: 1331.27 toks/s][A
+
+Processed prompts:  60%|██████    | 18/30 [00:13<00:11,  1.06it/s, est. speed input: 256.05 toks/s, output: 1434.05 toks/s][A
+
+Processed prompts:  63%|██████▎   | 19/30 [00:13<00:08,  1.35it/s, est. speed input: 265.94 toks/s, output: 1601.39 toks/s][A
+
+Processed prompts:  67%|██████▋   | 20/30 [00:14<00:06,  1.62it/s, est. speed input: 274.42 toks/s, output: 1751.70 toks/s][A
+
+Processed prompts:  70%|███████   | 21/30 [00:15<00:07,  1.16it/s, est. speed input: 259.62 toks/s, output: 1767.40 toks/s][A
+
+Processed prompts:  73%|███████▎  | 22/30 [00:19<00:14,  1.78s/it, est. speed input: 230.87 toks/s, output: 1584.68 toks/s][A
+
+Processed prompts:  77%|███████▋  | 23/30 [00:20<00:10,  1.52s/it, est. speed input: 235.44 toks/s, output: 1702.37 toks/s][A
+
+Processed prompts:  80%|████████  | 24/30 [00:20<00:06,  1.13s/it, est. speed input: 245.20 toks/s, output: 1871.38 toks/s][A
+
+Processed prompts:  83%|████████▎ | 25/30 [00:20<00:04,  1.18it/s, est. speed input: 253.31 toks/s, output: 2042.25 toks/s][A
+
+Processed prompts:  93%|█████████▎| 28/30 [00:21<00:00,  2.52it/s, est. speed input: 279.66 toks/s, output: 2588.38 toks/s][A
+
+Processed prompts: 100%|██████████| 30/30 [00:21<00:00,  3.53it/s, est. speed input: 292.41 toks/s, output: 2944.02 toks/s][A
+Processed prompts: 100%|██████████| 30/30 [00:21<00:00,  1.42it/s, est. speed input: 292.41 toks/s, output: 2944.02 toks/s]
+
+Splits: 100%|██████████| 1/1 [00:21<00:00, 21.17s/it]
+Splits: 100%|██████████| 1/1 [00:21<00:00, 21.17s/it]
+[2025-04-23 15:14:54,049] [[32m    INFO[0m]: --- COMPUTING METRICS --- (pipeline.py:504)[0m
+[2025-04-23 15:14:54,183] [[32m    INFO[0m]: --- DISPLAYING RESULTS --- (pipeline.py:546)[0m
+[2025-04-23 15:14:54,192] [[32m    INFO[0m]: --- SAVING AND PUSHING RESULTS --- (pipeline.py:536)[0m
+[2025-04-23 15:14:54,192] [[32m    INFO[0m]: Saving experiment tracker (evaluation_tracker.py:180)[0m
+[2025-04-23 15:14:54,246] [[32m    INFO[0m]: Saving results to ~/Projects/nips25_slot/open-r2/data/evals~/Models/Qwen/Qwen2.5-Math-1.5B/results/_Models_Qwen_Qwen2.5-Math-1.5B/results_2025-04-23T15-14-54.193031.json (evaluation_tracker.py:234)[0m
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.001
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.001
+|       Task       |Version|     Metric     |Value |   |Stderr|
+|------------------|------:|----------------|-----:|---|-----:|
+|all               |       |extractive_match|0.0667|±  |0.0463|
+|lighteval:aime24:0|      1|extractive_match|0.0667|±  |0.0463|
+

@@ -1,0 +1,456 @@
+[2025-04-22 19:27:49,259] [[32m    INFO[0m]: PyTorch version 2.5.1 available. (config.py:58)[0m
+INFO 04-22 19:27:53 __init__.py:190] Automatically detected platform cuda.
+[2025-04-22 19:27:54,608] [[32m    INFO[0m]: --- LOADING MODEL --- (pipeline.py:189)[0m
+[2025-04-22 19:28:02,335] [[32m    INFO[0m]: This model supports multiple tasks: {'reward', 'classify', 'generate', 'score', 'embed'}. Defaulting to 'generate'. (config.py:542)[0m
+[2025-04-22 19:28:02,336] [[32m    INFO[0m]: Initializing a V0 LLM engine (v0.7.2) with config: model='~/Models/Qwen/Qwen2.5-Math-7B', speculative_config=None, tokenizer='~/Models/Qwen/Qwen2.5-Math-7B', skip_tokenizer_init=False, tokenizer_mode=auto, revision=main, override_neuron_config=None, tokenizer_revision=main, trust_remote_code=False, dtype=torch.bfloat16, max_seq_len=4096, download_dir=None, load_format=LoadFormat.AUTO, tensor_parallel_size=1, pipeline_parallel_size=1, disable_custom_all_reduce=False, quantization=None, enforce_eager=False, kv_cache_dtype=auto,  device_config=cuda, decoding_config=DecodingConfig(guided_decoding_backend='xgrammar'), observability_config=ObservabilityConfig(otlp_traces_endpoint=None, collect_model_forward_time=False, collect_model_execute_time=False), seed=1234, served_model_name=~/Models/Qwen/Qwen2.5-Math-7B, num_scheduler_steps=1, multi_step_stream_outputs=True, enable_prefix_caching=False, chunked_prefill_enabled=False, use_async_output_proc=True, disable_mm_preprocessor_cache=False, mm_processor_kwargs=None, pooler_config=None, compilation_config={"splitting_ops":[],"compile_sizes":[],"cudagraph_capture_sizes":[128,120,112,104,96,88,80,72,64,56,48,40,32,24,16,8,4,2,1],"max_capture_size":128}, use_cached_outputs=False,  (llm_engine.py:234)[0m
+[2025-04-22 19:28:03,341] [[32m    INFO[0m]: Using Flash Attention backend. (cuda.py:230)[0m
+[2025-04-22 19:28:03,964] [[32m    INFO[0m]: Starting to load model ~/Models/Qwen/Qwen2.5-Math-7B... (model_runner.py:1110)[0m
+
+Loading safetensors checkpoint shards:   0% Completed | 0/4 [00:00<?, ?it/s]
+
+Loading safetensors checkpoint shards:  25% Completed | 1/4 [00:01<00:04,  1.52s/it]
+
+Loading safetensors checkpoint shards:  50% Completed | 2/4 [00:02<00:02,  1.46s/it]
+
+Loading safetensors checkpoint shards:  75% Completed | 3/4 [00:04<00:01,  1.54s/it]
+
+Loading safetensors checkpoint shards: 100% Completed | 4/4 [00:06<00:00,  1.58s/it]
+
+Loading safetensors checkpoint shards: 100% Completed | 4/4 [00:06<00:00,  1.56s/it]
+
+[2025-04-22 19:28:10,644] [[32m    INFO[0m]: Loading model weights took 14.2419 GB (model_runner.py:1115)[0m
+[2025-04-22 19:28:11,294] [[32m    INFO[0m]: Memory profiling takes 0.48 seconds
+the current vLLM instance can use total_gpu_memory (79.22GiB) x gpu_memory_utilization (0.90) = 71.29GiB
+model weights take 14.24GiB; non_torch_memory takes 0.16GiB; PyTorch activation peak memory takes 0.77GiB; the rest of the memory reserved for KV Cache is 56.12GiB. (worker.py:267)[0m
+[2025-04-22 19:28:11,444] [[32m    INFO[0m]: # CUDA blocks: 65677, # CPU blocks: 4681 (executor_base.py:110)[0m
+[2025-04-22 19:28:11,444] [[32m    INFO[0m]: Maximum concurrency for 4096 tokens per request: 256.55x (executor_base.py:115)[0m
+[2025-04-22 19:28:13,477] [[32m    INFO[0m]: Capturing cudagraphs for decoding. This may lead to unexpected consequences if the model is not static. To run the model in eager mode, set 'enforce_eager=True' or use '--enforce-eager' in the CLI. If out-of-memory error occurs during cudagraph capture, consider decreasing `gpu_memory_utilization` or switching to eager mode. You can also reduce the `max_num_seqs` as needed to decrease memory usage. (model_runner.py:1434)[0m
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.1
+
+Capturing CUDA graph shapes:   0%|          | 0/19 [00:00<?, ?it/s]
+Capturing CUDA graph shapes:   5%|▌         | 1/19 [00:00<00:06,  2.59it/s]
+Capturing CUDA graph shapes:  11%|█         | 2/19 [00:00<00:06,  2.55it/s]
+Capturing CUDA graph shapes:  16%|█▌        | 3/19 [00:01<00:06,  2.47it/s]
+Capturing CUDA graph shapes:  21%|██        | 4/19 [00:01<00:06,  2.42it/s]
+Capturing CUDA graph shapes:  26%|██▋       | 5/19 [00:02<00:05,  2.45it/s]
+Capturing CUDA graph shapes:  32%|███▏      | 6/19 [00:02<00:04,  2.65it/s]
+Capturing CUDA graph shapes:  37%|███▋      | 7/19 [00:02<00:04,  2.78it/s]
+Capturing CUDA graph shapes:  42%|████▏     | 8/19 [00:02<00:03,  2.87it/s]
+Capturing CUDA graph shapes:  47%|████▋     | 9/19 [00:03<00:03,  2.80it/s]
+Capturing CUDA graph shapes:  53%|█████▎    | 10/19 [00:03<00:03,  2.90it/s]
+Capturing CUDA graph shapes:  58%|█████▊    | 11/19 [00:04<00:02,  2.95it/s]
+Capturing CUDA graph shapes:  63%|██████▎   | 12/19 [00:04<00:02,  2.98it/s]
+Capturing CUDA graph shapes:  68%|██████▊   | 13/19 [00:04<00:02,  2.81it/s]
+Capturing CUDA graph shapes:  74%|███████▎  | 14/19 [00:05<00:01,  2.85it/s]
+Capturing CUDA graph shapes:  79%|███████▉  | 15/19 [00:05<00:01,  2.90it/s]
+Capturing CUDA graph shapes:  84%|████████▍ | 16/19 [00:05<00:01,  2.96it/s]
+Capturing CUDA graph shapes:  89%|████████▉ | 17/19 [00:06<00:00,  2.98it/s]
+Capturing CUDA graph shapes:  95%|█████████▍| 18/19 [00:06<00:00,  2.94it/s]
+Capturing CUDA graph shapes: 100%|██████████| 19/19 [00:06<00:00,  2.97it/s]
+Capturing CUDA graph shapes: 100%|██████████| 19/19 [00:06<00:00,  2.82it/s]
+[2025-04-22 19:28:20,228] [[32m    INFO[0m]: Graph capturing finished in 7 secs, took 0.22 GiB (model_runner.py:1562)[0m
+[2025-04-22 19:28:20,228] [[32m    INFO[0m]: init engine (profile, create kv cache, warmup model) took 9.58 seconds (llm_engine.py:431)[0m
+[2025-04-22 19:28:20,812] [[32m    INFO[0m]: --- INIT SEEDS --- (pipeline.py:263)[0m
+[2025-04-22 19:28:20,812] [[32m    INFO[0m]: --- LOADING TASKS --- (pipeline.py:216)[0m
+[2025-04-22 19:28:20,812] [[32m    INFO[0m]: Found 1 custom tasks in ~/Projects/nips25_slot/open-r2/openr1/lib/python3.11/site-packages/lighteval/tasks/extended/ifeval/main.py (registry.py:142)[0m
+[2025-04-22 19:28:20,812] [[32m    INFO[0m]: Found 6 custom tasks in ~/Projects/nips25_slot/open-r2/openr1/lib/python3.11/site-packages/lighteval/tasks/extended/tiny_benchmarks/main.py (registry.py:142)[0m
+[2025-04-22 19:28:20,812] [[32m    INFO[0m]: Found 1 custom tasks in ~/Projects/nips25_slot/open-r2/openr1/lib/python3.11/site-packages/lighteval/tasks/extended/mt_bench/main.py (registry.py:142)[0m
+[2025-04-22 19:28:20,812] [[32m    INFO[0m]: Found 4 custom tasks in ~/Projects/nips25_slot/open-r2/openr1/lib/python3.11/site-packages/lighteval/tasks/extended/mix_eval/main.py (registry.py:142)[0m
+[2025-04-22 19:28:20,812] [[32m    INFO[0m]: Found 5 custom tasks in ~/Projects/nips25_slot/open-r2/openr1/lib/python3.11/site-packages/lighteval/tasks/extended/olympiade_bench/main.py (registry.py:142)[0m
+[2025-04-22 19:28:20,812] [[32m    INFO[0m]: Found 1 custom tasks in ~/Projects/nips25_slot/open-r2/openr1/lib/python3.11/site-packages/lighteval/tasks/extended/hle/main.py (registry.py:142)[0m
+[2025-04-22 19:28:20,812] [[32m    INFO[0m]: Found 21 custom tasks in ~/Projects/nips25_slot/open-r2/openr1/lib/python3.11/site-packages/lighteval/tasks/extended/lcb/main.py (registry.py:142)[0m
+[2025-04-22 19:28:20,814] [[32m    INFO[0m]: Idavidrein/gpqa gpqa_diamond (lighteval_task.py:187)[0m
+[2025-04-22 19:28:20,814] [[33m WARNING[0m]: Careful, the task lighteval|gpqa:diamond is using evaluation data to build the few shot examples. (lighteval_task.py:260)[0m
+Using the latest cached version of the dataset since Idavidrein/gpqa couldn't be found on the Hugging Face Hub
+[2025-04-22 19:28:45,412] [[33m WARNING[0m]: Using the latest cached version of the dataset since Idavidrein/gpqa couldn't be found on the Hugging Face Hub (load.py:1631)[0m
+Found the latest cached dataset configuration 'gpqa_diamond' at ~/.cache/huggingface/datasets/Idavidrein___gpqa/gpqa_diamond/0.0.0/90b8e5be2b1d3d2dbfe016cdab47981150600c4a (last modified on Sat Apr 12 16:41:50 2025).
+[2025-04-22 19:28:45,415] [[33m WARNING[0m]: Found the latest cached dataset configuration 'gpqa_diamond' at ~/.cache/huggingface/datasets/Idavidrein___gpqa/gpqa_diamond/0.0.0/90b8e5be2b1d3d2dbfe016cdab47981150600c4a (last modified on Sat Apr 12 16:41:50 2025). (cache.py:95)[0m
+[2025-04-22 19:28:45,571] [[32m    INFO[0m]: --- RUNNING MODEL --- (pipeline.py:468)[0m
+[2025-04-22 19:28:45,571] [[32m    INFO[0m]: Running RequestType.GREEDY_UNTIL requests (pipeline.py:472)[0m
+[2025-04-22 19:28:45,626] [[33m WARNING[0m]: You cannot select the number of dataset splits for a generative evaluation at the moment. Automatically inferring. (data.py:260)[0m
+Idavidrein/gpqa
+gpqa_diamond
+True
+None
+
+Splits:   0%|          | 0/1 [00:00<?, ?it/s][2025-04-22 19:28:45,678] [[33m WARNING[0m]: context_size + max_new_tokens=6935 which is greater than self.max_length=4096. Truncating context to 0 tokens. (vllm_model.py:270)[0m
+
+
+Processed prompts:   0%|          | 0/198 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s][A
+
+Processed prompts:   1%|          | 1/198 [00:01<03:49,  1.16s/it, est. speed input: 238.88 toks/s, output: 3.44 toks/s][A
+
+Processed prompts:   2%|▏         | 4/198 [00:01<00:58,  3.32it/s, est. speed input: 690.80 toks/s, output: 22.55 toks/s][A
+
+Processed prompts:   3%|▎         | 5/198 [00:01<01:05,  2.93it/s, est. speed input: 689.95 toks/s, output: 41.91 toks/s][A
+
+Processed prompts:   3%|▎         | 6/198 [00:02<01:01,  3.10it/s, est. speed input: 780.68 toks/s, output: 65.48 toks/s][A
+
+Processed prompts:   4%|▎         | 7/198 [00:02<00:53,  3.57it/s, est. speed input: 820.53 toks/s, output: 91.55 toks/s][A
+
+Processed prompts:   6%|▌         | 11/198 [00:02<00:24,  7.76it/s, est. speed input: 1202.24 toks/s, output: 178.92 toks/s][A
+
+Processed prompts:   7%|▋         | 13/198 [00:03<00:35,  5.19it/s, est. speed input: 1194.60 toks/s, output: 212.51 toks/s][A
+
+Processed prompts:   8%|▊         | 16/198 [00:03<00:24,  7.40it/s, est. speed input: 1410.09 toks/s, output: 315.22 toks/s][A
+
+Processed prompts:   9%|▉         | 18/198 [00:03<00:22,  8.11it/s, est. speed input: 1549.55 toks/s, output: 375.28 toks/s][A
+
+Processed prompts:  11%|█         | 21/198 [00:03<00:18,  9.36it/s, est. speed input: 1670.88 toks/s, output: 465.30 toks/s][A
+
+Processed prompts:  12%|█▏        | 24/198 [00:03<00:15, 11.40it/s, est. speed input: 1804.17 toks/s, output: 562.76 toks/s][A
+
+Processed prompts:  13%|█▎        | 26/198 [00:04<00:25,  6.84it/s, est. speed input: 1721.82 toks/s, output: 565.43 toks/s][A
+
+Processed prompts:  14%|█▍        | 28/198 [00:04<00:23,  7.34it/s, est. speed input: 1745.18 toks/s, output: 625.11 toks/s][A
+
+Processed prompts:  15%|█▌        | 30/198 [00:05<00:24,  6.82it/s, est. speed input: 1720.63 toks/s, output: 668.54 toks/s][A
+
+Processed prompts:  17%|█▋        | 33/198 [00:05<00:17,  9.41it/s, est. speed input: 1857.94 toks/s, output: 786.82 toks/s][A
+
+Processed prompts:  18%|█▊        | 35/198 [00:05<00:15, 10.40it/s, est. speed input: 1922.37 toks/s, output: 856.29 toks/s][A
+
+Processed prompts:  20%|█▉        | 39/198 [00:05<00:12, 12.27it/s, est. speed input: 2025.15 toks/s, output: 984.47 toks/s][A
+
+Processed prompts:  21%|██        | 42/198 [00:05<00:10, 14.81it/s, est. speed input: 2128.03 toks/s, output: 1099.79 toks/s][A
+
+Processed prompts:  22%|██▏       | 44/198 [00:05<00:12, 12.39it/s, est. speed input: 2142.04 toks/s, output: 1143.51 toks/s][A
+
+Processed prompts:  24%|██▎       | 47/198 [00:06<00:12, 11.92it/s, est. speed input: 2150.44 toks/s, output: 1180.72 toks/s][A
+
+Processed prompts:  25%|██▍       | 49/198 [00:06<00:16,  9.29it/s, est. speed input: 2144.60 toks/s, output: 1208.22 toks/s][A
+
+Processed prompts:  26%|██▌       | 51/198 [00:06<00:14,  9.84it/s, est. speed input: 2192.06 toks/s, output: 1270.96 toks/s][A
+
+Processed prompts:  28%|██▊       | 55/198 [00:06<00:11, 12.44it/s, est. speed input: 2266.46 toks/s, output: 1374.27 toks/s][A
+
+Processed prompts:  29%|██▉       | 57/198 [00:07<00:10, 13.58it/s, est. speed input: 2325.95 toks/s, output: 1448.35 toks/s][A
+
+Processed prompts:  30%|██▉       | 59/198 [00:07<00:12, 11.50it/s, est. speed input: 2317.85 toks/s, output: 1466.72 toks/s][A
+
+Processed prompts:  31%|███       | 61/198 [00:07<00:10, 12.87it/s, est. speed input: 2428.21 toks/s, output: 1540.49 toks/s][A
+
+Processed prompts:  32%|███▏      | 64/198 [00:07<00:09, 13.95it/s, est. speed input: 2482.08 toks/s, output: 1643.38 toks/s][A
+
+Processed prompts:  33%|███▎      | 66/198 [00:07<00:09, 14.18it/s, est. speed input: 2493.77 toks/s, output: 1664.19 toks/s][A
+
+Processed prompts:  34%|███▍      | 68/198 [00:08<00:11, 11.31it/s, est. speed input: 2471.81 toks/s, output: 1701.64 toks/s][A
+
+Processed prompts:  35%|███▌      | 70/198 [00:08<00:11, 11.39it/s, est. speed input: 2465.78 toks/s, output: 1705.23 toks/s][A
+
+Processed prompts:  36%|███▋      | 72/198 [00:08<00:16,  7.72it/s, est. speed input: 2425.01 toks/s, output: 1703.90 toks/s][A
+
+Processed prompts:  38%|███▊      | 76/198 [00:08<00:10, 11.15it/s, est. speed input: 2505.19 toks/s, output: 1797.83 toks/s][A
+
+Processed prompts:  39%|███▉      | 78/198 [00:09<00:13,  9.20it/s, est. speed input: 2455.68 toks/s, output: 1783.11 toks/s][A
+
+Processed prompts:  40%|████      | 80/198 [00:09<00:12,  9.31it/s, est. speed input: 2478.70 toks/s, output: 1837.40 toks/s][A
+
+Processed prompts:  41%|████▏     | 82/198 [00:09<00:12,  9.42it/s, est. speed input: 2488.43 toks/s, output: 1860.58 toks/s][A
+
+Processed prompts:  43%|████▎     | 85/198 [00:09<00:09, 11.82it/s, est. speed input: 2548.08 toks/s, output: 1961.45 toks/s][A
+
+Processed prompts:  44%|████▍     | 87/198 [00:09<00:08, 13.02it/s, est. speed input: 2589.14 toks/s, output: 2010.13 toks/s][A
+
+Processed prompts:  45%|████▌     | 90/198 [00:09<00:06, 15.57it/s, est. speed input: 2603.53 toks/s, output: 2050.82 toks/s][A
+
+Processed prompts:  46%|████▋     | 92/198 [00:10<00:09, 11.53it/s, est. speed input: 2558.96 toks/s, output: 2030.25 toks/s][A
+
+Processed prompts:  47%|████▋     | 94/198 [00:10<00:09, 10.86it/s, est. speed input: 2568.39 toks/s, output: 2086.27 toks/s][A
+
+Processed prompts:  49%|████▉     | 98/198 [00:10<00:09, 10.76it/s, est. speed input: 2590.66 toks/s, output: 2163.57 toks/s][A
+
+Processed prompts:  51%|█████     | 100/198 [00:11<00:10,  9.74it/s, est. speed input: 2572.64 toks/s, output: 2209.46 toks/s][A
+
+Processed prompts:  52%|█████▏    | 103/198 [00:11<00:08, 11.57it/s, est. speed input: 2598.31 toks/s, output: 2298.33 toks/s][A
+
+Processed prompts:  54%|█████▎    | 106/198 [00:11<00:06, 14.06it/s, est. speed input: 2631.66 toks/s, output: 2387.04 toks/s][A
+
+Processed prompts:  55%|█████▍    | 108/198 [00:11<00:06, 12.90it/s, est. speed input: 2629.53 toks/s, output: 2425.61 toks/s][A
+
+Processed prompts:  56%|█████▌    | 110/198 [00:11<00:07, 12.17it/s, est. speed input: 2631.70 toks/s, output: 2487.00 toks/s][A
+
+Processed prompts:  57%|█████▋    | 112/198 [00:11<00:06, 12.29it/s, est. speed input: 2642.37 toks/s, output: 2555.58 toks/s][A
+
+Processed prompts:  58%|█████▊    | 114/198 [00:12<00:06, 13.73it/s, est. speed input: 2705.73 toks/s, output: 2624.14 toks/s][A
+
+Processed prompts:  59%|█████▊    | 116/198 [00:12<00:07, 10.78it/s, est. speed input: 2683.03 toks/s, output: 2643.63 toks/s][A
+
+Processed prompts:  60%|█████▉    | 118/198 [00:12<00:10,  7.92it/s, est. speed input: 2676.92 toks/s, output: 2660.61 toks/s][A
+
+Processed prompts:  61%|██████    | 120/198 [00:13<00:12,  6.02it/s, est. speed input: 2594.98 toks/s, output: 2608.75 toks/s][A
+
+Processed prompts:  62%|██████▏   | 122/198 [00:13<00:11,  6.51it/s, est. speed input: 2589.24 toks/s, output: 2655.60 toks/s][A
+
+Processed prompts:  63%|██████▎   | 124/198 [00:13<00:09,  7.66it/s, est. speed input: 2589.44 toks/s, output: 2709.25 toks/s][A
+
+Processed prompts:  63%|██████▎   | 125/198 [00:13<00:09,  7.60it/s, est. speed input: 2587.88 toks/s, output: 2736.39 toks/s][A
+
+Processed prompts:  64%|██████▍   | 127/198 [00:14<00:10,  6.82it/s, est. speed input: 2557.66 toks/s, output: 2770.08 toks/s][A
+
+Processed prompts:  65%|██████▍   | 128/198 [00:14<00:10,  6.80it/s, est. speed input: 2542.21 toks/s, output: 2772.60 toks/s][A
+
+Processed prompts:  66%|██████▌   | 130/198 [00:14<00:09,  7.51it/s, est. speed input: 2557.55 toks/s, output: 2840.11 toks/s][A
+
+Processed prompts:  66%|██████▌   | 131/198 [00:15<00:14,  4.78it/s, est. speed input: 2483.88 toks/s, output: 2785.66 toks/s][A
+
+Processed prompts:  68%|██████▊   | 134/198 [00:15<00:09,  6.44it/s, est. speed input: 2487.99 toks/s, output: 2877.91 toks/s][A
+
+Processed prompts:  68%|██████▊   | 135/198 [00:15<00:09,  6.34it/s, est. speed input: 2472.16 toks/s, output: 2884.25 toks/s][A
+
+Processed prompts:  69%|██████▊   | 136/198 [00:15<00:09,  6.59it/s, est. speed input: 2463.28 toks/s, output: 2900.52 toks/s][A
+
+Processed prompts:  71%|███████   | 140/198 [00:15<00:06,  9.15it/s, est. speed input: 2487.57 toks/s, output: 3026.06 toks/s][A
+
+Processed prompts:  72%|███████▏  | 142/198 [00:16<00:05,  9.51it/s, est. speed input: 2486.15 toks/s, output: 3089.75 toks/s][A
+
+Processed prompts:  73%|███████▎  | 145/198 [00:16<00:05, 10.35it/s, est. speed input: 2483.97 toks/s, output: 3177.49 toks/s][A
+
+Processed prompts:  74%|███████▍  | 147/198 [00:16<00:07,  6.59it/s, est. speed input: 2424.63 toks/s, output: 3177.83 toks/s][A
+
+Processed prompts:  75%|███████▍  | 148/198 [00:17<00:07,  6.46it/s, est. speed input: 2413.42 toks/s, output: 3203.35 toks/s][A
+
+Processed prompts:  75%|███████▌  | 149/198 [00:17<00:07,  6.52it/s, est. speed input: 2414.31 toks/s, output: 3234.74 toks/s][A
+
+Processed prompts:  76%|███████▌  | 150/198 [00:17<00:08,  5.67it/s, est. speed input: 2389.79 toks/s, output: 3237.70 toks/s][A
+
+Processed prompts:  76%|███████▋  | 151/198 [00:18<00:13,  3.58it/s, est. speed input: 2319.02 toks/s, output: 3179.16 toks/s][A
+
+Processed prompts:  77%|███████▋  | 153/198 [00:18<00:11,  3.97it/s, est. speed input: 2288.04 toks/s, output: 3209.24 toks/s][A
+
+Processed prompts:  78%|███████▊  | 155/198 [00:18<00:07,  5.54it/s, est. speed input: 2290.68 toks/s, output: 3274.70 toks/s][A
+
+Processed prompts:  80%|███████▉  | 158/198 [00:18<00:04,  8.17it/s, est. speed input: 2318.54 toks/s, output: 3410.60 toks/s][A
+
+Processed prompts:  81%|████████  | 160/198 [00:19<00:09,  4.10it/s, est. speed input: 2223.89 toks/s, output: 3345.72 toks/s][A
+
+Processed prompts:  81%|████████▏ | 161/198 [00:20<00:09,  3.97it/s, est. speed input: 2332.52 toks/s, output: 3360.02 toks/s][A
+
+Processed prompts:  82%|████████▏ | 162/198 [00:20<00:08,  4.35it/s, est. speed input: 2329.11 toks/s, output: 3398.95 toks/s][A
+
+Processed prompts:  83%|████████▎ | 164/198 [00:20<00:05,  5.68it/s, est. speed input: 2332.97 toks/s, output: 3496.89 toks/s][A
+
+Processed prompts:  83%|████████▎ | 165/198 [00:21<00:10,  3.00it/s, est. speed input: 2239.19 toks/s, output: 3396.51 toks/s][A
+
+Processed prompts:  84%|████████▍ | 166/198 [00:21<00:11,  2.76it/s, est. speed input: 2199.34 toks/s, output: 3374.63 toks/s][A
+
+Processed prompts:  84%|████████▍ | 167/198 [00:22<00:11,  2.71it/s, est. speed input: 2172.63 toks/s, output: 3380.92 toks/s][A
+
+Processed prompts:  85%|████████▍ | 168/198 [00:22<00:12,  2.39it/s, est. speed input: 2127.78 toks/s, output: 3355.06 toks/s][A
+
+Processed prompts:  86%|████████▌ | 170/198 [00:23<00:09,  2.82it/s, est. speed input: 2093.96 toks/s, output: 3388.44 toks/s][A
+
+Processed prompts:  86%|████████▋ | 171/198 [00:25<00:23,  1.16it/s, est. speed input: 1905.38 toks/s, output: 3127.33 toks/s][A
+
+Processed prompts:  87%|████████▋ | 172/198 [00:26<00:17,  1.49it/s, est. speed input: 1933.72 toks/s, output: 3184.66 toks/s][A
+
+Processed prompts:  87%|████████▋ | 173/198 [00:27<00:23,  1.07it/s, est. speed input: 1824.67 toks/s, output: 3063.03 toks/s][A
+
+Processed prompts:  88%|████████▊ | 174/198 [00:35<01:06,  2.76s/it, est. speed input: 1438.54 toks/s, output: 2479.35 toks/s][A
+
+Processed prompts:  88%|████████▊ | 175/198 [00:36<00:51,  2.26s/it, est. speed input: 1407.04 toks/s, output: 2490.80 toks/s][A
+
+Processed prompts:  89%|████████▉ | 176/198 [00:38<00:48,  2.20s/it, est. speed input: 1336.98 toks/s, output: 2430.53 toks/s][A
+
+Processed prompts:  89%|████████▉ | 177/198 [00:39<00:38,  1.86s/it, est. speed input: 1310.16 toks/s, output: 2446.38 toks/s][A
+
+Processed prompts:  90%|████████▉ | 178/198 [00:43<00:51,  2.59s/it, est. speed input: 1186.83 toks/s, output: 2284.26 toks/s][A
+
+Processed prompts:  90%|█████████ | 179/198 [00:44<00:37,  1.96s/it, est. speed input: 1180.17 toks/s, output: 2340.79 toks/s][A
+
+Processed prompts:  91%|█████████ | 180/198 [00:45<00:29,  1.63s/it, est. speed input: 1167.74 toks/s, output: 2379.11 toks/s][A
+
+Processed prompts:  91%|█████████▏| 181/198 [00:45<00:21,  1.25s/it, est. speed input: 1161.13 toks/s, output: 2433.74 toks/s][A
+
+Processed prompts:  92%|█████████▏| 182/198 [00:45<00:15,  1.02it/s, est. speed input: 1159.65 toks/s, output: 2496.40 toks/s][A
+
+Processed prompts:  92%|█████████▏| 183/198 [00:46<00:12,  1.20it/s, est. speed input: 1154.20 toks/s, output: 2552.57 toks/s][A
+
+Processed prompts:  94%|█████████▍| 186/198 [00:46<00:04,  2.42it/s, est. speed input: 1166.91 toks/s, output: 2784.13 toks/s][A
+
+Processed prompts:  95%|█████████▍| 188/198 [00:46<00:02,  3.46it/s, est. speed input: 1175.48 toks/s, output: 2941.52 toks/s][A
+
+Processed prompts:  95%|█████████▌| 189/198 [00:46<00:02,  3.81it/s, est. speed input: 1176.92 toks/s, output: 3014.04 toks/s][A
+
+Processed prompts:  96%|█████████▋| 191/198 [00:46<00:01,  5.12it/s, est. speed input: 1183.26 toks/s, output: 3168.61 toks/s][A
+
+Processed prompts:  97%|█████████▋| 193/198 [00:48<00:01,  2.77it/s, est. speed input: 1159.08 toks/s, output: 3240.14 toks/s][A
+
+Processed prompts:  98%|█████████▊| 194/198 [00:48<00:01,  2.98it/s, est. speed input: 1157.67 toks/s, output: 3304.79 toks/s][A
+
+Processed prompts:  98%|█████████▊| 195/198 [00:49<00:01,  1.99it/s, est. speed input: 1135.88 toks/s, output: 3310.76 toks/s][A
+
+Processed prompts:  99%|█████████▉| 196/198 [00:50<00:00,  2.02it/s, est. speed input: 1128.65 toks/s, output: 3358.01 toks/s][A
+
+Processed prompts:  99%|█████████▉| 197/198 [00:50<00:00,  2.23it/s, est. speed input: 1124.94 toks/s, output: 3414.88 toks/s][A
+
+Processed prompts: 100%|██████████| 198/198 [00:51<00:00,  1.88it/s, est. speed input: 1110.59 toks/s, output: 3441.49 toks/s][A
+Processed prompts: 100%|██████████| 198/198 [00:51<00:00,  3.87it/s, est. speed input: 1110.59 toks/s, output: 3441.49 toks/s]
+
+Splits: 100%|██████████| 1/1 [00:51<00:00, 51.27s/it]
+Splits: 100%|██████████| 1/1 [00:51<00:00, 51.27s/it]
+[2025-04-22 19:29:37,542] [[32m    INFO[0m]: --- COMPUTING METRICS --- (pipeline.py:504)[0m
+[2025-04-22 19:29:37,561] [[33m WARNING[0m]: We did not manage to extract a prediction in the correct format. Gold: ['B'], Pred: ['To solve this problem, we need to evaluate the volume integral of the divergence of the vector field \\(\\mathbf{f}(r) = \\frac{1}{r^2} \\hat{r}\\) inside a sphere of radius \\(R\\) centered at the origin. The divergence of a vector field in spherical coordinates is given by:\n\n\\[\n\\nabla \\cdot \\mathbf{f} = \\frac{1}{r^2} \\frac{\\partial}{\\partial r} \\left( r^2 f_r \\right)\n\\]\n\nSince the vector field \\(\\mathbf{f}(r) = \\frac{1}{r^2} \\hat{r}\\) has only a radial component \\(f_r = \\frac{1}{r^2}\\), the divergence simplifies to:\n\n\\[\n\\nabla \\cdot \\mathbf{f} = \\frac{1}{r^2} \\frac{\\partial}{\\partial r} \\left( r^2 \\cdot \\frac{1}{r^2} \\right) = \\frac{1}{r^2} \\frac{\\partial}{\\partial r} (1) = 0\n\\]\n\nSo, the divergence of the vector field is zero everywhere except possibly at the origin. However, since the divergence is zero everywhere except at the origin, the volume integral of the divergence over the entire sphere will be zero. This is because the divergence theorem states that the volume integral of the divergence of a vector field over a closed surface is equal to the flux of the vector field through the surface. Since the divergence is zero everywhere except at the origin, the flux through the surface of the sphere is zero.\n\nTherefore, the volume integral of the divergence of the field inside the volume of a sphere of radius \\(R\\) is:\n\n\\[\n\\int_V \\nabla \\cdot \\mathbf{f} \\, dV = 0\n\\]\n\nThe correct answer is \\( \\boxed{0} \\).'] (dynamic_metrics.py:265)[0m
+[2025-04-22 19:29:37,574] [[33m WARNING[0m]: We did not manage to extract a prediction in the correct format. Gold: ['D'], Pred: ["To solve this problem, we need to use the relationship between the mass of a binary star system and the amplitude of the radial velocity variations of its stars. The amplitude of the radial velocity variation of a star in a binary system is proportional to the mass of the other star and inversely proportional to the total mass of the system. The formula for the amplitude of the radial velocity variation \\(K\\) of a star in a binary system is given by:\n\n\\[ K = \\frac{2 \\pi a \\sin i}{P} \\frac{M_2}{M_1 + M_2} \\]\n\nwhere:\n- \\(a\\) is the semi-major axis of the orbit,\n- \\(i\\) is the inclination of the orbit,\n- \\(P\\) is the orbital period,\n- \\(M_1\\) and \\(M_2\\) are the masses of the two stars.\n\nSince the orbital period \\(P\\) and the inclination \\(i\\) are the same for both stars in a binary system, and assuming the semi-major axis \\(a\\) is the same for both stars (which is a reasonable assumption for circular orbits), the ratio of the amplitudes of the radial velocity variations of the two stars in a binary system is given by:\n\n\\[ \\frac{K_1}{K_2} = \\frac{M_2}{M_1} \\]\n\nGiven the amplitudes of the radial velocity variations for the two stars in system_1 and system_2, we can calculate the ratio of the total masses of the two systems. Let's denote the masses of the stars in system_1 as \\(M_{11}\\) and \\(M_{12}\\), and the masses of the stars in system_2 as \\(M_{21}\\) and \\(M_{22}\\). The total mass of system_1 is \\(M_{11} + M_{12}\\), and the total mass of system_2 is \\(M_{21} + M_{22}\\).\n\nFrom the given amplitudes, we have:\n\n\\[ \\frac{10}{5} = \\frac{M_{12}}{M_{11}} \\]\n\\[ \\frac{15}{10} = \\frac{M_{22}}{M_{21}} \\]\n\nLet's denote \\(M_{11} = M_1\\) and \\(M_{12} = 2M_1\\), and \\(M_{21} = M_2\\) and \\(M_{22} = 1.5M_2\\). The total mass of system_1 is \\(M_1 + 2M_1 = 3M_1\\), and the total mass of system_2 is \\(M_2 + 1.5M_2 = 2.5M_2\\).\n\nThe ratio of the total masses of system_1 to system_2 is:\n\n\\[ \\frac{3M_1}{2.5M_2} = \\frac{3}{2.5} \\times \\frac{M_1}{M_2} \\]\n\nSince the ratio of the amplitudes of the radial velocity variations of the stars in system_1 and system_2 is the same as the ratio of the masses of the stars in system_1 and system_2, we have:\n\n\\[ \\frac{M_1}{M_2} = \\frac{10}{5} = 2 \\]\n\nTherefore, the ratio of the total masses of system_1 to system_2 is:\n\n\\[ \\frac{3M_1}{2.5M_2} = \\frac{3}{2.5} \\times 2 = \\frac{6}{2.5} = 2.4 \\]\n\nHowever, this is not one of the given options. Let's check the calculation again. The correct ratio should be:\n\n\\[ \\frac{3M_1}{2.5M_2} = \\frac{3}{2.5} \\times \\frac{M_1}{M_2} = \\frac{3}{2.5} \\times 2 = \\frac{6}{2.5} = 2.4 \\]\n\nThis is not one of the given options, so let's check the problem again. The correct answer should be:\n\n\\[ \\boxed{0.6} \\]\n\nThis is because the problem might be asking for the ratio of the masses of the stars in system_1 to the masses of the stars in system_2, not the total masses. Let's check the calculation again for the ratio of the masses of the stars:\n\n\\[ \\frac{M_{11}}{M_{21}} = \\frac{M_1}{M_2} = 2 \\]\n\\[ \\frac{M_{12}}{M_{22}} = \\frac{2M_1}{1.5M_2} = \\frac{2}{1.5} \\times \\frac{M_1}{M_2} = \\frac{2}{1.5} \\times 2 = \\frac{4}{1.5} = \\frac{8}{3} \\approx 2.67 \\]\n\nThe correct answer should be the ratio of the total masses, which is:\n\n\\[ \\frac{3M_1}{2.5M_2} = \\frac{3}{2.5} \\times 2 = \\frac{6}{2.5} = 2.4 \\]\n\nThis is not one of the given options, so the correct answer should be:\n\n\\[ \\boxed{0.6} \\]\n\nThis is because the problem might be asking for the ratio of the masses of the stars in system_1 to the masses of the stars in system_2, not the total masses. Let's check the calculation again for the ratio of the masses of the stars:\n\n\\[ \\frac{M_{11}}{M_{21}} = \\frac{M_1}{M_2} = 2 \\]\n\\[ \\frac{M_{12}}{M_{22}} = \\frac{2M_1}{1.5M_2} = \\frac{2}{1.5} \\times \\frac{M_1}{M_2} = \\frac{2}{1.5} \\times 2 = \\frac{4}{1.5} = \\frac{8}{3} \\approx 2.67 \\]\n\nThe correct answer should be the ratio of the total masses, which is:\n\n\\[ \\frac{3M_1}{2.5M_2} = \\frac{3}{2.5} \\times 2 = \\frac{6}{2.5} = 2.4 \\]\n\nThis is not one of the given options, so the correct answer should be:\n\n\\[ \\boxed{0.6} \\]\n\nThis is because the problem might be asking for the ratio of the masses of the stars in system_1 to the masses of the stars in system_2, not the total masses. Let's check the calculation again for the ratio of the masses of the stars:\n\n\\[ \\frac{M_{11}}{M_{21}} = \\frac{M_1}{M_2} = 2 \\]\n\\[ \\frac{M_{12}}{M_{22}} = \\frac{2M_1}{1.5M_2} = \\frac{2}{1.5} \\times \\frac{M_1}{M_2} = \\frac{2}{1.5} \\times 2 = \\frac{4}{1.5} = \\frac{8}{3} \\approx 2.67 \\]\n\nThe correct answer should be the ratio of the total masses, which is:\n\n\\[ \\frac{3M_1}{2.5M_2} = \\frac{3}{2.5} \\times 2 = \\frac{6}{2.5} = 2.4 \\]\n\nThis is not one of the given options, so the correct answer should be:\n\n\\[ \\boxed{0.6} \\]\n\nThis is because the problem might be asking for the ratio of the masses of the stars in system_1 to the masses of the stars in system_2, not the total masses. Let's check the calculation again for the ratio of the masses of the stars:\n\n\\[ \\frac{M_{11}}{M_{21}} = \\frac{M_1}{M_2} = 2 \\]\n\\[ \\frac{M_{12}}{M_{22}} = \\frac{2M_1}{1.5M_2} = \\frac{2}{1.5} \\times \\frac{M_1}{M_2} = \\frac{2}{1.5} \\times 2 = \\frac{4}{1.5} = \\frac{8}{3} \\approx 2.67 \\]\n\nThe correct answer should be the ratio of the total masses, which is:\n\n\\[ \\frac{3M_1}{2.5M_2} = \\frac{3}{2.5} \\times 2 = \\frac{6}{2.5} = 2.4 \\]\n\nThis is not one of the given options, so the correct answer should be:\n\n\\[ \\boxed{0.6} \\]\n\nThis is because the problem might be asking for the ratio of the masses of the stars in system_1 to the masses of the stars in system_2, not the total masses. Let's check the calculation again for the ratio of the masses of the stars:\n\n\\[ \\frac{M_{11}}{M_{21}} = \\frac{M_1}{M_2} = 2 \\]\n\\[ \\frac{M_{12}}{M_{22}} = \\frac{2M_1}{1.5M_2} = \\frac{2}{1.5} \\times \\frac{M_1}{M_2} = \\frac{2}{1.5} \\times 2 = \\frac{4}{1.5} = \\frac{8}{3} \\approx 2.67 \\]\n\nThe correct answer should be the ratio of the total masses, which is:\n\n\\[ \\frac{3M_1}{2.5M_2} = \\frac{3}{2.5} \\times 2 = \\frac{6}{2.5} = 2.4 \\]\n\nThis is not one of the given options, so the correct answer should be:\n\n\\[ \\boxed{0.6} \\]\n\nThis is because the problem might be asking for the ratio of the masses of the stars in system_1 to the masses of the stars in system_2, not the total masses. Let's check the calculation again for the ratio of the masses of the stars:\n\n\\[ \\frac{M_{11}}{M_{21}} = \\frac{M_1}{M_2} = 2 \\]\n\\[ \\frac{M_{12}}{M_{22}} = \\frac{2M_1}{1.5M_2} = \\frac{2}{1.5} \\times \\frac{M_1}{M_2} = \\frac{2}{1.5} \\times 2 = \\frac{4}{1.5} = \\frac{8}{3} \\approx 2.67 \\]\n\nThe correct answer should be the ratio of the total masses, which is:\n\n\\[ \\frac{3M_1}{2.5M_2} = \\frac{3}{2.5} \\times 2 = \\frac{6}{2.5} = 2.4 \\]\n\nThis is not one of the given options, so the correct answer should be:\n\n\\[ \\boxed{0.6} \\]\n\nThis is because the problem might be asking for the ratio of the masses of the stars in system_1 to the masses of the stars in system_2, not the total masses. Let's check the calculation again for the ratio of the masses of the stars:\n\n\\[ \\frac{M_{11}}{M_{21}} = \\frac{M_1}{M_2} = 2 \\]\n\\[ \\frac{M_{12}}{M_{22}} = \\frac{2M_1}{1.5M_2} = \\frac{2}{1.5} \\times \\frac{M_1}{M_2} = \\frac{2}{1.5} \\times 2 = \\frac{4}{1.5} = \\frac{8}{3} \\approx 2.67 \\]\n\nThe correct answer should be the ratio of the total masses, which is:\n\n\\[ \\frac{3M_1}{2.5M_2} = \\frac{3}{2.5} \\times 2 = \\frac{6}{2.5} = 2.4 \\]\n\nThis is not one of the given options, so the correct answer should be:\n\n\\[ \\boxed{0.6} \\]\n\nThis is because the problem might be asking for the ratio of the masses of the stars in system_1 to the masses of the stars in system_2, not the total masses. Let's check the calculation again for the ratio of the masses of the stars:\n\n\\[ \\frac{M_{11}}{M_{21}} = \\frac{M_1}{M_2} = 2 \\]\n\\[ \\frac{M_{12}}{M_{22}} = \\frac{2M_1}{1.5M_2} = \\frac{2}{1.5} \\times \\frac{M_1}{M_2} = \\frac{2}{1.5} \\times 2 = \\frac{4}{1.5} = \\frac{8}{3} \\approx 2.67 \\]\n\nThe correct answer should be the ratio of the total masses, which is:\n\n\\[ \\frac{3M_1}{2.5M_2} = \\frac{3}{2.5} \\times 2 = \\frac{6}{2.5} = 2.4 \\]\n\nThis is not one of the given options, so the correct answer should be:\n\n\\[ \\boxed{0.6} \\]\n\nThis is because the problem might be asking for the ratio of the masses of the stars in system_1 to the masses of the stars in system_2, not the total masses. Let's check the calculation again for the ratio of the masses of the stars:\n\n\\[ \\frac{M_{11}}{M_{21}} = \\frac{M_1}{M_2} = 2 \\]\n\\[ \\frac{M_{12}}{M_{22}} = \\frac{2M_1}{1.5M_2} = \\frac{2}{1.5} \\times \\frac{M_1}{M_2} = \\frac{2}{1.5} \\times 2 = \\frac{4}{1.5} = \\frac{8}{3} \\approx 2.67 \\]\n\nThe correct answer should be the ratio of the total masses, which is:\n\n\\[ \\frac{3M_1}{2.5M_2} = \\frac{3}{2.5} \\times 2 = \\frac{6}{2.5} = 2.4 \\]\n\nThis is not one of the given options, so the correct answer should be:\n\n\\[ \\boxed{0.6} \\]\n\nThis is because the problem might be asking for the ratio of the masses of the stars in system_1 to the masses of the stars in system_2, not the total masses. Let's check the calculation again for the ratio of the masses of the stars:\n\n\\[ \\frac{M_{11}}{M_{21}} = \\frac{M_1}{M_2} = 2 \\]\n\\[ \\frac{M_{12}}{M_{22}} = \\frac{2M_1}{1.5M_2} = \\frac{2}{1.5} \\times \\frac{M_1}{M_2} = \\frac{2}{1.5} \\times 2 = \\frac{4}{1.5} = \\frac{8}{3} \\approx 2.67 \\]\n\nThe correct answer should be the ratio of the total masses, which is:\n\n\\[ \\frac{3M_1}{2.5M_2} = \\frac{3}{2.5} \\times 2 = \\frac{6}{2.5} = 2.4 \\]\n\nThis is not one of the given options, so the correct answer should be:\n\n\\[ \\boxed{0.6} \\]\n\nThis is because the problem might be asking for the ratio of the masses of the stars in system_1 to the masses of the stars in system_2, not the total masses. Let's check the calculation again for the ratio of the masses of the stars:\n\n\\[ \\frac{M_{11}}{M_{21}} = \\frac{M_1}{M_2} = 2 \\]\n\\[ \\frac{M_{12}}{M_{22}} = \\frac{2M_1}{1.5M_2} = \\frac{2}{1.5} \\times \\frac{M_1}{M_2} = \\frac{2}{1.5} \\times 2 = \\frac{4}{1.5} = \\frac{8}{3} \\approx 2.67 \\]\n\nThe correct answer should be the ratio of the total masses, which is:\n\n\\[ \\frac{3M_1}{2.5M_2} = \\frac{3}{2.5} \\times 2 = \\frac{6}{2.5} = 2."] (dynamic_metrics.py:265)[0m
+[2025-04-22 19:29:37,593] [[32m    INFO[0m]: --- DISPLAYING RESULTS --- (pipeline.py:546)[0m
+[2025-04-22 19:29:37,603] [[32m    INFO[0m]: --- SAVING AND PUSHING RESULTS --- (pipeline.py:536)[0m
+[2025-04-22 19:29:37,603] [[32m    INFO[0m]: Saving experiment tracker (evaluation_tracker.py:180)[0m
+[2025-04-22 19:29:37,739] [[32m    INFO[0m]: Saving results to ~/Projects/nips25_slot/open-r2/data/evals~/Models/Qwen/Qwen2.5-Math-7B/results/_Models_Qwen_Qwen2.5-Math-7B/results_2025-04-22T19-29-37.603261.json (evaluation_tracker.py:234)[0m
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.1
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.1
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.1
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.1
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.1
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.1
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.1
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.1
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.1
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.1
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.1
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.1
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.1
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.1
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.1
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.1
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.1
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.1
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.1
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.1
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.1
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.1
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.1
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.1
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.1
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.1
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.1
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.1
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.1
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.1
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.1
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.1
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.1
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.1
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.1
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.1
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.1
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.1
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.1
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.1
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.1
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.1
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.1
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.1
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.1
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.1
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.1
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.1
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.1
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.1
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.1
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.1
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.1
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.1
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.1
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.1
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.1
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.1
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.1
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.1
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.1
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.1
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.1
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.1
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.1
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.1
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.1
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.1
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.1
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.1
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.1
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.1
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.1
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.1
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.1
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=0.1
+|          Task          |Version|     Metric     |Value |   |Stderr|
+|------------------------|------:|----------------|-----:|---|-----:|
+|all                     |       |extractive_match|0.2576|±  |0.0312|
+|lighteval:gpqa:diamond:0|      0|extractive_match|0.2576|±  |0.0312|
+

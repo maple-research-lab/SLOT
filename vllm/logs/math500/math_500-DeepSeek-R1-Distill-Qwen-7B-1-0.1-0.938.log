@@ -1,0 +1,2171 @@
+[2025-04-22 23:22:34,500] [[32m    INFO[0m]: PyTorch version 2.5.1 available. (config.py:58)[0m
+INFO 04-22 23:22:39 __init__.py:190] Automatically detected platform cuda.
+[2025-04-22 23:22:39,826] [[32m    INFO[0m]: --- LOADING MODEL --- (pipeline.py:189)[0m
+[2025-04-22 23:22:47,633] [[32m    INFO[0m]: This model supports multiple tasks: {'classify', 'score', 'generate', 'reward', 'embed'}. Defaulting to 'generate'. (config.py:542)[0m
+[2025-04-22 23:22:47,635] [[32m    INFO[0m]: Initializing a V0 LLM engine (v0.7.2) with config: model='~/Models/deepseek-ai/DeepSeek-R1-Distill-Qwen-7B', speculative_config=None, tokenizer='~/Models/deepseek-ai/DeepSeek-R1-Distill-Qwen-7B', skip_tokenizer_init=False, tokenizer_mode=auto, revision=main, override_neuron_config=None, tokenizer_revision=main, trust_remote_code=False, dtype=torch.bfloat16, max_seq_len=32768, download_dir=None, load_format=LoadFormat.AUTO, tensor_parallel_size=1, pipeline_parallel_size=1, disable_custom_all_reduce=False, quantization=None, enforce_eager=False, kv_cache_dtype=auto,  device_config=cuda, decoding_config=DecodingConfig(guided_decoding_backend='xgrammar'), observability_config=ObservabilityConfig(otlp_traces_endpoint=None, collect_model_forward_time=False, collect_model_execute_time=False), seed=1234, served_model_name=~/Models/deepseek-ai/DeepSeek-R1-Distill-Qwen-7B, num_scheduler_steps=1, multi_step_stream_outputs=True, enable_prefix_caching=False, chunked_prefill_enabled=False, use_async_output_proc=True, disable_mm_preprocessor_cache=False, mm_processor_kwargs=None, pooler_config=None, compilation_config={"splitting_ops":[],"compile_sizes":[],"cudagraph_capture_sizes":[128,120,112,104,96,88,80,72,64,56,48,40,32,24,16,8,4,2,1],"max_capture_size":128}, use_cached_outputs=False,  (llm_engine.py:234)[0m
+[2025-04-22 23:22:48,787] [[32m    INFO[0m]: Using Flash Attention backend. (cuda.py:230)[0m
+[2025-04-22 23:22:49,515] [[32m    INFO[0m]: Starting to load model ~/Models/deepseek-ai/DeepSeek-R1-Distill-Qwen-7B... (model_runner.py:1110)[0m
+
+Loading safetensors checkpoint shards:   0% Completed | 0/2 [00:00<?, ?it/s]
+
+Loading safetensors checkpoint shards:  50% Completed | 1/2 [00:02<00:02,  2.26s/it]
+
+Loading safetensors checkpoint shards: 100% Completed | 2/2 [00:05<00:00,  2.69s/it]
+
+Loading safetensors checkpoint shards: 100% Completed | 2/2 [00:05<00:00,  2.63s/it]
+
+[2025-04-22 23:22:55,228] [[32m    INFO[0m]: Loading model weights took 14.2717 GB (model_runner.py:1115)[0m
+[2025-04-22 23:22:56,185] [[33m WARNING[0m]: ~/Projects/nips25_slot/open-r2/openr1/lib/python3.11/site-packages/vllm/worker/model_runner.py:1832: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  lm_head_weight = torch.load(lm_local, map_location=hidden_states_cur.device).to(dtype=torch.bfloat16)
+ (warnings.py:110)[0m
+[2025-04-22 23:22:57,021] [[32m    INFO[0m]: Memory profiling takes 1.64 seconds
+the current vLLM instance can use total_gpu_memory (79.22GiB) x gpu_memory_utilization (0.90) = 71.29GiB
+model weights take 14.27GiB; non_torch_memory takes 0.16GiB; PyTorch activation peak memory takes 48.11GiB; the rest of the memory reserved for KV Cache is 8.76GiB. (worker.py:267)[0m
+[2025-04-22 23:22:57,170] [[32m    INFO[0m]: # CUDA blocks: 10246, # CPU blocks: 4681 (executor_base.py:110)[0m
+[2025-04-22 23:22:57,170] [[32m    INFO[0m]: Maximum concurrency for 32768 tokens per request: 5.00x (executor_base.py:115)[0m
+[2025-04-22 23:22:59,355] [[32m    INFO[0m]: Capturing cudagraphs for decoding. This may lead to unexpected consequences if the model is not static. To run the model in eager mode, set 'enforce_eager=True' or use '--enforce-eager' in the CLI. If out-of-memory error occurs during cudagraph capture, consider decreasing `gpu_memory_utilization` or switching to eager mode. You can also reduce the `max_num_seqs` as needed to decrease memory usage. (model_runner.py:1434)[0m
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([32768, 3584]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25_slot/open-r2/lm_head/DeepSeek-R1-Distill-Qwen-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+
+Capturing CUDA graph shapes:   0%|          | 0/19 [00:00<?, ?it/s]
+Capturing CUDA graph shapes:   5%|▌         | 1/19 [00:00<00:07,  2.51it/s]
+Capturing CUDA graph shapes:  11%|█         | 2/19 [00:00<00:06,  2.77it/s]
+Capturing CUDA graph shapes:  16%|█▌        | 3/19 [00:01<00:05,  2.93it/s]
+Capturing CUDA graph shapes:  21%|██        | 4/19 [00:01<00:04,  3.02it/s]
+Capturing CUDA graph shapes:  26%|██▋       | 5/19 [00:01<00:04,  3.04it/s]
+Capturing CUDA graph shapes:  32%|███▏      | 6/19 [00:02<00:04,  2.93it/s]
+Capturing CUDA graph shapes:  37%|███▋      | 7/19 [00:02<00:04,  2.84it/s]
+Capturing CUDA graph shapes:  42%|████▏     | 8/19 [00:03<00:05,  2.18it/s]
+Capturing CUDA graph shapes:  47%|████▋     | 9/19 [00:03<00:04,  2.37it/s]
+Capturing CUDA graph shapes:  53%|█████▎    | 10/19 [00:03<00:03,  2.57it/s]
+Capturing CUDA graph shapes:  58%|█████▊    | 11/19 [00:04<00:02,  2.73it/s]
+Capturing CUDA graph shapes:  63%|██████▎   | 12/19 [00:04<00:02,  2.80it/s]
+Capturing CUDA graph shapes:  68%|██████▊   | 13/19 [00:04<00:02,  2.77it/s]
+Capturing CUDA graph shapes:  74%|███████▎  | 14/19 [00:05<00:01,  2.73it/s]
+Capturing CUDA graph shapes:  79%|███████▉  | 15/19 [00:05<00:01,  2.75it/s]
+Capturing CUDA graph shapes:  84%|████████▍ | 16/19 [00:05<00:01,  2.56it/s]
+Capturing CUDA graph shapes:  89%|████████▉ | 17/19 [00:06<00:00,  2.46it/s]
+Capturing CUDA graph shapes:  95%|█████████▍| 18/19 [00:06<00:00,  2.36it/s]
+Capturing CUDA graph shapes: 100%|██████████| 19/19 [00:07<00:00,  2.36it/s]
+Capturing CUDA graph shapes: 100%|██████████| 19/19 [00:07<00:00,  2.60it/s]
+[2025-04-22 23:23:06,682] [[32m    INFO[0m]: Graph capturing finished in 7 secs, took 0.22 GiB (model_runner.py:1562)[0m
+[2025-04-22 23:23:06,683] [[32m    INFO[0m]: init engine (profile, create kv cache, warmup model) took 11.45 seconds (llm_engine.py:431)[0m
+[2025-04-22 23:23:06,725] [[32m    INFO[0m]: --- INIT SEEDS --- (pipeline.py:263)[0m
+[2025-04-22 23:23:06,725] [[32m    INFO[0m]: --- LOADING TASKS --- (pipeline.py:216)[0m
+[2025-04-22 23:23:06,725] [[32m    INFO[0m]: Found 1 custom tasks in ~/Projects/nips25_slot/open-r2/openr1/lib/python3.11/site-packages/lighteval/tasks/extended/ifeval/main.py (registry.py:142)[0m
+[2025-04-22 23:23:06,725] [[32m    INFO[0m]: Found 6 custom tasks in ~/Projects/nips25_slot/open-r2/openr1/lib/python3.11/site-packages/lighteval/tasks/extended/tiny_benchmarks/main.py (registry.py:142)[0m
+[2025-04-22 23:23:06,725] [[32m    INFO[0m]: Found 1 custom tasks in ~/Projects/nips25_slot/open-r2/openr1/lib/python3.11/site-packages/lighteval/tasks/extended/mt_bench/main.py (registry.py:142)[0m
+[2025-04-22 23:23:06,725] [[32m    INFO[0m]: Found 4 custom tasks in ~/Projects/nips25_slot/open-r2/openr1/lib/python3.11/site-packages/lighteval/tasks/extended/mix_eval/main.py (registry.py:142)[0m
+[2025-04-22 23:23:06,725] [[32m    INFO[0m]: Found 5 custom tasks in ~/Projects/nips25_slot/open-r2/openr1/lib/python3.11/site-packages/lighteval/tasks/extended/olympiade_bench/main.py (registry.py:142)[0m
+[2025-04-22 23:23:06,725] [[32m    INFO[0m]: Found 1 custom tasks in ~/Projects/nips25_slot/open-r2/openr1/lib/python3.11/site-packages/lighteval/tasks/extended/hle/main.py (registry.py:142)[0m
+[2025-04-22 23:23:06,725] [[32m    INFO[0m]: Found 21 custom tasks in ~/Projects/nips25_slot/open-r2/openr1/lib/python3.11/site-packages/lighteval/tasks/extended/lcb/main.py (registry.py:142)[0m
+[2025-04-22 23:23:06,727] [[32m    INFO[0m]: HuggingFaceH4/MATH-500 default (lighteval_task.py:187)[0m
+[2025-04-22 23:23:06,727] [[33m WARNING[0m]: Careful, the task lighteval|math_500 is using evaluation data to build the few shot examples. (lighteval_task.py:260)[0m
+Using the latest cached version of the dataset since HuggingFaceH4/MATH-500 couldn't be found on the Hugging Face Hub
+[2025-04-22 23:23:31,321] [[33m WARNING[0m]: Using the latest cached version of the dataset since HuggingFaceH4/MATH-500 couldn't be found on the Hugging Face Hub (load.py:1631)[0m
+Found the latest cached dataset configuration 'default' at ~/.cache/huggingface/datasets/HuggingFaceH4___math-500/default/0.0.0/ff5b20257d8185524591543f8ff5993951537bb8 (last modified on Sat Apr 12 16:09:28 2025).
+[2025-04-22 23:23:31,322] [[33m WARNING[0m]: Found the latest cached dataset configuration 'default' at ~/.cache/huggingface/datasets/HuggingFaceH4___math-500/default/0.0.0/ff5b20257d8185524591543f8ff5993951537bb8 (last modified on Sat Apr 12 16:09:28 2025). (cache.py:95)[0m
+[2025-04-22 23:23:31,465] [[32m    INFO[0m]: --- RUNNING MODEL --- (pipeline.py:468)[0m
+[2025-04-22 23:23:31,465] [[32m    INFO[0m]: Running RequestType.GREEDY_UNTIL requests (pipeline.py:472)[0m
+[2025-04-22 23:23:31,548] [[33m WARNING[0m]: You cannot select the number of dataset splits for a generative evaluation at the moment. Automatically inferring. (data.py:260)[0m
+HuggingFaceH4/MATH-500
+default
+False
+None
+
+Splits:   0%|          | 0/1 [00:00<?, ?it/s][2025-04-22 23:23:31,627] [[33m WARNING[0m]: context_size + max_new_tokens=33636 which is greater than self.max_length=32768. Truncating context to 0 tokens. (vllm_model.py:270)[0m
+
+
+Processed prompts:   0%|          | 0/500 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s][A
+
+Processed prompts:   0%|          | 1/500 [00:08<1:09:26,  8.35s/it, est. speed input: 30.18 toks/s, output: 52.81 toks/s][A
+
+Processed prompts:   0%|          | 2/500 [00:09<35:21,  4.26s/it, est. speed input: 45.14 toks/s, output: 96.13 toks/s]  [A
+
+Processed prompts:   1%|          | 3/500 [00:11<27:06,  3.27s/it, est. speed input: 50.39 toks/s, output: 129.15 toks/s][A
+
+Processed prompts:   1%|          | 4/500 [00:13<23:09,  2.80s/it, est. speed input: 54.52 toks/s, output: 159.24 toks/s][A
+
+Processed prompts:   1%|          | 5/500 [00:14<16:20,  1.98s/it, est. speed input: 63.53 toks/s, output: 201.40 toks/s][A
+
+Processed prompts:   1%|          | 6/500 [00:16<15:56,  1.94s/it, est. speed input: 66.01 toks/s, output: 224.89 toks/s][A
+
+Processed prompts:   1%|▏         | 7/500 [00:17<12:59,  1.58s/it, est. speed input: 71.78 toks/s, output: 259.25 toks/s][A
+
+Processed prompts:   2%|▏         | 8/500 [00:18<11:30,  1.40s/it, est. speed input: 76.44 toks/s, output: 289.36 toks/s][A
+
+Processed prompts:   2%|▏         | 9/500 [00:19<10:19,  1.26s/it, est. speed input: 82.14 toks/s, output: 318.85 toks/s][A
+
+Processed prompts:   2%|▏         | 10/500 [00:20<09:45,  1.19s/it, est. speed input: 97.34 toks/s, output: 345.66 toks/s][A
+
+Processed prompts:   2%|▏         | 11/500 [00:21<08:54,  1.09s/it, est. speed input: 102.03 toks/s, output: 374.08 toks/s][A
+
+Processed prompts:   2%|▏         | 12/500 [00:21<07:54,  1.03it/s, est. speed input: 108.20 toks/s, output: 403.97 toks/s][A
+
+Processed prompts:   3%|▎         | 13/500 [00:24<11:33,  1.42s/it, est. speed input: 103.71 toks/s, output: 405.03 toks/s][A
+
+Processed prompts:   3%|▎         | 14/500 [00:24<09:37,  1.19s/it, est. speed input: 109.86 toks/s, output: 436.20 toks/s][A
+
+Processed prompts:   3%|▎         | 15/500 [00:25<09:21,  1.16s/it, est. speed input: 112.44 toks/s, output: 459.11 toks/s][A
+
+Processed prompts:   3%|▎         | 16/500 [00:26<08:42,  1.08s/it, est. speed input: 115.56 toks/s, output: 484.69 toks/s][A
+
+Processed prompts:   3%|▎         | 17/500 [00:28<09:09,  1.14s/it, est. speed input: 116.40 toks/s, output: 503.36 toks/s][A[2025-04-22 23:24:00,420] [[33m WARNING[0m]: Sequence group 144 is preempted by PreemptionMode.RECOMPUTE mode because there is not enough KV cache space. This can affect the end-to-end performance. Increase gpu_memory_utilization or tensor_parallel_size to provide more KV cache memory. total_num_cumulative_preemption=1 (scheduler.py:1560)[0m
+
+
+Processed prompts:   4%|▎         | 18/500 [00:29<10:04,  1.25s/it, est. speed input: 115.67 toks/s, output: 518.10 toks/s][A
+
+Processed prompts:   4%|▍         | 19/500 [00:29<07:34,  1.06it/s, est. speed input: 122.33 toks/s, output: 555.00 toks/s][A
+
+Processed prompts:   4%|▍         | 20/500 [00:30<06:41,  1.20it/s, est. speed input: 128.63 toks/s, output: 585.51 toks/s][A
+
+Processed prompts:   4%|▍         | 21/500 [00:31<07:34,  1.05it/s, est. speed input: 129.22 toks/s, output: 604.96 toks/s][A
+
+Processed prompts:   4%|▍         | 22/500 [00:32<06:10,  1.29it/s, est. speed input: 132.97 toks/s, output: 639.97 toks/s][A
+
+Processed prompts:   5%|▍         | 23/500 [00:32<04:54,  1.62it/s, est. speed input: 136.86 toks/s, output: 677.14 toks/s][A
+
+Processed prompts:   5%|▍         | 24/500 [00:32<04:11,  1.89it/s, est. speed input: 141.45 toks/s, output: 712.86 toks/s][A
+
+Processed prompts:   5%|▌         | 25/500 [00:33<04:58,  1.59it/s, est. speed input: 147.04 toks/s, output: 737.31 toks/s][A
+
+Processed prompts:   5%|▌         | 26/500 [00:33<03:51,  2.05it/s, est. speed input: 152.32 toks/s, output: 776.69 toks/s][A
+
+Processed prompts:   5%|▌         | 27/500 [00:33<03:22,  2.34it/s, est. speed input: 156.05 toks/s, output: 813.19 toks/s][A
+
+Processed prompts:   6%|▌         | 28/500 [00:34<03:46,  2.08it/s, est. speed input: 158.15 toks/s, output: 842.36 toks/s][A
+
+Processed prompts:   6%|▌         | 29/500 [00:35<04:14,  1.85it/s, est. speed input: 162.25 toks/s, output: 869.87 toks/s][A
+
+Processed prompts:   6%|▌         | 31/500 [00:37<05:58,  1.31it/s, est. speed input: 164.69 toks/s, output: 906.79 toks/s][A
+
+Processed prompts:   6%|▋         | 32/500 [00:37<05:20,  1.46it/s, est. speed input: 169.47 toks/s, output: 939.99 toks/s][A
+
+Processed prompts:   7%|▋         | 33/500 [00:38<05:44,  1.35it/s, est. speed input: 176.34 toks/s, output: 961.65 toks/s][A
+
+Processed prompts:   7%|▋         | 34/500 [00:38<04:44,  1.64it/s, est. speed input: 179.58 toks/s, output: 998.56 toks/s][A
+
+Processed prompts:   7%|▋         | 35/500 [00:39<05:47,  1.34it/s, est. speed input: 179.29 toks/s, output: 1014.52 toks/s][A
+
+Processed prompts:   7%|▋         | 37/500 [00:40<03:59,  1.93it/s, est. speed input: 189.12 toks/s, output: 1089.00 toks/s][A
+
+Processed prompts:   8%|▊         | 38/500 [00:41<04:30,  1.71it/s, est. speed input: 190.57 toks/s, output: 1110.61 toks/s][A
+
+Processed prompts:   8%|▊         | 39/500 [00:41<03:38,  2.11it/s, est. speed input: 193.80 toks/s, output: 1149.28 toks/s][A
+
+Processed prompts:   8%|▊         | 40/500 [00:42<04:29,  1.71it/s, est. speed input: 193.60 toks/s, output: 1167.64 toks/s][A
+
+Processed prompts:   8%|▊         | 41/500 [00:42<03:30,  2.18it/s, est. speed input: 200.77 toks/s, output: 1206.91 toks/s][A
+
+Processed prompts:   8%|▊         | 42/500 [00:45<08:52,  1.16s/it, est. speed input: 191.39 toks/s, output: 1171.99 toks/s][A
+
+Processed prompts:   9%|▊         | 43/500 [00:45<07:04,  1.08it/s, est. speed input: 195.50 toks/s, output: 1206.65 toks/s][A
+
+Processed prompts:   9%|▉         | 44/500 [00:45<05:32,  1.37it/s, est. speed input: 198.80 toks/s, output: 1244.02 toks/s][A
+
+Processed prompts:   9%|▉         | 45/500 [00:48<08:57,  1.18s/it, est. speed input: 195.68 toks/s, output: 1229.73 toks/s][A
+
+Processed prompts:   9%|▉         | 46/500 [00:49<10:20,  1.37s/it, est. speed input: 192.14 toks/s, output: 1230.31 toks/s][A
+
+Processed prompts:   9%|▉         | 47/500 [00:50<08:36,  1.14s/it, est. speed input: 196.79 toks/s, output: 1260.42 toks/s][A
+
+Processed prompts:  10%|▉         | 48/500 [00:50<06:55,  1.09it/s, est. speed input: 200.18 toks/s, output: 1295.59 toks/s][A
+
+Processed prompts:  10%|▉         | 49/500 [00:52<09:12,  1.22s/it, est. speed input: 196.97 toks/s, output: 1293.36 toks/s][A
+
+Processed prompts:  10%|█         | 51/500 [00:53<06:17,  1.19it/s, est. speed input: 200.97 toks/s, output: 1364.51 toks/s][A
+
+Processed prompts:  10%|█         | 52/500 [00:54<06:46,  1.10it/s, est. speed input: 200.40 toks/s, output: 1381.89 toks/s][A
+
+Processed prompts:  11%|█         | 53/500 [00:55<05:59,  1.24it/s, est. speed input: 203.59 toks/s, output: 1413.70 toks/s][A
+
+Processed prompts:  11%|█         | 54/500 [00:56<05:56,  1.25it/s, est. speed input: 206.11 toks/s, output: 1438.48 toks/s][A
+
+Processed prompts:  11%|█         | 55/500 [00:57<08:04,  1.09s/it, est. speed input: 202.40 toks/s, output: 1437.61 toks/s][A
+
+Processed prompts:  11%|█         | 56/500 [00:58<06:36,  1.12it/s, est. speed input: 204.14 toks/s, output: 1473.38 toks/s][A
+
+Processed prompts:  11%|█▏        | 57/500 [00:59<06:18,  1.17it/s, est. speed input: 206.56 toks/s, output: 1499.72 toks/s][A[2025-04-22 23:24:32,220] [[33m WARNING[0m]: Sequence group 100 is preempted by PreemptionMode.RECOMPUTE mode because there is not enough KV cache space. This can affect the end-to-end performance. Increase gpu_memory_utilization or tensor_parallel_size to provide more KV cache memory. total_num_cumulative_preemption=51 (scheduler.py:1560)[0m
+
+
+Processed prompts:  12%|█▏        | 58/500 [01:01<08:42,  1.18s/it, est. speed input: 214.10 toks/s, output: 1497.06 toks/s][A
+
+Processed prompts:  12%|█▏        | 59/500 [01:04<12:33,  1.71s/it, est. speed input: 210.72 toks/s, output: 1474.22 toks/s][A
+
+Processed prompts:  12%|█▏        | 60/500 [01:04<09:53,  1.35s/it, est. speed input: 212.82 toks/s, output: 1509.76 toks/s][A
+
+Processed prompts:  12%|█▏        | 61/500 [01:05<08:47,  1.20s/it, est. speed input: 212.77 toks/s, output: 1536.53 toks/s][A
+
+Processed prompts:  12%|█▏        | 62/500 [01:06<07:42,  1.06s/it, est. speed input: 213.00 toks/s, output: 1565.76 toks/s][A
+
+Processed prompts:  13%|█▎        | 63/500 [01:06<07:12,  1.01it/s, est. speed input: 213.27 toks/s, output: 1592.99 toks/s][A
+
+Processed prompts:  13%|█▎        | 64/500 [01:07<06:22,  1.14it/s, est. speed input: 215.44 toks/s, output: 1625.44 toks/s][A
+
+Processed prompts:  13%|█▎        | 65/500 [01:09<08:39,  1.19s/it, est. speed input: 212.38 toks/s, output: 1627.43 toks/s][A
+
+Processed prompts:  13%|█▎        | 66/500 [01:10<09:18,  1.29s/it, est. speed input: 211.21 toks/s, output: 1640.72 toks/s][A
+
+Processed prompts:  13%|█▎        | 67/500 [01:12<09:02,  1.25s/it, est. speed input: 210.41 toks/s, output: 1661.66 toks/s][A
+
+Processed prompts:  14%|█▎        | 68/500 [01:14<12:14,  1.70s/it, est. speed input: 205.30 toks/s, output: 1649.34 toks/s][A
+
+Processed prompts:  14%|█▍        | 69/500 [01:16<11:50,  1.65s/it, est. speed input: 204.05 toks/s, output: 1664.98 toks/s][A
+
+Processed prompts:  14%|█▍        | 70/500 [01:22<20:56,  2.92s/it, est. speed input: 191.90 toks/s, output: 1595.78 toks/s][A
+
+Processed prompts:  14%|█▍        | 71/500 [01:22<15:29,  2.17s/it, est. speed input: 194.20 toks/s, output: 1637.97 toks/s][A
+
+Processed prompts:  14%|█▍        | 72/500 [01:25<15:53,  2.23s/it, est. speed input: 192.48 toks/s, output: 1642.56 toks/s][A
+
+Processed prompts:  15%|█▍        | 73/500 [01:28<17:59,  2.53s/it, est. speed input: 189.14 toks/s, output: 1633.16 toks/s][A
+
+Processed prompts:  15%|█▍        | 74/500 [01:34<25:41,  3.62s/it, est. speed input: 179.27 toks/s, output: 1578.69 toks/s][A
+
+Processed prompts:  15%|█▌        | 75/500 [01:35<20:06,  2.84s/it, est. speed input: 179.60 toks/s, output: 1613.80 toks/s][A
+
+Processed prompts:  15%|█▌        | 76/500 [01:39<22:16,  3.15s/it, est. speed input: 175.17 toks/s, output: 1603.98 toks/s][A
+
+Processed prompts:  15%|█▌        | 77/500 [01:43<24:06,  3.42s/it, est. speed input: 171.43 toks/s, output: 1595.09 toks/s][A
+
+Processed prompts:  16%|█▌        | 78/500 [01:48<27:10,  3.86s/it, est. speed input: 165.39 toks/s, output: 1577.76 toks/s][A
+
+Processed prompts:  16%|█▌        | 79/500 [01:51<25:43,  3.67s/it, est. speed input: 164.45 toks/s, output: 1587.66 toks/s][A
+
+Processed prompts:  16%|█▌        | 80/500 [01:56<27:25,  3.92s/it, est. speed input: 164.75 toks/s, output: 1581.95 toks/s][A
+
+Processed prompts:  16%|█▌        | 81/500 [02:01<31:21,  4.49s/it, est. speed input: 159.43 toks/s, output: 1563.25 toks/s][A
+
+Processed prompts:  16%|█▋        | 82/500 [02:03<25:35,  3.67s/it, est. speed input: 160.02 toks/s, output: 1597.89 toks/s][A
+
+Processed prompts:  17%|█▋        | 83/500 [02:11<33:14,  4.78s/it, est. speed input: 153.09 toks/s, output: 1566.04 toks/s][A
+
+Processed prompts:  17%|█▋        | 84/500 [02:21<45:34,  6.57s/it, est. speed input: 143.08 toks/s, output: 1506.66 toks/s][A
+
+Processed prompts:  17%|█▋        | 85/500 [02:22<33:21,  4.82s/it, est. speed input: 146.10 toks/s, output: 1557.98 toks/s][A
+
+Processed prompts:  17%|█▋        | 86/500 [02:26<31:00,  4.49s/it, est. speed input: 144.58 toks/s, output: 1577.67 toks/s][A
+
+Processed prompts:  17%|█▋        | 87/500 [02:29<27:34,  4.01s/it, est. speed input: 143.04 toks/s, output: 1606.87 toks/s][A
+
+Processed prompts:  18%|█▊        | 88/500 [02:33<27:44,  4.04s/it, est. speed input: 141.07 toks/s, output: 1623.36 toks/s][A
+
+Processed prompts:  18%|█▊        | 89/500 [02:34<21:06,  3.08s/it, est. speed input: 141.77 toks/s, output: 1674.08 toks/s][A
+
+Processed prompts:  18%|█▊        | 90/500 [02:35<17:54,  2.62s/it, est. speed input: 142.17 toks/s, output: 1716.98 toks/s][A
+
+Processed prompts:  18%|█▊        | 91/500 [02:38<18:38,  2.73s/it, est. speed input: 140.51 toks/s, output: 1702.16 toks/s][A
+
+Processed prompts:  18%|█▊        | 92/500 [02:40<17:18,  2.55s/it, est. speed input: 140.55 toks/s, output: 1739.61 toks/s][A
+
+Processed prompts:  19%|█▊        | 93/500 [02:42<15:39,  2.31s/it, est. speed input: 140.47 toks/s, output: 1780.53 toks/s][A
+
+Processed prompts:  19%|█▉        | 94/500 [02:44<14:03,  2.08s/it, est. speed input: 140.23 toks/s, output: 1796.12 toks/s][A
+
+Processed prompts:  19%|█▉        | 95/500 [02:46<15:19,  2.27s/it, est. speed input: 139.61 toks/s, output: 1826.39 toks/s][A
+
+Processed prompts:  19%|█▉        | 96/500 [02:48<14:52,  2.21s/it, est. speed input: 138.83 toks/s, output: 1814.42 toks/s][A
+
+Processed prompts:  19%|█▉        | 97/500 [02:51<16:32,  2.46s/it, est. speed input: 137.28 toks/s, output: 1792.78 toks/s][A
+
+Processed prompts:  20%|█▉        | 98/500 [02:52<13:16,  1.98s/it, est. speed input: 137.66 toks/s, output: 1843.18 toks/s][A
+
+Processed prompts:  20%|█▉        | 99/500 [02:56<17:13,  2.58s/it, est. speed input: 135.47 toks/s, output: 1817.14 toks/s][A
+
+Processed prompts:  20%|██        | 100/500 [02:57<14:21,  2.15s/it, est. speed input: 135.50 toks/s, output: 1821.35 toks/s][A
+
+Processed prompts:  20%|██        | 101/500 [02:59<14:10,  2.13s/it, est. speed input: 134.93 toks/s, output: 1846.07 toks/s][A
+
+Processed prompts:  20%|██        | 102/500 [03:01<12:02,  1.82s/it, est. speed input: 134.99 toks/s, output: 1843.17 toks/s][A
+
+Processed prompts:  21%|██        | 103/500 [03:01<09:23,  1.42s/it, est. speed input: 135.52 toks/s, output: 1856.33 toks/s][A
+
+Processed prompts:  21%|██        | 104/500 [03:02<09:11,  1.39s/it, est. speed input: 135.39 toks/s, output: 1853.59 toks/s][A
+
+Processed prompts:  21%|██        | 105/500 [03:03<08:19,  1.26s/it, est. speed input: 135.52 toks/s, output: 1847.83 toks/s][A
+
+Processed prompts:  21%|██        | 106/500 [03:06<11:05,  1.69s/it, est. speed input: 134.41 toks/s, output: 1836.81 toks/s][A[2025-04-22 23:26:45,635] [[33m WARNING[0m]: Sequence group 123 is preempted by PreemptionMode.RECOMPUTE mode because there is not enough KV cache space. This can affect the end-to-end performance. Increase gpu_memory_utilization or tensor_parallel_size to provide more KV cache memory. total_num_cumulative_preemption=101 (scheduler.py:1560)[0m
+
+
+Processed prompts:  21%|██▏       | 107/500 [03:19<33:03,  5.05s/it, est. speed input: 129.46 toks/s, output: 1777.88 toks/s][A
+
+Processed prompts:  22%|██▏       | 108/500 [03:21<27:09,  4.16s/it, est. speed input: 128.91 toks/s, output: 1779.69 toks/s][A
+
+Processed prompts:  22%|██▏       | 109/500 [03:30<36:05,  5.54s/it, est. speed input: 124.40 toks/s, output: 1762.18 toks/s][A
+
+Processed prompts:  22%|██▏       | 110/500 [03:32<30:24,  4.68s/it, est. speed input: 123.64 toks/s, output: 1775.26 toks/s][A
+
+Processed prompts:  22%|██▏       | 111/500 [03:36<28:43,  4.43s/it, est. speed input: 122.15 toks/s, output: 1754.63 toks/s][A
+
+Processed prompts:  22%|██▏       | 112/500 [03:40<27:14,  4.21s/it, est. speed input: 120.81 toks/s, output: 1740.87 toks/s][A
+
+Processed prompts:  23%|██▎       | 113/500 [03:42<22:11,  3.44s/it, est. speed input: 120.61 toks/s, output: 1735.40 toks/s][A
+
+Processed prompts:  23%|██▎       | 114/500 [03:42<15:49,  2.46s/it, est. speed input: 121.22 toks/s, output: 1753.47 toks/s][A
+
+Processed prompts:  23%|██▎       | 115/500 [03:43<13:28,  2.10s/it, est. speed input: 121.22 toks/s, output: 1747.49 toks/s][A
+
+Processed prompts:  23%|██▎       | 116/500 [03:45<13:35,  2.12s/it, est. speed input: 120.73 toks/s, output: 1740.28 toks/s][A
+
+Processed prompts:  23%|██▎       | 117/500 [03:46<11:16,  1.77s/it, est. speed input: 120.91 toks/s, output: 1739.42 toks/s][A
+
+Processed prompts:  24%|██▎       | 118/500 [03:54<22:10,  3.48s/it, est. speed input: 117.77 toks/s, output: 1720.68 toks/s][A
+
+Processed prompts:  24%|██▍       | 119/500 [03:57<22:03,  3.47s/it, est. speed input: 116.81 toks/s, output: 1739.87 toks/s][A
+
+Processed prompts:  24%|██▍       | 120/500 [04:00<20:37,  3.26s/it, est. speed input: 116.13 toks/s, output: 1743.43 toks/s][A
+
+Processed prompts:  24%|██▍       | 121/500 [04:00<15:26,  2.45s/it, est. speed input: 116.54 toks/s, output: 1767.76 toks/s][A[2025-04-22 23:27:33,477] [[33m WARNING[0m]: Sequence group 214 is preempted by PreemptionMode.RECOMPUTE mode because there is not enough KV cache space. This can affect the end-to-end performance. Increase gpu_memory_utilization or tensor_parallel_size to provide more KV cache memory. total_num_cumulative_preemption=151 (scheduler.py:1560)[0m
+[2025-04-22 23:27:37,181] [[33m WARNING[0m]: Sequence group 164 is preempted by PreemptionMode.RECOMPUTE mode because there is not enough KV cache space. This can affect the end-to-end performance. Increase gpu_memory_utilization or tensor_parallel_size to provide more KV cache memory. total_num_cumulative_preemption=201 (scheduler.py:1560)[0m
+
+
+Processed prompts:  24%|██▍       | 122/500 [04:07<24:10,  3.84s/it, est. speed input: 113.82 toks/s, output: 1723.13 toks/s][A
+
+Processed prompts:  25%|██▍       | 123/500 [04:10<21:35,  3.44s/it, est. speed input: 113.28 toks/s, output: 1708.66 toks/s][A
+
+Processed prompts:  25%|██▍       | 124/500 [04:11<16:25,  2.62s/it, est. speed input: 113.83 toks/s, output: 1763.26 toks/s][A
+
+Processed prompts:  25%|██▌       | 126/500 [04:13<11:55,  1.91s/it, est. speed input: 114.10 toks/s, output: 1791.68 toks/s][A
+
+Processed prompts:  25%|██▌       | 127/500 [04:14<10:08,  1.63s/it, est. speed input: 114.35 toks/s, output: 1790.96 toks/s][A
+
+Processed prompts:  26%|██▌       | 128/500 [04:14<08:06,  1.31s/it, est. speed input: 114.76 toks/s, output: 1791.52 toks/s][A[2025-04-22 23:27:48,387] [[33m WARNING[0m]: Sequence group 242 is preempted by PreemptionMode.RECOMPUTE mode because there is not enough KV cache space. This can affect the end-to-end performance. Increase gpu_memory_utilization or tensor_parallel_size to provide more KV cache memory. total_num_cumulative_preemption=251 (scheduler.py:1560)[0m
+
+
+Processed prompts:  26%|██▌       | 130/500 [04:19<11:28,  1.86s/it, est. speed input: 113.91 toks/s, output: 1816.86 toks/s][A
+
+Processed prompts:  26%|██▌       | 131/500 [04:19<09:05,  1.48s/it, est. speed input: 114.39 toks/s, output: 1819.07 toks/s][A
+
+Processed prompts:  26%|██▋       | 132/500 [04:21<08:54,  1.45s/it, est. speed input: 114.33 toks/s, output: 1811.95 toks/s][A[2025-04-22 23:27:53,290] [[33m WARNING[0m]: Sequence group 192 is preempted by PreemptionMode.RECOMPUTE mode because there is not enough KV cache space. This can affect the end-to-end performance. Increase gpu_memory_utilization or tensor_parallel_size to provide more KV cache memory. total_num_cumulative_preemption=301 (scheduler.py:1560)[0m
+
+
+Processed prompts:  27%|██▋       | 133/500 [04:21<07:35,  1.24s/it, est. speed input: 114.61 toks/s, output: 1811.69 toks/s][A
+
+Processed prompts:  27%|██▋       | 134/500 [04:22<06:03,  1.01it/s, est. speed input: 115.03 toks/s, output: 1814.50 toks/s][A
+
+Processed prompts:  27%|██▋       | 135/500 [04:22<04:37,  1.31it/s, est. speed input: 115.52 toks/s, output: 1816.83 toks/s][A
+
+Processed prompts:  27%|██▋       | 136/500 [04:22<04:10,  1.45it/s, est. speed input: 115.83 toks/s, output: 1816.16 toks/s][A
+
+Processed prompts:  27%|██▋       | 137/500 [04:23<04:12,  1.44it/s, est. speed input: 116.07 toks/s, output: 1814.40 toks/s][A
+
+Processed prompts:  28%|██▊       | 139/500 [04:24<03:52,  1.55it/s, est. speed input: 116.62 toks/s, output: 1811.21 toks/s][A
+
+Processed prompts:  28%|██▊       | 140/500 [04:25<03:13,  1.86it/s, est. speed input: 117.09 toks/s, output: 1815.59 toks/s][A
+
+Processed prompts:  28%|██▊       | 141/500 [04:25<03:23,  1.76it/s, est. speed input: 117.34 toks/s, output: 1814.01 toks/s][A
+
+Processed prompts:  28%|██▊       | 142/500 [04:25<02:48,  2.12it/s, est. speed input: 117.77 toks/s, output: 1815.30 toks/s][A
+
+Processed prompts:  29%|██▊       | 143/500 [04:27<05:01,  1.18it/s, est. speed input: 117.50 toks/s, output: 1806.07 toks/s][A
+
+Processed prompts:  29%|██▉       | 144/500 [04:28<05:09,  1.15it/s, est. speed input: 117.65 toks/s, output: 1806.41 toks/s][A
+
+Processed prompts:  29%|██▉       | 145/500 [04:29<05:17,  1.12it/s, est. speed input: 117.75 toks/s, output: 1803.32 toks/s][A
+
+Processed prompts:  29%|██▉       | 146/500 [04:29<04:07,  1.43it/s, est. speed input: 118.19 toks/s, output: 1805.83 toks/s][A
+
+Processed prompts:  29%|██▉       | 147/500 [04:32<07:30,  1.28s/it, est. speed input: 117.59 toks/s, output: 1800.48 toks/s][A
+
+Processed prompts:  30%|██▉       | 148/500 [04:33<07:31,  1.28s/it, est. speed input: 117.57 toks/s, output: 1797.12 toks/s][A
+
+Processed prompts:  30%|██▉       | 149/500 [04:34<06:39,  1.14s/it, est. speed input: 118.16 toks/s, output: 1850.23 toks/s][A
+
+Processed prompts:  30%|███       | 150/500 [04:37<10:34,  1.81s/it, est. speed input: 117.31 toks/s, output: 1859.70 toks/s][A
+
+Processed prompts:  30%|███       | 151/500 [04:38<08:39,  1.49s/it, est. speed input: 117.54 toks/s, output: 1862.23 toks/s][A
+
+Processed prompts:  30%|███       | 152/500 [04:39<07:06,  1.23s/it, est. speed input: 117.80 toks/s, output: 1864.23 toks/s][A
+
+Processed prompts:  31%|███       | 153/500 [04:39<05:51,  1.01s/it, est. speed input: 118.12 toks/s, output: 1867.88 toks/s][A
+
+Processed prompts:  31%|███       | 154/500 [04:41<06:48,  1.18s/it, est. speed input: 117.96 toks/s, output: 1862.51 toks/s][A
+
+Processed prompts:  31%|███       | 155/500 [04:42<06:51,  1.19s/it, est. speed input: 117.95 toks/s, output: 1859.21 toks/s][A
+
+Processed prompts:  31%|███▏      | 157/500 [04:43<04:45,  1.20it/s, est. speed input: 118.59 toks/s, output: 1860.73 toks/s][A
+
+Processed prompts:  32%|███▏      | 158/500 [04:44<04:31,  1.26it/s, est. speed input: 118.81 toks/s, output: 1862.34 toks/s][A
+
+Processed prompts:  32%|███▏      | 159/500 [04:44<04:24,  1.29it/s, est. speed input: 119.21 toks/s, output: 1915.15 toks/s][A
+
+Processed prompts:  32%|███▏      | 160/500 [04:45<04:14,  1.33it/s, est. speed input: 119.41 toks/s, output: 1913.59 toks/s][A
+
+Processed prompts:  32%|███▏      | 161/500 [04:47<06:01,  1.07s/it, est. speed input: 119.13 toks/s, output: 1907.86 toks/s][A[2025-04-22 23:28:19,982] [[33m WARNING[0m]: Sequence group 279 is preempted by PreemptionMode.RECOMPUTE mode because there is not enough KV cache space. This can affect the end-to-end performance. Increase gpu_memory_utilization or tensor_parallel_size to provide more KV cache memory. total_num_cumulative_preemption=351 (scheduler.py:1560)[0m
+
+
+Processed prompts:  32%|███▏      | 162/500 [04:48<06:21,  1.13s/it, est. speed input: 119.08 toks/s, output: 1901.93 toks/s][A
+
+Processed prompts:  33%|███▎      | 164/500 [04:49<05:01,  1.11it/s, est. speed input: 119.53 toks/s, output: 1901.96 toks/s][A
+
+Processed prompts:  33%|███▎      | 165/500 [04:50<03:58,  1.41it/s, est. speed input: 119.96 toks/s, output: 1907.13 toks/s][A
+
+Processed prompts:  33%|███▎      | 166/500 [04:51<05:18,  1.05it/s, est. speed input: 119.77 toks/s, output: 1902.52 toks/s][A
+
+Processed prompts:  33%|███▎      | 167/500 [04:53<06:16,  1.13s/it, est. speed input: 119.57 toks/s, output: 1894.87 toks/s][A
+
+Processed prompts:  34%|███▎      | 168/500 [04:54<06:22,  1.15s/it, est. speed input: 119.58 toks/s, output: 1894.46 toks/s][A
+
+Processed prompts:  34%|███▍      | 169/500 [04:55<05:43,  1.04s/it, est. speed input: 119.76 toks/s, output: 1896.24 toks/s][A[2025-04-22 23:28:27,893] [[33m WARNING[0m]: Sequence group 240 is preempted by PreemptionMode.RECOMPUTE mode because there is not enough KV cache space. This can affect the end-to-end performance. Increase gpu_memory_utilization or tensor_parallel_size to provide more KV cache memory. total_num_cumulative_preemption=401 (scheduler.py:1560)[0m
+
+
+Processed prompts:  34%|███▍      | 170/500 [04:57<06:53,  1.25s/it, est. speed input: 119.54 toks/s, output: 1893.61 toks/s][A
+
+Processed prompts:  34%|███▍      | 171/500 [04:58<07:29,  1.37s/it, est. speed input: 119.32 toks/s, output: 1885.02 toks/s][A
+
+Processed prompts:  34%|███▍      | 172/500 [04:59<06:41,  1.22s/it, est. speed input: 119.42 toks/s, output: 1882.18 toks/s][A
+
+Processed prompts:  35%|███▍      | 174/500 [05:00<04:26,  1.23it/s, est. speed input: 120.07 toks/s, output: 1887.22 toks/s][A
+
+Processed prompts:  35%|███▌      | 175/500 [05:02<06:43,  1.24s/it, est. speed input: 119.51 toks/s, output: 1875.01 toks/s][A
+
+Processed prompts:  35%|███▌      | 176/500 [05:03<05:17,  1.02it/s, est. speed input: 119.91 toks/s, output: 1883.25 toks/s][A
+
+Processed prompts:  35%|███▌      | 177/500 [05:04<05:22,  1.00it/s, est. speed input: 119.94 toks/s, output: 1880.37 toks/s][A
+
+Processed prompts:  36%|███▌      | 178/500 [05:04<05:09,  1.04it/s, est. speed input: 120.11 toks/s, output: 1897.16 toks/s][A
+
+Processed prompts:  36%|███▌      | 179/500 [05:05<05:10,  1.03it/s, est. speed input: 120.16 toks/s, output: 1894.20 toks/s][A
+
+Processed prompts:  36%|███▌      | 181/500 [05:06<03:47,  1.40it/s, est. speed input: 120.71 toks/s, output: 1896.19 toks/s][A
+
+Processed prompts:  36%|███▋      | 182/500 [05:07<03:20,  1.59it/s, est. speed input: 121.02 toks/s, output: 1899.88 toks/s][A
+
+Processed prompts:  37%|███▋      | 183/500 [05:07<03:36,  1.46it/s, est. speed input: 121.14 toks/s, output: 1900.42 toks/s][A
+
+Processed prompts:  37%|███▋      | 184/500 [05:09<04:31,  1.16it/s, est. speed input: 121.09 toks/s, output: 1901.51 toks/s][A
+
+Processed prompts:  37%|███▋      | 185/500 [05:09<04:00,  1.31it/s, est. speed input: 121.32 toks/s, output: 1902.54 toks/s][A
+
+Processed prompts:  37%|███▋      | 186/500 [05:10<03:42,  1.41it/s, est. speed input: 121.56 toks/s, output: 1907.41 toks/s][A
+
+Processed prompts:  37%|███▋      | 187/500 [05:11<04:18,  1.21it/s, est. speed input: 121.55 toks/s, output: 1903.83 toks/s][A
+
+Processed prompts:  38%|███▊      | 188/500 [05:12<05:11,  1.00it/s, est. speed input: 121.41 toks/s, output: 1897.72 toks/s][A
+
+Processed prompts:  38%|███▊      | 189/500 [05:13<04:48,  1.08it/s, est. speed input: 121.54 toks/s, output: 1895.66 toks/s][A
+
+Processed prompts:  38%|███▊      | 190/500 [05:14<04:14,  1.22it/s, est. speed input: 121.76 toks/s, output: 1899.79 toks/s][A
+
+Processed prompts:  38%|███▊      | 191/500 [05:16<05:44,  1.11s/it, est. speed input: 121.48 toks/s, output: 1892.65 toks/s][A
+
+Processed prompts:  38%|███▊      | 192/500 [05:16<04:22,  1.17it/s, est. speed input: 121.80 toks/s, output: 1894.05 toks/s][A
+
+Processed prompts:  39%|███▊      | 193/500 [05:17<04:56,  1.04it/s, est. speed input: 121.74 toks/s, output: 1890.18 toks/s][A
+
+Processed prompts:  39%|███▉      | 194/500 [05:17<04:08,  1.23it/s, est. speed input: 121.98 toks/s, output: 1891.73 toks/s][A
+
+Processed prompts:  39%|███▉      | 195/500 [05:19<05:11,  1.02s/it, est. speed input: 121.82 toks/s, output: 1887.59 toks/s][A
+
+Processed prompts:  39%|███▉      | 196/500 [05:20<04:59,  1.02it/s, est. speed input: 121.89 toks/s, output: 1887.39 toks/s][A
+
+Processed prompts:  39%|███▉      | 197/500 [05:20<03:45,  1.35it/s, est. speed input: 122.25 toks/s, output: 1891.92 toks/s][A
+
+Processed prompts:  40%|███▉      | 198/500 [05:21<03:43,  1.35it/s, est. speed input: 122.38 toks/s, output: 1892.29 toks/s][A
+
+Processed prompts:  40%|███▉      | 199/500 [05:21<03:17,  1.52it/s, est. speed input: 122.63 toks/s, output: 1896.33 toks/s][A
+
+Processed prompts:  40%|████      | 200/500 [05:23<04:13,  1.19it/s, est. speed input: 122.55 toks/s, output: 1893.51 toks/s][A
+
+Processed prompts:  40%|████      | 201/500 [05:23<03:30,  1.42it/s, est. speed input: 122.84 toks/s, output: 1899.47 toks/s][A
+
+Processed prompts:  40%|████      | 202/500 [05:24<03:49,  1.30it/s, est. speed input: 122.90 toks/s, output: 1898.66 toks/s][A
+
+Processed prompts:  41%|████      | 203/500 [05:28<08:22,  1.69s/it, est. speed input: 121.91 toks/s, output: 1887.99 toks/s][A
+
+Processed prompts:  41%|████      | 204/500 [05:28<06:51,  1.39s/it, est. speed input: 122.22 toks/s, output: 1938.94 toks/s][A[2025-04-22 23:29:01,573] [[33m WARNING[0m]: Sequence group 304 is preempted by PreemptionMode.RECOMPUTE mode because there is not enough KV cache space. This can affect the end-to-end performance. Increase gpu_memory_utilization or tensor_parallel_size to provide more KV cache memory. total_num_cumulative_preemption=451 (scheduler.py:1560)[0m
+
+
+Processed prompts:  41%|████      | 205/500 [05:31<08:35,  1.75s/it, est. speed input: 121.71 toks/s, output: 1934.57 toks/s][A
+
+Processed prompts:  41%|████      | 206/500 [05:33<09:07,  1.86s/it, est. speed input: 121.34 toks/s, output: 1929.65 toks/s][A
+
+Processed prompts:  41%|████▏     | 207/500 [05:34<07:35,  1.55s/it, est. speed input: 121.42 toks/s, output: 1928.37 toks/s][A
+
+Processed prompts:  42%|████▏     | 208/500 [05:35<06:59,  1.44s/it, est. speed input: 121.39 toks/s, output: 1924.09 toks/s][A[2025-04-22 23:29:07,600] [[33m WARNING[0m]: Sequence group 265 is preempted by PreemptionMode.RECOMPUTE mode because there is not enough KV cache space. This can affect the end-to-end performance. Increase gpu_memory_utilization or tensor_parallel_size to provide more KV cache memory. total_num_cumulative_preemption=501 (scheduler.py:1560)[0m
+
+
+Processed prompts:  42%|████▏     | 209/500 [05:36<05:36,  1.15s/it, est. speed input: 121.59 toks/s, output: 1922.87 toks/s][A
+
+Processed prompts:  42%|████▏     | 210/500 [05:36<04:11,  1.16it/s, est. speed input: 121.91 toks/s, output: 1928.02 toks/s][A
+
+Processed prompts:  42%|████▏     | 211/500 [05:37<05:05,  1.06s/it, est. speed input: 121.79 toks/s, output: 1930.24 toks/s][A
+
+Processed prompts:  42%|████▏     | 212/500 [05:38<04:58,  1.04s/it, est. speed input: 121.82 toks/s, output: 1929.90 toks/s][A
+
+Processed prompts:  43%|████▎     | 213/500 [05:39<04:38,  1.03it/s, est. speed input: 121.90 toks/s, output: 1927.28 toks/s][A
+
+Processed prompts:  43%|████▎     | 214/500 [05:39<03:40,  1.30it/s, est. speed input: 122.16 toks/s, output: 1927.21 toks/s][A
+
+Processed prompts:  43%|████▎     | 215/500 [05:41<05:09,  1.09s/it, est. speed input: 121.89 toks/s, output: 1922.92 toks/s][A
+
+Processed prompts:  43%|████▎     | 217/500 [05:42<03:36,  1.31it/s, est. speed input: 122.38 toks/s, output: 1928.74 toks/s][A
+
+Processed prompts:  44%|████▎     | 218/500 [05:43<04:26,  1.06it/s, est. speed input: 122.22 toks/s, output: 1922.50 toks/s][A
+
+Processed prompts:  44%|████▍     | 219/500 [05:44<04:09,  1.13it/s, est. speed input: 122.33 toks/s, output: 1920.68 toks/s][A
+
+Processed prompts:  44%|████▍     | 221/500 [05:45<02:43,  1.71it/s, est. speed input: 122.94 toks/s, output: 1925.50 toks/s][A
+
+Processed prompts:  45%|████▍     | 223/500 [05:48<04:40,  1.01s/it, est. speed input: 122.48 toks/s, output: 1917.45 toks/s][A
+
+Processed prompts:  45%|████▍     | 224/500 [05:51<07:00,  1.52s/it, est. speed input: 121.66 toks/s, output: 1902.33 toks/s][A
+
+Processed prompts:  45%|████▌     | 225/500 [05:52<05:59,  1.31s/it, est. speed input: 121.81 toks/s, output: 1902.60 toks/s][A
+
+Processed prompts:  45%|████▌     | 226/500 [05:53<05:51,  1.28s/it, est. speed input: 121.80 toks/s, output: 1908.70 toks/s][A
+
+Processed prompts:  45%|████▌     | 227/500 [05:57<08:22,  1.84s/it, est. speed input: 121.00 toks/s, output: 1895.01 toks/s][A
+
+Processed prompts:  46%|████▌     | 228/500 [05:59<09:31,  2.10s/it, est. speed input: 120.45 toks/s, output: 1891.78 toks/s][A
+
+Processed prompts:  46%|████▌     | 229/500 [06:03<11:54,  2.64s/it, est. speed input: 119.49 toks/s, output: 1881.25 toks/s][A
+
+Processed prompts:  46%|████▌     | 230/500 [06:05<10:47,  2.40s/it, est. speed input: 119.30 toks/s, output: 1886.55 toks/s][A
+
+Processed prompts:  46%|████▌     | 231/500 [06:06<08:12,  1.83s/it, est. speed input: 119.64 toks/s, output: 1924.82 toks/s][A[2025-04-22 23:29:41,411] [[33m WARNING[0m]: Sequence group 270 is preempted by PreemptionMode.RECOMPUTE mode because there is not enough KV cache space. This can affect the end-to-end performance. Increase gpu_memory_utilization or tensor_parallel_size to provide more KV cache memory. total_num_cumulative_preemption=551 (scheduler.py:1560)[0m
+
+
+Processed prompts:  46%|████▋     | 232/500 [06:10<12:05,  2.71s/it, est. speed input: 118.42 toks/s, output: 1902.98 toks/s][A
+
+Processed prompts:  47%|████▋     | 233/500 [06:13<11:28,  2.58s/it, est. speed input: 118.04 toks/s, output: 1895.09 toks/s][A
+
+Processed prompts:  47%|████▋     | 234/500 [06:13<08:47,  1.98s/it, est. speed input: 118.20 toks/s, output: 1898.67 toks/s][A
+
+Processed prompts:  47%|████▋     | 235/500 [06:19<13:30,  3.06s/it, est. speed input: 116.83 toks/s, output: 1885.59 toks/s][A
+
+Processed prompts:  47%|████▋     | 236/500 [06:20<10:15,  2.33s/it, est. speed input: 117.03 toks/s, output: 1898.71 toks/s][A
+
+Processed prompts:  47%|████▋     | 237/500 [06:20<08:00,  1.83s/it, est. speed input: 117.18 toks/s, output: 1906.61 toks/s][A
+
+Processed prompts:  48%|████▊     | 238/500 [06:23<09:22,  2.15s/it, est. speed input: 116.63 toks/s, output: 1894.78 toks/s][A
+
+Processed prompts:  48%|████▊     | 240/500 [06:24<05:38,  1.30s/it, est. speed input: 117.09 toks/s, output: 1900.04 toks/s][A
+
+Processed prompts:  48%|████▊     | 241/500 [06:29<10:06,  2.34s/it, est. speed input: 115.77 toks/s, output: 1880.14 toks/s][A
+
+Processed prompts:  48%|████▊     | 242/500 [06:31<09:18,  2.16s/it, est. speed input: 115.62 toks/s, output: 1885.07 toks/s][A
+
+Processed prompts:  49%|████▊     | 243/500 [06:32<07:41,  1.80s/it, est. speed input: 115.70 toks/s, output: 1883.68 toks/s][A
+
+Processed prompts:  49%|████▉     | 244/500 [06:35<10:05,  2.36s/it, est. speed input: 114.90 toks/s, output: 1875.31 toks/s][A
+
+Processed prompts:  49%|████▉     | 245/500 [06:43<16:46,  3.95s/it, est. speed input: 113.03 toks/s, output: 1856.63 toks/s][A
+
+Processed prompts:  49%|████▉     | 246/500 [06:44<12:34,  2.97s/it, est. speed input: 113.18 toks/s, output: 1857.99 toks/s][A
+
+Processed prompts:  49%|████▉     | 247/500 [06:45<10:08,  2.40s/it, est. speed input: 113.19 toks/s, output: 1859.30 toks/s][A
+
+Processed prompts:  50%|████▉     | 248/500 [06:48<10:24,  2.48s/it, est. speed input: 112.76 toks/s, output: 1849.99 toks/s][A
+
+Processed prompts:  50%|████▉     | 249/500 [06:53<14:20,  3.43s/it, est. speed input: 111.53 toks/s, output: 1838.31 toks/s][A
+
+Processed prompts:  50%|█████     | 250/500 [06:55<11:45,  2.82s/it, est. speed input: 111.46 toks/s, output: 1835.60 toks/s][A
+
+Processed prompts:  50%|█████     | 251/500 [07:04<19:59,  4.82s/it, est. speed input: 109.29 toks/s, output: 1812.51 toks/s][A
+
+Processed prompts:  50%|█████     | 252/500 [07:08<18:39,  4.51s/it, est. speed input: 108.97 toks/s, output: 1849.34 toks/s][A[2025-04-22 23:30:41,516] [[33m WARNING[0m]: Sequence group 356 is preempted by PreemptionMode.RECOMPUTE mode because there is not enough KV cache space. This can affect the end-to-end performance. Increase gpu_memory_utilization or tensor_parallel_size to provide more KV cache memory. total_num_cumulative_preemption=601 (scheduler.py:1560)[0m
+
+
+Processed prompts:  51%|█████     | 253/500 [07:10<15:30,  3.77s/it, est. speed input: 108.74 toks/s, output: 1842.05 toks/s][A[2025-04-22 23:30:44,662] [[33m WARNING[0m]: Sequence group 306 is preempted by PreemptionMode.RECOMPUTE mode because there is not enough KV cache space. This can affect the end-to-end performance. Increase gpu_memory_utilization or tensor_parallel_size to provide more KV cache memory. total_num_cumulative_preemption=651 (scheduler.py:1560)[0m
+
+
+Processed prompts:  51%|█████     | 254/500 [07:18<20:03,  4.89s/it, est. speed input: 107.18 toks/s, output: 1826.38 toks/s][A
+
+Processed prompts:  51%|█████     | 255/500 [07:20<16:46,  4.11s/it, est. speed input: 106.91 toks/s, output: 1819.04 toks/s][A
+
+Processed prompts:  51%|█████     | 256/500 [07:20<11:58,  2.95s/it, est. speed input: 107.19 toks/s, output: 1839.77 toks/s][A
+
+Processed prompts:  51%|█████▏    | 257/500 [07:22<10:57,  2.71s/it, est. speed input: 107.00 toks/s, output: 1850.49 toks/s][A
+
+Processed prompts:  52%|█████▏    | 258/500 [07:24<09:59,  2.48s/it, est. speed input: 106.81 toks/s, output: 1843.83 toks/s][A
+
+Processed prompts:  52%|█████▏    | 259/500 [07:24<07:05,  1.76s/it, est. speed input: 107.06 toks/s, output: 1845.65 toks/s][A[2025-04-22 23:30:56,995] [[33m WARNING[0m]: Sequence group 320 is preempted by PreemptionMode.RECOMPUTE mode because there is not enough KV cache space. This can affect the end-to-end performance. Increase gpu_memory_utilization or tensor_parallel_size to provide more KV cache memory. total_num_cumulative_preemption=701 (scheduler.py:1560)[0m
+
+
+Processed prompts:  52%|█████▏    | 260/500 [07:26<06:59,  1.75s/it, est. speed input: 106.92 toks/s, output: 1840.71 toks/s][A
+
+Processed prompts:  52%|█████▏    | 261/500 [07:27<05:34,  1.40s/it, est. speed input: 107.05 toks/s, output: 1839.78 toks/s][A
+
+Processed prompts:  52%|█████▏    | 262/500 [07:28<05:43,  1.44s/it, est. speed input: 106.94 toks/s, output: 1834.68 toks/s][A
+
+Processed prompts:  53%|█████▎    | 263/500 [07:29<05:29,  1.39s/it, est. speed input: 106.91 toks/s, output: 1831.66 toks/s][A
+
+Processed prompts:  53%|█████▎    | 264/500 [07:30<04:47,  1.22s/it, est. speed input: 106.98 toks/s, output: 1829.91 toks/s][A
+
+Processed prompts:  53%|█████▎    | 265/500 [07:32<05:14,  1.34s/it, est. speed input: 106.86 toks/s, output: 1826.02 toks/s][A
+
+Processed prompts:  53%|█████▎    | 266/500 [07:32<03:49,  1.02it/s, est. speed input: 107.10 toks/s, output: 1827.27 toks/s][A
+
+Processed prompts:  53%|█████▎    | 267/500 [07:32<02:51,  1.36it/s, est. speed input: 107.32 toks/s, output: 1828.44 toks/s][A
+
+Processed prompts:  54%|█████▎    | 268/500 [07:33<02:46,  1.39it/s, est. speed input: 107.43 toks/s, output: 1828.58 toks/s][A
+
+Processed prompts:  54%|█████▍    | 269/500 [07:34<03:28,  1.11it/s, est. speed input: 107.39 toks/s, output: 1836.26 toks/s][A
+
+Processed prompts:  54%|█████▍    | 270/500 [07:35<03:39,  1.05it/s, est. speed input: 107.41 toks/s, output: 1834.90 toks/s][A
+
+Processed prompts:  54%|█████▍    | 271/500 [07:37<04:31,  1.19s/it, est. speed input: 107.27 toks/s, output: 1830.35 toks/s][A
+
+Processed prompts:  54%|█████▍    | 272/500 [07:37<03:17,  1.16it/s, est. speed input: 107.50 toks/s, output: 1831.79 toks/s][A
+
+Processed prompts:  55%|█████▍    | 273/500 [07:41<06:53,  1.82s/it, est. speed input: 106.82 toks/s, output: 1819.32 toks/s][A
+
+Processed prompts:  55%|█████▍    | 274/500 [07:41<05:06,  1.35s/it, est. speed input: 107.07 toks/s, output: 1838.79 toks/s][A
+
+Processed prompts:  55%|█████▌    | 275/500 [07:43<05:17,  1.41s/it, est. speed input: 106.98 toks/s, output: 1841.11 toks/s][A
+
+Processed prompts:  55%|█████▌    | 276/500 [07:43<04:17,  1.15s/it, est. speed input: 107.13 toks/s, output: 1850.48 toks/s][A
+
+Processed prompts:  55%|█████▌    | 277/500 [07:46<05:26,  1.46s/it, est. speed input: 106.88 toks/s, output: 1843.82 toks/s][A[2025-04-22 23:31:18,254] [[33m WARNING[0m]: Sequence group 334 is preempted by PreemptionMode.RECOMPUTE mode because there is not enough KV cache space. This can affect the end-to-end performance. Increase gpu_memory_utilization or tensor_parallel_size to provide more KV cache memory. total_num_cumulative_preemption=751 (scheduler.py:1560)[0m
+
+
+Processed prompts:  56%|█████▌    | 278/500 [07:47<04:59,  1.35s/it, est. speed input: 106.91 toks/s, output: 1853.87 toks/s][A
+
+Processed prompts:  56%|█████▌    | 279/500 [07:48<04:25,  1.20s/it, est. speed input: 106.97 toks/s, output: 1853.58 toks/s][A
+
+Processed prompts:  56%|█████▌    | 280/500 [07:48<03:33,  1.03it/s, est. speed input: 107.12 toks/s, output: 1853.30 toks/s][A
+
+Processed prompts:  56%|█████▌    | 281/500 [07:49<03:41,  1.01s/it, est. speed input: 107.13 toks/s, output: 1853.41 toks/s][A
+
+Processed prompts:  56%|█████▋    | 282/500 [07:50<03:59,  1.10s/it, est. speed input: 107.10 toks/s, output: 1861.04 toks/s][A
+
+Processed prompts:  57%|█████▋    | 283/500 [07:51<03:19,  1.09it/s, est. speed input: 107.24 toks/s, output: 1862.00 toks/s][A
+
+Processed prompts:  57%|█████▋    | 284/500 [07:52<03:43,  1.04s/it, est. speed input: 107.19 toks/s, output: 1859.56 toks/s][A
+
+Processed prompts:  57%|█████▋    | 285/500 [07:53<02:54,  1.24it/s, est. speed input: 107.37 toks/s, output: 1859.69 toks/s][A[2025-04-22 23:31:25,895] [[33m WARNING[0m]: Sequence group 361 is preempted by PreemptionMode.RECOMPUTE mode because there is not enough KV cache space. This can affect the end-to-end performance. Increase gpu_memory_utilization or tensor_parallel_size to provide more KV cache memory. total_num_cumulative_preemption=801 (scheduler.py:1560)[0m
+
+
+Processed prompts:  57%|█████▋    | 286/500 [07:55<04:49,  1.35s/it, est. speed input: 107.02 toks/s, output: 1850.51 toks/s][A
+
+Processed prompts:  57%|█████▋    | 287/500 [07:56<04:20,  1.22s/it, est. speed input: 107.10 toks/s, output: 1865.71 toks/s][A
+
+Processed prompts:  58%|█████▊    | 288/500 [07:57<03:52,  1.09s/it, est. speed input: 107.27 toks/s, output: 1897.94 toks/s][A
+
+Processed prompts:  58%|█████▊    | 289/500 [07:58<04:18,  1.22s/it, est. speed input: 107.17 toks/s, output: 1894.50 toks/s][A
+
+Processed prompts:  58%|█████▊    | 290/500 [08:00<04:39,  1.33s/it, est. speed input: 107.06 toks/s, output: 1890.16 toks/s][A
+
+Processed prompts:  58%|█████▊    | 291/500 [08:02<04:59,  1.43s/it, est. speed input: 106.94 toks/s, output: 1888.01 toks/s][A
+
+Processed prompts:  58%|█████▊    | 292/500 [08:02<04:19,  1.25s/it, est. speed input: 107.01 toks/s, output: 1888.59 toks/s][A
+
+Processed prompts:  59%|█████▊    | 293/500 [08:04<04:14,  1.23s/it, est. speed input: 106.98 toks/s, output: 1885.46 toks/s][A
+
+Processed prompts:  59%|█████▉    | 294/500 [08:04<03:37,  1.06s/it, est. speed input: 107.08 toks/s, output: 1884.92 toks/s][A
+
+Processed prompts:  59%|█████▉    | 295/500 [08:05<02:54,  1.17it/s, est. speed input: 107.23 toks/s, output: 1885.40 toks/s][A
+
+Processed prompts:  59%|█████▉    | 297/500 [08:06<02:23,  1.41it/s, est. speed input: 107.53 toks/s, output: 1904.02 toks/s][A[2025-04-22 23:31:38,686] [[33m WARNING[0m]: Sequence group 423 is preempted by PreemptionMode.RECOMPUTE mode because there is not enough KV cache space. This can affect the end-to-end performance. Increase gpu_memory_utilization or tensor_parallel_size to provide more KV cache memory. total_num_cumulative_preemption=851 (scheduler.py:1560)[0m
+
+
+Processed prompts:  60%|█████▉    | 298/500 [08:07<02:49,  1.19it/s, est. speed input: 107.49 toks/s, output: 1901.40 toks/s][A
+
+Processed prompts:  60%|█████▉    | 299/500 [08:07<02:11,  1.53it/s, est. speed input: 107.70 toks/s, output: 1902.73 toks/s][A
+
+Processed prompts:  60%|██████    | 300/500 [08:09<03:02,  1.10it/s, est. speed input: 107.59 toks/s, output: 1899.80 toks/s][A
+
+Processed prompts:  60%|██████    | 301/500 [08:09<02:33,  1.30it/s, est. speed input: 107.74 toks/s, output: 1900.81 toks/s][A
+
+Processed prompts:  60%|██████    | 302/500 [08:10<02:50,  1.16it/s, est. speed input: 107.75 toks/s, output: 1900.87 toks/s][A
+
+Processed prompts:  61%|██████    | 303/500 [08:11<02:50,  1.16it/s, est. speed input: 107.79 toks/s, output: 1899.60 toks/s][A
+
+Processed prompts:  61%|██████    | 304/500 [08:11<02:06,  1.55it/s, est. speed input: 107.99 toks/s, output: 1900.25 toks/s][A
+
+Processed prompts:  61%|██████    | 306/500 [08:11<01:14,  2.61it/s, est. speed input: 108.42 toks/s, output: 1902.76 toks/s][A
+
+Processed prompts:  61%|██████▏   | 307/500 [08:12<01:42,  1.88it/s, est. speed input: 108.43 toks/s, output: 1900.97 toks/s][A
+
+Processed prompts:  62%|██████▏   | 308/500 [08:13<01:28,  2.18it/s, est. speed input: 108.62 toks/s, output: 1905.11 toks/s][A
+
+Processed prompts:  62%|██████▏   | 309/500 [08:13<01:31,  2.08it/s, est. speed input: 108.73 toks/s, output: 1904.82 toks/s][A
+
+Processed prompts:  62%|██████▏   | 310/500 [08:14<01:38,  1.92it/s, est. speed input: 108.83 toks/s, output: 1904.45 toks/s][A
+
+Processed prompts:  62%|██████▏   | 311/500 [08:15<02:01,  1.55it/s, est. speed input: 108.84 toks/s, output: 1901.83 toks/s][A
+
+Processed prompts:  62%|██████▏   | 312/500 [08:15<01:34,  1.98it/s, est. speed input: 109.04 toks/s, output: 1903.63 toks/s][A
+
+Processed prompts:  63%|██████▎   | 313/500 [08:15<01:19,  2.35it/s, est. speed input: 109.24 toks/s, output: 1909.57 toks/s][A
+
+Processed prompts:  63%|██████▎   | 314/500 [08:16<02:11,  1.41it/s, est. speed input: 109.16 toks/s, output: 1905.78 toks/s][A
+
+Processed prompts:  63%|██████▎   | 315/500 [08:17<01:44,  1.76it/s, est. speed input: 109.33 toks/s, output: 1906.61 toks/s][A
+
+Processed prompts:  63%|██████▎   | 317/500 [08:17<01:05,  2.78it/s, est. speed input: 109.72 toks/s, output: 1908.85 toks/s][A
+
+Processed prompts:  64%|██████▍   | 319/500 [08:18<01:00,  3.00it/s, est. speed input: 110.05 toks/s, output: 1910.59 toks/s][A
+
+Processed prompts:  64%|██████▍   | 320/500 [08:19<01:30,  2.00it/s, est. speed input: 110.03 toks/s, output: 1908.16 toks/s][A
+
+Processed prompts:  64%|██████▍   | 322/500 [08:19<01:12,  2.44it/s, est. speed input: 110.36 toks/s, output: 1909.98 toks/s][A
+
+Processed prompts:  65%|██████▍   | 323/500 [08:20<01:24,  2.08it/s, est. speed input: 110.43 toks/s, output: 1909.22 toks/s][A
+
+Processed prompts:  65%|██████▍   | 324/500 [08:20<01:13,  2.41it/s, est. speed input: 110.60 toks/s, output: 1909.86 toks/s][A
+
+Processed prompts:  65%|██████▌   | 325/500 [08:20<01:07,  2.59it/s, est. speed input: 110.76 toks/s, output: 1910.74 toks/s][A
+
+Processed prompts:  65%|██████▌   | 327/500 [08:22<01:19,  2.17it/s, est. speed input: 110.96 toks/s, output: 1910.53 toks/s][A
+
+Processed prompts:  66%|██████▌   | 328/500 [08:22<01:15,  2.28it/s, est. speed input: 111.09 toks/s, output: 1910.50 toks/s][A
+
+Processed prompts:  66%|██████▌   | 329/500 [08:22<01:08,  2.48it/s, est. speed input: 111.24 toks/s, output: 1910.95 toks/s][A
+
+Processed prompts:  66%|██████▌   | 330/500 [08:23<01:06,  2.55it/s, est. speed input: 111.39 toks/s, output: 1912.29 toks/s][A
+
+Processed prompts:  66%|██████▌   | 331/500 [08:23<01:15,  2.25it/s, est. speed input: 111.49 toks/s, output: 1912.82 toks/s][A
+
+Processed prompts:  67%|██████▋   | 333/500 [08:24<01:16,  2.18it/s, est. speed input: 111.72 toks/s, output: 1912.82 toks/s][A
+
+Processed prompts:  67%|██████▋   | 334/500 [08:24<01:03,  2.63it/s, est. speed input: 111.90 toks/s, output: 1913.98 toks/s][A
+
+Processed prompts:  67%|██████▋   | 335/500 [08:25<01:05,  2.50it/s, est. speed input: 112.02 toks/s, output: 1913.68 toks/s][A
+
+Processed prompts:  67%|██████▋   | 336/500 [08:25<01:13,  2.23it/s, est. speed input: 112.14 toks/s, output: 1928.35 toks/s][A
+
+Processed prompts:  67%|██████▋   | 337/500 [08:26<01:17,  2.11it/s, est. speed input: 112.24 toks/s, output: 1928.08 toks/s][A[2025-04-22 23:31:58,781] [[33m WARNING[0m]: Sequence group 453 is preempted by PreemptionMode.RECOMPUTE mode because there is not enough KV cache space. This can affect the end-to-end performance. Increase gpu_memory_utilization or tensor_parallel_size to provide more KV cache memory. total_num_cumulative_preemption=901 (scheduler.py:1560)[0m
+
+
+Processed prompts:  68%|██████▊   | 338/500 [08:27<01:53,  1.43it/s, est. speed input: 112.19 toks/s, output: 1926.22 toks/s][A
+
+Processed prompts:  68%|██████▊   | 339/500 [08:27<01:36,  1.68it/s, est. speed input: 112.33 toks/s, output: 1927.20 toks/s][A
+
+Processed prompts:  68%|██████▊   | 341/500 [08:28<01:22,  1.92it/s, est. speed input: 112.59 toks/s, output: 1929.63 toks/s][A
+
+Processed prompts:  68%|██████▊   | 342/500 [08:29<01:23,  1.90it/s, est. speed input: 112.71 toks/s, output: 1932.10 toks/s][A
+
+Processed prompts:  69%|██████▊   | 343/500 [08:30<01:39,  1.58it/s, est. speed input: 112.71 toks/s, output: 1930.58 toks/s][A
+
+Processed prompts:  69%|██████▉   | 344/500 [08:30<01:33,  1.66it/s, est. speed input: 112.83 toks/s, output: 1932.67 toks/s][A
+
+Processed prompts:  69%|██████▉   | 345/500 [08:31<01:33,  1.66it/s, est. speed input: 112.91 toks/s, output: 1932.54 toks/s][A
+
+Processed prompts:  69%|██████▉   | 346/500 [08:31<01:29,  1.73it/s, est. speed input: 113.03 toks/s, output: 1933.87 toks/s][A
+
+Processed prompts:  69%|██████▉   | 347/500 [08:32<01:26,  1.76it/s, est. speed input: 113.12 toks/s, output: 1933.85 toks/s][A
+
+Processed prompts:  70%|██████▉   | 348/500 [08:33<01:28,  1.72it/s, est. speed input: 113.21 toks/s, output: 1934.33 toks/s][A
+
+Processed prompts:  70%|██████▉   | 349/500 [08:33<01:33,  1.61it/s, est. speed input: 113.26 toks/s, output: 1933.65 toks/s][A
+
+Processed prompts:  70%|███████   | 350/500 [08:34<01:22,  1.82it/s, est. speed input: 113.39 toks/s, output: 1934.39 toks/s][A
+
+Processed prompts:  70%|███████   | 351/500 [08:34<01:15,  1.98it/s, est. speed input: 113.52 toks/s, output: 1934.92 toks/s][A
+
+Processed prompts:  70%|███████   | 352/500 [08:35<01:20,  1.83it/s, est. speed input: 113.59 toks/s, output: 1934.60 toks/s][A[2025-04-22 23:32:07,324] [[33m WARNING[0m]: Sequence group 449 is preempted by PreemptionMode.RECOMPUTE mode because there is not enough KV cache space. This can affect the end-to-end performance. Increase gpu_memory_utilization or tensor_parallel_size to provide more KV cache memory. total_num_cumulative_preemption=951 (scheduler.py:1560)[0m
+
+
+Processed prompts:  71%|███████   | 353/500 [08:36<01:39,  1.47it/s, est. speed input: 113.59 toks/s, output: 1933.87 toks/s][A
+
+Processed prompts:  71%|███████   | 355/500 [08:36<01:13,  1.98it/s, est. speed input: 113.88 toks/s, output: 1936.02 toks/s][A
+
+Processed prompts:  71%|███████   | 356/500 [08:38<02:07,  1.13it/s, est. speed input: 113.65 toks/s, output: 1930.87 toks/s][A
+
+Processed prompts:  71%|███████▏  | 357/500 [08:38<01:37,  1.46it/s, est. speed input: 113.84 toks/s, output: 1933.78 toks/s][A
+
+Processed prompts:  72%|███████▏  | 358/500 [08:39<01:31,  1.55it/s, est. speed input: 113.94 toks/s, output: 1934.73 toks/s][A
+
+Processed prompts:  72%|███████▏  | 360/500 [08:40<01:08,  2.06it/s, est. speed input: 114.24 toks/s, output: 1937.42 toks/s][A
+
+Processed prompts:  72%|███████▏  | 361/500 [08:40<01:19,  1.75it/s, est. speed input: 114.26 toks/s, output: 1936.11 toks/s][A
+
+Processed prompts:  73%|███████▎  | 363/500 [08:41<01:05,  2.10it/s, est. speed input: 114.53 toks/s, output: 1937.76 toks/s][A
+
+Processed prompts:  73%|███████▎  | 364/500 [08:42<01:05,  2.06it/s, est. speed input: 114.63 toks/s, output: 1937.96 toks/s][A
+
+Processed prompts:  73%|███████▎  | 365/500 [08:42<01:12,  1.86it/s, est. speed input: 114.69 toks/s, output: 1939.87 toks/s][A
+
+Processed prompts:  73%|███████▎  | 366/500 [08:43<01:19,  1.68it/s, est. speed input: 114.73 toks/s, output: 1938.18 toks/s][A
+
+Processed prompts:  73%|███████▎  | 367/500 [08:44<01:49,  1.21it/s, est. speed input: 114.61 toks/s, output: 1933.83 toks/s][A
+
+Processed prompts:  74%|███████▎  | 368/500 [08:45<01:48,  1.22it/s, est. speed input: 114.63 toks/s, output: 1933.17 toks/s][A
+
+Processed prompts:  74%|███████▍  | 370/500 [08:46<01:19,  1.63it/s, est. speed input: 114.89 toks/s, output: 1934.84 toks/s][A
+
+Processed prompts:  74%|███████▍  | 371/500 [08:48<01:54,  1.12it/s, est. speed input: 114.71 toks/s, output: 1929.44 toks/s][A
+
+Processed prompts:  74%|███████▍  | 372/500 [08:48<01:30,  1.41it/s, est. speed input: 114.87 toks/s, output: 1930.32 toks/s][A
+
+Processed prompts:  75%|███████▍  | 373/500 [08:49<01:38,  1.29it/s, est. speed input: 114.85 toks/s, output: 1927.88 toks/s][A
+
+Processed prompts:  75%|███████▌  | 375/500 [08:49<00:59,  2.09it/s, est. speed input: 115.21 toks/s, output: 1931.04 toks/s][A
+
+Processed prompts:  75%|███████▌  | 376/500 [08:50<00:59,  2.07it/s, est. speed input: 115.31 toks/s, output: 1931.98 toks/s][A
+
+Processed prompts:  75%|███████▌  | 377/500 [08:50<01:13,  1.68it/s, est. speed input: 115.31 toks/s, output: 1929.74 toks/s][A
+
+Processed prompts:  76%|███████▌  | 378/500 [08:51<00:58,  2.08it/s, est. speed input: 115.46 toks/s, output: 1930.30 toks/s][A
+
+Processed prompts:  76%|███████▌  | 379/500 [08:51<00:47,  2.54it/s, est. speed input: 115.62 toks/s, output: 1930.89 toks/s][A
+
+Processed prompts:  76%|███████▌  | 380/500 [08:51<00:37,  3.17it/s, est. speed input: 115.80 toks/s, output: 1933.07 toks/s][A[2025-04-22 23:32:24,025] [[33m WARNING[0m]: Sequence group 458 is preempted by PreemptionMode.RECOMPUTE mode because there is not enough KV cache space. This can affect the end-to-end performance. Increase gpu_memory_utilization or tensor_parallel_size to provide more KV cache memory. total_num_cumulative_preemption=1001 (scheduler.py:1560)[0m
+
+
+Processed prompts:  76%|███████▌  | 381/500 [08:52<01:00,  1.96it/s, est. speed input: 115.79 toks/s, output: 1932.30 toks/s][A
+
+Processed prompts:  77%|███████▋  | 383/500 [08:53<00:54,  2.17it/s, est. speed input: 116.03 toks/s, output: 1935.73 toks/s][A
+
+Processed prompts:  77%|███████▋  | 384/500 [08:54<01:22,  1.41it/s, est. speed input: 115.94 toks/s, output: 1937.72 toks/s][A
+
+Processed prompts:  77%|███████▋  | 385/500 [08:55<01:23,  1.37it/s, est. speed input: 115.97 toks/s, output: 1936.76 toks/s][A
+
+Processed prompts:  77%|███████▋  | 387/500 [08:56<01:13,  1.55it/s, est. speed input: 116.15 toks/s, output: 1938.85 toks/s][A
+
+Processed prompts:  78%|███████▊  | 389/500 [08:57<01:04,  1.71it/s, est. speed input: 116.33 toks/s, output: 1939.11 toks/s][A
+
+Processed prompts:  78%|███████▊  | 391/500 [08:58<00:55,  1.97it/s, est. speed input: 116.55 toks/s, output: 1939.55 toks/s][A
+
+Processed prompts:  78%|███████▊  | 392/500 [08:58<00:46,  2.32it/s, est. speed input: 116.72 toks/s, output: 1940.91 toks/s][A
+
+Processed prompts:  79%|███████▊  | 393/500 [08:59<00:55,  1.93it/s, est. speed input: 116.73 toks/s, output: 1939.48 toks/s][A
+
+Processed prompts:  79%|███████▉  | 395/500 [09:00<01:01,  1.71it/s, est. speed input: 116.82 toks/s, output: 1938.74 toks/s][A
+
+Processed prompts:  79%|███████▉  | 397/500 [09:01<00:56,  1.81it/s, est. speed input: 117.01 toks/s, output: 1940.68 toks/s][A
+
+Processed prompts:  80%|███████▉  | 398/500 [09:02<00:55,  1.82it/s, est. speed input: 117.11 toks/s, output: 1945.55 toks/s][A
+
+Processed prompts:  80%|███████▉  | 399/500 [09:02<01:00,  1.67it/s, est. speed input: 117.13 toks/s, output: 1944.38 toks/s][A[2025-04-22 23:32:35,064] [[33m WARNING[0m]: Sequence group 493 is preempted by PreemptionMode.RECOMPUTE mode because there is not enough KV cache space. This can affect the end-to-end performance. Increase gpu_memory_utilization or tensor_parallel_size to provide more KV cache memory. total_num_cumulative_preemption=1051 (scheduler.py:1560)[0m
+
+
+Processed prompts:  80%|████████  | 400/500 [09:03<01:01,  1.62it/s, est. speed input: 117.19 toks/s, output: 1945.26 toks/s][A
+
+Processed prompts:  80%|████████  | 402/500 [09:04<00:47,  2.06it/s, est. speed input: 117.44 toks/s, output: 1946.70 toks/s][A
+
+Processed prompts:  81%|████████  | 403/500 [09:05<01:02,  1.55it/s, est. speed input: 117.37 toks/s, output: 1944.22 toks/s][A
+
+Processed prompts:  81%|████████  | 406/500 [09:06<00:55,  1.68it/s, est. speed input: 117.68 toks/s, output: 1965.22 toks/s][A
+
+Processed prompts:  81%|████████▏ | 407/500 [09:07<00:54,  1.71it/s, est. speed input: 117.75 toks/s, output: 1965.37 toks/s][A
+
+Processed prompts:  82%|████████▏ | 408/500 [09:07<00:49,  1.84it/s, est. speed input: 117.87 toks/s, output: 1968.13 toks/s][A
+
+Processed prompts:  82%|████████▏ | 409/500 [09:08<00:46,  1.95it/s, est. speed input: 117.97 toks/s, output: 1968.90 toks/s][A
+
+Processed prompts:  82%|████████▏ | 410/500 [09:08<00:41,  2.16it/s, est. speed input: 118.09 toks/s, output: 1969.52 toks/s][A
+
+Processed prompts:  82%|████████▏ | 411/500 [09:09<00:48,  1.83it/s, est. speed input: 118.10 toks/s, output: 1968.43 toks/s][A
+
+Processed prompts:  82%|████████▏ | 412/500 [09:10<00:51,  1.72it/s, est. speed input: 118.13 toks/s, output: 1966.89 toks/s][A
+
+Processed prompts:  83%|████████▎ | 413/500 [09:10<00:45,  1.93it/s, est. speed input: 118.23 toks/s, output: 1966.79 toks/s][A
+
+Processed prompts:  83%|████████▎ | 414/500 [09:11<01:04,  1.34it/s, est. speed input: 118.14 toks/s, output: 1964.54 toks/s][A
+
+Processed prompts:  83%|████████▎ | 415/500 [09:12<01:04,  1.32it/s, est. speed input: 118.15 toks/s, output: 1963.67 toks/s][A
+
+Processed prompts:  83%|████████▎ | 416/500 [09:12<00:53,  1.58it/s, est. speed input: 118.27 toks/s, output: 1964.74 toks/s][A
+
+Processed prompts:  83%|████████▎ | 417/500 [09:13<00:43,  1.89it/s, est. speed input: 118.38 toks/s, output: 1965.25 toks/s][A
+
+Processed prompts:  84%|████████▍ | 419/500 [09:13<00:36,  2.23it/s, est. speed input: 118.59 toks/s, output: 1966.59 toks/s][A
+
+Processed prompts:  84%|████████▍ | 420/500 [09:14<00:32,  2.49it/s, est. speed input: 118.71 toks/s, output: 1966.60 toks/s][A
+
+Processed prompts:  84%|████████▍ | 421/500 [09:14<00:26,  2.94it/s, est. speed input: 118.85 toks/s, output: 1968.18 toks/s][A
+
+Processed prompts:  84%|████████▍ | 422/500 [09:14<00:23,  3.34it/s, est. speed input: 118.98 toks/s, output: 1968.29 toks/s][A
+
+Processed prompts:  85%|████████▍ | 423/500 [09:14<00:23,  3.25it/s, est. speed input: 119.08 toks/s, output: 1968.84 toks/s][A
+
+Processed prompts:  85%|████████▍ | 424/500 [09:15<00:25,  2.94it/s, est. speed input: 119.17 toks/s, output: 1968.45 toks/s][A
+
+Processed prompts:  85%|████████▌ | 426/500 [09:15<00:25,  2.91it/s, est. speed input: 119.37 toks/s, output: 1969.44 toks/s][A
+
+Processed prompts:  85%|████████▌ | 427/500 [09:16<00:22,  3.27it/s, est. speed input: 119.50 toks/s, output: 1969.97 toks/s][A
+
+Processed prompts:  86%|████████▌ | 428/500 [09:16<00:19,  3.64it/s, est. speed input: 119.64 toks/s, output: 1970.88 toks/s][A
+
+Processed prompts:  86%|████████▌ | 429/500 [09:16<00:17,  3.99it/s, est. speed input: 119.78 toks/s, output: 1972.61 toks/s][A
+
+Processed prompts:  86%|████████▌ | 430/500 [09:16<00:19,  3.61it/s, est. speed input: 119.87 toks/s, output: 1972.39 toks/s][A
+
+Processed prompts:  86%|████████▋ | 432/500 [09:16<00:12,  5.41it/s, est. speed input: 120.17 toks/s, output: 1974.01 toks/s][A
+
+Processed prompts:  87%|████████▋ | 433/500 [09:17<00:12,  5.42it/s, est. speed input: 120.30 toks/s, output: 1974.66 toks/s][A
+
+Processed prompts:  87%|████████▋ | 434/500 [09:17<00:14,  4.57it/s, est. speed input: 120.39 toks/s, output: 1974.37 toks/s][A
+
+Processed prompts:  87%|████████▋ | 435/500 [09:17<00:19,  3.39it/s, est. speed input: 120.45 toks/s, output: 1973.79 toks/s][A
+
+Processed prompts:  87%|████████▋ | 436/500 [09:18<00:15,  4.08it/s, est. speed input: 120.60 toks/s, output: 1975.98 toks/s][A
+
+Processed prompts:  88%|████████▊ | 438/500 [09:18<00:14,  4.42it/s, est. speed input: 120.87 toks/s, output: 1978.06 toks/s][A
+
+Processed prompts:  88%|████████▊ | 440/500 [09:18<00:11,  5.36it/s, est. speed input: 121.16 toks/s, output: 1980.42 toks/s][A
+
+Processed prompts:  88%|████████▊ | 441/500 [09:18<00:11,  5.02it/s, est. speed input: 121.27 toks/s, output: 1980.72 toks/s][A
+
+Processed prompts:  88%|████████▊ | 442/500 [09:19<00:10,  5.29it/s, est. speed input: 121.42 toks/s, output: 1982.84 toks/s][A
+
+Processed prompts:  89%|████████▊ | 443/500 [09:19<00:12,  4.44it/s, est. speed input: 121.54 toks/s, output: 1984.81 toks/s][A
+
+Processed prompts:  89%|████████▉ | 444/500 [09:19<00:14,  3.94it/s, est. speed input: 121.63 toks/s, output: 1984.88 toks/s][A
+
+Processed prompts:  89%|████████▉ | 446/500 [09:19<00:09,  5.48it/s, est. speed input: 121.97 toks/s, output: 1991.48 toks/s][A
+
+Processed prompts:  90%|████████▉ | 448/500 [09:20<00:09,  5.43it/s, est. speed input: 122.21 toks/s, output: 1992.56 toks/s][A
+
+Processed prompts:  90%|████████▉ | 449/500 [09:20<00:09,  5.49it/s, est. speed input: 122.34 toks/s, output: 1993.63 toks/s][A
+
+Processed prompts:  90%|█████████ | 450/500 [09:20<00:10,  4.86it/s, est. speed input: 122.45 toks/s, output: 1994.05 toks/s][A
+
+Processed prompts:  90%|█████████ | 452/500 [09:20<00:07,  6.50it/s, est. speed input: 122.78 toks/s, output: 1999.49 toks/s][A
+
+Processed prompts:  91%|█████████ | 453/500 [09:21<00:08,  5.49it/s, est. speed input: 122.90 toks/s, output: 2000.64 toks/s][A
+
+Processed prompts:  91%|█████████ | 454/500 [09:21<00:08,  5.73it/s, est. speed input: 123.10 toks/s, output: 2019.28 toks/s][A
+
+Processed prompts:  91%|█████████ | 455/500 [09:22<00:13,  3.33it/s, est. speed input: 123.13 toks/s, output: 2018.87 toks/s][A
+
+Processed prompts:  91%|█████████ | 456/500 [09:22<00:14,  2.99it/s, est. speed input: 123.21 toks/s, output: 2019.25 toks/s][A
+
+Processed prompts:  91%|█████████▏| 457/500 [09:22<00:12,  3.32it/s, est. speed input: 123.32 toks/s, output: 2019.90 toks/s][A
+
+Processed prompts:  92%|█████████▏| 458/500 [09:24<00:28,  1.50it/s, est. speed input: 123.17 toks/s, output: 2019.30 toks/s][A
+
+Processed prompts:  92%|█████████▏| 459/500 [09:24<00:25,  1.59it/s, est. speed input: 123.23 toks/s, output: 2019.55 toks/s][A
+
+Processed prompts:  92%|█████████▏| 461/500 [09:25<00:22,  1.76it/s, est. speed input: 123.37 toks/s, output: 2021.62 toks/s][A
+
+Processed prompts:  92%|█████████▏| 462/500 [09:26<00:21,  1.76it/s, est. speed input: 123.42 toks/s, output: 2022.76 toks/s][A
+
+Processed prompts:  93%|█████████▎| 463/500 [09:27<00:24,  1.51it/s, est. speed input: 123.38 toks/s, output: 2021.24 toks/s][A
+
+Processed prompts:  93%|█████████▎| 464/500 [09:27<00:20,  1.74it/s, est. speed input: 123.48 toks/s, output: 2023.38 toks/s][A
+
+Processed prompts:  93%|█████████▎| 465/500 [09:29<00:34,  1.02it/s, est. speed input: 123.23 toks/s, output: 2020.34 toks/s][A
+
+Processed prompts:  93%|█████████▎| 466/500 [09:30<00:31,  1.08it/s, est. speed input: 123.27 toks/s, output: 2026.43 toks/s][A
+
+Processed prompts:  93%|█████████▎| 467/500 [09:30<00:24,  1.34it/s, est. speed input: 123.40 toks/s, output: 2030.80 toks/s][A
+
+Processed prompts:  94%|█████████▎| 468/500 [09:30<00:18,  1.72it/s, est. speed input: 123.52 toks/s, output: 2032.26 toks/s][A
+
+Processed prompts:  94%|█████████▍| 469/500 [09:32<00:27,  1.11it/s, est. speed input: 123.33 toks/s, output: 2028.73 toks/s][A
+
+Processed prompts:  94%|█████████▍| 470/500 [09:32<00:20,  1.43it/s, est. speed input: 123.44 toks/s, output: 2030.26 toks/s][A
+
+Processed prompts:  94%|█████████▍| 471/500 [09:36<00:42,  1.46s/it, est. speed input: 122.90 toks/s, output: 2021.29 toks/s][A
+
+Processed prompts:  94%|█████████▍| 472/500 [09:36<00:35,  1.26s/it, est. speed input: 122.94 toks/s, output: 2027.23 toks/s][A
+
+Processed prompts:  95%|█████████▍| 473/500 [09:37<00:30,  1.12s/it, est. speed input: 122.95 toks/s, output: 2028.88 toks/s][A
+
+Processed prompts:  95%|█████████▍| 474/500 [09:37<00:21,  1.21it/s, est. speed input: 123.11 toks/s, output: 2033.70 toks/s][A
+
+Processed prompts:  95%|█████████▌| 475/500 [09:38<00:16,  1.55it/s, est. speed input: 123.22 toks/s, output: 2035.55 toks/s][A
+
+Processed prompts:  95%|█████████▌| 476/500 [09:38<00:16,  1.46it/s, est. speed input: 123.27 toks/s, output: 2050.97 toks/s][A
+
+Processed prompts:  95%|█████████▌| 477/500 [09:39<00:16,  1.37it/s, est. speed input: 123.26 toks/s, output: 2050.98 toks/s][A
+
+Processed prompts:  96%|█████████▌| 479/500 [09:44<00:30,  1.47s/it, est. speed input: 122.63 toks/s, output: 2044.19 toks/s][A
+
+Processed prompts:  96%|█████████▌| 480/500 [09:44<00:23,  1.17s/it, est. speed input: 122.76 toks/s, output: 2049.37 toks/s][A
+
+Processed prompts:  96%|█████████▌| 481/500 [09:44<00:17,  1.07it/s, est. speed input: 122.86 toks/s, output: 2051.70 toks/s][A
+
+Processed prompts:  96%|█████████▋| 482/500 [09:47<00:23,  1.31s/it, est. speed input: 122.54 toks/s, output: 2047.53 toks/s][A
+
+Processed prompts:  97%|█████████▋| 483/500 [09:49<00:25,  1.51s/it, est. speed input: 122.29 toks/s, output: 2044.82 toks/s][A
+
+Processed prompts:  97%|█████████▋| 484/500 [09:50<00:24,  1.56s/it, est. speed input: 122.09 toks/s, output: 2042.67 toks/s][A
+
+Processed prompts:  97%|█████████▋| 485/500 [09:52<00:22,  1.53s/it, est. speed input: 121.99 toks/s, output: 2045.79 toks/s][A
+
+Processed prompts:  97%|█████████▋| 486/500 [09:53<00:19,  1.38s/it, est. speed input: 121.97 toks/s, output: 2049.15 toks/s][A
+
+Processed prompts:  97%|█████████▋| 487/500 [09:53<00:13,  1.02s/it, est. speed input: 122.10 toks/s, output: 2052.92 toks/s][A
+
+Processed prompts:  98%|█████████▊| 488/500 [09:55<00:14,  1.17s/it, est. speed input: 121.96 toks/s, output: 2053.15 toks/s][A
+
+Processed prompts:  98%|█████████▊| 489/500 [09:55<00:10,  1.06it/s, est. speed input: 122.05 toks/s, output: 2057.80 toks/s][A
+
+Processed prompts:  98%|█████████▊| 490/500 [10:09<00:47,  4.72s/it, est. speed input: 119.48 toks/s, output: 2017.31 toks/s][A
+
+Processed prompts:  98%|█████████▊| 491/500 [10:09<00:31,  3.46s/it, est. speed input: 119.55 toks/s, output: 2022.19 toks/s][A
+
+Processed prompts:  98%|█████████▊| 492/500 [10:19<00:42,  5.26s/it, est. speed input: 117.88 toks/s, output: 1997.59 toks/s][A
+
+Processed prompts:  99%|█████████▊| 493/500 [10:20<00:29,  4.24s/it, est. speed input: 117.69 toks/s, output: 1998.91 toks/s][A
+
+Processed prompts:  99%|█████████▉| 494/500 [10:33<00:39,  6.65s/it, est. speed input: 115.61 toks/s, output: 1980.23 toks/s][A
+
+Processed prompts:  99%|█████████▉| 495/500 [10:42<00:36,  7.33s/it, est. speed input: 114.16 toks/s, output: 1961.17 toks/s][A
+
+Processed prompts:  99%|█████████▉| 496/500 [10:46<00:26,  6.53s/it, est. speed input: 113.52 toks/s, output: 1960.23 toks/s][A
+
+Processed prompts:  99%|█████████▉| 497/500 [10:52<00:19,  6.41s/it, est. speed input: 112.61 toks/s, output: 1950.77 toks/s][A
+
+Processed prompts: 100%|█████████▉| 498/500 [10:57<00:11,  5.72s/it, est. speed input: 112.20 toks/s, output: 1987.02 toks/s][A
+
+Processed prompts: 100%|█████████▉| 499/500 [11:04<00:06,  6.31s/it, est. speed input: 111.09 toks/s, output: 1980.11 toks/s][A
+
+Processed prompts: 100%|██████████| 500/500 [11:18<00:00,  8.69s/it, est. speed input: 108.95 toks/s, output: 1964.85 toks/s][A
+Processed prompts: 100%|██████████| 500/500 [11:18<00:00,  1.36s/it, est. speed input: 108.95 toks/s, output: 1964.85 toks/s]
+
+Splits: 100%|██████████| 1/1 [11:19<00:00, 679.53s/it]
+Splits: 100%|██████████| 1/1 [11:19<00:00, 679.53s/it]
+[2025-04-22 23:34:52,069] [[32m    INFO[0m]: --- COMPUTING METRICS --- (pipeline.py:504)[0m
+[2025-04-22 23:34:53,850] [[32m    INFO[0m]: --- DISPLAYING RESULTS --- (pipeline.py:546)[0m
+[2025-04-22 23:34:53,860] [[32m    INFO[0m]: --- SAVING AND PUSHING RESULTS --- (pipeline.py:536)[0m
+[2025-04-22 23:34:53,860] [[32m    INFO[0m]: Saving experiment tracker (evaluation_tracker.py:180)[0m
+[2025-04-22 23:34:54,605] [[32m    INFO[0m]: Saving results to ~/Projects/nips25_slot/open-r2/data/evals~/Models/deepseek-ai/DeepSeek-R1-Distill-Qwen-7B/results/_Models_deepseek-ai_DeepSeek-R1-Distill-Qwen-7B/results_2025-04-22T23-34-53.860278.json (evaluation_tracker.py:234)[0m
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([29685, 3584]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25_slot/open-r2/lm_head/DeepSeek-R1-Distill-Qwen-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([155, 3584]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25_slot/open-r2/lm_head/DeepSeek-R1-Distill-Qwen-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([154, 3584]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25_slot/open-r2/lm_head/DeepSeek-R1-Distill-Qwen-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([154, 3584]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25_slot/open-r2/lm_head/DeepSeek-R1-Distill-Qwen-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([153, 3584]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25_slot/open-r2/lm_head/DeepSeek-R1-Distill-Qwen-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([152, 3584]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25_slot/open-r2/lm_head/DeepSeek-R1-Distill-Qwen-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([152, 3584]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25_slot/open-r2/lm_head/DeepSeek-R1-Distill-Qwen-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([152, 3584]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25_slot/open-r2/lm_head/DeepSeek-R1-Distill-Qwen-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([152, 3584]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25_slot/open-r2/lm_head/DeepSeek-R1-Distill-Qwen-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([152, 3584]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25_slot/open-r2/lm_head/DeepSeek-R1-Distill-Qwen-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([152, 3584]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25_slot/open-r2/lm_head/DeepSeek-R1-Distill-Qwen-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([151, 3584]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25_slot/open-r2/lm_head/DeepSeek-R1-Distill-Qwen-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([151, 3584]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25_slot/open-r2/lm_head/DeepSeek-R1-Distill-Qwen-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([151, 3584]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25_slot/open-r2/lm_head/DeepSeek-R1-Distill-Qwen-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([150, 3584]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25_slot/open-r2/lm_head/DeepSeek-R1-Distill-Qwen-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([150, 3584]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25_slot/open-r2/lm_head/DeepSeek-R1-Distill-Qwen-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([150, 3584]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25_slot/open-r2/lm_head/DeepSeek-R1-Distill-Qwen-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([150, 3584]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25_slot/open-r2/lm_head/DeepSeek-R1-Distill-Qwen-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([1683, 3584]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25_slot/open-r2/lm_head/DeepSeek-R1-Distill-Qwen-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([1805, 3584]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25_slot/open-r2/lm_head/DeepSeek-R1-Distill-Qwen-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([1826, 3584]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25_slot/open-r2/lm_head/DeepSeek-R1-Distill-Qwen-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([1849, 3584]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25_slot/open-r2/lm_head/DeepSeek-R1-Distill-Qwen-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([1762, 3584]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25_slot/open-r2/lm_head/DeepSeek-R1-Distill-Qwen-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([1741, 3584]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25_slot/open-r2/lm_head/DeepSeek-R1-Distill-Qwen-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([1764, 3584]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25_slot/open-r2/lm_head/DeepSeek-R1-Distill-Qwen-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([2111, 3584]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25_slot/open-r2/lm_head/DeepSeek-R1-Distill-Qwen-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([2412, 3584]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25_slot/open-r2/lm_head/DeepSeek-R1-Distill-Qwen-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([2374, 3584]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25_slot/open-r2/lm_head/DeepSeek-R1-Distill-Qwen-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([2528, 3584]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25_slot/open-r2/lm_head/DeepSeek-R1-Distill-Qwen-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([2411, 3584]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25_slot/open-r2/lm_head/DeepSeek-R1-Distill-Qwen-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([2448, 3584]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25_slot/open-r2/lm_head/DeepSeek-R1-Distill-Qwen-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([2338, 3584]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25_slot/open-r2/lm_head/DeepSeek-R1-Distill-Qwen-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([2583, 3584]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25_slot/open-r2/lm_head/DeepSeek-R1-Distill-Qwen-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([2423, 3584]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25_slot/open-r2/lm_head/DeepSeek-R1-Distill-Qwen-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([2683, 3584]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25_slot/open-r2/lm_head/DeepSeek-R1-Distill-Qwen-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([3107, 3584]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25_slot/open-r2/lm_head/DeepSeek-R1-Distill-Qwen-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([3045, 3584]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25_slot/open-r2/lm_head/DeepSeek-R1-Distill-Qwen-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([2716, 3584]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25_slot/open-r2/lm_head/DeepSeek-R1-Distill-Qwen-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([3316, 3584]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25_slot/open-r2/lm_head/DeepSeek-R1-Distill-Qwen-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([3794, 3584]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25_slot/open-r2/lm_head/DeepSeek-R1-Distill-Qwen-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([4200, 3584]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25_slot/open-r2/lm_head/DeepSeek-R1-Distill-Qwen-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([4327, 3584]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25_slot/open-r2/lm_head/DeepSeek-R1-Distill-Qwen-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([4447, 3584]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25_slot/open-r2/lm_head/DeepSeek-R1-Distill-Qwen-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([5004, 3584]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25_slot/open-r2/lm_head/DeepSeek-R1-Distill-Qwen-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([5249, 3584]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25_slot/open-r2/lm_head/DeepSeek-R1-Distill-Qwen-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([5727, 3584]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25_slot/open-r2/lm_head/DeepSeek-R1-Distill-Qwen-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([5921, 3584]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25_slot/open-r2/lm_head/DeepSeek-R1-Distill-Qwen-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([5987, 3584]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25_slot/open-r2/lm_head/DeepSeek-R1-Distill-Qwen-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([6091, 3584]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25_slot/open-r2/lm_head/DeepSeek-R1-Distill-Qwen-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([7022, 3584]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25_slot/open-r2/lm_head/DeepSeek-R1-Distill-Qwen-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([6166, 3584]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25_slot/open-r2/lm_head/DeepSeek-R1-Distill-Qwen-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([7611, 3584]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25_slot/open-r2/lm_head/DeepSeek-R1-Distill-Qwen-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([8520, 3584]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25_slot/open-r2/lm_head/DeepSeek-R1-Distill-Qwen-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([7922, 3584]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25_slot/open-r2/lm_head/DeepSeek-R1-Distill-Qwen-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([6346, 3584]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25_slot/open-r2/lm_head/DeepSeek-R1-Distill-Qwen-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([5325, 3584]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25_slot/open-r2/lm_head/DeepSeek-R1-Distill-Qwen-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([4850, 3584]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25_slot/open-r2/lm_head/DeepSeek-R1-Distill-Qwen-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([12571, 3584]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25_slot/open-r2/lm_head/DeepSeek-R1-Distill-Qwen-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([8698, 3584]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25_slot/open-r2/lm_head/DeepSeek-R1-Distill-Qwen-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([10843, 3584]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25_slot/open-r2/lm_head/DeepSeek-R1-Distill-Qwen-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([8130, 3584]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25_slot/open-r2/lm_head/DeepSeek-R1-Distill-Qwen-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([3508, 3584]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25_slot/open-r2/lm_head/DeepSeek-R1-Distill-Qwen-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([8084, 3584]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25_slot/open-r2/lm_head/DeepSeek-R1-Distill-Qwen-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([9573, 3584]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25_slot/open-r2/lm_head/DeepSeek-R1-Distill-Qwen-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([1654, 3584]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25_slot/open-r2/lm_head/DeepSeek-R1-Distill-Qwen-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([7230, 3584]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25_slot/open-r2/lm_head/DeepSeek-R1-Distill-Qwen-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([899, 3584]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25_slot/open-r2/lm_head/DeepSeek-R1-Distill-Qwen-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([3788, 3584]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25_slot/open-r2/lm_head/DeepSeek-R1-Distill-Qwen-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([571, 3584]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25_slot/open-r2/lm_head/DeepSeek-R1-Distill-Qwen-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([1655, 3584]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25_slot/open-r2/lm_head/DeepSeek-R1-Distill-Qwen-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([11162, 3584]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25_slot/open-r2/lm_head/DeepSeek-R1-Distill-Qwen-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([2002, 3584]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25_slot/open-r2/lm_head/DeepSeek-R1-Distill-Qwen-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([12960, 3584]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25_slot/open-r2/lm_head/DeepSeek-R1-Distill-Qwen-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([6491, 3584]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25_slot/open-r2/lm_head/DeepSeek-R1-Distill-Qwen-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([1250, 3584]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25_slot/open-r2/lm_head/DeepSeek-R1-Distill-Qwen-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([1712, 3584]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25_slot/open-r2/lm_head/DeepSeek-R1-Distill-Qwen-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([5403, 3584]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25_slot/open-r2/lm_head/DeepSeek-R1-Distill-Qwen-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([992, 3584]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25_slot/open-r2/lm_head/DeepSeek-R1-Distill-Qwen-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([808, 3584]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25_slot/open-r2/lm_head/DeepSeek-R1-Distill-Qwen-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([8612, 3584]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25_slot/open-r2/lm_head/DeepSeek-R1-Distill-Qwen-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([9194, 3584]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25_slot/open-r2/lm_head/DeepSeek-R1-Distill-Qwen-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([4041, 3584]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25_slot/open-r2/lm_head/DeepSeek-R1-Distill-Qwen-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([6316, 3584]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25_slot/open-r2/lm_head/DeepSeek-R1-Distill-Qwen-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([22268, 3584]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25_slot/open-r2/lm_head/DeepSeek-R1-Distill-Qwen-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([538, 3584]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25_slot/open-r2/lm_head/DeepSeek-R1-Distill-Qwen-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([9071, 3584]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25_slot/open-r2/lm_head/DeepSeek-R1-Distill-Qwen-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([684, 3584]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25_slot/open-r2/lm_head/DeepSeek-R1-Distill-Qwen-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([669, 3584]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25_slot/open-r2/lm_head/DeepSeek-R1-Distill-Qwen-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([1267, 3584]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25_slot/open-r2/lm_head/DeepSeek-R1-Distill-Qwen-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([1004, 3584]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25_slot/open-r2/lm_head/DeepSeek-R1-Distill-Qwen-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([1218, 3584]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25_slot/open-r2/lm_head/DeepSeek-R1-Distill-Qwen-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([14822, 3584]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25_slot/open-r2/lm_head/DeepSeek-R1-Distill-Qwen-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([7261, 3584]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25_slot/open-r2/lm_head/DeepSeek-R1-Distill-Qwen-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([1484, 3584]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25_slot/open-r2/lm_head/DeepSeek-R1-Distill-Qwen-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([1344, 3584]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25_slot/open-r2/lm_head/DeepSeek-R1-Distill-Qwen-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([1949, 3584]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25_slot/open-r2/lm_head/DeepSeek-R1-Distill-Qwen-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([990, 3584]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25_slot/open-r2/lm_head/DeepSeek-R1-Distill-Qwen-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([540, 3584]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25_slot/open-r2/lm_head/DeepSeek-R1-Distill-Qwen-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([14926, 3584]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25_slot/open-r2/lm_head/DeepSeek-R1-Distill-Qwen-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([120, 3584]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25_slot/open-r2/lm_head/DeepSeek-R1-Distill-Qwen-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([449, 3584]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25_slot/open-r2/lm_head/DeepSeek-R1-Distill-Qwen-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([193, 3584]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25_slot/open-r2/lm_head/DeepSeek-R1-Distill-Qwen-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([1351, 3584]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25_slot/open-r2/lm_head/DeepSeek-R1-Distill-Qwen-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([359, 3584]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25_slot/open-r2/lm_head/DeepSeek-R1-Distill-Qwen-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([497, 3584]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25_slot/open-r2/lm_head/DeepSeek-R1-Distill-Qwen-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([965, 3584]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25_slot/open-r2/lm_head/DeepSeek-R1-Distill-Qwen-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([1177, 3584]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25_slot/open-r2/lm_head/DeepSeek-R1-Distill-Qwen-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([711, 3584]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25_slot/open-r2/lm_head/DeepSeek-R1-Distill-Qwen-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([696, 3584]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25_slot/open-r2/lm_head/DeepSeek-R1-Distill-Qwen-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([2503, 3584]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25_slot/open-r2/lm_head/DeepSeek-R1-Distill-Qwen-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([5436, 3584]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25_slot/open-r2/lm_head/DeepSeek-R1-Distill-Qwen-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([1279, 3584]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25_slot/open-r2/lm_head/DeepSeek-R1-Distill-Qwen-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([612, 3584]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25_slot/open-r2/lm_head/DeepSeek-R1-Distill-Qwen-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([571, 3584]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25_slot/open-r2/lm_head/DeepSeek-R1-Distill-Qwen-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([1164, 3584]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25_slot/open-r2/lm_head/DeepSeek-R1-Distill-Qwen-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([1496, 3584]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25_slot/open-r2/lm_head/DeepSeek-R1-Distill-Qwen-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([2216, 3584]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25_slot/open-r2/lm_head/DeepSeek-R1-Distill-Qwen-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([1513, 3584]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25_slot/open-r2/lm_head/DeepSeek-R1-Distill-Qwen-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([945, 3584]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25_slot/open-r2/lm_head/DeepSeek-R1-Distill-Qwen-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([2567, 3584]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25_slot/open-r2/lm_head/DeepSeek-R1-Distill-Qwen-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([982, 3584]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25_slot/open-r2/lm_head/DeepSeek-R1-Distill-Qwen-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([2265, 3584]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25_slot/open-r2/lm_head/DeepSeek-R1-Distill-Qwen-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([2445, 3584]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25_slot/open-r2/lm_head/DeepSeek-R1-Distill-Qwen-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([532, 3584]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25_slot/open-r2/lm_head/DeepSeek-R1-Distill-Qwen-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([2085, 3584]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25_slot/open-r2/lm_head/DeepSeek-R1-Distill-Qwen-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([17388, 3584]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25_slot/open-r2/lm_head/DeepSeek-R1-Distill-Qwen-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([2064, 3584]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25_slot/open-r2/lm_head/DeepSeek-R1-Distill-Qwen-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([1114, 3584]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25_slot/open-r2/lm_head/DeepSeek-R1-Distill-Qwen-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([519, 3584]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25_slot/open-r2/lm_head/DeepSeek-R1-Distill-Qwen-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([2082, 3584]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25_slot/open-r2/lm_head/DeepSeek-R1-Distill-Qwen-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([453, 3584]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25_slot/open-r2/lm_head/DeepSeek-R1-Distill-Qwen-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([1463, 3584]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25_slot/open-r2/lm_head/DeepSeek-R1-Distill-Qwen-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([1815, 3584]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25_slot/open-r2/lm_head/DeepSeek-R1-Distill-Qwen-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([1983, 3584]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25_slot/open-r2/lm_head/DeepSeek-R1-Distill-Qwen-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([1029, 3584]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25_slot/open-r2/lm_head/DeepSeek-R1-Distill-Qwen-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([3866, 3584]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25_slot/open-r2/lm_head/DeepSeek-R1-Distill-Qwen-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([3405, 3584]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25_slot/open-r2/lm_head/DeepSeek-R1-Distill-Qwen-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([3857, 3584]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25_slot/open-r2/lm_head/DeepSeek-R1-Distill-Qwen-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([5191, 3584]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25_slot/open-r2/lm_head/DeepSeek-R1-Distill-Qwen-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([15064, 3584]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25_slot/open-r2/lm_head/DeepSeek-R1-Distill-Qwen-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([1275, 3584]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25_slot/open-r2/lm_head/DeepSeek-R1-Distill-Qwen-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([3814, 3584]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25_slot/open-r2/lm_head/DeepSeek-R1-Distill-Qwen-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([7111, 3584]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25_slot/open-r2/lm_head/DeepSeek-R1-Distill-Qwen-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([4054, 3584]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25_slot/open-r2/lm_head/DeepSeek-R1-Distill-Qwen-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([605, 3584]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25_slot/open-r2/lm_head/DeepSeek-R1-Distill-Qwen-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([2073, 3584]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25_slot/open-r2/lm_head/DeepSeek-R1-Distill-Qwen-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([1273, 3584]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25_slot/open-r2/lm_head/DeepSeek-R1-Distill-Qwen-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([3694, 3584]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25_slot/open-r2/lm_head/DeepSeek-R1-Distill-Qwen-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([730, 3584]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25_slot/open-r2/lm_head/DeepSeek-R1-Distill-Qwen-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([3070, 3584]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25_slot/open-r2/lm_head/DeepSeek-R1-Distill-Qwen-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([6379, 3584]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25_slot/open-r2/lm_head/DeepSeek-R1-Distill-Qwen-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([1275, 3584]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25_slot/open-r2/lm_head/DeepSeek-R1-Distill-Qwen-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([2093, 3584]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25_slot/open-r2/lm_head/DeepSeek-R1-Distill-Qwen-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([3896, 3584]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25_slot/open-r2/lm_head/DeepSeek-R1-Distill-Qwen-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([8061, 3584]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25_slot/open-r2/lm_head/DeepSeek-R1-Distill-Qwen-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([23404, 3584]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25_slot/open-r2/lm_head/DeepSeek-R1-Distill-Qwen-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([6059, 3584]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25_slot/open-r2/lm_head/DeepSeek-R1-Distill-Qwen-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([8722, 3584]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25_slot/open-r2/lm_head/DeepSeek-R1-Distill-Qwen-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([7361, 3584]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25_slot/open-r2/lm_head/DeepSeek-R1-Distill-Qwen-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([880, 3584]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25_slot/open-r2/lm_head/DeepSeek-R1-Distill-Qwen-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([845, 3584]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25_slot/open-r2/lm_head/DeepSeek-R1-Distill-Qwen-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([4751, 3584]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25_slot/open-r2/lm_head/DeepSeek-R1-Distill-Qwen-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([543, 3584]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25_slot/open-r2/lm_head/DeepSeek-R1-Distill-Qwen-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([670, 3584]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25_slot/open-r2/lm_head/DeepSeek-R1-Distill-Qwen-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([9814, 3584]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25_slot/open-r2/lm_head/DeepSeek-R1-Distill-Qwen-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([2197, 3584]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25_slot/open-r2/lm_head/DeepSeek-R1-Distill-Qwen-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([5277, 3584]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25_slot/open-r2/lm_head/DeepSeek-R1-Distill-Qwen-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([4992, 3584]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25_slot/open-r2/lm_head/DeepSeek-R1-Distill-Qwen-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([334, 3584]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25_slot/open-r2/lm_head/DeepSeek-R1-Distill-Qwen-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([716, 3584]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25_slot/open-r2/lm_head/DeepSeek-R1-Distill-Qwen-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([656, 3584]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25_slot/open-r2/lm_head/DeepSeek-R1-Distill-Qwen-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([4368, 3584]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25_slot/open-r2/lm_head/DeepSeek-R1-Distill-Qwen-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([1185, 3584]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25_slot/open-r2/lm_head/DeepSeek-R1-Distill-Qwen-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([7490, 3584]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25_slot/open-r2/lm_head/DeepSeek-R1-Distill-Qwen-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([6655, 3584]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25_slot/open-r2/lm_head/DeepSeek-R1-Distill-Qwen-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([104, 3584]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25_slot/open-r2/lm_head/DeepSeek-R1-Distill-Qwen-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([104, 3584]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25_slot/open-r2/lm_head/DeepSeek-R1-Distill-Qwen-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([703, 3584]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25_slot/open-r2/lm_head/DeepSeek-R1-Distill-Qwen-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([230, 3584]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25_slot/open-r2/lm_head/DeepSeek-R1-Distill-Qwen-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([7428, 3584]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25_slot/open-r2/lm_head/DeepSeek-R1-Distill-Qwen-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([103, 3584]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25_slot/open-r2/lm_head/DeepSeek-R1-Distill-Qwen-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([528, 3584]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25_slot/open-r2/lm_head/DeepSeek-R1-Distill-Qwen-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([1003, 3584]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25_slot/open-r2/lm_head/DeepSeek-R1-Distill-Qwen-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([1487, 3584]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25_slot/open-r2/lm_head/DeepSeek-R1-Distill-Qwen-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([472, 3584]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25_slot/open-r2/lm_head/DeepSeek-R1-Distill-Qwen-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([821, 3584]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25_slot/open-r2/lm_head/DeepSeek-R1-Distill-Qwen-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([2315, 3584]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25_slot/open-r2/lm_head/DeepSeek-R1-Distill-Qwen-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([827, 3584]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25_slot/open-r2/lm_head/DeepSeek-R1-Distill-Qwen-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([1120, 3584]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25_slot/open-r2/lm_head/DeepSeek-R1-Distill-Qwen-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([503, 3584]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25_slot/open-r2/lm_head/DeepSeek-R1-Distill-Qwen-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([664, 3584]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25_slot/open-r2/lm_head/DeepSeek-R1-Distill-Qwen-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([529, 3584]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25_slot/open-r2/lm_head/DeepSeek-R1-Distill-Qwen-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([903, 3584]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25_slot/open-r2/lm_head/DeepSeek-R1-Distill-Qwen-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([7916, 3584]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25_slot/open-r2/lm_head/DeepSeek-R1-Distill-Qwen-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([691, 3584]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25_slot/open-r2/lm_head/DeepSeek-R1-Distill-Qwen-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([1433, 3584]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25_slot/open-r2/lm_head/DeepSeek-R1-Distill-Qwen-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([817, 3584]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25_slot/open-r2/lm_head/DeepSeek-R1-Distill-Qwen-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([636, 3584]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25_slot/open-r2/lm_head/DeepSeek-R1-Distill-Qwen-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([388, 3584]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25_slot/open-r2/lm_head/DeepSeek-R1-Distill-Qwen-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([1418, 3584]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25_slot/open-r2/lm_head/DeepSeek-R1-Distill-Qwen-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([715, 3584]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25_slot/open-r2/lm_head/DeepSeek-R1-Distill-Qwen-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([776, 3584]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25_slot/open-r2/lm_head/DeepSeek-R1-Distill-Qwen-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([1246, 3584]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25_slot/open-r2/lm_head/DeepSeek-R1-Distill-Qwen-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([562, 3584]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25_slot/open-r2/lm_head/DeepSeek-R1-Distill-Qwen-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([1268, 3584]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25_slot/open-r2/lm_head/DeepSeek-R1-Distill-Qwen-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([2502, 3584]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25_slot/open-r2/lm_head/DeepSeek-R1-Distill-Qwen-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([1003, 3584]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25_slot/open-r2/lm_head/DeepSeek-R1-Distill-Qwen-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([971, 3584]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25_slot/open-r2/lm_head/DeepSeek-R1-Distill-Qwen-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([180, 3584]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25_slot/open-r2/lm_head/DeepSeek-R1-Distill-Qwen-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([802, 3584]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25_slot/open-r2/lm_head/DeepSeek-R1-Distill-Qwen-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([1525, 3584]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25_slot/open-r2/lm_head/DeepSeek-R1-Distill-Qwen-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([1347, 3584]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25_slot/open-r2/lm_head/DeepSeek-R1-Distill-Qwen-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([382, 3584]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25_slot/open-r2/lm_head/DeepSeek-R1-Distill-Qwen-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([1085, 3584]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25_slot/open-r2/lm_head/DeepSeek-R1-Distill-Qwen-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([1373, 3584]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25_slot/open-r2/lm_head/DeepSeek-R1-Distill-Qwen-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([746, 3584]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25_slot/open-r2/lm_head/DeepSeek-R1-Distill-Qwen-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([1453, 3584]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25_slot/open-r2/lm_head/DeepSeek-R1-Distill-Qwen-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([952, 3584]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25_slot/open-r2/lm_head/DeepSeek-R1-Distill-Qwen-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([2309, 3584]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25_slot/open-r2/lm_head/DeepSeek-R1-Distill-Qwen-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([1203, 3584]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25_slot/open-r2/lm_head/DeepSeek-R1-Distill-Qwen-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([1716, 3584]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25_slot/open-r2/lm_head/DeepSeek-R1-Distill-Qwen-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([227, 3584]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25_slot/open-r2/lm_head/DeepSeek-R1-Distill-Qwen-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([618, 3584]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25_slot/open-r2/lm_head/DeepSeek-R1-Distill-Qwen-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([790, 3584]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25_slot/open-r2/lm_head/DeepSeek-R1-Distill-Qwen-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([3604, 3584]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25_slot/open-r2/lm_head/DeepSeek-R1-Distill-Qwen-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([1484, 3584]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25_slot/open-r2/lm_head/DeepSeek-R1-Distill-Qwen-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([85, 3584]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25_slot/open-r2/lm_head/DeepSeek-R1-Distill-Qwen-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([945, 3584]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25_slot/open-r2/lm_head/DeepSeek-R1-Distill-Qwen-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([824, 3584]), torch.bfloat16
+Loading lm_local from: ~/Projects/nips25_slot/open-r2/lm_head/DeepSeek-R1-Distill-Qwen-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+|        Task        |Version|     Metric     |Value|   |Stderr|
+|--------------------|------:|----------------|----:|---|-----:|
+|all                 |       |extractive_match|0.938|±  |0.0108|
+|lighteval:math_500:0|      1|extractive_match|0.938|±  |0.0108|
+

@@ -1,0 +1,266 @@
+[2025-04-12 10:56:55,586] [[32m    INFO[0m]: PyTorch version 2.5.1 available. (config.py:54)[0m
+INFO 04-12 10:57:03 __init__.py:190] Automatically detected platform cuda.
+[2025-04-12 10:57:04,051] [[32m    INFO[0m]: --- LOADING MODEL --- (pipeline.py:189)[0m
+[2025-04-12 10:57:11,830] [[32m    INFO[0m]: This model supports multiple tasks: {'reward', 'classify', 'embed', 'score', 'generate'}. Defaulting to 'generate'. (config.py:542)[0m
+[2025-04-12 10:57:12,014] [[32m    INFO[0m]: Defaulting to use mp for distributed inference (config.py:1401)[0m
+[2025-04-12 10:57:12,018] [[32m    INFO[0m]: Initializing a V0 LLM engine (v0.7.2) with config: model='~/Models/LLM-Research/Meta-Llama-3.1-8B-Instruct', speculative_config=None, tokenizer='~/Models/LLM-Research/Meta-Llama-3.1-8B-Instruct', skip_tokenizer_init=False, tokenizer_mode=auto, revision=main, override_neuron_config=None, tokenizer_revision=main, trust_remote_code=False, dtype=torch.bfloat16, max_seq_len=32768, download_dir=None, load_format=LoadFormat.AUTO, tensor_parallel_size=8, pipeline_parallel_size=1, disable_custom_all_reduce=False, quantization=None, enforce_eager=False, kv_cache_dtype=auto,  device_config=cuda, decoding_config=DecodingConfig(guided_decoding_backend='xgrammar'), observability_config=ObservabilityConfig(otlp_traces_endpoint=None, collect_model_forward_time=False, collect_model_execute_time=False), seed=1234, served_model_name=~/Models/LLM-Research/Meta-Llama-3.1-8B-Instruct, num_scheduler_steps=1, multi_step_stream_outputs=True, enable_prefix_caching=False, chunked_prefill_enabled=False, use_async_output_proc=True, disable_mm_preprocessor_cache=False, mm_processor_kwargs=None, pooler_config=None, compilation_config={"splitting_ops":[],"compile_sizes":[],"cudagraph_capture_sizes":[128,120,112,104,96,88,80,72,64,56,48,40,32,24,16,8,4,2,1],"max_capture_size":128}, use_cached_outputs=False,  (llm_engine.py:234)[0m
+[2025-04-12 10:57:12,283] [[33m WARNING[0m]: Reducing Torch parallelism from 64 threads to 1 to avoid unnecessary CPU contention. Set OMP_NUM_THREADS in the external environment to tune this value as needed. (multiproc_worker_utils.py:300)[0m
+[2025-04-12 10:57:12,298] [[32m    INFO[0m]: Setting Triton cache manager to: vllm.triton_utils.custom_cache_manager:CustomCacheManager (custom_cache_manager.py:19)[0m
+[2025-04-12 10:57:13,021] [[32m    INFO[0m]: Using Flash Attention backend. (cuda.py:230)[0m
+INFO 04-12 10:57:17 __init__.py:190] Automatically detected platform cuda.
+INFO 04-12 10:57:18 __init__.py:190] Automatically detected platform cuda.
+INFO 04-12 10:57:18 __init__.py:190] Automatically detected platform cuda.
+INFO 04-12 10:57:18 __init__.py:190] Automatically detected platform cuda.
+INFO 04-12 10:57:18 __init__.py:190] Automatically detected platform cuda.
+INFO 04-12 10:57:18 __init__.py:190] Automatically detected platform cuda.
+INFO 04-12 10:57:18 __init__.py:190] Automatically detected platform cuda.
+[1;36m(VllmWorkerProcess pid=3224714)[0;0m INFO 04-12 10:57:19 multiproc_worker_utils.py:229] Worker ready; awaiting tasks
+[1;36m(VllmWorkerProcess pid=3224713)[0;0m INFO 04-12 10:57:21 multiproc_worker_utils.py:229] Worker ready; awaiting tasks
+[1;36m(VllmWorkerProcess pid=3224715)[0;0m INFO 04-12 10:57:21 multiproc_worker_utils.py:229] Worker ready; awaiting tasks
+[1;36m(VllmWorkerProcess pid=3224714)[0;0m INFO 04-12 10:57:21 cuda.py:230] Using Flash Attention backend.
+[1;36m(VllmWorkerProcess pid=3224717)[0;0m INFO 04-12 10:57:21 multiproc_worker_utils.py:229] Worker ready; awaiting tasks
+[1;36m(VllmWorkerProcess pid=3224712)[0;0m INFO 04-12 10:57:21 multiproc_worker_utils.py:229] Worker ready; awaiting tasks
+[1;36m(VllmWorkerProcess pid=3224716)[0;0m INFO 04-12 10:57:21 multiproc_worker_utils.py:229] Worker ready; awaiting tasks
+[1;36m(VllmWorkerProcess pid=3224718)[0;0m INFO 04-12 10:57:21 multiproc_worker_utils.py:229] Worker ready; awaiting tasks
+[1;36m(VllmWorkerProcess pid=3224713)[0;0m INFO 04-12 10:57:25 cuda.py:230] Using Flash Attention backend.
+[1;36m(VllmWorkerProcess pid=3224715)[0;0m INFO 04-12 10:57:25 cuda.py:230] Using Flash Attention backend.
+[1;36m(VllmWorkerProcess pid=3224717)[0;0m INFO 04-12 10:57:25 cuda.py:230] Using Flash Attention backend.
+[1;36m(VllmWorkerProcess pid=3224712)[0;0m INFO 04-12 10:57:25 cuda.py:230] Using Flash Attention backend.
+[1;36m(VllmWorkerProcess pid=3224718)[0;0m INFO 04-12 10:57:25 cuda.py:230] Using Flash Attention backend.
+[1;36m(VllmWorkerProcess pid=3224716)[0;0m INFO 04-12 10:57:26 cuda.py:230] Using Flash Attention backend.
+[1;36m(VllmWorkerProcess pid=3224714)[0;0m INFO 04-12 10:57:29 utils.py:950] Found nccl from library libnccl.so.2
+[1;36m(VllmWorkerProcess pid=3224714)[0;0m INFO 04-12 10:57:29 pynccl.py:69] vLLM is using nccl==2.21.5
+[1;36m(VllmWorkerProcess pid=3224718)[0;0m INFO 04-12 10:57:29 utils.py:950] Found nccl from library libnccl.so.2
+[1;36m(VllmWorkerProcess pid=3224716)[0;0m INFO 04-12 10:57:29 utils.py:950] Found nccl from library libnccl.so.2
+[1;36m(VllmWorkerProcess pid=3224713)[0;0m INFO 04-12 10:57:29 utils.py:950] Found nccl from library libnccl.so.2
+[1;36m(VllmWorkerProcess pid=3224712)[0;0m INFO 04-12 10:57:29 utils.py:950] Found nccl from library libnccl.so.2
+[2025-04-12 10:57:29,114] [[32m    INFO[0m]: Found nccl from library libnccl.so.2 (utils.py:950)[0m
+[1;36m(VllmWorkerProcess pid=3224718)[0;0m INFO 04-12 10:57:29 pynccl.py:69] vLLM is using nccl==2.21.5
+[1;36m(VllmWorkerProcess pid=3224713)[0;0m INFO 04-12 10:57:29 pynccl.py:69] vLLM is using nccl==2.21.5
+[1;36m(VllmWorkerProcess pid=3224716)[0;0m INFO 04-12 10:57:29 pynccl.py:69] vLLM is using nccl==2.21.5
+[1;36m(VllmWorkerProcess pid=3224712)[0;0m INFO 04-12 10:57:29 pynccl.py:69] vLLM is using nccl==2.21.5
+[2025-04-12 10:57:29,115] [[32m    INFO[0m]: vLLM is using nccl==2.21.5 (pynccl.py:69)[0m
+[1;36m(VllmWorkerProcess pid=3224717)[0;0m INFO 04-12 10:57:29 utils.py:950] Found nccl from library libnccl.so.2
+[1;36m(VllmWorkerProcess pid=3224717)[0;0m INFO 04-12 10:57:29 pynccl.py:69] vLLM is using nccl==2.21.5
+[1;36m(VllmWorkerProcess pid=3224715)[0;0m INFO 04-12 10:57:29 utils.py:950] Found nccl from library libnccl.so.2
+[1;36m(VllmWorkerProcess pid=3224715)[0;0m INFO 04-12 10:57:29 pynccl.py:69] vLLM is using nccl==2.21.5
+[1;36m(VllmWorkerProcess pid=3224718)[0;0m INFO 04-12 10:57:34 custom_all_reduce_utils.py:244] reading GPU P2P access cache from ~/.cache/vllm/gpu_p2p_access_cache_for_0,1,2,3,4,5,6,7.json
+[1;36m(VllmWorkerProcess pid=3224712)[0;0m INFO 04-12 10:57:34 custom_all_reduce_utils.py:244] reading GPU P2P access cache from ~/.cache/vllm/gpu_p2p_access_cache_for_0,1,2,3,4,5,6,7.json
+[1;36m(VllmWorkerProcess pid=3224714)[0;0m INFO 04-12 10:57:34 custom_all_reduce_utils.py:244] reading GPU P2P access cache from ~/.cache/vllm/gpu_p2p_access_cache_for_0,1,2,3,4,5,6,7.json
+[1;36m(VllmWorkerProcess pid=3224715)[0;0m INFO 04-12 10:57:34 custom_all_reduce_utils.py:244] reading GPU P2P access cache from ~/.cache/vllm/gpu_p2p_access_cache_for_0,1,2,3,4,5,6,7.json
+[1;36m(VllmWorkerProcess pid=3224716)[0;0m INFO 04-12 10:57:34 custom_all_reduce_utils.py:244] reading GPU P2P access cache from ~/.cache/vllm/gpu_p2p_access_cache_for_0,1,2,3,4,5,6,7.json
+[1;36m(VllmWorkerProcess pid=3224713)[0;0m INFO 04-12 10:57:34 custom_all_reduce_utils.py:244] reading GPU P2P access cache from ~/.cache/vllm/gpu_p2p_access_cache_for_0,1,2,3,4,5,6,7.json
+[2025-04-12 10:57:34,831] [[32m    INFO[0m]: reading GPU P2P access cache from ~/.cache/vllm/gpu_p2p_access_cache_for_0,1,2,3,4,5,6,7.json (custom_all_reduce_utils.py:244)[0m
+[1;36m(VllmWorkerProcess pid=3224717)[0;0m INFO 04-12 10:57:34 custom_all_reduce_utils.py:244] reading GPU P2P access cache from ~/.cache/vllm/gpu_p2p_access_cache_for_0,1,2,3,4,5,6,7.json
+[2025-04-12 10:57:35,247] [[32m    INFO[0m]: vLLM message queue communication handle: Handle(connect_ip='127.0.0.1', local_reader_ranks=[1, 2, 3, 4, 5, 6, 7], buffer_handle=(7, 4194304, 6, 'psm_1685f443'), local_subscribe_port=54489, remote_subscribe_port=None) (shm_broadcast.py:258)[0m
+[1;36m(VllmWorkerProcess pid=3224713)[0;0m INFO 04-12 10:57:35 model_runner.py:1110] Starting to load model ~/Models/LLM-Research/Meta-Llama-3.1-8B-Instruct...
+[1;36m(VllmWorkerProcess pid=3224714)[0;0m INFO 04-12 10:57:35 model_runner.py:1110] Starting to load model ~/Models/LLM-Research/Meta-Llama-3.1-8B-Instruct...
+[2025-04-12 10:57:35,258] [[32m    INFO[0m]: Starting to load model ~/Models/LLM-Research/Meta-Llama-3.1-8B-Instruct... (model_runner.py:1110)[0m
+[1;36m(VllmWorkerProcess pid=3224715)[0;0m INFO 04-12 10:57:35 model_runner.py:1110] Starting to load model ~/Models/LLM-Research/Meta-Llama-3.1-8B-Instruct...
+[1;36m(VllmWorkerProcess pid=3224712)[0;0m INFO 04-12 10:57:35 model_runner.py:1110] Starting to load model ~/Models/LLM-Research/Meta-Llama-3.1-8B-Instruct...
+[1;36m(VllmWorkerProcess pid=3224716)[0;0m INFO 04-12 10:57:35 model_runner.py:1110] Starting to load model ~/Models/LLM-Research/Meta-Llama-3.1-8B-Instruct...
+[1;36m(VllmWorkerProcess pid=3224717)[0;0m INFO 04-12 10:57:35 model_runner.py:1110] Starting to load model ~/Models/LLM-Research/Meta-Llama-3.1-8B-Instruct...
+[1;36m(VllmWorkerProcess pid=3224718)[0;0m INFO 04-12 10:57:35 model_runner.py:1110] Starting to load model ~/Models/LLM-Research/Meta-Llama-3.1-8B-Instruct...
+
+Loading safetensors checkpoint shards:   0% Completed | 0/4 [00:00<?, ?it/s]
+
+Loading safetensors checkpoint shards:  25% Completed | 1/4 [00:03<00:09,  3.22s/it]
+
+Loading safetensors checkpoint shards:  50% Completed | 2/4 [00:06<00:05,  2.98s/it]
+
+Loading safetensors checkpoint shards:  75% Completed | 3/4 [00:09<00:03,  3.08s/it]
+
+Loading safetensors checkpoint shards: 100% Completed | 4/4 [00:09<00:00,  1.99s/it]
+
+Loading safetensors checkpoint shards: 100% Completed | 4/4 [00:09<00:00,  2.39s/it]
+
+[1;36m(VllmWorkerProcess pid=3224712)[0;0m INFO 04-12 10:57:45 model_runner.py:1115] Loading model weights took 1.9029 GB
+[1;36m(VllmWorkerProcess pid=3224713)[0;0m INFO 04-12 10:57:45 model_runner.py:1115] Loading model weights took 1.9029 GB
+[1;36m(VllmWorkerProcess pid=3224714)[0;0m INFO 04-12 10:57:45 model_runner.py:1115] Loading model weights took 1.9029 GB
+[1;36m(VllmWorkerProcess pid=3224718)[0;0m INFO 04-12 10:57:45 model_runner.py:1115] Loading model weights took 1.9029 GB
+[1;36m(VllmWorkerProcess pid=3224716)[0;0m INFO 04-12 10:57:45 model_runner.py:1115] Loading model weights took 1.9029 GB
+[2025-04-12 10:57:45,185] [[32m    INFO[0m]: Loading model weights took 1.9029 GB (model_runner.py:1115)[0m
+[1;36m(VllmWorkerProcess pid=3224717)[0;0m INFO 04-12 10:57:45 model_runner.py:1115] Loading model weights took 1.9029 GB
+[1;36m(VllmWorkerProcess pid=3224715)[0;0m INFO 04-12 10:57:45 model_runner.py:1115] Loading model weights took 1.9029 GB
+[1;36m(VllmWorkerProcess pid=3224716)[0;0m DEBUG - Starting CHOT optimization
+[1;36m(VllmWorkerProcess pid=3224716)[0;0m DEBUG - CHOT parameters: steps=0, lr=1.0
+[1;36m(VllmWorkerProcess pid=3224716)[0;0m INFO 04-12 10:57:51 worker.py:267] Memory profiling takes 6.51 seconds
+[1;36m(VllmWorkerProcess pid=3224716)[0;0m INFO 04-12 10:57:51 worker.py:267] the current vLLM instance can use total_gpu_memory (79.22GiB) x gpu_memory_utilization (0.99) = 78.42GiB
+[1;36m(VllmWorkerProcess pid=3224716)[0;0m INFO 04-12 10:57:51 worker.py:267] model weights take 1.90GiB; non_torch_memory takes 3.48GiB; PyTorch activation peak memory takes 1.39GiB; the rest of the memory reserved for KV Cache is 71.65GiB.
+[1;36m(VllmWorkerProcess pid=3224714)[0;0m DEBUG - Starting CHOT optimization
+[1;36m(VllmWorkerProcess pid=3224714)[0;0m DEBUG - CHOT parameters: steps=0, lr=1.0
+[1;36m(VllmWorkerProcess pid=3224714)[0;0m INFO 04-12 10:57:51 worker.py:267] Memory profiling takes 6.52 seconds
+[1;36m(VllmWorkerProcess pid=3224714)[0;0m INFO 04-12 10:57:51 worker.py:267] the current vLLM instance can use total_gpu_memory (79.22GiB) x gpu_memory_utilization (0.99) = 78.42GiB
+[1;36m(VllmWorkerProcess pid=3224714)[0;0m INFO 04-12 10:57:51 worker.py:267] model weights take 1.90GiB; non_torch_memory takes 3.48GiB; PyTorch activation peak memory takes 1.39GiB; the rest of the memory reserved for KV Cache is 71.65GiB.
+[1;36m(VllmWorkerProcess pid=3224717)[0;0m DEBUG - Starting CHOT optimization
+[1;36m(VllmWorkerProcess pid=3224717)[0;0m DEBUG - CHOT parameters: steps=0, lr=1.0
+[1;36m(VllmWorkerProcess pid=3224717)[0;0m INFO 04-12 10:57:51 worker.py:267] Memory profiling takes 6.55 seconds
+[1;36m(VllmWorkerProcess pid=3224717)[0;0m INFO 04-12 10:57:51 worker.py:267] the current vLLM instance can use total_gpu_memory (79.22GiB) x gpu_memory_utilization (0.99) = 78.42GiB
+[1;36m(VllmWorkerProcess pid=3224717)[0;0m INFO 04-12 10:57:51 worker.py:267] model weights take 1.90GiB; non_torch_memory takes 3.48GiB; PyTorch activation peak memory takes 1.39GiB; the rest of the memory reserved for KV Cache is 71.65GiB.
+[1;36m(VllmWorkerProcess pid=3224712)[0;0m DEBUG - Starting CHOT optimization
+[1;36m(VllmWorkerProcess pid=3224712)[0;0m DEBUG - CHOT parameters: steps=0, lr=1.0
+[1;36m(VllmWorkerProcess pid=3224712)[0;0m INFO 04-12 10:57:51 worker.py:267] Memory profiling takes 6.53 seconds
+[1;36m(VllmWorkerProcess pid=3224712)[0;0m INFO 04-12 10:57:51 worker.py:267] the current vLLM instance can use total_gpu_memory (79.22GiB) x gpu_memory_utilization (0.99) = 78.42GiB
+[1;36m(VllmWorkerProcess pid=3224712)[0;0m INFO 04-12 10:57:51 worker.py:267] model weights take 1.90GiB; non_torch_memory takes 3.48GiB; PyTorch activation peak memory takes 1.39GiB; the rest of the memory reserved for KV Cache is 71.65GiB.
+[1;36m(VllmWorkerProcess pid=3224718)[0;0m DEBUG - Starting CHOT optimization
+[1;36m(VllmWorkerProcess pid=3224718)[0;0m DEBUG - CHOT parameters: steps=0, lr=1.0
+[1;36m(VllmWorkerProcess pid=3224718)[0;0m INFO 04-12 10:57:51 worker.py:267] Memory profiling takes 6.51 seconds
+[1;36m(VllmWorkerProcess pid=3224718)[0;0m INFO 04-12 10:57:51 worker.py:267] the current vLLM instance can use total_gpu_memory (79.22GiB) x gpu_memory_utilization (0.99) = 78.42GiB
+[1;36m(VllmWorkerProcess pid=3224718)[0;0m INFO 04-12 10:57:51 worker.py:267] model weights take 1.90GiB; non_torch_memory takes 3.17GiB; PyTorch activation peak memory takes 1.39GiB; the rest of the memory reserved for KV Cache is 71.96GiB.
+[1;36m(VllmWorkerProcess pid=3224715)[0;0m DEBUG - Starting CHOT optimization
+[1;36m(VllmWorkerProcess pid=3224715)[0;0m DEBUG - CHOT parameters: steps=0, lr=1.0
+[1;36m(VllmWorkerProcess pid=3224715)[0;0m INFO 04-12 10:57:51 worker.py:267] Memory profiling takes 6.48 seconds
+[1;36m(VllmWorkerProcess pid=3224715)[0;0m INFO 04-12 10:57:51 worker.py:267] the current vLLM instance can use total_gpu_memory (79.22GiB) x gpu_memory_utilization (0.99) = 78.42GiB
+[1;36m(VllmWorkerProcess pid=3224715)[0;0m INFO 04-12 10:57:51 worker.py:267] model weights take 1.90GiB; non_torch_memory takes 3.48GiB; PyTorch activation peak memory takes 1.39GiB; the rest of the memory reserved for KV Cache is 71.65GiB.
+[1;36m(VllmWorkerProcess pid=3224713)[0;0m DEBUG - Starting CHOT optimization
+[1;36m(VllmWorkerProcess pid=3224713)[0;0m DEBUG - CHOT parameters: steps=0, lr=1.0
+[1;36m(VllmWorkerProcess pid=3224713)[0;0m INFO 04-12 10:57:52 worker.py:267] Memory profiling takes 6.56 seconds
+[1;36m(VllmWorkerProcess pid=3224713)[0;0m INFO 04-12 10:57:52 worker.py:267] the current vLLM instance can use total_gpu_memory (79.22GiB) x gpu_memory_utilization (0.99) = 78.42GiB
+[1;36m(VllmWorkerProcess pid=3224713)[0;0m INFO 04-12 10:57:52 worker.py:267] model weights take 1.90GiB; non_torch_memory takes 3.48GiB; PyTorch activation peak memory takes 1.39GiB; the rest of the memory reserved for KV Cache is 71.65GiB.
+[2025-04-12 10:57:52,048] [[32m    INFO[0m]: Memory profiling takes 6.56 seconds
+the current vLLM instance can use total_gpu_memory (79.22GiB) x gpu_memory_utilization (0.99) = 78.42GiB
+model weights take 1.90GiB; non_torch_memory takes 4.48GiB; PyTorch activation peak memory takes 1.39GiB; the rest of the memory reserved for KV Cache is 70.65GiB. (worker.py:267)[0m
+[2025-04-12 10:57:52,258] [[32m    INFO[0m]: # CUDA blocks: 289384, # CPU blocks: 16384 (executor_base.py:110)[0m
+[2025-04-12 10:57:52,258] [[32m    INFO[0m]: Maximum concurrency for 32768 tokens per request: 141.30x (executor_base.py:115)[0m
+[1;36m(VllmWorkerProcess pid=3224716)[0;0m INFO 04-12 10:57:54 model_runner.py:1434] Capturing cudagraphs for decoding. This may lead to unexpected consequences if the model is not static. To run the model in eager mode, set 'enforce_eager=True' or use '--enforce-eager' in the CLI. If out-of-memory error occurs during cudagraph capture, consider decreasing `gpu_memory_utilization` or switching to eager mode. You can also reduce the `max_num_seqs` as needed to decrease memory usage.
+[1;36m(VllmWorkerProcess pid=3224718)[0;0m INFO 04-12 10:57:54 model_runner.py:1434] Capturing cudagraphs for decoding. This may lead to unexpected consequences if the model is not static. To run the model in eager mode, set 'enforce_eager=True' or use '--enforce-eager' in the CLI. If out-of-memory error occurs during cudagraph capture, consider decreasing `gpu_memory_utilization` or switching to eager mode. You can also reduce the `max_num_seqs` as needed to decrease memory usage.
+[1;36m(VllmWorkerProcess pid=3224715)[0;0m INFO 04-12 10:57:54 model_runner.py:1434] Capturing cudagraphs for decoding. This may lead to unexpected consequences if the model is not static. To run the model in eager mode, set 'enforce_eager=True' or use '--enforce-eager' in the CLI. If out-of-memory error occurs during cudagraph capture, consider decreasing `gpu_memory_utilization` or switching to eager mode. You can also reduce the `max_num_seqs` as needed to decrease memory usage.
+[1;36m(VllmWorkerProcess pid=3224717)[0;0m INFO 04-12 10:57:54 model_runner.py:1434] Capturing cudagraphs for decoding. This may lead to unexpected consequences if the model is not static. To run the model in eager mode, set 'enforce_eager=True' or use '--enforce-eager' in the CLI. If out-of-memory error occurs during cudagraph capture, consider decreasing `gpu_memory_utilization` or switching to eager mode. You can also reduce the `max_num_seqs` as needed to decrease memory usage.
+[1;36m(VllmWorkerProcess pid=3224714)[0;0m INFO 04-12 10:57:54 model_runner.py:1434] Capturing cudagraphs for decoding. This may lead to unexpected consequences if the model is not static. To run the model in eager mode, set 'enforce_eager=True' or use '--enforce-eager' in the CLI. If out-of-memory error occurs during cudagraph capture, consider decreasing `gpu_memory_utilization` or switching to eager mode. You can also reduce the `max_num_seqs` as needed to decrease memory usage.
+[2025-04-12 10:57:54,222] [[32m    INFO[0m]: Capturing cudagraphs for decoding. This may lead to unexpected consequences if the model is not static. To run the model in eager mode, set 'enforce_eager=True' or use '--enforce-eager' in the CLI. If out-of-memory error occurs during cudagraph capture, consider decreasing `gpu_memory_utilization` or switching to eager mode. You can also reduce the `max_num_seqs` as needed to decrease memory usage. (model_runner.py:1434)[0m
+[1;36m(VllmWorkerProcess pid=3224712)[0;0m INFO 04-12 10:57:54 model_runner.py:1434] Capturing cudagraphs for decoding. This may lead to unexpected consequences if the model is not static. To run the model in eager mode, set 'enforce_eager=True' or use '--enforce-eager' in the CLI. If out-of-memory error occurs during cudagraph capture, consider decreasing `gpu_memory_utilization` or switching to eager mode. You can also reduce the `max_num_seqs` as needed to decrease memory usage.
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+[1;36m(VllmWorkerProcess pid=3224713)[0;0m INFO 04-12 10:57:54 model_runner.py:1434] Capturing cudagraphs for decoding. This may lead to unexpected consequences if the model is not static. To run the model in eager mode, set 'enforce_eager=True' or use '--enforce-eager' in the CLI. If out-of-memory error occurs during cudagraph capture, consider decreasing `gpu_memory_utilization` or switching to eager mode. You can also reduce the `max_num_seqs` as needed to decrease memory usage.
+
+Capturing CUDA graph shapes:   0%|          | 0/19 [00:00<?, ?it/s]
+Capturing CUDA graph shapes:   5%|▌         | 1/19 [00:00<00:09,  1.95it/s]
+Capturing CUDA graph shapes:  11%|█         | 2/19 [00:00<00:08,  2.02it/s]
+Capturing CUDA graph shapes:  16%|█▌        | 3/19 [00:01<00:07,  2.06it/s]
+Capturing CUDA graph shapes:  21%|██        | 4/19 [00:01<00:07,  2.07it/s]
+Capturing CUDA graph shapes:  26%|██▋       | 5/19 [00:02<00:06,  2.08it/s]
+Capturing CUDA graph shapes:  32%|███▏      | 6/19 [00:02<00:06,  2.09it/s]
+Capturing CUDA graph shapes:  37%|███▋      | 7/19 [00:03<00:05,  2.09it/s]
+Capturing CUDA graph shapes:  42%|████▏     | 8/19 [00:03<00:05,  2.10it/s]
+Capturing CUDA graph shapes:  47%|████▋     | 9/19 [00:04<00:04,  2.10it/s]
+Capturing CUDA graph shapes:  53%|█████▎    | 10/19 [00:04<00:04,  2.07it/s]
+Capturing CUDA graph shapes:  58%|█████▊    | 11/19 [00:05<00:03,  2.07it/s]
+Capturing CUDA graph shapes:  63%|██████▎   | 12/19 [00:05<00:03,  2.06it/s]
+Capturing CUDA graph shapes:  68%|██████▊   | 13/19 [00:06<00:02,  2.08it/s]
+Capturing CUDA graph shapes:  74%|███████▎  | 14/19 [00:06<00:02,  2.06it/s]
+Capturing CUDA graph shapes:  79%|███████▉  | 15/19 [00:07<00:01,  2.07it/s]
+Capturing CUDA graph shapes:  84%|████████▍ | 16/19 [00:07<00:01,  1.94it/s][1;36m(VllmWorkerProcess pid=3224716)[0;0m INFO 04-12 10:58:02 custom_all_reduce.py:226] Registering 1235 cuda graph addresses
+[1;36m(VllmWorkerProcess pid=3224715)[0;0m INFO 04-12 10:58:02 custom_all_reduce.py:226] Registering 1235 cuda graph addresses
+[1;36m(VllmWorkerProcess pid=3224717)[0;0m INFO 04-12 10:58:02 custom_all_reduce.py:226] Registering 1235 cuda graph addresses
+
+Capturing CUDA graph shapes:  89%|████████▉ | 17/19 [00:08<00:00,  2.01it/s][1;36m(VllmWorkerProcess pid=3224712)[0;0m INFO 04-12 10:58:02 custom_all_reduce.py:226] Registering 1235 cuda graph addresses
+[1;36m(VllmWorkerProcess pid=3224714)[0;0m INFO 04-12 10:58:02 custom_all_reduce.py:226] Registering 1235 cuda graph addresses
+[1;36m(VllmWorkerProcess pid=3224718)[0;0m INFO 04-12 10:58:02 custom_all_reduce.py:226] Registering 1235 cuda graph addresses
+
+Capturing CUDA graph shapes:  95%|█████████▍| 18/19 [00:08<00:00,  2.05it/s][1;36m(VllmWorkerProcess pid=3224713)[0;0m INFO 04-12 10:58:02 custom_all_reduce.py:226] Registering 1235 cuda graph addresses
+
+Capturing CUDA graph shapes: 100%|██████████| 19/19 [00:09<00:00,  1.88it/s]
+Capturing CUDA graph shapes: 100%|██████████| 19/19 [00:09<00:00,  2.02it/s]
+[2025-04-12 10:58:03,611] [[32m    INFO[0m]: Registering 1235 cuda graph addresses (custom_all_reduce.py:226)[0m
+[1;36m(VllmWorkerProcess pid=3224718)[0;0m INFO 04-12 10:58:03 model_runner.py:1562] Graph capturing finished in 10 secs, took 0.13 GiB
+[1;36m(VllmWorkerProcess pid=3224715)[0;0m INFO 04-12 10:58:03 model_runner.py:1562] Graph capturing finished in 10 secs, took 0.13 GiB
+[1;36m(VllmWorkerProcess pid=3224712)[0;0m INFO 04-12 10:58:04 model_runner.py:1562] Graph capturing finished in 10 secs, took 0.13 GiB
+[1;36m(VllmWorkerProcess pid=3224716)[0;0m INFO 04-12 10:58:04 model_runner.py:1562] Graph capturing finished in 10 secs, took 0.13 GiB
+[2025-04-12 10:58:04,017] [[32m    INFO[0m]: Graph capturing finished in 10 secs, took 0.13 GiB (model_runner.py:1562)[0m
+[1;36m(VllmWorkerProcess pid=3224717)[0;0m INFO 04-12 10:58:04 model_runner.py:1562] Graph capturing finished in 10 secs, took 0.13 GiB
+[1;36m(VllmWorkerProcess pid=3224713)[0;0m INFO 04-12 10:58:04 model_runner.py:1562] Graph capturing finished in 10 secs, took 0.13 GiB
+[1;36m(VllmWorkerProcess pid=3224714)[0;0m INFO 04-12 10:58:04 model_runner.py:1562] Graph capturing finished in 10 secs, took 0.13 GiB
+[2025-04-12 10:58:04,019] [[32m    INFO[0m]: init engine (profile, create kv cache, warmup model) took 18.76 seconds (llm_engine.py:431)[0m
+[2025-04-12 10:58:06,532] [[32m    INFO[0m]: --- INIT SEEDS --- (pipeline.py:263)[0m
+[2025-04-12 10:58:06,533] [[32m    INFO[0m]: --- LOADING TASKS --- (pipeline.py:216)[0m
+[2025-04-12 10:58:06,533] [[32m    INFO[0m]: Found 1 custom tasks in ~/Projects/nips25_slot/open-r2/openr1/lib/python3.11/site-packages/lighteval/tasks/extended/ifeval/main.py (registry.py:142)[0m
+[2025-04-12 10:58:06,533] [[32m    INFO[0m]: Found 6 custom tasks in ~/Projects/nips25_slot/open-r2/openr1/lib/python3.11/site-packages/lighteval/tasks/extended/tiny_benchmarks/main.py (registry.py:142)[0m
+[2025-04-12 10:58:06,533] [[32m    INFO[0m]: Found 1 custom tasks in ~/Projects/nips25_slot/open-r2/openr1/lib/python3.11/site-packages/lighteval/tasks/extended/mt_bench/main.py (registry.py:142)[0m
+[2025-04-12 10:58:06,533] [[32m    INFO[0m]: Found 4 custom tasks in ~/Projects/nips25_slot/open-r2/openr1/lib/python3.11/site-packages/lighteval/tasks/extended/mix_eval/main.py (registry.py:142)[0m
+[2025-04-12 10:58:06,533] [[32m    INFO[0m]: Found 5 custom tasks in ~/Projects/nips25_slot/open-r2/openr1/lib/python3.11/site-packages/lighteval/tasks/extended/olympiade_bench/main.py (registry.py:142)[0m
+[2025-04-12 10:58:06,533] [[32m    INFO[0m]: Found 1 custom tasks in ~/Projects/nips25_slot/open-r2/openr1/lib/python3.11/site-packages/lighteval/tasks/extended/hle/main.py (registry.py:142)[0m
+[2025-04-12 10:58:06,533] [[32m    INFO[0m]: Found 21 custom tasks in ~/Projects/nips25_slot/open-r2/openr1/lib/python3.11/site-packages/lighteval/tasks/extended/lcb/main.py (registry.py:142)[0m
+[2025-04-12 10:58:06,535] [[32m    INFO[0m]: HuggingFaceH4/aime_2024 default (lighteval_task.py:187)[0m
+[2025-04-12 10:58:06,535] [[33m WARNING[0m]: Careful, the task lighteval|aime24 is using evaluation data to build the few shot examples. (lighteval_task.py:260)[0m
+Using the latest cached version of the dataset since HuggingFaceH4/aime_2024 couldn't be found on the Hugging Face Hub
+[2025-04-12 10:58:44,703] [[33m WARNING[0m]: Using the latest cached version of the dataset since HuggingFaceH4/aime_2024 couldn't be found on the Hugging Face Hub (load.py:1377)[0m
+Found the latest cached dataset configuration 'default' at ~/.cache/huggingface/datasets/HuggingFaceH4___aime_2024/default/0.0.0/2fe88a2f1091d5048c0f36abc874fb997b3dd99a (last modified on Tue Apr  8 15:12:43 2025).
+[2025-04-12 10:58:44,705] [[33m WARNING[0m]: Found the latest cached dataset configuration 'default' at ~/.cache/huggingface/datasets/HuggingFaceH4___aime_2024/default/0.0.0/2fe88a2f1091d5048c0f36abc874fb997b3dd99a (last modified on Tue Apr  8 15:12:43 2025). (cache.py:94)[0m
+[2025-04-12 10:58:44,732] [[32m    INFO[0m]: --- RUNNING MODEL --- (pipeline.py:468)[0m
+[2025-04-12 10:58:44,732] [[32m    INFO[0m]: Running RequestType.GREEDY_UNTIL requests (pipeline.py:472)[0m
+[2025-04-12 10:58:44,739] [[33m WARNING[0m]: You cannot select the number of dataset splits for a generative evaluation at the moment. Automatically inferring. (data.py:260)[0m
+
+Splits:   0%|          | 0/1 [00:00<?, ?it/s][2025-04-12 10:58:44,746] [[33m WARNING[0m]: context_size + max_new_tokens=33249 which is greater than self.max_length=32768. Truncating context to 0 tokens. (vllm_model.py:270)[0m
+
+
+Processed prompts:   0%|          | 0/30 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s][A
+
+Processed prompts:   3%|▎         | 1/30 [00:03<01:27,  3.03s/it, est. speed input: 60.33 toks/s, output: 148.02 toks/s][A
+
+Processed prompts:   7%|▋         | 2/30 [00:03<00:43,  1.55s/it, est. speed input: 102.86 toks/s, output: 275.60 toks/s][A
+
+Processed prompts:  10%|█         | 3/30 [00:04<00:31,  1.16s/it, est. speed input: 127.74 toks/s, output: 380.16 toks/s][A
+
+Processed prompts:  13%|█▎        | 4/30 [00:04<00:19,  1.33it/s, est. speed input: 172.67 toks/s, output: 519.84 toks/s][A
+
+Processed prompts:  20%|██        | 6/30 [00:04<00:12,  1.98it/s, est. speed input: 239.82 toks/s, output: 744.32 toks/s][A
+
+Processed prompts:  23%|██▎       | 7/30 [00:05<00:13,  1.71it/s, est. speed input: 290.32 toks/s, output: 793.98 toks/s][A
+
+Processed prompts:  27%|██▋       | 8/30 [00:05<00:10,  2.14it/s, est. speed input: 308.23 toks/s, output: 924.52 toks/s][A
+
+Processed prompts:  30%|███       | 9/30 [00:06<00:10,  1.97it/s, est. speed input: 326.36 toks/s, output: 993.49 toks/s][A
+
+Processed prompts:  33%|███▎      | 10/30 [00:07<00:15,  1.26it/s, est. speed input: 297.07 toks/s, output: 966.36 toks/s][A
+
+Processed prompts:  37%|███▋      | 11/30 [00:09<00:19,  1.01s/it, est. speed input: 266.48 toks/s, output: 970.21 toks/s][A
+
+Processed prompts:  40%|████      | 12/30 [00:11<00:20,  1.16s/it, est. speed input: 248.10 toks/s, output: 996.19 toks/s][A
+
+Processed prompts:  43%|████▎     | 13/30 [00:11<00:14,  1.16it/s, est. speed input: 267.28 toks/s, output: 1142.45 toks/s][A
+
+Processed prompts:  47%|████▋     | 14/30 [00:11<00:10,  1.46it/s, est. speed input: 283.05 toks/s, output: 1277.82 toks/s][A
+
+Processed prompts:  50%|█████     | 15/30 [00:41<02:21,  9.47s/it, est. speed input: 82.98 toks/s, output: 509.78 toks/s]  [A
+
+Processed prompts:  53%|█████▎    | 16/30 [00:50<02:09,  9.22s/it, est. speed input: 72.20 toks/s, output: 576.63 toks/s][A
+
+Processed prompts:  57%|█████▋    | 17/30 [05:41<20:18, 93.72s/it, est. speed input: 11.39 toks/s, output: 179.80 toks/s][A
+
+Processed prompts:  60%|██████    | 18/30 [05:42<13:09, 65.77s/it, est. speed input: 12.07 toks/s, output: 274.65 toks/s][A
+
+Processed prompts:  67%|██████▋   | 20/30 [05:42<05:55, 35.55s/it, est. speed input: 13.35 toks/s, output: 464.26 toks/s][A
+
+Processed prompts:  70%|███████   | 21/30 [05:42<04:00, 26.77s/it, est. speed input: 13.92 toks/s, output: 559.15 toks/s][A
+
+Processed prompts:  77%|███████▋  | 23/30 [05:42<01:49, 15.70s/it, est. speed input: 15.01 toks/s, output: 749.00 toks/s][A
+
+Processed prompts:  83%|████████▎ | 25/30 [05:43<00:49,  9.89s/it, est. speed input: 16.05 toks/s, output: 938.61 toks/s][A
+
+Processed prompts:  93%|█████████▎| 28/30 [05:43<00:11,  5.52s/it, est. speed input: 17.47 toks/s, output: 1223.28 toks/s][A
+
+Processed prompts: 100%|██████████| 30/30 [05:43<00:00,  3.91s/it, est. speed input: 18.35 toks/s, output: 1412.72 toks/s][A
+Processed prompts: 100%|██████████| 30/30 [05:43<00:00, 11.44s/it, est. speed input: 18.35 toks/s, output: 1412.72 toks/s]
+
+Splits: 100%|██████████| 1/1 [05:43<00:00, 343.55s/it]
+Splits: 100%|██████████| 1/1 [05:43<00:00, 343.55s/it]
+[2025-04-12 11:04:29,118] [[32m    INFO[0m]: Terminating local vLLM worker processes (multiproc_worker_utils.py:141)[0m
+[1;36m(VllmWorkerProcess pid=3224714)[0;0m INFO 04-12 11:04:29 multiproc_worker_utils.py:253] Worker exiting
+[1;36m(VllmWorkerProcess pid=3224713)[0;0m INFO 04-12 11:04:29 multiproc_worker_utils.py:253] Worker exiting
+[1;36m(VllmWorkerProcess pid=3224718)[0;0m INFO 04-12 11:04:29 multiproc_worker_utils.py:253] Worker exiting
+[1;36m(VllmWorkerProcess pid=3224717)[0;0m INFO 04-12 11:04:29 multiproc_worker_utils.py:253] Worker exiting
+[1;36m(VllmWorkerProcess pid=3224712)[0;0m INFO 04-12 11:04:29 multiproc_worker_utils.py:253] Worker exiting
+[1;36m(VllmWorkerProcess pid=3224716)[0;0m INFO 04-12 11:04:29 multiproc_worker_utils.py:253] Worker exiting
+[1;36m(VllmWorkerProcess pid=3224715)[0;0m INFO 04-12 11:04:29 multiproc_worker_utils.py:253] Worker exiting
+[2025-04-12 11:04:30,265] [[32m    INFO[0m]: --- COMPUTING METRICS --- (pipeline.py:504)[0m
+[2025-04-12 11:04:30,859] [[32m    INFO[0m]: --- DISPLAYING RESULTS --- (pipeline.py:546)[0m
+[2025-04-12 11:04:30,869] [[32m    INFO[0m]: --- SAVING AND PUSHING RESULTS --- (pipeline.py:536)[0m
+[2025-04-12 11:04:30,869] [[32m    INFO[0m]: Saving experiment tracker (evaluation_tracker.py:180)[0m
+[2025-04-12 11:04:31,124] [[32m    INFO[0m]: Saving results to ~/Projects/nips25_slot/open-r2/data/evals~/Models/LLM-Research/Meta-Llama-3.1-8B-Instruct/results/_Models_LLM-Research_Meta-Llama-3.1-8B-Instruct/results_2025-04-12T11-04-30.869802.json (evaluation_tracker.py:234)[0m
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+|       Task       |Version|     Metric     |Value |   |Stderr|
+|------------------|------:|----------------|-----:|---|-----:|
+|all               |       |extractive_match|0.0667|±  |0.0463|
+|lighteval:aime24:0|      1|extractive_match|0.0667|±  |0.0463|
+

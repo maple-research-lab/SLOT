@@ -1,0 +1,1750 @@
+[2025-04-12 16:15:12,857] [[32m    INFO[0m]: PyTorch version 2.5.1 available. (config.py:54)[0m
+INFO 04-12 16:15:21 __init__.py:190] Automatically detected platform cuda.
+[2025-04-12 16:15:22,676] [[32m    INFO[0m]: --- LOADING MODEL --- (pipeline.py:189)[0m
+[2025-04-12 16:15:32,393] [[32m    INFO[0m]: This model supports multiple tasks: {'score', 'generate', 'embed', 'reward', 'classify'}. Defaulting to 'generate'. (config.py:542)[0m
+[2025-04-12 16:15:33,072] [[32m    INFO[0m]: Defaulting to use mp for distributed inference (config.py:1401)[0m
+[2025-04-12 16:15:33,076] [[32m    INFO[0m]: Initializing a V0 LLM engine (v0.7.2) with config: model='~/Models/deepseek-ai/DeepSeek-R1-Distill-Qwen-1.5B', speculative_config=None, tokenizer='~/Models/deepseek-ai/DeepSeek-R1-Distill-Qwen-1.5B', skip_tokenizer_init=False, tokenizer_mode=auto, revision=main, override_neuron_config=None, tokenizer_revision=main, trust_remote_code=False, dtype=torch.bfloat16, max_seq_len=32768, download_dir=None, load_format=LoadFormat.AUTO, tensor_parallel_size=4, pipeline_parallel_size=1, disable_custom_all_reduce=False, quantization=None, enforce_eager=False, kv_cache_dtype=auto,  device_config=cuda, decoding_config=DecodingConfig(guided_decoding_backend='xgrammar'), observability_config=ObservabilityConfig(otlp_traces_endpoint=None, collect_model_forward_time=False, collect_model_execute_time=False), seed=1234, served_model_name=~/Models/deepseek-ai/DeepSeek-R1-Distill-Qwen-1.5B, num_scheduler_steps=1, multi_step_stream_outputs=True, enable_prefix_caching=False, chunked_prefill_enabled=False, use_async_output_proc=True, disable_mm_preprocessor_cache=False, mm_processor_kwargs=None, pooler_config=None, compilation_config={"splitting_ops":[],"compile_sizes":[],"cudagraph_capture_sizes":[128,120,112,104,96,88,80,72,64,56,48,40,32,24,16,8,4,2,1],"max_capture_size":128}, use_cached_outputs=False,  (llm_engine.py:234)[0m
+[2025-04-12 16:15:33,409] [[33m WARNING[0m]: Reducing Torch parallelism from 64 threads to 1 to avoid unnecessary CPU contention. Set OMP_NUM_THREADS in the external environment to tune this value as needed. (multiproc_worker_utils.py:300)[0m
+[2025-04-12 16:15:33,424] [[32m    INFO[0m]: Setting Triton cache manager to: vllm.triton_utils.custom_cache_manager:CustomCacheManager (custom_cache_manager.py:19)[0m
+[2025-04-12 16:15:34,094] [[32m    INFO[0m]: Using Flash Attention backend. (cuda.py:230)[0m
+INFO 04-12 16:15:38 __init__.py:190] Automatically detected platform cuda.
+INFO 04-12 16:15:38 __init__.py:190] Automatically detected platform cuda.
+INFO 04-12 16:15:38 __init__.py:190] Automatically detected platform cuda.
+[1;36m(VllmWorkerProcess pid=1913726)[0;0m INFO 04-12 16:15:40 multiproc_worker_utils.py:229] Worker ready; awaiting tasks
+[1;36m(VllmWorkerProcess pid=1913728)[0;0m INFO 04-12 16:15:40 multiproc_worker_utils.py:229] Worker ready; awaiting tasks
+[1;36m(VllmWorkerProcess pid=1913727)[0;0m INFO 04-12 16:15:41 multiproc_worker_utils.py:229] Worker ready; awaiting tasks
+[1;36m(VllmWorkerProcess pid=1913726)[0;0m INFO 04-12 16:15:44 cuda.py:230] Using Flash Attention backend.
+[1;36m(VllmWorkerProcess pid=1913728)[0;0m INFO 04-12 16:15:45 cuda.py:230] Using Flash Attention backend.
+[1;36m(VllmWorkerProcess pid=1913727)[0;0m INFO 04-12 16:15:45 cuda.py:230] Using Flash Attention backend.
+[1;36m(VllmWorkerProcess pid=1913728)[0;0m INFO 04-12 16:15:47 utils.py:950] Found nccl from library libnccl.so.2
+[2025-04-12 16:15:47,571] [[32m    INFO[0m]: Found nccl from library libnccl.so.2 (utils.py:950)[0m
+[1;36m(VllmWorkerProcess pid=1913728)[0;0m INFO 04-12 16:15:47 pynccl.py:69] vLLM is using nccl==2.21.5
+[1;36m(VllmWorkerProcess pid=1913726)[0;0m INFO 04-12 16:15:47 utils.py:950] Found nccl from library libnccl.so.2
+[1;36m(VllmWorkerProcess pid=1913727)[0;0m INFO 04-12 16:15:47 utils.py:950] Found nccl from library libnccl.so.2
+[2025-04-12 16:15:47,572] [[32m    INFO[0m]: vLLM is using nccl==2.21.5 (pynccl.py:69)[0m
+[1;36m(VllmWorkerProcess pid=1913726)[0;0m INFO 04-12 16:15:47 pynccl.py:69] vLLM is using nccl==2.21.5
+[1;36m(VllmWorkerProcess pid=1913727)[0;0m INFO 04-12 16:15:47 pynccl.py:69] vLLM is using nccl==2.21.5
+[1;36m(VllmWorkerProcess pid=1913727)[0;0m INFO 04-12 16:15:51 custom_all_reduce_utils.py:244] reading GPU P2P access cache from ~/.cache/vllm/gpu_p2p_access_cache_for_0,1,2,3.json
+[1;36m(VllmWorkerProcess pid=1913726)[0;0m INFO 04-12 16:15:51 custom_all_reduce_utils.py:244] reading GPU P2P access cache from ~/.cache/vllm/gpu_p2p_access_cache_for_0,1,2,3.json
+[2025-04-12 16:15:51,412] [[32m    INFO[0m]: reading GPU P2P access cache from ~/.cache/vllm/gpu_p2p_access_cache_for_0,1,2,3.json (custom_all_reduce_utils.py:244)[0m
+[1;36m(VllmWorkerProcess pid=1913728)[0;0m INFO 04-12 16:15:51 custom_all_reduce_utils.py:244] reading GPU P2P access cache from ~/.cache/vllm/gpu_p2p_access_cache_for_0,1,2,3.json
+[2025-04-12 16:15:51,588] [[32m    INFO[0m]: vLLM message queue communication handle: Handle(connect_ip='127.0.0.1', local_reader_ranks=[1, 2, 3], buffer_handle=(3, 4194304, 6, 'psm_bf010e63'), local_subscribe_port=47477, remote_subscribe_port=None) (shm_broadcast.py:258)[0m
+[2025-04-12 16:15:51,606] [[32m    INFO[0m]: Starting to load model ~/Models/deepseek-ai/DeepSeek-R1-Distill-Qwen-1.5B... (model_runner.py:1110)[0m
+[1;36m(VllmWorkerProcess pid=1913728)[0;0m INFO 04-12 16:15:51 model_runner.py:1110] Starting to load model ~/Models/deepseek-ai/DeepSeek-R1-Distill-Qwen-1.5B...
+[1;36m(VllmWorkerProcess pid=1913726)[0;0m INFO 04-12 16:15:51 model_runner.py:1110] Starting to load model ~/Models/deepseek-ai/DeepSeek-R1-Distill-Qwen-1.5B...
+[1;36m(VllmWorkerProcess pid=1913727)[0;0m INFO 04-12 16:15:51 model_runner.py:1110] Starting to load model ~/Models/deepseek-ai/DeepSeek-R1-Distill-Qwen-1.5B...
+
+Loading safetensors checkpoint shards:   0% Completed | 0/1 [00:00<?, ?it/s]
+
+Loading safetensors checkpoint shards: 100% Completed | 1/1 [00:00<00:00,  1.15it/s]
+
+Loading safetensors checkpoint shards: 100% Completed | 1/1 [00:00<00:00,  1.15it/s]
+
+[1;36m(VllmWorkerProcess pid=1913726)[0;0m INFO 04-12 16:15:52 model_runner.py:1115] Loading model weights took 0.8985 GB
+[1;36m(VllmWorkerProcess pid=1913728)[0;0m INFO 04-12 16:15:52 model_runner.py:1115] Loading model weights took 0.8985 GB
+[1;36m(VllmWorkerProcess pid=1913727)[0;0m INFO 04-12 16:15:52 model_runner.py:1115] Loading model weights took 0.8985 GB
+[2025-04-12 16:15:52,829] [[32m    INFO[0m]: Loading model weights took 0.8985 GB (model_runner.py:1115)[0m
+[1;36m(VllmWorkerProcess pid=1913727)[0;0m DEBUG - Starting CHOT optimization
+[1;36m(VllmWorkerProcess pid=1913727)[0;0m DEBUG - CHOT parameters: steps=0, lr=1.0
+[1;36m(VllmWorkerProcess pid=1913727)[0;0m INFO 04-12 16:15:57 worker.py:267] Memory profiling takes 4.83 seconds
+[1;36m(VllmWorkerProcess pid=1913727)[0;0m INFO 04-12 16:15:57 worker.py:267] the current vLLM instance can use total_gpu_memory (79.22GiB) x gpu_memory_utilization (0.80) = 63.37GiB
+[1;36m(VllmWorkerProcess pid=1913727)[0;0m INFO 04-12 16:15:57 worker.py:267] model weights take 0.90GiB; non_torch_memory takes 2.38GiB; PyTorch activation peak memory takes 0.91GiB; the rest of the memory reserved for KV Cache is 59.18GiB.
+[1;36m(VllmWorkerProcess pid=1913726)[0;0m DEBUG - Starting CHOT optimization
+[1;36m(VllmWorkerProcess pid=1913726)[0;0m DEBUG - CHOT parameters: steps=0, lr=1.0
+[1;36m(VllmWorkerProcess pid=1913726)[0;0m INFO 04-12 16:15:57 worker.py:267] Memory profiling takes 4.98 seconds
+[1;36m(VllmWorkerProcess pid=1913726)[0;0m INFO 04-12 16:15:57 worker.py:267] the current vLLM instance can use total_gpu_memory (79.22GiB) x gpu_memory_utilization (0.80) = 63.37GiB
+[1;36m(VllmWorkerProcess pid=1913726)[0;0m INFO 04-12 16:15:57 worker.py:267] model weights take 0.90GiB; non_torch_memory takes 2.38GiB; PyTorch activation peak memory takes 0.91GiB; the rest of the memory reserved for KV Cache is 59.18GiB.
+[1;36m(VllmWorkerProcess pid=1913728)[0;0m DEBUG - Starting CHOT optimization
+[1;36m(VllmWorkerProcess pid=1913728)[0;0m DEBUG - CHOT parameters: steps=0, lr=1.0
+[1;36m(VllmWorkerProcess pid=1913728)[0;0m INFO 04-12 16:15:57 worker.py:267] Memory profiling takes 4.80 seconds
+[1;36m(VllmWorkerProcess pid=1913728)[0;0m INFO 04-12 16:15:57 worker.py:267] the current vLLM instance can use total_gpu_memory (79.22GiB) x gpu_memory_utilization (0.80) = 63.37GiB
+[1;36m(VllmWorkerProcess pid=1913728)[0;0m INFO 04-12 16:15:57 worker.py:267] model weights take 0.90GiB; non_torch_memory takes 2.38GiB; PyTorch activation peak memory takes 0.91GiB; the rest of the memory reserved for KV Cache is 59.18GiB.
+[2025-04-12 16:15:58,044] [[32m    INFO[0m]: Memory profiling takes 5.02 seconds
+the current vLLM instance can use total_gpu_memory (79.22GiB) x gpu_memory_utilization (0.80) = 63.37GiB
+model weights take 0.90GiB; non_torch_memory takes 2.82GiB; PyTorch activation peak memory takes 0.91GiB; the rest of the memory reserved for KV Cache is 58.74GiB. (worker.py:267)[0m
+[2025-04-12 16:15:58,243] [[32m    INFO[0m]: # CUDA blocks: 274973, # CPU blocks: 18724 (executor_base.py:110)[0m
+[2025-04-12 16:15:58,243] [[32m    INFO[0m]: Maximum concurrency for 32768 tokens per request: 134.26x (executor_base.py:115)[0m
+[1;36m(VllmWorkerProcess pid=1913728)[0;0m INFO 04-12 16:16:02 model_runner.py:1434] Capturing cudagraphs for decoding. This may lead to unexpected consequences if the model is not static. To run the model in eager mode, set 'enforce_eager=True' or use '--enforce-eager' in the CLI. If out-of-memory error occurs during cudagraph capture, consider decreasing `gpu_memory_utilization` or switching to eager mode. You can also reduce the `max_num_seqs` as needed to decrease memory usage.
+[2025-04-12 16:16:02,248] [[32m    INFO[0m]: Capturing cudagraphs for decoding. This may lead to unexpected consequences if the model is not static. To run the model in eager mode, set 'enforce_eager=True' or use '--enforce-eager' in the CLI. If out-of-memory error occurs during cudagraph capture, consider decreasing `gpu_memory_utilization` or switching to eager mode. You can also reduce the `max_num_seqs` as needed to decrease memory usage. (model_runner.py:1434)[0m
+[1;36m(VllmWorkerProcess pid=1913727)[0;0m INFO 04-12 16:16:02 model_runner.py:1434] Capturing cudagraphs for decoding. This may lead to unexpected consequences if the model is not static. To run the model in eager mode, set 'enforce_eager=True' or use '--enforce-eager' in the CLI. If out-of-memory error occurs during cudagraph capture, consider decreasing `gpu_memory_utilization` or switching to eager mode. You can also reduce the `max_num_seqs` as needed to decrease memory usage.
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+
+Capturing CUDA graph shapes:   0%|          | 0/19 [00:00<?, ?it/s][1;36m(VllmWorkerProcess pid=1913726)[0;0m INFO 04-12 16:16:02 model_runner.py:1434] Capturing cudagraphs for decoding. This may lead to unexpected consequences if the model is not static. To run the model in eager mode, set 'enforce_eager=True' or use '--enforce-eager' in the CLI. If out-of-memory error occurs during cudagraph capture, consider decreasing `gpu_memory_utilization` or switching to eager mode. You can also reduce the `max_num_seqs` as needed to decrease memory usage.
+
+Capturing CUDA graph shapes:   5%|▌         | 1/19 [00:00<00:17,  1.04it/s]
+Capturing CUDA graph shapes:  11%|█         | 2/19 [00:01<00:13,  1.23it/s]
+Capturing CUDA graph shapes:  16%|█▌        | 3/19 [00:02<00:10,  1.53it/s]
+Capturing CUDA graph shapes:  21%|██        | 4/19 [00:02<00:08,  1.71it/s]
+Capturing CUDA graph shapes:  26%|██▋       | 5/19 [00:03<00:07,  1.80it/s]
+Capturing CUDA graph shapes:  32%|███▏      | 6/19 [00:03<00:07,  1.63it/s]
+Capturing CUDA graph shapes:  37%|███▋      | 7/19 [00:04<00:06,  1.75it/s]
+Capturing CUDA graph shapes:  42%|████▏     | 8/19 [00:04<00:05,  1.87it/s]
+Capturing CUDA graph shapes:  47%|████▋     | 9/19 [00:05<00:05,  1.95it/s]
+Capturing CUDA graph shapes:  53%|█████▎    | 10/19 [00:05<00:04,  1.81it/s]
+Capturing CUDA graph shapes:  58%|█████▊    | 11/19 [00:06<00:04,  1.94it/s]
+Capturing CUDA graph shapes:  63%|██████▎   | 12/19 [00:06<00:03,  2.01it/s]
+Capturing CUDA graph shapes:  68%|██████▊   | 13/19 [00:07<00:02,  2.04it/s][1;36m(VllmWorkerProcess pid=1913727)[0;0m INFO 04-12 16:16:09 custom_all_reduce.py:226] Registering 1083 cuda graph addresses
+
+Capturing CUDA graph shapes:  74%|███████▎  | 14/19 [00:07<00:02,  1.85it/s]
+Capturing CUDA graph shapes:  79%|███████▉  | 15/19 [00:08<00:02,  1.94it/s]
+Capturing CUDA graph shapes:  84%|████████▍ | 16/19 [00:08<00:01,  1.96it/s][1;36m(VllmWorkerProcess pid=1913728)[0;0m INFO 04-12 16:16:11 custom_all_reduce.py:226] Registering 1083 cuda graph addresses
+
+Capturing CUDA graph shapes:  89%|████████▉ | 17/19 [00:09<00:01,  1.92it/s]
+Capturing CUDA graph shapes:  95%|█████████▍| 18/19 [00:10<00:00,  1.83it/s][1;36m(VllmWorkerProcess pid=1913726)[0;0m INFO 04-12 16:16:12 custom_all_reduce.py:226] Registering 1083 cuda graph addresses
+
+Capturing CUDA graph shapes: 100%|██████████| 19/19 [00:10<00:00,  1.62it/s]
+Capturing CUDA graph shapes: 100%|██████████| 19/19 [00:10<00:00,  1.76it/s]
+[2025-04-12 16:16:13,056] [[32m    INFO[0m]: Registering 1083 cuda graph addresses (custom_all_reduce.py:226)[0m
+[1;36m(VllmWorkerProcess pid=1913728)[0;0m INFO 04-12 16:16:13 model_runner.py:1562] Graph capturing finished in 11 secs, took 0.15 GiB
+[1;36m(VllmWorkerProcess pid=1913726)[0;0m INFO 04-12 16:16:13 model_runner.py:1562] Graph capturing finished in 11 secs, took 0.15 GiB
+[2025-04-12 16:16:13,110] [[32m    INFO[0m]: Graph capturing finished in 11 secs, took 0.15 GiB (model_runner.py:1562)[0m
+[1;36m(VllmWorkerProcess pid=1913727)[0;0m INFO 04-12 16:16:13 model_runner.py:1562] Graph capturing finished in 11 secs, took 0.15 GiB
+[2025-04-12 16:16:13,111] [[32m    INFO[0m]: init engine (profile, create kv cache, warmup model) took 20.28 seconds (llm_engine.py:431)[0m
+[2025-04-12 16:16:15,615] [[32m    INFO[0m]: --- INIT SEEDS --- (pipeline.py:263)[0m
+[2025-04-12 16:16:15,615] [[32m    INFO[0m]: --- LOADING TASKS --- (pipeline.py:216)[0m
+[2025-04-12 16:16:15,615] [[32m    INFO[0m]: Found 1 custom tasks in ~/Projects/nips25_slot/open-r2/openr1/lib/python3.11/site-packages/lighteval/tasks/extended/ifeval/main.py (registry.py:142)[0m
+[2025-04-12 16:16:15,615] [[32m    INFO[0m]: Found 6 custom tasks in ~/Projects/nips25_slot/open-r2/openr1/lib/python3.11/site-packages/lighteval/tasks/extended/tiny_benchmarks/main.py (registry.py:142)[0m
+[2025-04-12 16:16:15,615] [[32m    INFO[0m]: Found 1 custom tasks in ~/Projects/nips25_slot/open-r2/openr1/lib/python3.11/site-packages/lighteval/tasks/extended/mt_bench/main.py (registry.py:142)[0m
+[2025-04-12 16:16:15,615] [[32m    INFO[0m]: Found 4 custom tasks in ~/Projects/nips25_slot/open-r2/openr1/lib/python3.11/site-packages/lighteval/tasks/extended/mix_eval/main.py (registry.py:142)[0m
+[2025-04-12 16:16:15,615] [[32m    INFO[0m]: Found 5 custom tasks in ~/Projects/nips25_slot/open-r2/openr1/lib/python3.11/site-packages/lighteval/tasks/extended/olympiade_bench/main.py (registry.py:142)[0m
+[2025-04-12 16:16:15,615] [[32m    INFO[0m]: Found 1 custom tasks in ~/Projects/nips25_slot/open-r2/openr1/lib/python3.11/site-packages/lighteval/tasks/extended/hle/main.py (registry.py:142)[0m
+[2025-04-12 16:16:15,615] [[32m    INFO[0m]: Found 21 custom tasks in ~/Projects/nips25_slot/open-r2/openr1/lib/python3.11/site-packages/lighteval/tasks/extended/lcb/main.py (registry.py:142)[0m
+[2025-04-12 16:16:15,619] [[32m    INFO[0m]: HuggingFaceH4/MATH-500 default (lighteval_task.py:187)[0m
+[2025-04-12 16:16:15,619] [[33m WARNING[0m]: Careful, the task lighteval|math_500 is using evaluation data to build the few shot examples. (lighteval_task.py:260)[0m
+Using the latest cached version of the dataset since HuggingFaceH4/MATH-500 couldn't be found on the Hugging Face Hub
+[2025-04-12 16:16:26,160] [[33m WARNING[0m]: Using the latest cached version of the dataset since HuggingFaceH4/MATH-500 couldn't be found on the Hugging Face Hub (load.py:1377)[0m
+Found the latest cached dataset configuration 'default' at ~/.cache/huggingface/datasets/HuggingFaceH4___math-500/default/0.0.0/ff5b20257d8185524591543f8ff5993951537bb8 (last modified on Sat Apr 12 16:09:28 2025).
+[2025-04-12 16:16:26,162] [[33m WARNING[0m]: Found the latest cached dataset configuration 'default' at ~/.cache/huggingface/datasets/HuggingFaceH4___math-500/default/0.0.0/ff5b20257d8185524591543f8ff5993951537bb8 (last modified on Sat Apr 12 16:09:28 2025). (cache.py:94)[0m
+[2025-04-12 16:16:26,303] [[32m    INFO[0m]: --- RUNNING MODEL --- (pipeline.py:468)[0m
+[2025-04-12 16:16:26,303] [[32m    INFO[0m]: Running RequestType.GREEDY_UNTIL requests (pipeline.py:472)[0m
+[2025-04-12 16:16:26,386] [[33m WARNING[0m]: You cannot select the number of dataset splits for a generative evaluation at the moment. Automatically inferring. (data.py:260)[0m
+
+Splits:   0%|          | 0/1 [00:00<?, ?it/s][2025-04-12 16:16:26,466] [[33m WARNING[0m]: context_size + max_new_tokens=33636 which is greater than self.max_length=32768. Truncating context to 0 tokens. (vllm_model.py:270)[0m
+
+
+Processed prompts:   0%|          | 0/500 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s][A
+
+Processed prompts:   0%|          | 1/500 [00:05<42:36,  5.12s/it, est. speed input: 169.40 toks/s, output: 77.28 toks/s][A
+
+Processed prompts:   0%|          | 2/500 [00:06<25:58,  3.13s/it, est. speed input: 149.44 toks/s, output: 135.74 toks/s][A
+
+Processed prompts:   1%|          | 3/500 [00:07<14:50,  1.79s/it, est. speed input: 180.89 toks/s, output: 209.93 toks/s][A
+
+Processed prompts:   1%|          | 5/500 [00:07<07:02,  1.17it/s, est. speed input: 221.47 toks/s, output: 356.02 toks/s][A
+
+Processed prompts:   1%|          | 6/500 [00:07<06:29,  1.27it/s, est. speed input: 253.36 toks/s, output: 406.51 toks/s][A
+
+Processed prompts:   1%|▏         | 7/500 [00:09<07:22,  1.11it/s, est. speed input: 237.96 toks/s, output: 433.60 toks/s][A
+
+Processed prompts:   2%|▏         | 9/500 [00:11<07:54,  1.03it/s, est. speed input: 222.01 toks/s, output: 496.62 toks/s][A
+
+Processed prompts:   2%|▏         | 10/500 [00:11<06:30,  1.25it/s, est. speed input: 230.49 toks/s, output: 564.35 toks/s][A
+
+Processed prompts:   2%|▏         | 11/500 [00:12<07:34,  1.08it/s, est. speed input: 221.30 toks/s, output: 586.78 toks/s][A
+
+Processed prompts:   2%|▏         | 12/500 [00:14<09:44,  1.20s/it, est. speed input: 204.23 toks/s, output: 590.14 toks/s][A
+
+Processed prompts:   3%|▎         | 13/500 [00:15<08:57,  1.10s/it, est. speed input: 207.04 toks/s, output: 637.80 toks/s][A
+
+Processed prompts:   3%|▎         | 14/500 [00:16<08:05,  1.00it/s, est. speed input: 216.62 toks/s, output: 689.13 toks/s][A
+
+Processed prompts:   3%|▎         | 16/500 [00:17<05:44,  1.41it/s, est. speed input: 226.80 toks/s, output: 784.97 toks/s][A
+
+Processed prompts:   3%|▎         | 17/500 [00:17<04:43,  1.71it/s, est. speed input: 233.90 toks/s, output: 856.02 toks/s][A
+
+Processed prompts:   4%|▎         | 18/500 [00:17<04:31,  1.77it/s, est. speed input: 236.80 toks/s, output: 911.94 toks/s][A
+
+Processed prompts:   4%|▍         | 19/500 [00:17<03:50,  2.09it/s, est. speed input: 242.33 toks/s, output: 979.34 toks/s][A
+
+Processed prompts:   4%|▍         | 20/500 [00:18<04:18,  1.86it/s, est. speed input: 241.45 toks/s, output: 989.38 toks/s][A
+
+Processed prompts:   4%|▍         | 21/500 [00:19<05:11,  1.54it/s, est. speed input: 245.45 toks/s, output: 1022.09 toks/s][A
+
+Processed prompts:   4%|▍         | 22/500 [00:20<05:56,  1.34it/s, est. speed input: 241.37 toks/s, output: 1053.36 toks/s][A
+
+Processed prompts:   5%|▍         | 23/500 [00:20<04:48,  1.65it/s, est. speed input: 253.39 toks/s, output: 1119.88 toks/s][A
+
+Processed prompts:   5%|▍         | 24/500 [00:20<03:40,  2.16it/s, est. speed input: 259.99 toks/s, output: 1192.93 toks/s][A
+
+Processed prompts:   5%|▌         | 25/500 [00:21<02:59,  2.64it/s, est. speed input: 269.70 toks/s, output: 1262.73 toks/s][A
+
+Processed prompts:   5%|▌         | 26/500 [00:22<05:36,  1.41it/s, est. speed input: 259.91 toks/s, output: 1256.24 toks/s][A
+
+Processed prompts:   5%|▌         | 27/500 [00:24<08:24,  1.07s/it, est. speed input: 247.61 toks/s, output: 1235.94 toks/s][A
+
+Processed prompts:   6%|▌         | 28/500 [00:25<07:21,  1.07it/s, est. speed input: 257.98 toks/s, output: 1282.32 toks/s][A
+
+Processed prompts:   6%|▌         | 29/500 [00:26<07:16,  1.08it/s, est. speed input: 257.09 toks/s, output: 1314.80 toks/s][A
+
+Processed prompts:   6%|▌         | 30/500 [00:26<05:55,  1.32it/s, est. speed input: 259.52 toks/s, output: 1374.11 toks/s][A
+
+Processed prompts:   6%|▌         | 31/500 [00:27<06:11,  1.26it/s, est. speed input: 257.19 toks/s, output: 1407.28 toks/s][A
+
+Processed prompts:   6%|▋         | 32/500 [00:28<06:03,  1.29it/s, est. speed input: 255.79 toks/s, output: 1421.31 toks/s][A
+
+Processed prompts:   7%|▋         | 33/500 [00:28<05:56,  1.31it/s, est. speed input: 255.46 toks/s, output: 1462.34 toks/s][A
+
+Processed prompts:   7%|▋         | 34/500 [00:29<05:38,  1.37it/s, est. speed input: 255.67 toks/s, output: 1507.29 toks/s][A
+
+Processed prompts:   7%|▋         | 35/500 [00:29<04:33,  1.70it/s, est. speed input: 258.55 toks/s, output: 1540.20 toks/s][A
+
+Processed prompts:   7%|▋         | 36/500 [00:29<03:41,  2.09it/s, est. speed input: 262.13 toks/s, output: 1605.75 toks/s][A
+
+Processed prompts:   7%|▋         | 37/500 [00:30<03:52,  1.99it/s, est. speed input: 262.28 toks/s, output: 1614.50 toks/s][A
+
+Processed prompts:   8%|▊         | 38/500 [00:30<03:18,  2.33it/s, est. speed input: 268.62 toks/s, output: 1677.75 toks/s][A
+
+Processed prompts:   8%|▊         | 39/500 [00:31<05:03,  1.52it/s, est. speed input: 263.21 toks/s, output: 1639.02 toks/s][A
+
+Processed prompts:   8%|▊         | 41/500 [00:32<03:14,  2.36it/s, est. speed input: 273.09 toks/s, output: 1776.91 toks/s][A
+
+Processed prompts:   9%|▊         | 43/500 [00:32<03:00,  2.53it/s, est. speed input: 283.99 toks/s, output: 1890.91 toks/s][A
+
+Processed prompts:   9%|▉         | 45/500 [00:33<02:26,  3.10it/s, est. speed input: 290.89 toks/s, output: 1974.32 toks/s][A
+
+Processed prompts:   9%|▉         | 46/500 [00:34<03:14,  2.33it/s, est. speed input: 289.67 toks/s, output: 2002.49 toks/s][A
+
+Processed prompts:   9%|▉         | 47/500 [00:34<03:03,  2.47it/s, est. speed input: 291.24 toks/s, output: 2018.43 toks/s][A
+
+Processed prompts:  10%|▉         | 48/500 [00:34<02:32,  2.96it/s, est. speed input: 294.42 toks/s, output: 2039.07 toks/s][A
+
+Processed prompts:  10%|▉         | 49/500 [00:35<03:18,  2.27it/s, est. speed input: 292.80 toks/s, output: 2073.22 toks/s][A
+
+Processed prompts:  10%|█         | 50/500 [00:36<04:27,  1.68it/s, est. speed input: 289.21 toks/s, output: 2091.97 toks/s][A
+
+Processed prompts:  10%|█         | 51/500 [00:36<04:13,  1.77it/s, est. speed input: 293.55 toks/s, output: 2140.64 toks/s][A
+
+Processed prompts:  11%|█         | 53/500 [00:36<02:33,  2.91it/s, est. speed input: 302.66 toks/s, output: 2285.52 toks/s][A
+
+Processed prompts:  11%|█         | 54/500 [00:37<02:13,  3.34it/s, est. speed input: 305.43 toks/s, output: 2324.32 toks/s][A
+
+Processed prompts:  11%|█         | 55/500 [00:37<03:02,  2.44it/s, est. speed input: 303.45 toks/s, output: 2309.65 toks/s][A
+
+Processed prompts:  11%|█         | 56/500 [00:38<02:32,  2.92it/s, est. speed input: 308.33 toks/s, output: 2376.01 toks/s][A
+
+Processed prompts:  12%|█▏        | 58/500 [00:38<02:19,  3.18it/s, est. speed input: 311.92 toks/s, output: 2474.29 toks/s][A
+
+Processed prompts:  12%|█▏        | 59/500 [00:38<02:27,  2.99it/s, est. speed input: 312.70 toks/s, output: 2514.82 toks/s][A
+
+Processed prompts:  12%|█▏        | 60/500 [00:42<08:51,  1.21s/it, est. speed input: 288.52 toks/s, output: 2354.47 toks/s][A
+
+Processed prompts:  12%|█▏        | 61/500 [00:42<06:52,  1.07it/s, est. speed input: 290.57 toks/s, output: 2362.28 toks/s][A
+
+Processed prompts:  12%|█▏        | 62/500 [00:43<05:46,  1.26it/s, est. speed input: 291.96 toks/s, output: 2416.00 toks/s][A
+
+Processed prompts:  13%|█▎        | 63/500 [00:43<04:48,  1.51it/s, est. speed input: 293.16 toks/s, output: 2429.39 toks/s][A
+
+Processed prompts:  13%|█▎        | 64/500 [00:44<04:26,  1.64it/s, est. speed input: 293.18 toks/s, output: 2424.88 toks/s][A
+
+Processed prompts:  13%|█▎        | 65/500 [00:45<05:21,  1.35it/s, est. speed input: 289.48 toks/s, output: 2387.49 toks/s][A
+
+Processed prompts:  13%|█▎        | 66/500 [00:45<05:07,  1.41it/s, est. speed input: 289.75 toks/s, output: 2430.23 toks/s][A
+
+Processed prompts:  13%|█▎        | 67/500 [00:46<03:53,  1.86it/s, est. speed input: 291.96 toks/s, output: 2438.18 toks/s][A
+
+Processed prompts:  14%|█▎        | 68/500 [00:46<03:04,  2.34it/s, est. speed input: 294.08 toks/s, output: 2458.21 toks/s][A
+
+Processed prompts:  14%|█▍        | 69/500 [00:46<03:37,  1.98it/s, est. speed input: 292.90 toks/s, output: 2454.26 toks/s][A
+
+Processed prompts:  14%|█▍        | 70/500 [00:47<03:19,  2.16it/s, est. speed input: 293.58 toks/s, output: 2448.36 toks/s][A
+
+Processed prompts:  14%|█▍        | 71/500 [00:47<02:40,  2.67it/s, est. speed input: 297.94 toks/s, output: 2515.25 toks/s][A
+
+Processed prompts:  14%|█▍        | 72/500 [00:47<02:27,  2.90it/s, est. speed input: 299.16 toks/s, output: 2515.29 toks/s][A
+
+Processed prompts:  15%|█▍        | 73/500 [00:47<02:12,  3.21it/s, est. speed input: 301.31 toks/s, output: 2578.38 toks/s][A
+
+Processed prompts:  15%|█▌        | 75/500 [00:49<03:00,  2.36it/s, est. speed input: 301.10 toks/s, output: 2611.02 toks/s][A
+
+Processed prompts:  15%|█▌        | 76/500 [00:49<02:54,  2.43it/s, est. speed input: 301.68 toks/s, output: 2607.89 toks/s][A
+
+Processed prompts:  15%|█▌        | 77/500 [00:50<04:02,  1.74it/s, est. speed input: 298.25 toks/s, output: 2564.29 toks/s][A
+
+Processed prompts:  16%|█▌        | 78/500 [00:50<03:53,  1.81it/s, est. speed input: 298.20 toks/s, output: 2569.82 toks/s][A
+
+Processed prompts:  16%|█▌        | 79/500 [00:52<06:38,  1.06it/s, est. speed input: 290.56 toks/s, output: 2549.56 toks/s][A
+
+Processed prompts:  16%|█▌        | 80/500 [00:53<05:46,  1.21it/s, est. speed input: 292.74 toks/s, output: 2599.54 toks/s][A
+
+Processed prompts:  16%|█▌        | 81/500 [00:53<04:27,  1.57it/s, est. speed input: 294.47 toks/s, output: 2628.01 toks/s][A
+
+Processed prompts:  16%|█▋        | 82/500 [00:53<03:53,  1.79it/s, est. speed input: 297.15 toks/s, output: 2685.05 toks/s][A
+
+Processed prompts:  17%|█▋        | 83/500 [00:54<03:34,  1.95it/s, est. speed input: 297.42 toks/s, output: 2671.91 toks/s][A
+
+Processed prompts:  17%|█▋        | 85/500 [00:54<02:30,  2.76it/s, est. speed input: 301.80 toks/s, output: 2779.00 toks/s][A
+
+Processed prompts:  17%|█▋        | 86/500 [00:54<02:04,  3.32it/s, est. speed input: 303.67 toks/s, output: 2782.98 toks/s][A
+
+Processed prompts:  18%|█▊        | 88/500 [00:54<01:26,  4.74it/s, est. speed input: 308.95 toks/s, output: 2897.99 toks/s][A
+
+Processed prompts:  18%|█▊        | 89/500 [00:55<01:19,  5.14it/s, est. speed input: 310.74 toks/s, output: 2917.17 toks/s][A
+
+Processed prompts:  18%|█▊        | 90/500 [00:55<02:05,  3.27it/s, est. speed input: 309.61 toks/s, output: 2895.52 toks/s][A
+
+Processed prompts:  18%|█▊        | 91/500 [00:56<02:40,  2.55it/s, est. speed input: 308.98 toks/s, output: 2937.30 toks/s][A
+
+Processed prompts:  18%|█▊        | 92/500 [00:59<07:56,  1.17s/it, est. speed input: 294.49 toks/s, output: 2802.63 toks/s][A
+
+Processed prompts:  19%|█▊        | 93/500 [01:00<07:01,  1.04s/it, est. speed input: 293.43 toks/s, output: 2796.47 toks/s][A
+
+Processed prompts:  19%|█▉        | 94/500 [01:01<07:30,  1.11s/it, est. speed input: 290.06 toks/s, output: 2810.37 toks/s][A
+
+Processed prompts:  19%|█▉        | 95/500 [01:02<07:17,  1.08s/it, est. speed input: 287.75 toks/s, output: 2802.66 toks/s][A
+
+Processed prompts:  19%|█▉        | 96/500 [01:03<06:56,  1.03s/it, est. speed input: 285.84 toks/s, output: 2795.87 toks/s][A
+
+Processed prompts:  20%|█▉        | 98/500 [01:03<04:00,  1.67it/s, est. speed input: 296.39 toks/s, output: 2933.88 toks/s][A
+
+Processed prompts:  20%|█▉        | 99/500 [01:03<03:18,  2.02it/s, est. speed input: 297.75 toks/s, output: 2943.97 toks/s][A
+
+Processed prompts:  20%|██        | 100/500 [01:04<04:03,  1.64it/s, est. speed input: 295.56 toks/s, output: 2918.31 toks/s][A
+
+Processed prompts:  20%|██        | 101/500 [01:06<05:56,  1.12it/s, est. speed input: 290.25 toks/s, output: 2867.86 toks/s][A
+
+Processed prompts:  20%|██        | 102/500 [01:07<05:33,  1.19it/s, est. speed input: 289.24 toks/s, output: 2849.69 toks/s][A
+
+Processed prompts:  21%|██        | 103/500 [01:08<06:08,  1.08it/s, est. speed input: 287.10 toks/s, output: 2873.88 toks/s][A
+
+Processed prompts:  21%|██        | 104/500 [01:10<08:02,  1.22s/it, est. speed input: 282.13 toks/s, output: 2867.05 toks/s][A
+
+Processed prompts:  21%|██        | 105/500 [01:11<07:47,  1.18s/it, est. speed input: 280.58 toks/s, output: 2894.79 toks/s][A
+
+Processed prompts:  22%|██▏       | 108/500 [01:12<04:29,  1.46it/s, est. speed input: 283.37 toks/s, output: 2995.08 toks/s][A
+
+Processed prompts:  22%|██▏       | 109/500 [01:12<04:27,  1.46it/s, est. speed input: 282.63 toks/s, output: 2990.04 toks/s][A
+
+Processed prompts:  22%|██▏       | 110/500 [01:13<04:25,  1.47it/s, est. speed input: 283.19 toks/s, output: 3034.69 toks/s][A
+
+Processed prompts:  22%|██▏       | 111/500 [01:13<03:32,  1.83it/s, est. speed input: 284.50 toks/s, output: 3047.18 toks/s][A
+
+Processed prompts:  22%|██▏       | 112/500 [01:14<03:05,  2.09it/s, est. speed input: 286.59 toks/s, output: 3107.07 toks/s][A
+
+Processed prompts:  23%|██▎       | 113/500 [01:14<03:14,  1.99it/s, est. speed input: 286.49 toks/s, output: 3155.04 toks/s][A
+
+Processed prompts:  23%|██▎       | 114/500 [01:14<02:37,  2.45it/s, est. speed input: 287.63 toks/s, output: 3161.01 toks/s][A
+
+Processed prompts:  23%|██▎       | 116/500 [01:16<03:25,  1.87it/s, est. speed input: 288.17 toks/s, output: 3184.44 toks/s][A
+
+Processed prompts:  23%|██▎       | 117/500 [01:16<02:56,  2.17it/s, est. speed input: 289.18 toks/s, output: 3213.38 toks/s][A
+
+Processed prompts:  24%|██▎       | 118/500 [01:18<06:11,  1.03it/s, est. speed input: 282.98 toks/s, output: 3184.64 toks/s][A
+
+Processed prompts:  24%|██▍       | 119/500 [01:18<04:46,  1.33it/s, est. speed input: 284.11 toks/s, output: 3197.18 toks/s][A
+
+Processed prompts:  24%|██▍       | 120/500 [01:19<03:46,  1.68it/s, est. speed input: 285.15 toks/s, output: 3210.10 toks/s][A
+
+Processed prompts:  24%|██▍       | 121/500 [01:19<03:56,  1.60it/s, est. speed input: 284.40 toks/s, output: 3210.40 toks/s][A
+
+Processed prompts:  24%|██▍       | 122/500 [01:20<03:57,  1.59it/s, est. speed input: 283.76 toks/s, output: 3194.75 toks/s][A
+
+Processed prompts:  25%|██▍       | 124/500 [01:21<02:53,  2.17it/s, est. speed input: 285.22 toks/s, output: 3208.68 toks/s][A
+
+Processed prompts:  25%|██▌       | 125/500 [01:21<03:08,  1.99it/s, est. speed input: 284.63 toks/s, output: 3197.48 toks/s][A
+
+Processed prompts:  25%|██▌       | 126/500 [01:21<02:29,  2.50it/s, est. speed input: 286.40 toks/s, output: 3264.22 toks/s][A
+
+Processed prompts:  25%|██▌       | 127/500 [01:22<03:20,  1.86it/s, est. speed input: 284.84 toks/s, output: 3243.52 toks/s][A
+
+Processed prompts:  26%|██▌       | 128/500 [01:24<04:45,  1.30it/s, est. speed input: 284.12 toks/s, output: 3261.61 toks/s][A
+
+Processed prompts:  26%|██▌       | 130/500 [01:24<03:15,  1.90it/s, est. speed input: 286.04 toks/s, output: 3329.68 toks/s][A
+
+Processed prompts:  26%|██▋       | 132/500 [01:24<02:27,  2.49it/s, est. speed input: 288.26 toks/s, output: 3423.07 toks/s][A
+
+Processed prompts:  27%|██▋       | 133/500 [01:25<02:44,  2.23it/s, est. speed input: 289.95 toks/s, output: 3468.87 toks/s][A
+
+Processed prompts:  27%|██▋       | 134/500 [01:26<03:03,  2.00it/s, est. speed input: 289.85 toks/s, output: 3512.70 toks/s][A
+
+Processed prompts:  27%|██▋       | 136/500 [01:26<02:03,  2.95it/s, est. speed input: 292.21 toks/s, output: 3538.58 toks/s][A
+
+Processed prompts:  27%|██▋       | 137/500 [01:26<01:46,  3.39it/s, est. speed input: 293.63 toks/s, output: 3603.38 toks/s][A
+
+Processed prompts:  28%|██▊       | 138/500 [01:27<02:15,  2.67it/s, est. speed input: 293.13 toks/s, output: 3610.72 toks/s][A
+
+Processed prompts:  28%|██▊       | 139/500 [01:27<02:23,  2.51it/s, est. speed input: 293.07 toks/s, output: 3607.07 toks/s][A
+
+Processed prompts:  28%|██▊       | 140/500 [01:28<02:35,  2.31it/s, est. speed input: 293.12 toks/s, output: 3656.01 toks/s][A
+
+Processed prompts:  28%|██▊       | 142/500 [01:28<02:09,  2.76it/s, est. speed input: 294.38 toks/s, output: 3683.42 toks/s][A
+
+Processed prompts:  29%|██▊       | 143/500 [01:29<02:35,  2.29it/s, est. speed input: 293.59 toks/s, output: 3665.89 toks/s][A
+
+Processed prompts:  29%|██▉       | 144/500 [01:29<02:16,  2.60it/s, est. speed input: 294.38 toks/s, output: 3687.26 toks/s][A
+
+Processed prompts:  29%|██▉       | 145/500 [01:29<02:06,  2.80it/s, est. speed input: 294.89 toks/s, output: 3683.27 toks/s][A
+
+Processed prompts:  29%|██▉       | 146/500 [01:30<02:01,  2.91it/s, est. speed input: 295.29 toks/s, output: 3677.02 toks/s][A
+
+Processed prompts:  29%|██▉       | 147/500 [01:31<02:54,  2.02it/s, est. speed input: 293.84 toks/s, output: 3649.69 toks/s][A
+
+Processed prompts:  30%|██▉       | 148/500 [01:31<02:16,  2.57it/s, est. speed input: 294.99 toks/s, output: 3685.85 toks/s][A
+
+Processed prompts:  30%|██▉       | 149/500 [01:31<02:32,  2.31it/s, est. speed input: 294.72 toks/s, output: 3692.86 toks/s][A
+
+Processed prompts:  30%|███       | 150/500 [01:31<01:58,  2.96it/s, est. speed input: 295.81 toks/s, output: 3709.71 toks/s][A
+
+Processed prompts:  30%|███       | 151/500 [01:33<04:26,  1.31it/s, est. speed input: 291.58 toks/s, output: 3652.94 toks/s][A
+
+Processed prompts:  30%|███       | 152/500 [01:34<03:50,  1.51it/s, est. speed input: 291.66 toks/s, output: 3660.09 toks/s][A
+
+Processed prompts:  31%|███       | 153/500 [01:34<04:01,  1.44it/s, est. speed input: 290.61 toks/s, output: 3636.75 toks/s][A
+
+Processed prompts:  31%|███       | 155/500 [01:35<02:40,  2.14it/s, est. speed input: 293.76 toks/s, output: 3698.23 toks/s][A
+
+Processed prompts:  31%|███       | 156/500 [01:35<02:53,  1.98it/s, est. speed input: 293.42 toks/s, output: 3730.34 toks/s][A
+
+Processed prompts:  31%|███▏      | 157/500 [01:36<03:32,  1.62it/s, est. speed input: 292.53 toks/s, output: 3763.67 toks/s][A
+
+Processed prompts:  32%|███▏      | 158/500 [01:37<02:59,  1.91it/s, est. speed input: 294.83 toks/s, output: 3822.78 toks/s][A
+
+Processed prompts:  32%|███▏      | 159/500 [01:37<02:27,  2.32it/s, est. speed input: 296.50 toks/s, output: 3884.85 toks/s][A
+
+Processed prompts:  32%|███▏      | 160/500 [01:38<03:20,  1.69it/s, est. speed input: 294.81 toks/s, output: 3856.97 toks/s][A
+
+Processed prompts:  32%|███▏      | 161/500 [01:38<02:50,  1.99it/s, est. speed input: 295.29 toks/s, output: 3868.25 toks/s][A
+
+Processed prompts:  32%|███▏      | 162/500 [01:39<03:05,  1.82it/s, est. speed input: 295.15 toks/s, output: 3911.91 toks/s][A
+
+Processed prompts:  33%|███▎      | 163/500 [01:40<04:18,  1.30it/s, est. speed input: 292.95 toks/s, output: 3931.00 toks/s][A
+
+Processed prompts:  33%|███▎      | 164/500 [01:41<04:07,  1.36it/s, est. speed input: 292.43 toks/s, output: 3945.40 toks/s][A
+
+Processed prompts:  33%|███▎      | 165/500 [01:41<03:35,  1.55it/s, est. speed input: 292.47 toks/s, output: 3945.40 toks/s][A
+
+Processed prompts:  33%|███▎      | 167/500 [01:42<02:45,  2.01it/s, est. speed input: 293.06 toks/s, output: 3941.69 toks/s][A
+
+Processed prompts:  34%|███▎      | 168/500 [01:42<02:35,  2.13it/s, est. speed input: 293.22 toks/s, output: 3944.02 toks/s][A
+
+Processed prompts:  34%|███▍      | 170/500 [01:42<01:59,  2.77it/s, est. speed input: 295.55 toks/s, output: 4005.79 toks/s][A
+
+Processed prompts:  34%|███▍      | 171/500 [01:46<05:24,  1.01it/s, est. speed input: 288.09 toks/s, output: 3898.45 toks/s][A
+
+Processed prompts:  35%|███▍      | 173/500 [01:46<03:29,  1.56it/s, est. speed input: 289.92 toks/s, output: 3930.67 toks/s][A
+
+Processed prompts:  35%|███▌      | 175/500 [01:46<02:39,  2.04it/s, est. speed input: 291.31 toks/s, output: 3980.60 toks/s][A
+
+Processed prompts:  35%|███▌      | 176/500 [01:47<02:25,  2.23it/s, est. speed input: 291.71 toks/s, output: 3981.13 toks/s][A
+
+Processed prompts:  35%|███▌      | 177/500 [01:47<02:31,  2.13it/s, est. speed input: 291.42 toks/s, output: 3975.04 toks/s][A
+
+Processed prompts:  36%|███▌      | 178/500 [01:47<02:11,  2.44it/s, est. speed input: 295.80 toks/s, output: 4034.69 toks/s][A
+
+Processed prompts:  36%|███▌      | 180/500 [01:47<01:24,  3.79it/s, est. speed input: 297.89 toks/s, output: 4067.18 toks/s][A
+
+Processed prompts:  36%|███▌      | 181/500 [01:48<01:23,  3.81it/s, est. speed input: 298.38 toks/s, output: 4077.85 toks/s][A
+
+Processed prompts:  36%|███▋      | 182/500 [01:49<02:20,  2.26it/s, est. speed input: 296.79 toks/s, output: 4050.33 toks/s][A
+
+Processed prompts:  37%|███▋      | 183/500 [01:49<02:01,  2.62it/s, est. speed input: 297.78 toks/s, output: 4110.38 toks/s][A
+
+Processed prompts:  37%|███▋      | 184/500 [01:49<02:05,  2.52it/s, est. speed input: 297.96 toks/s, output: 4149.30 toks/s][A
+
+Processed prompts:  37%|███▋      | 185/500 [01:50<02:58,  1.76it/s, est. speed input: 296.85 toks/s, output: 4178.90 toks/s][A
+
+Processed prompts:  37%|███▋      | 186/500 [01:51<02:59,  1.75it/s, est. speed input: 296.41 toks/s, output: 4166.81 toks/s][A
+
+Processed prompts:  37%|███▋      | 187/500 [01:52<03:44,  1.39it/s, est. speed input: 294.67 toks/s, output: 4138.51 toks/s][A
+
+Processed prompts:  38%|███▊      | 188/500 [01:52<03:00,  1.73it/s, est. speed input: 295.13 toks/s, output: 4137.56 toks/s][A
+
+Processed prompts:  38%|███▊      | 189/500 [01:53<02:41,  1.93it/s, est. speed input: 296.04 toks/s, output: 4190.76 toks/s][A
+
+Processed prompts:  38%|███▊      | 190/500 [01:53<02:12,  2.34it/s, est. speed input: 296.54 toks/s, output: 4188.98 toks/s][A
+
+Processed prompts:  38%|███▊      | 192/500 [01:53<01:22,  3.72it/s, est. speed input: 300.34 toks/s, output: 4268.63 toks/s][A
+
+Processed prompts:  39%|███▊      | 193/500 [01:55<04:05,  1.25it/s, est. speed input: 295.82 toks/s, output: 4245.77 toks/s][A
+
+Processed prompts:  39%|███▉      | 194/500 [01:57<05:18,  1.04s/it, est. speed input: 292.49 toks/s, output: 4187.78 toks/s][A
+
+Processed prompts:  39%|███▉      | 195/500 [01:58<04:37,  1.10it/s, est. speed input: 292.14 toks/s, output: 4178.23 toks/s][A
+
+Processed prompts:  39%|███▉      | 196/500 [01:59<04:55,  1.03it/s, est. speed input: 290.36 toks/s, output: 4143.79 toks/s][A
+
+Processed prompts:  39%|███▉      | 197/500 [01:59<04:15,  1.19it/s, est. speed input: 290.11 toks/s, output: 4132.88 toks/s][A
+
+Processed prompts:  40%|███▉      | 198/500 [02:01<05:32,  1.10s/it, est. speed input: 287.11 toks/s, output: 4112.40 toks/s][A
+
+Processed prompts:  40%|███▉      | 199/500 [02:01<04:03,  1.24it/s, est. speed input: 287.85 toks/s, output: 4115.92 toks/s][A
+
+Processed prompts:  40%|████      | 200/500 [02:01<03:08,  1.59it/s, est. speed input: 288.38 toks/s, output: 4117.08 toks/s][A
+
+Processed prompts:  40%|████      | 201/500 [02:02<02:39,  1.87it/s, est. speed input: 288.71 toks/s, output: 4129.27 toks/s][A
+
+Processed prompts:  40%|████      | 202/500 [02:03<03:32,  1.40it/s, est. speed input: 286.99 toks/s, output: 4096.08 toks/s][A
+
+Processed prompts:  41%|████      | 203/500 [02:05<05:01,  1.01s/it, est. speed input: 284.12 toks/s, output: 4072.47 toks/s][A
+
+Processed prompts:  41%|████      | 204/500 [02:05<03:39,  1.35it/s, est. speed input: 284.83 toks/s, output: 4075.98 toks/s][A
+
+Processed prompts:  41%|████      | 206/500 [02:05<02:21,  2.08it/s, est. speed input: 285.95 toks/s, output: 4081.50 toks/s][A
+
+Processed prompts:  41%|████▏     | 207/500 [02:06<02:23,  2.04it/s, est. speed input: 285.71 toks/s, output: 4071.82 toks/s][A
+
+Processed prompts:  42%|████▏     | 208/500 [02:07<03:06,  1.57it/s, est. speed input: 284.40 toks/s, output: 4072.27 toks/s][A
+
+Processed prompts:  42%|████▏     | 209/500 [02:08<04:33,  1.06it/s, est. speed input: 281.47 toks/s, output: 4028.51 toks/s][A
+
+Processed prompts:  42%|████▏     | 210/500 [02:09<03:38,  1.33it/s, est. speed input: 283.42 toks/s, output: 4084.17 toks/s][A
+
+Processed prompts:  42%|████▏     | 211/500 [02:10<04:31,  1.06it/s, est. speed input: 281.29 toks/s, output: 4053.08 toks/s][A
+
+Processed prompts:  42%|████▏     | 212/500 [02:10<03:26,  1.39it/s, est. speed input: 281.87 toks/s, output: 4063.85 toks/s][A
+
+Processed prompts:  43%|████▎     | 213/500 [02:10<02:42,  1.77it/s, est. speed input: 282.33 toks/s, output: 4063.67 toks/s][A
+
+Processed prompts:  43%|████▎     | 214/500 [02:11<02:24,  1.98it/s, est. speed input: 282.59 toks/s, output: 4085.56 toks/s][A
+
+Processed prompts:  43%|████▎     | 215/500 [02:11<02:11,  2.16it/s, est. speed input: 282.70 toks/s, output: 4080.29 toks/s][A
+
+Processed prompts:  43%|████▎     | 216/500 [02:12<02:27,  1.92it/s, est. speed input: 282.18 toks/s, output: 4066.44 toks/s][A
+
+Processed prompts:  44%|████▎     | 218/500 [02:13<02:49,  1.67it/s, est. speed input: 281.32 toks/s, output: 4100.44 toks/s][A
+
+Processed prompts:  44%|████▍     | 219/500 [02:13<02:15,  2.07it/s, est. speed input: 282.74 toks/s, output: 4159.72 toks/s][A
+
+Processed prompts:  44%|████▍     | 220/500 [02:13<01:52,  2.48it/s, est. speed input: 283.23 toks/s, output: 4158.06 toks/s][A
+
+Processed prompts:  44%|████▍     | 221/500 [02:14<01:31,  3.05it/s, est. speed input: 283.89 toks/s, output: 4170.44 toks/s][A
+
+Processed prompts:  44%|████▍     | 222/500 [02:14<01:31,  3.03it/s, est. speed input: 284.07 toks/s, output: 4172.31 toks/s][A
+
+Processed prompts:  45%|████▍     | 223/500 [02:15<02:09,  2.14it/s, est. speed input: 283.30 toks/s, output: 4165.21 toks/s][A
+
+Processed prompts:  45%|████▍     | 224/500 [02:15<01:41,  2.71it/s, est. speed input: 284.17 toks/s, output: 4224.21 toks/s][A
+
+Processed prompts:  45%|████▌     | 225/500 [02:16<02:27,  1.87it/s, est. speed input: 283.07 toks/s, output: 4200.69 toks/s][A
+
+Processed prompts:  45%|████▌     | 226/500 [02:17<03:05,  1.48it/s, est. speed input: 281.83 toks/s, output: 4179.43 toks/s][A
+
+Processed prompts:  45%|████▌     | 227/500 [02:17<02:27,  1.85it/s, est. speed input: 282.21 toks/s, output: 4176.26 toks/s][A
+
+Processed prompts:  46%|████▌     | 228/500 [02:19<04:30,  1.00it/s, est. speed input: 278.87 toks/s, output: 4124.81 toks/s][A
+
+Processed prompts:  46%|████▌     | 229/500 [02:20<04:56,  1.10s/it, est. speed input: 277.09 toks/s, output: 4098.09 toks/s][A
+
+Processed prompts:  46%|████▌     | 230/500 [02:21<04:13,  1.06it/s, est. speed input: 276.78 toks/s, output: 4086.86 toks/s][A
+
+Processed prompts:  46%|████▌     | 231/500 [02:21<03:11,  1.41it/s, est. speed input: 277.26 toks/s, output: 4090.86 toks/s][A
+
+Processed prompts:  46%|████▋     | 232/500 [02:22<02:54,  1.54it/s, est. speed input: 277.09 toks/s, output: 4084.93 toks/s][A
+
+Processed prompts:  47%|████▋     | 233/500 [02:23<03:13,  1.38it/s, est. speed input: 276.32 toks/s, output: 4101.21 toks/s][A
+
+Processed prompts:  47%|████▋     | 235/500 [02:24<03:15,  1.36it/s, est. speed input: 275.43 toks/s, output: 4127.17 toks/s][A
+
+Processed prompts:  47%|████▋     | 236/500 [02:25<03:41,  1.19it/s, est. speed input: 274.04 toks/s, output: 4102.05 toks/s][A
+
+Processed prompts:  47%|████▋     | 237/500 [02:26<03:49,  1.15it/s, est. speed input: 273.09 toks/s, output: 4092.68 toks/s][A
+
+Processed prompts:  48%|████▊     | 238/500 [02:27<03:38,  1.20it/s, est. speed input: 272.49 toks/s, output: 4076.09 toks/s][A
+
+Processed prompts:  48%|████▊     | 239/500 [02:28<04:04,  1.07it/s, est. speed input: 271.07 toks/s, output: 4054.30 toks/s][A
+
+Processed prompts:  48%|████▊     | 240/500 [02:29<04:05,  1.06it/s, est. speed input: 271.18 toks/s, output: 4089.18 toks/s][A
+
+Processed prompts:  48%|████▊     | 241/500 [02:29<03:01,  1.43it/s, est. speed input: 271.76 toks/s, output: 4096.62 toks/s][A
+
+Processed prompts:  48%|████▊     | 242/500 [02:29<02:28,  1.74it/s, est. speed input: 272.07 toks/s, output: 4102.87 toks/s][A
+
+Processed prompts:  49%|████▊     | 243/500 [02:30<02:16,  1.89it/s, est. speed input: 272.07 toks/s, output: 4099.50 toks/s][A
+
+Processed prompts:  49%|████▉     | 244/500 [02:31<02:24,  1.77it/s, est. speed input: 271.66 toks/s, output: 4089.97 toks/s][A
+
+Processed prompts:  49%|████▉     | 245/500 [02:33<04:37,  1.09s/it, est. speed input: 268.30 toks/s, output: 4036.63 toks/s][A
+
+Processed prompts:  49%|████▉     | 246/500 [02:34<04:36,  1.09s/it, est. speed input: 267.47 toks/s, output: 4068.60 toks/s][A
+
+Processed prompts:  49%|████▉     | 247/500 [02:35<04:09,  1.01it/s, est. speed input: 267.11 toks/s, output: 4094.04 toks/s][A
+
+Processed prompts:  50%|████▉     | 248/500 [02:35<03:31,  1.19it/s, est. speed input: 266.98 toks/s, output: 4086.00 toks/s][A
+
+Processed prompts:  50%|████▉     | 249/500 [02:35<02:48,  1.49it/s, est. speed input: 267.25 toks/s, output: 4086.98 toks/s][A
+
+Processed prompts:  50%|█████     | 250/500 [02:36<02:17,  1.81it/s, est. speed input: 267.49 toks/s, output: 4083.67 toks/s][A
+
+Processed prompts:  50%|█████     | 251/500 [02:36<01:49,  2.28it/s, est. speed input: 267.91 toks/s, output: 4085.10 toks/s][A
+
+Processed prompts:  50%|█████     | 252/500 [02:37<02:17,  1.80it/s, est. speed input: 267.23 toks/s, output: 4072.12 toks/s][A
+
+Processed prompts:  51%|█████     | 253/500 [02:40<06:13,  1.51s/it, est. speed input: 261.69 toks/s, output: 3981.88 toks/s][A
+
+Processed prompts:  51%|█████     | 254/500 [02:41<05:22,  1.31s/it, est. speed input: 261.04 toks/s, output: 3968.17 toks/s][A
+
+Processed prompts:  51%|█████     | 255/500 [02:41<03:57,  1.03it/s, est. speed input: 261.46 toks/s, output: 3975.65 toks/s][A
+
+Processed prompts:  51%|█████     | 256/500 [02:42<03:41,  1.10it/s, est. speed input: 260.93 toks/s, output: 3966.07 toks/s][A
+
+Processed prompts:  52%|█████▏    | 259/500 [02:43<01:50,  2.18it/s, est. speed input: 262.64 toks/s, output: 4012.90 toks/s][A
+
+Processed prompts:  52%|█████▏    | 260/500 [02:43<02:00,  2.00it/s, est. speed input: 262.26 toks/s, output: 4001.98 toks/s][A
+
+Processed prompts:  52%|█████▏    | 261/500 [02:43<01:45,  2.26it/s, est. speed input: 262.59 toks/s, output: 4013.83 toks/s][A
+
+Processed prompts:  52%|█████▏    | 262/500 [02:44<01:45,  2.25it/s, est. speed input: 262.56 toks/s, output: 4011.27 toks/s][A
+
+Processed prompts:  53%|█████▎    | 263/500 [02:44<01:50,  2.15it/s, est. speed input: 262.41 toks/s, output: 4004.44 toks/s][A
+
+Processed prompts:  53%|█████▎    | 264/500 [02:45<01:49,  2.16it/s, est. speed input: 263.20 toks/s, output: 4052.29 toks/s][A
+
+Processed prompts:  53%|█████▎    | 266/500 [02:45<01:14,  3.16it/s, est. speed input: 266.05 toks/s, output: 4114.22 toks/s][A
+
+Processed prompts:  54%|█████▎    | 268/500 [02:46<01:15,  3.06it/s, est. speed input: 266.29 toks/s, output: 4109.87 toks/s][A
+
+Processed prompts:  54%|█████▍    | 269/500 [02:46<01:21,  2.83it/s, est. speed input: 266.45 toks/s, output: 4146.29 toks/s][A
+
+Processed prompts:  54%|█████▍    | 270/500 [02:47<01:49,  2.10it/s, est. speed input: 265.72 toks/s, output: 4129.04 toks/s][A
+
+Processed prompts:  54%|█████▍    | 271/500 [02:48<01:46,  2.16it/s, est. speed input: 265.72 toks/s, output: 4127.62 toks/s][A
+
+Processed prompts:  54%|█████▍    | 272/500 [02:48<01:37,  2.35it/s, est. speed input: 265.87 toks/s, output: 4124.47 toks/s][A
+
+Processed prompts:  55%|█████▍    | 273/500 [02:49<02:00,  1.89it/s, est. speed input: 269.20 toks/s, output: 4163.49 toks/s][A
+
+Processed prompts:  55%|█████▌    | 275/500 [02:50<01:57,  1.91it/s, est. speed input: 269.02 toks/s, output: 4181.87 toks/s][A
+
+Processed prompts:  55%|█████▌    | 276/500 [02:51<02:54,  1.28it/s, est. speed input: 267.17 toks/s, output: 4149.33 toks/s][A
+
+Processed prompts:  55%|█████▌    | 277/500 [02:52<02:29,  1.49it/s, est. speed input: 267.27 toks/s, output: 4147.42 toks/s][A
+
+Processed prompts:  56%|█████▌    | 278/500 [02:53<02:58,  1.24it/s, est. speed input: 266.09 toks/s, output: 4123.42 toks/s][A
+
+Processed prompts:  56%|█████▌    | 279/500 [02:55<04:28,  1.22s/it, est. speed input: 263.28 toks/s, output: 4083.27 toks/s][A
+
+Processed prompts:  56%|█████▌    | 280/500 [02:56<03:48,  1.04s/it, est. speed input: 263.68 toks/s, output: 4127.42 toks/s][A
+
+Processed prompts:  56%|█████▌    | 281/500 [02:56<02:53,  1.26it/s, est. speed input: 264.05 toks/s, output: 4133.53 toks/s][A
+
+Processed prompts:  56%|█████▋    | 282/500 [02:56<02:19,  1.56it/s, est. speed input: 264.31 toks/s, output: 4144.65 toks/s][A
+
+Processed prompts:  57%|█████▋    | 284/500 [02:57<01:36,  2.24it/s, est. speed input: 264.95 toks/s, output: 4154.66 toks/s][A
+
+Processed prompts:  57%|█████▋    | 285/500 [02:57<01:50,  1.95it/s, est. speed input: 264.55 toks/s, output: 4154.67 toks/s][A
+
+Processed prompts:  57%|█████▋    | 286/500 [02:58<02:14,  1.59it/s, est. speed input: 263.75 toks/s, output: 4138.28 toks/s][A
+
+Processed prompts:  57%|█████▋    | 287/500 [02:59<01:49,  1.95it/s, est. speed input: 264.10 toks/s, output: 4146.03 toks/s][A
+
+Processed prompts:  58%|█████▊    | 288/500 [02:59<01:39,  2.14it/s, est. speed input: 265.13 toks/s, output: 4195.52 toks/s][A
+
+Processed prompts:  58%|█████▊    | 289/500 [03:00<02:08,  1.64it/s, est. speed input: 264.35 toks/s, output: 4184.49 toks/s][A
+
+Processed prompts:  58%|█████▊    | 290/500 [03:00<01:40,  2.09it/s, est. speed input: 264.72 toks/s, output: 4184.60 toks/s][A
+
+Processed prompts:  58%|█████▊    | 291/500 [03:00<01:20,  2.61it/s, est. speed input: 265.11 toks/s, output: 4191.99 toks/s][A
+
+Processed prompts:  59%|█████▊    | 293/500 [03:01<01:05,  3.15it/s, est. speed input: 265.69 toks/s, output: 4209.69 toks/s][A
+
+Processed prompts:  59%|█████▉    | 294/500 [03:01<01:29,  2.30it/s, est. speed input: 265.15 toks/s, output: 4201.88 toks/s][A
+
+Processed prompts:  59%|█████▉    | 295/500 [03:02<01:12,  2.81it/s, est. speed input: 265.57 toks/s, output: 4208.92 toks/s][A
+
+Processed prompts:  59%|█████▉    | 296/500 [03:02<01:08,  2.99it/s, est. speed input: 265.77 toks/s, output: 4208.34 toks/s][A
+
+Processed prompts:  59%|█████▉    | 297/500 [03:02<01:07,  3.01it/s, est. speed input: 265.89 toks/s, output: 4205.24 toks/s][A
+
+Processed prompts:  60%|█████▉    | 298/500 [03:02<01:00,  3.31it/s, est. speed input: 266.17 toks/s, output: 4207.93 toks/s][A
+
+Processed prompts:  60%|██████    | 300/500 [03:03<00:52,  3.79it/s, est. speed input: 266.75 toks/s, output: 4214.01 toks/s][A
+
+Processed prompts:  60%|██████    | 301/500 [03:03<00:47,  4.21it/s, est. speed input: 267.10 toks/s, output: 4214.36 toks/s][A
+
+Processed prompts:  60%|██████    | 302/500 [03:03<00:40,  4.90it/s, est. speed input: 267.54 toks/s, output: 4216.47 toks/s][A
+
+Processed prompts:  61%|██████    | 304/500 [03:04<00:47,  4.11it/s, est. speed input: 267.97 toks/s, output: 4238.35 toks/s][A
+
+Processed prompts:  61%|██████    | 306/500 [03:07<02:19,  1.39it/s, est. speed input: 264.95 toks/s, output: 4210.04 toks/s][A
+
+Processed prompts:  61%|██████▏   | 307/500 [03:07<02:17,  1.40it/s, est. speed input: 264.55 toks/s, output: 4199.12 toks/s][A
+
+Processed prompts:  62%|██████▏   | 308/500 [03:08<02:15,  1.42it/s, est. speed input: 264.17 toks/s, output: 4190.46 toks/s][A
+
+Processed prompts:  62%|██████▏   | 310/500 [03:09<01:48,  1.75it/s, est. speed input: 264.27 toks/s, output: 4183.65 toks/s][A
+
+Processed prompts:  62%|██████▏   | 312/500 [03:10<01:43,  1.81it/s, est. speed input: 264.17 toks/s, output: 4212.17 toks/s][A
+
+Processed prompts:  63%|██████▎   | 314/500 [03:10<01:22,  2.25it/s, est. speed input: 264.63 toks/s, output: 4208.73 toks/s][A
+
+Processed prompts:  63%|██████▎   | 315/500 [03:11<01:16,  2.43it/s, est. speed input: 264.82 toks/s, output: 4209.79 toks/s][A
+
+Processed prompts:  63%|██████▎   | 316/500 [03:11<01:23,  2.19it/s, est. speed input: 264.75 toks/s, output: 4244.54 toks/s][A
+
+Processed prompts:  63%|██████▎   | 317/500 [03:11<01:10,  2.60it/s, est. speed input: 265.10 toks/s, output: 4246.60 toks/s][A
+
+Processed prompts:  64%|██████▍   | 319/500 [03:12<01:16,  2.38it/s, est. speed input: 264.92 toks/s, output: 4236.05 toks/s][A
+
+Processed prompts:  64%|██████▍   | 320/500 [03:13<01:42,  1.76it/s, est. speed input: 263.99 toks/s, output: 4214.99 toks/s][A
+
+Processed prompts:  64%|██████▍   | 321/500 [03:14<02:01,  1.47it/s, est. speed input: 263.14 toks/s, output: 4197.11 toks/s][A
+
+Processed prompts:  64%|██████▍   | 322/500 [03:15<01:58,  1.51it/s, est. speed input: 262.89 toks/s, output: 4197.27 toks/s][A
+
+Processed prompts:  65%|██████▍   | 324/500 [03:16<01:35,  1.84it/s, est. speed input: 262.94 toks/s, output: 4189.90 toks/s][A
+
+Processed prompts:  65%|██████▌   | 325/500 [03:16<01:24,  2.07it/s, est. speed input: 263.09 toks/s, output: 4186.23 toks/s][A
+
+Processed prompts:  65%|██████▌   | 326/500 [03:16<01:09,  2.49it/s, est. speed input: 263.43 toks/s, output: 4188.62 toks/s][A
+
+Processed prompts:  65%|██████▌   | 327/500 [03:17<01:11,  2.42it/s, est. speed input: 263.42 toks/s, output: 4197.53 toks/s][A
+
+Processed prompts:  66%|██████▌   | 329/500 [03:17<00:53,  3.19it/s, est. speed input: 263.98 toks/s, output: 4195.52 toks/s][A
+
+Processed prompts:  66%|██████▌   | 330/500 [03:18<01:34,  1.80it/s, est. speed input: 262.73 toks/s, output: 4170.74 toks/s][A
+
+Processed prompts:  66%|██████▌   | 331/500 [03:19<01:16,  2.20it/s, est. speed input: 263.05 toks/s, output: 4173.22 toks/s][A
+
+Processed prompts:  66%|██████▋   | 332/500 [03:19<01:02,  2.70it/s, est. speed input: 263.40 toks/s, output: 4173.47 toks/s][A
+
+Processed prompts:  67%|██████▋   | 333/500 [03:19<01:14,  2.24it/s, est. speed input: 263.05 toks/s, output: 4162.69 toks/s][A
+
+Processed prompts:  67%|██████▋   | 334/500 [03:21<02:26,  1.14it/s, est. speed input: 260.99 toks/s, output: 4128.42 toks/s][A
+
+Processed prompts:  67%|██████▋   | 335/500 [03:22<02:37,  1.05it/s, est. speed input: 260.04 toks/s, output: 4109.83 toks/s][A
+
+Processed prompts:  67%|██████▋   | 336/500 [03:23<02:01,  1.35it/s, est. speed input: 260.28 toks/s, output: 4109.67 toks/s][A
+
+Processed prompts:  67%|██████▋   | 337/500 [03:23<01:59,  1.36it/s, est. speed input: 259.89 toks/s, output: 4105.42 toks/s][A
+
+Processed prompts:  68%|██████▊   | 338/500 [03:24<01:39,  1.62it/s, est. speed input: 260.01 toks/s, output: 4107.94 toks/s][A
+
+Processed prompts:  68%|██████▊   | 339/500 [03:25<01:49,  1.47it/s, est. speed input: 259.45 toks/s, output: 4094.69 toks/s][A
+
+Processed prompts:  68%|██████▊   | 340/500 [03:25<01:27,  1.83it/s, est. speed input: 259.68 toks/s, output: 4097.42 toks/s][A
+
+Processed prompts:  68%|██████▊   | 341/500 [03:26<01:42,  1.55it/s, est. speed input: 259.31 toks/s, output: 4132.09 toks/s][A
+
+Processed prompts:  68%|██████▊   | 342/500 [03:26<01:42,  1.54it/s, est. speed input: 259.01 toks/s, output: 4126.20 toks/s][A
+
+Processed prompts:  69%|██████▊   | 343/500 [03:26<01:18,  1.99it/s, est. speed input: 259.28 toks/s, output: 4125.19 toks/s][A
+
+Processed prompts:  69%|██████▉   | 344/500 [03:28<01:45,  1.48it/s, est. speed input: 258.43 toks/s, output: 4108.23 toks/s][A
+
+Processed prompts:  69%|██████▉   | 345/500 [03:28<01:26,  1.79it/s, est. speed input: 258.72 toks/s, output: 4137.72 toks/s][A
+
+Processed prompts:  69%|██████▉   | 346/500 [03:28<01:23,  1.85it/s, est. speed input: 258.60 toks/s, output: 4134.39 toks/s][A
+
+Processed prompts:  69%|██████▉   | 347/500 [03:29<01:51,  1.37it/s, est. speed input: 257.68 toks/s, output: 4120.05 toks/s][A
+
+Processed prompts:  70%|██████▉   | 348/500 [03:30<01:30,  1.67it/s, est. speed input: 257.85 toks/s, output: 4124.11 toks/s][A
+
+Processed prompts:  70%|██████▉   | 349/500 [03:31<01:39,  1.51it/s, est. speed input: 257.34 toks/s, output: 4113.43 toks/s][A
+
+Processed prompts:  70%|███████   | 350/500 [03:31<01:34,  1.59it/s, est. speed input: 257.27 toks/s, output: 4130.34 toks/s][A
+
+Processed prompts:  70%|███████   | 351/500 [03:31<01:10,  2.11it/s, est. speed input: 257.61 toks/s, output: 4132.35 toks/s][A
+
+Processed prompts:  70%|███████   | 352/500 [03:31<00:56,  2.62it/s, est. speed input: 257.88 toks/s, output: 4132.48 toks/s][A
+
+Processed prompts:  71%|███████   | 353/500 [03:32<00:45,  3.23it/s, est. speed input: 258.18 toks/s, output: 4133.83 toks/s][A
+
+Processed prompts:  71%|███████   | 354/500 [03:32<00:53,  2.73it/s, est. speed input: 258.05 toks/s, output: 4128.62 toks/s][A
+
+Processed prompts:  71%|███████   | 355/500 [03:33<01:23,  1.73it/s, est. speed input: 257.23 toks/s, output: 4111.97 toks/s][A
+
+Processed prompts:  71%|███████   | 356/500 [03:34<01:28,  1.63it/s, est. speed input: 256.85 toks/s, output: 4101.87 toks/s][A
+
+Processed prompts:  71%|███████▏  | 357/500 [03:35<02:02,  1.17it/s, est. speed input: 255.64 toks/s, output: 4079.90 toks/s][A
+
+Processed prompts:  72%|███████▏  | 358/500 [03:36<01:41,  1.40it/s, est. speed input: 255.64 toks/s, output: 4075.74 toks/s][A
+
+Processed prompts:  72%|███████▏  | 359/500 [03:36<01:23,  1.68it/s, est. speed input: 255.74 toks/s, output: 4076.53 toks/s][A
+
+Processed prompts:  72%|███████▏  | 360/500 [03:36<01:04,  2.18it/s, est. speed input: 256.15 toks/s, output: 4098.60 toks/s][A
+
+Processed prompts:  72%|███████▏  | 361/500 [03:37<01:06,  2.09it/s, est. speed input: 256.17 toks/s, output: 4126.35 toks/s][A
+
+Processed prompts:  72%|███████▏  | 362/500 [03:37<01:16,  1.80it/s, est. speed input: 255.76 toks/s, output: 4116.29 toks/s][A
+
+Processed prompts:  73%|███████▎  | 365/500 [03:38<00:53,  2.52it/s, est. speed input: 256.26 toks/s, output: 4128.73 toks/s][A
+
+Processed prompts:  73%|███████▎  | 366/500 [03:38<00:46,  2.88it/s, est. speed input: 256.51 toks/s, output: 4127.56 toks/s][A
+
+Processed prompts:  73%|███████▎  | 367/500 [03:39<00:51,  2.60it/s, est. speed input: 256.37 toks/s, output: 4121.86 toks/s][A
+
+Processed prompts:  74%|███████▎  | 368/500 [03:39<00:46,  2.83it/s, est. speed input: 256.50 toks/s, output: 4119.00 toks/s][A
+
+Processed prompts:  74%|███████▍  | 369/500 [03:39<00:44,  2.92it/s, est. speed input: 256.58 toks/s, output: 4116.75 toks/s][A
+
+Processed prompts:  74%|███████▍  | 370/500 [03:40<00:44,  2.91it/s, est. speed input: 256.83 toks/s, output: 4152.97 toks/s][A
+
+Processed prompts:  74%|███████▍  | 372/500 [03:41<01:04,  1.99it/s, est. speed input: 256.07 toks/s, output: 4133.34 toks/s][A
+
+Processed prompts:  75%|███████▍  | 373/500 [03:42<00:59,  2.15it/s, est. speed input: 256.13 toks/s, output: 4133.37 toks/s][A
+
+Processed prompts:  75%|███████▍  | 374/500 [03:42<01:07,  1.86it/s, est. speed input: 255.70 toks/s, output: 4121.35 toks/s][A
+
+Processed prompts:  75%|███████▌  | 375/500 [03:43<01:08,  1.84it/s, est. speed input: 255.54 toks/s, output: 4123.46 toks/s][A
+
+Processed prompts:  75%|███████▌  | 376/500 [03:44<01:14,  1.67it/s, est. speed input: 255.22 toks/s, output: 4130.34 toks/s][A
+
+Processed prompts:  75%|███████▌  | 377/500 [03:44<01:21,  1.51it/s, est. speed input: 254.70 toks/s, output: 4117.82 toks/s][A
+
+Processed prompts:  76%|███████▌  | 378/500 [03:45<01:06,  1.84it/s, est. speed input: 255.67 toks/s, output: 4166.88 toks/s][A
+
+Processed prompts:  76%|███████▌  | 381/500 [03:45<00:41,  2.89it/s, est. speed input: 256.45 toks/s, output: 4189.69 toks/s][A
+
+Processed prompts:  77%|███████▋  | 383/500 [03:45<00:31,  3.68it/s, est. speed input: 257.00 toks/s, output: 4191.04 toks/s][A
+
+Processed prompts:  77%|███████▋  | 384/500 [03:46<00:43,  2.67it/s, est. speed input: 256.50 toks/s, output: 4177.77 toks/s][A
+
+Processed prompts:  77%|███████▋  | 385/500 [03:47<00:43,  2.67it/s, est. speed input: 256.57 toks/s, output: 4184.76 toks/s][A
+
+Processed prompts:  77%|███████▋  | 386/500 [03:47<00:45,  2.52it/s, est. speed input: 256.47 toks/s, output: 4180.57 toks/s][A
+
+Processed prompts:  77%|███████▋  | 387/500 [03:48<00:47,  2.37it/s, est. speed input: 256.35 toks/s, output: 4177.78 toks/s][A
+
+Processed prompts:  78%|███████▊  | 388/500 [03:48<00:42,  2.66it/s, est. speed input: 256.54 toks/s, output: 4181.96 toks/s][A
+
+Processed prompts:  78%|███████▊  | 389/500 [03:48<00:41,  2.67it/s, est. speed input: 256.64 toks/s, output: 4198.62 toks/s][A
+
+Processed prompts:  78%|███████▊  | 391/500 [03:48<00:28,  3.88it/s, est. speed input: 257.21 toks/s, output: 4202.30 toks/s][A
+
+Processed prompts:  79%|███████▊  | 393/500 [03:50<00:45,  2.36it/s, est. speed input: 256.55 toks/s, output: 4190.49 toks/s][A
+
+Processed prompts:  79%|███████▉  | 394/500 [03:50<00:38,  2.72it/s, est. speed input: 256.78 toks/s, output: 4190.86 toks/s][A
+
+Processed prompts:  79%|███████▉  | 396/500 [03:50<00:26,  3.94it/s, est. speed input: 257.59 toks/s, output: 4224.04 toks/s][A
+
+Processed prompts:  79%|███████▉  | 397/500 [03:50<00:24,  4.19it/s, est. speed input: 257.85 toks/s, output: 4231.66 toks/s][A
+
+Processed prompts:  80%|███████▉  | 398/500 [03:51<00:27,  3.66it/s, est. speed input: 257.82 toks/s, output: 4227.50 toks/s][A
+
+Processed prompts:  80%|███████▉  | 399/500 [03:51<00:26,  3.77it/s, est. speed input: 258.02 toks/s, output: 4234.33 toks/s][A
+
+Processed prompts:  80%|████████  | 400/500 [03:52<00:35,  2.81it/s, est. speed input: 257.75 toks/s, output: 4226.65 toks/s][A
+
+Processed prompts:  80%|████████  | 402/500 [03:52<00:24,  4.06it/s, est. speed input: 258.70 toks/s, output: 4278.25 toks/s][A
+
+Processed prompts:  81%|████████  | 403/500 [03:53<00:36,  2.67it/s, est. speed input: 258.23 toks/s, output: 4267.41 toks/s][A
+
+Processed prompts:  81%|████████  | 404/500 [03:53<00:32,  2.98it/s, est. speed input: 258.40 toks/s, output: 4267.33 toks/s][A
+
+Processed prompts:  81%|████████  | 405/500 [03:53<00:26,  3.54it/s, est. speed input: 258.69 toks/s, output: 4273.18 toks/s][A
+
+Processed prompts:  81%|████████  | 406/500 [03:53<00:26,  3.53it/s, est. speed input: 258.76 toks/s, output: 4270.69 toks/s][A
+
+Processed prompts:  82%|████████▏ | 408/500 [03:53<00:17,  5.18it/s, est. speed input: 259.42 toks/s, output: 4279.03 toks/s][A
+
+Processed prompts:  82%|████████▏ | 409/500 [03:54<00:22,  4.11it/s, est. speed input: 259.41 toks/s, output: 4279.72 toks/s][A
+
+Processed prompts:  82%|████████▏ | 411/500 [03:55<00:28,  3.16it/s, est. speed input: 259.29 toks/s, output: 4275.30 toks/s][A
+
+Processed prompts:  82%|████████▏ | 412/500 [03:55<00:30,  2.84it/s, est. speed input: 259.18 toks/s, output: 4272.20 toks/s][A
+
+Processed prompts:  83%|████████▎ | 413/500 [03:55<00:29,  2.98it/s, est. speed input: 260.04 toks/s, output: 4320.14 toks/s][A
+
+Processed prompts:  83%|████████▎ | 414/500 [03:56<00:27,  3.17it/s, est. speed input: 260.16 toks/s, output: 4319.35 toks/s][A
+
+Processed prompts:  83%|████████▎ | 415/500 [03:57<00:43,  1.94it/s, est. speed input: 259.44 toks/s, output: 4309.65 toks/s][A
+
+Processed prompts:  83%|████████▎ | 417/500 [03:58<00:42,  1.94it/s, est. speed input: 259.10 toks/s, output: 4299.94 toks/s][A
+
+Processed prompts:  84%|████████▎ | 418/500 [03:59<00:56,  1.46it/s, est. speed input: 258.16 toks/s, output: 4282.67 toks/s][A
+
+Processed prompts:  84%|████████▍ | 419/500 [04:00<01:01,  1.32it/s, est. speed input: 257.50 toks/s, output: 4269.32 toks/s][A
+
+Processed prompts:  84%|████████▍ | 420/500 [04:01<01:00,  1.32it/s, est. speed input: 257.12 toks/s, output: 4266.58 toks/s][A
+
+Processed prompts:  84%|████████▍ | 422/500 [04:01<00:36,  2.14it/s, est. speed input: 257.75 toks/s, output: 4277.37 toks/s][A
+
+Processed prompts:  85%|████████▌ | 426/500 [04:01<00:17,  4.25it/s, est. speed input: 259.31 toks/s, output: 4329.00 toks/s][A
+
+Processed prompts:  85%|████████▌ | 427/500 [04:02<00:22,  3.32it/s, est. speed input: 259.04 toks/s, output: 4325.64 toks/s][A
+
+Processed prompts:  86%|████████▌ | 428/500 [04:02<00:23,  3.04it/s, est. speed input: 258.94 toks/s, output: 4322.25 toks/s][A
+
+Processed prompts:  86%|████████▌ | 429/500 [04:03<00:31,  2.25it/s, est. speed input: 258.42 toks/s, output: 4314.35 toks/s][A
+
+Processed prompts:  86%|████████▌ | 430/500 [04:03<00:25,  2.73it/s, est. speed input: 258.68 toks/s, output: 4316.92 toks/s][A
+
+Processed prompts:  86%|████████▌ | 431/500 [04:06<01:03,  1.09it/s, est. speed input: 256.39 toks/s, output: 4282.72 toks/s][A
+
+Processed prompts:  86%|████████▋ | 432/500 [04:06<00:51,  1.31it/s, est. speed input: 256.45 toks/s, output: 4285.13 toks/s][A
+
+Processed prompts:  87%|████████▋ | 433/500 [04:07<01:05,  1.03it/s, est. speed input: 257.87 toks/s, output: 4311.57 toks/s][A
+
+Processed prompts:  87%|████████▋ | 434/500 [04:08<00:53,  1.23it/s, est. speed input: 257.81 toks/s, output: 4309.93 toks/s][A
+
+Processed prompts:  87%|████████▋ | 435/500 [04:10<01:12,  1.12s/it, est. speed input: 256.47 toks/s, output: 4322.04 toks/s][A
+
+Processed prompts:  87%|████████▋ | 436/500 [04:13<01:48,  1.69s/it, est. speed input: 253.69 toks/s, output: 4275.31 toks/s][A
+
+Processed prompts:  87%|████████▋ | 437/500 [04:17<02:28,  2.35s/it, est. speed input: 250.15 toks/s, output: 4216.82 toks/s][A
+
+Processed prompts:  88%|████████▊ | 438/500 [04:21<02:51,  2.77s/it, est. speed input: 246.90 toks/s, output: 4163.79 toks/s][A
+
+Processed prompts:  88%|████████▊ | 439/500 [04:23<02:34,  2.54s/it, est. speed input: 245.43 toks/s, output: 4144.99 toks/s][A
+
+Processed prompts:  88%|████████▊ | 440/500 [04:25<02:23,  2.39s/it, est. speed input: 243.98 toks/s, output: 4139.23 toks/s][A
+
+Processed prompts:  88%|████████▊ | 441/500 [04:25<01:44,  1.77s/it, est. speed input: 244.07 toks/s, output: 4144.79 toks/s][A
+
+Processed prompts:  88%|████████▊ | 442/500 [04:26<01:28,  1.53s/it, est. speed input: 243.74 toks/s, output: 4176.19 toks/s][A
+
+Processed prompts:  89%|████████▊ | 443/500 [04:27<01:18,  1.38s/it, est. speed input: 243.85 toks/s, output: 4212.73 toks/s][A
+
+Processed prompts:  89%|████████▉ | 444/500 [04:28<01:12,  1.29s/it, est. speed input: 244.08 toks/s, output: 4248.39 toks/s][A
+
+Processed prompts:  89%|████████▉ | 445/500 [04:29<01:10,  1.28s/it, est. speed input: 243.29 toks/s, output: 4239.24 toks/s][A
+
+Processed prompts:  89%|████████▉ | 446/500 [04:30<00:55,  1.02s/it, est. speed input: 243.50 toks/s, output: 4285.34 toks/s][A
+
+Processed prompts:  89%|████████▉ | 447/500 [04:32<01:07,  1.27s/it, est. speed input: 242.66 toks/s, output: 4308.50 toks/s][A
+
+Processed prompts:  90%|████████▉ | 448/500 [04:32<00:53,  1.03s/it, est. speed input: 242.71 toks/s, output: 4329.80 toks/s][A
+
+Processed prompts:  90%|████████▉ | 449/500 [04:32<00:41,  1.23it/s, est. speed input: 242.91 toks/s, output: 4356.56 toks/s][A
+
+Processed prompts:  90%|█████████ | 450/500 [04:32<00:30,  1.63it/s, est. speed input: 243.34 toks/s, output: 4406.72 toks/s][A
+
+Processed prompts:  90%|█████████ | 451/500 [04:36<01:09,  1.42s/it, est. speed input: 240.81 toks/s, output: 4369.01 toks/s][A
+
+Processed prompts:  90%|█████████ | 452/500 [04:37<01:04,  1.35s/it, est. speed input: 240.19 toks/s, output: 4372.53 toks/s][A
+
+Processed prompts:  91%|█████████ | 453/500 [04:37<00:49,  1.05s/it, est. speed input: 240.34 toks/s, output: 4399.84 toks/s][A
+
+Processed prompts:  91%|█████████ | 455/500 [04:39<00:45,  1.02s/it, est. speed input: 239.37 toks/s, output: 4396.72 toks/s][A
+
+Processed prompts:  91%|█████████ | 456/500 [04:42<01:08,  1.56s/it, est. speed input: 237.11 toks/s, output: 4377.55 toks/s][A
+
+Processed prompts:  91%|█████████▏| 457/500 [04:46<01:24,  1.97s/it, est. speed input: 235.11 toks/s, output: 4382.13 toks/s][A
+
+Processed prompts:  92%|█████████▏| 458/500 [04:47<01:12,  1.73s/it, est. speed input: 234.59 toks/s, output: 4384.00 toks/s][A
+
+Processed prompts:  92%|█████████▏| 459/500 [04:48<01:01,  1.51s/it, est. speed input: 234.36 toks/s, output: 4419.52 toks/s][A
+
+Processed prompts:  92%|█████████▏| 460/500 [04:52<01:36,  2.42s/it, est. speed input: 231.52 toks/s, output: 4401.27 toks/s][A
+
+Processed prompts:  92%|█████████▏| 461/500 [04:53<01:19,  2.03s/it, est. speed input: 231.08 toks/s, output: 4412.53 toks/s][A
+
+Processed prompts:  92%|█████████▏| 462/500 [04:59<01:58,  3.13s/it, est. speed input: 227.23 toks/s, output: 4380.43 toks/s][A
+
+Processed prompts:  93%|█████████▎| 463/500 [05:03<02:00,  3.26s/it, est. speed input: 224.88 toks/s, output: 4346.74 toks/s][A
+
+Processed prompts:  93%|█████████▎| 464/500 [05:05<01:47,  3.00s/it, est. speed input: 223.46 toks/s, output: 4331.37 toks/s][A
+
+Processed prompts:  93%|█████████▎| 465/500 [05:05<01:16,  2.18s/it, est. speed input: 223.59 toks/s, output: 4345.25 toks/s][A
+
+Processed prompts:  93%|█████████▎| 466/500 [05:08<01:15,  2.23s/it, est. speed input: 222.74 toks/s, output: 4365.71 toks/s][A
+
+Processed prompts:  93%|█████████▎| 467/500 [05:13<01:46,  3.23s/it, est. speed input: 219.20 toks/s, output: 4329.84 toks/s][A
+
+Processed prompts:  94%|█████████▎| 468/500 [05:18<02:00,  3.77s/it, est. speed input: 216.17 toks/s, output: 4304.51 toks/s][A
+
+Processed prompts:  94%|█████████▍| 469/500 [05:21<01:43,  3.34s/it, est. speed input: 215.11 toks/s, output: 4326.84 toks/s][A
+
+Processed prompts:  94%|█████████▍| 470/500 [05:21<01:12,  2.41s/it, est. speed input: 215.36 toks/s, output: 4359.12 toks/s][A
+
+Processed prompts:  94%|█████████▍| 471/500 [05:22<01:02,  2.16s/it, est. speed input: 215.10 toks/s, output: 4391.61 toks/s][A
+
+Processed prompts:  94%|█████████▍| 472/500 [05:25<01:05,  2.32s/it, est. speed input: 213.70 toks/s, output: 4391.04 toks/s][A
+
+Processed prompts:  95%|█████████▍| 473/500 [05:26<00:52,  1.93s/it, est. speed input: 213.42 toks/s, output: 4412.81 toks/s][A
+
+Processed prompts:  95%|█████████▍| 474/500 [05:27<00:40,  1.57s/it, est. speed input: 213.24 toks/s, output: 4422.30 toks/s][A
+
+Processed prompts:  95%|█████████▌| 475/500 [05:30<00:52,  2.10s/it, est. speed input: 211.48 toks/s, output: 4413.99 toks/s][A
+
+Processed prompts:  95%|█████████▌| 476/500 [05:31<00:43,  1.80s/it, est. speed input: 211.12 toks/s, output: 4428.07 toks/s][A
+
+Processed prompts:  95%|█████████▌| 477/500 [05:32<00:31,  1.39s/it, est. speed input: 211.27 toks/s, output: 4468.58 toks/s][A
+
+Processed prompts:  96%|█████████▌| 478/500 [05:34<00:32,  1.50s/it, est. speed input: 210.63 toks/s, output: 4499.49 toks/s][A
+
+Processed prompts:  96%|█████████▌| 479/500 [05:36<00:37,  1.80s/it, est. speed input: 209.40 toks/s, output: 4495.64 toks/s][A
+
+Processed prompts:  96%|█████████▌| 480/500 [05:39<00:40,  2.04s/it, est. speed input: 208.26 toks/s, output: 4514.46 toks/s][A
+
+Processed prompts:  96%|█████████▌| 481/500 [05:53<01:50,  5.84s/it, est. speed input: 200.11 toks/s, output: 4382.23 toks/s][A
+
+Processed prompts:  96%|█████████▋| 482/500 [05:55<01:20,  4.50s/it, est. speed input: 199.80 toks/s, output: 4421.11 toks/s][A
+
+Processed prompts:  97%|█████████▋| 483/500 [05:58<01:10,  4.17s/it, est. speed input: 198.25 toks/s, output: 4420.28 toks/s][A
+
+Processed prompts:  97%|█████████▋| 484/500 [06:02<01:06,  4.13s/it, est. speed input: 196.32 toks/s, output: 4397.07 toks/s][A
+
+Processed prompts:  97%|█████████▋| 485/500 [06:10<01:19,  5.28s/it, est. speed input: 192.63 toks/s, output: 4359.38 toks/s][A
+
+Processed prompts:  97%|█████████▋| 486/500 [06:16<01:14,  5.32s/it, est. speed input: 190.79 toks/s, output: 4353.65 toks/s][A
+
+Processed prompts:  97%|█████████▋| 487/500 [06:16<00:51,  3.95s/it, est. speed input: 190.76 toks/s, output: 4388.27 toks/s][A
+
+Processed prompts:  98%|█████████▊| 488/500 [06:35<01:41,  8.43s/it, est. speed input: 181.97 toks/s, output: 4221.38 toks/s][A
+
+Processed prompts:  98%|█████████▊| 489/500 [06:48<01:48,  9.87s/it, est. speed input: 176.48 toks/s, output: 4144.15 toks/s][A
+
+Processed prompts:  98%|█████████▊| 490/500 [06:59<01:41, 10.19s/it, est. speed input: 172.33 toks/s, output: 4096.12 toks/s][A
+
+Processed prompts:  98%|█████████▊| 491/500 [07:00<01:06,  7.37s/it, est. speed input: 172.32 toks/s, output: 4137.16 toks/s][A
+
+Processed prompts:  98%|█████████▊| 492/500 [07:01<00:43,  5.44s/it, est. speed input: 172.25 toks/s, output: 4178.43 toks/s][A
+
+Processed prompts:  99%|█████████▊| 493/500 [07:47<02:03, 17.69s/it, est. speed input: 155.61 toks/s, output: 3829.11 toks/s][A
+
+Processed prompts:  99%|█████████▉| 494/500 [08:04<01:44, 17.44s/it, est. speed input: 150.68 toks/s, output: 3761.27 toks/s][A
+
+Processed prompts:  99%|█████████▉| 495/500 [08:13<01:14, 14.93s/it, est. speed input: 148.28 toks/s, output: 3758.25 toks/s][A
+
+Processed prompts:  99%|█████████▉| 496/500 [08:13<00:41, 10.50s/it, est. speed input: 148.57 toks/s, output: 3823.05 toks/s][A
+
+Processed prompts: 100%|█████████▉| 498/500 [08:34<00:20, 10.31s/it, est. speed input: 143.32 toks/s, output: 3799.71 toks/s][A
+
+Processed prompts: 100%|█████████▉| 499/500 [08:34<00:07,  7.80s/it, est. speed input: 143.55 toks/s, output: 3861.77 toks/s][A
+
+Processed prompts: 100%|██████████| 500/500 [08:36<00:00,  6.21s/it, est. speed input: 143.34 toks/s, output: 3912.18 toks/s][A
+Processed prompts: 100%|██████████| 500/500 [08:36<00:00,  1.03s/it, est. speed input: 143.34 toks/s, output: 3912.18 toks/s]
+
+Splits: 100%|██████████| 1/1 [08:36<00:00, 516.94s/it]
+Splits: 100%|██████████| 1/1 [08:36<00:00, 516.94s/it]
+[2025-04-12 16:25:04,299] [[32m    INFO[0m]: Terminating local vLLM worker processes (multiproc_worker_utils.py:141)[0m
+[1;36m(VllmWorkerProcess pid=1913726)[0;0m INFO 04-12 16:25:04 multiproc_worker_utils.py:253] Worker exiting
+[1;36m(VllmWorkerProcess pid=1913728)[0;0m INFO 04-12 16:25:04 multiproc_worker_utils.py:253] Worker exiting
+[1;36m(VllmWorkerProcess pid=1913727)[0;0m INFO 04-12 16:25:04 multiproc_worker_utils.py:253] Worker exiting
+[2025-04-12 16:25:06,789] [[32m    INFO[0m]: --- COMPUTING METRICS --- (pipeline.py:504)[0m
+[2025-04-12 16:25:09,066] [[32m    INFO[0m]: --- DISPLAYING RESULTS --- (pipeline.py:546)[0m
+[2025-04-12 16:25:09,077] [[32m    INFO[0m]: --- SAVING AND PUSHING RESULTS --- (pipeline.py:536)[0m
+[2025-04-12 16:25:09,077] [[32m    INFO[0m]: Saving experiment tracker (evaluation_tracker.py:180)[0m
+[2025-04-12 16:25:10,197] [[32m    INFO[0m]: Saving results to ~/Projects/nips25_slot/open-r2/data/evals~/Models/deepseek-ai/DeepSeek-R1-Distill-Qwen-1.5B/results/_Models_deepseek-ai_DeepSeek-R1-Distill-Qwen-1.5B/results_2025-04-12T16-25-09.077281.json (evaluation_tracker.py:234)[0m
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=0, lr=1.0
+|        Task        |Version|     Metric     |Value|   |Stderr|
+|--------------------|------:|----------------|----:|---|-----:|
+|all                 |       |extractive_match|0.844|±  |0.0162|
+|lighteval:math_500:0|      1|extractive_match|0.844|±  |0.0162|
+

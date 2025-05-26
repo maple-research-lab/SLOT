@@ -1,0 +1,1106 @@
+[2025-04-22 19:39:38,112] [[32m    INFO[0m]: PyTorch version 2.5.1 available. (config.py:58)[0m
+INFO 04-22 19:39:42 __init__.py:190] Automatically detected platform cuda.
+[2025-04-22 19:39:43,552] [[32m    INFO[0m]: --- LOADING MODEL --- (pipeline.py:189)[0m
+[2025-04-22 19:39:51,541] [[32m    INFO[0m]: This model supports multiple tasks: {'score', 'classify', 'reward', 'generate', 'embed'}. Defaulting to 'generate'. (config.py:542)[0m
+[2025-04-22 19:39:51,542] [[32m    INFO[0m]: Initializing a V0 LLM engine (v0.7.2) with config: model='~/Models/Qwen/Qwen2.5-Math-7B', speculative_config=None, tokenizer='~/Models/Qwen/Qwen2.5-Math-7B', skip_tokenizer_init=False, tokenizer_mode=auto, revision=main, override_neuron_config=None, tokenizer_revision=main, trust_remote_code=False, dtype=torch.bfloat16, max_seq_len=4096, download_dir=None, load_format=LoadFormat.AUTO, tensor_parallel_size=1, pipeline_parallel_size=1, disable_custom_all_reduce=False, quantization=None, enforce_eager=False, kv_cache_dtype=auto,  device_config=cuda, decoding_config=DecodingConfig(guided_decoding_backend='xgrammar'), observability_config=ObservabilityConfig(otlp_traces_endpoint=None, collect_model_forward_time=False, collect_model_execute_time=False), seed=1234, served_model_name=~/Models/Qwen/Qwen2.5-Math-7B, num_scheduler_steps=1, multi_step_stream_outputs=True, enable_prefix_caching=False, chunked_prefill_enabled=False, use_async_output_proc=True, disable_mm_preprocessor_cache=False, mm_processor_kwargs=None, pooler_config=None, compilation_config={"splitting_ops":[],"compile_sizes":[],"cudagraph_capture_sizes":[128,120,112,104,96,88,80,72,64,56,48,40,32,24,16,8,4,2,1],"max_capture_size":128}, use_cached_outputs=False,  (llm_engine.py:234)[0m
+[2025-04-22 19:39:52,491] [[32m    INFO[0m]: Using Flash Attention backend. (cuda.py:230)[0m
+[2025-04-22 19:39:53,163] [[32m    INFO[0m]: Starting to load model ~/Models/Qwen/Qwen2.5-Math-7B... (model_runner.py:1110)[0m
+
+Loading safetensors checkpoint shards:   0% Completed | 0/4 [00:00<?, ?it/s]
+
+Loading safetensors checkpoint shards:  25% Completed | 1/4 [00:01<00:04,  1.37s/it]
+
+Loading safetensors checkpoint shards:  50% Completed | 2/4 [00:02<00:02,  1.39s/it]
+
+Loading safetensors checkpoint shards:  75% Completed | 3/4 [00:04<00:01,  1.44s/it]
+
+Loading safetensors checkpoint shards: 100% Completed | 4/4 [00:05<00:00,  1.44s/it]
+
+Loading safetensors checkpoint shards: 100% Completed | 4/4 [00:05<00:00,  1.43s/it]
+
+[2025-04-22 19:39:59,295] [[32m    INFO[0m]: Loading model weights took 14.2419 GB (model_runner.py:1115)[0m
+[2025-04-22 19:39:59,720] [[33m WARNING[0m]: ~/Projects/nips25_slot/open-r2/openr1/lib/python3.11/site-packages/vllm/worker/model_runner.py:1832: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  lm_head_weight = torch.load(lm_local, map_location=hidden_states_cur.device).to(dtype=torch.bfloat16)
+ (warnings.py:110)[0m
+[2025-04-22 19:40:01,338] [[32m    INFO[0m]: Memory profiling takes 1.88 seconds
+the current vLLM instance can use total_gpu_memory (79.22GiB) x gpu_memory_utilization (0.90) = 71.29GiB
+model weights take 14.24GiB; non_torch_memory takes 0.16GiB; PyTorch activation peak memory takes 6.93GiB; the rest of the memory reserved for KV Cache is 49.97GiB. (worker.py:267)[0m
+[2025-04-22 19:40:01,511] [[32m    INFO[0m]: # CUDA blocks: 58474, # CPU blocks: 4681 (executor_base.py:110)[0m
+[2025-04-22 19:40:01,511] [[32m    INFO[0m]: Maximum concurrency for 4096 tokens per request: 228.41x (executor_base.py:115)[0m
+[2025-04-22 19:40:04,187] [[32m    INFO[0m]: Capturing cudagraphs for decoding. This may lead to unexpected consequences if the model is not static. To run the model in eager mode, set 'enforce_eager=True' or use '--enforce-eager' in the CLI. If out-of-memory error occurs during cudagraph capture, consider decreasing `gpu_memory_utilization` or switching to eager mode. You can also reduce the `max_num_seqs` as needed to decrease memory usage. (model_runner.py:1434)[0m
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=3, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([4096, 3584]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-Math-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - hidden_states_orig: torch.Size([4096, 3584]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-Math-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - hidden_states_orig: torch.Size([4096, 3584]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-Math-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+
+Capturing CUDA graph shapes:   0%|          | 0/19 [00:00<?, ?it/s]
+Capturing CUDA graph shapes:   5%|▌         | 1/19 [00:00<00:08,  2.16it/s]
+Capturing CUDA graph shapes:  11%|█         | 2/19 [00:00<00:07,  2.32it/s]
+Capturing CUDA graph shapes:  16%|█▌        | 3/19 [00:01<00:07,  2.25it/s]
+Capturing CUDA graph shapes:  21%|██        | 4/19 [00:01<00:06,  2.34it/s]
+Capturing CUDA graph shapes:  26%|██▋       | 5/19 [00:02<00:05,  2.45it/s]
+Capturing CUDA graph shapes:  32%|███▏      | 6/19 [00:02<00:05,  2.48it/s]
+Capturing CUDA graph shapes:  37%|███▋      | 7/19 [00:02<00:04,  2.62it/s]
+Capturing CUDA graph shapes:  42%|████▏     | 8/19 [00:03<00:04,  2.71it/s]
+Capturing CUDA graph shapes:  47%|████▋     | 9/19 [00:03<00:03,  2.72it/s]
+Capturing CUDA graph shapes:  53%|█████▎    | 10/19 [00:03<00:03,  2.69it/s]
+Capturing CUDA graph shapes:  58%|█████▊    | 11/19 [00:04<00:02,  2.77it/s]
+Capturing CUDA graph shapes:  63%|██████▎   | 12/19 [00:04<00:02,  2.78it/s]
+Capturing CUDA graph shapes:  68%|██████▊   | 13/19 [00:05<00:02,  2.73it/s]
+Capturing CUDA graph shapes:  74%|███████▎  | 14/19 [00:05<00:01,  2.76it/s]
+Capturing CUDA graph shapes:  79%|███████▉  | 15/19 [00:05<00:01,  2.85it/s]
+Capturing CUDA graph shapes:  84%|████████▍ | 16/19 [00:06<00:01,  2.92it/s]
+Capturing CUDA graph shapes:  89%|████████▉ | 17/19 [00:06<00:00,  2.79it/s]
+Capturing CUDA graph shapes:  95%|█████████▍| 18/19 [00:06<00:00,  2.65it/s]
+Capturing CUDA graph shapes: 100%|██████████| 19/19 [00:07<00:00,  2.72it/s]
+Capturing CUDA graph shapes: 100%|██████████| 19/19 [00:07<00:00,  2.65it/s]
+[2025-04-22 19:40:11,356] [[32m    INFO[0m]: Graph capturing finished in 7 secs, took 0.22 GiB (model_runner.py:1562)[0m
+[2025-04-22 19:40:11,357] [[32m    INFO[0m]: init engine (profile, create kv cache, warmup model) took 12.06 seconds (llm_engine.py:431)[0m
+[2025-04-22 19:40:11,940] [[32m    INFO[0m]: --- INIT SEEDS --- (pipeline.py:263)[0m
+[2025-04-22 19:40:11,940] [[32m    INFO[0m]: --- LOADING TASKS --- (pipeline.py:216)[0m
+[2025-04-22 19:40:11,940] [[32m    INFO[0m]: Found 1 custom tasks in ~/Projects/nips25_slot/open-r2/openr1/lib/python3.11/site-packages/lighteval/tasks/extended/ifeval/main.py (registry.py:142)[0m
+[2025-04-22 19:40:11,940] [[32m    INFO[0m]: Found 6 custom tasks in ~/Projects/nips25_slot/open-r2/openr1/lib/python3.11/site-packages/lighteval/tasks/extended/tiny_benchmarks/main.py (registry.py:142)[0m
+[2025-04-22 19:40:11,940] [[32m    INFO[0m]: Found 1 custom tasks in ~/Projects/nips25_slot/open-r2/openr1/lib/python3.11/site-packages/lighteval/tasks/extended/mt_bench/main.py (registry.py:142)[0m
+[2025-04-22 19:40:11,940] [[32m    INFO[0m]: Found 4 custom tasks in ~/Projects/nips25_slot/open-r2/openr1/lib/python3.11/site-packages/lighteval/tasks/extended/mix_eval/main.py (registry.py:142)[0m
+[2025-04-22 19:40:11,940] [[32m    INFO[0m]: Found 5 custom tasks in ~/Projects/nips25_slot/open-r2/openr1/lib/python3.11/site-packages/lighteval/tasks/extended/olympiade_bench/main.py (registry.py:142)[0m
+[2025-04-22 19:40:11,940] [[32m    INFO[0m]: Found 1 custom tasks in ~/Projects/nips25_slot/open-r2/openr1/lib/python3.11/site-packages/lighteval/tasks/extended/hle/main.py (registry.py:142)[0m
+[2025-04-22 19:40:11,940] [[32m    INFO[0m]: Found 21 custom tasks in ~/Projects/nips25_slot/open-r2/openr1/lib/python3.11/site-packages/lighteval/tasks/extended/lcb/main.py (registry.py:142)[0m
+[2025-04-22 19:40:11,943] [[32m    INFO[0m]: Idavidrein/gpqa gpqa_diamond (lighteval_task.py:187)[0m
+[2025-04-22 19:40:11,943] [[33m WARNING[0m]: Careful, the task lighteval|gpqa:diamond is using evaluation data to build the few shot examples. (lighteval_task.py:260)[0m
+Using the latest cached version of the dataset since Idavidrein/gpqa couldn't be found on the Hugging Face Hub
+[2025-04-22 19:40:36,576] [[33m WARNING[0m]: Using the latest cached version of the dataset since Idavidrein/gpqa couldn't be found on the Hugging Face Hub (load.py:1631)[0m
+Found the latest cached dataset configuration 'gpqa_diamond' at ~/.cache/huggingface/datasets/Idavidrein___gpqa/gpqa_diamond/0.0.0/90b8e5be2b1d3d2dbfe016cdab47981150600c4a (last modified on Sat Apr 12 16:41:50 2025).
+[2025-04-22 19:40:36,578] [[33m WARNING[0m]: Found the latest cached dataset configuration 'gpqa_diamond' at ~/.cache/huggingface/datasets/Idavidrein___gpqa/gpqa_diamond/0.0.0/90b8e5be2b1d3d2dbfe016cdab47981150600c4a (last modified on Sat Apr 12 16:41:50 2025). (cache.py:95)[0m
+[2025-04-22 19:40:36,771] [[32m    INFO[0m]: --- RUNNING MODEL --- (pipeline.py:468)[0m
+[2025-04-22 19:40:36,771] [[32m    INFO[0m]: Running RequestType.GREEDY_UNTIL requests (pipeline.py:472)[0m
+[2025-04-22 19:40:36,826] [[33m WARNING[0m]: You cannot select the number of dataset splits for a generative evaluation at the moment. Automatically inferring. (data.py:260)[0m
+Idavidrein/gpqa
+gpqa_diamond
+True
+None
+
+Splits:   0%|          | 0/1 [00:00<?, ?it/s][2025-04-22 19:40:36,879] [[33m WARNING[0m]: context_size + max_new_tokens=6935 which is greater than self.max_length=4096. Truncating context to 0 tokens. (vllm_model.py:270)[0m
+
+
+Processed prompts:   0%|          | 0/198 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s][A
+
+Processed prompts:   1%|          | 1/198 [00:15<50:04, 15.25s/it, est. speed input: 18.10 toks/s, output: 0.52 toks/s][A
+
+Processed prompts:   1%|          | 2/198 [00:39<1:06:15, 20.28s/it, est. speed input: 79.76 toks/s, output: 32.42 toks/s][A
+
+Processed prompts:   2%|▏         | 3/198 [00:40<37:50, 11.65s/it, est. speed input: 82.65 toks/s, output: 62.51 toks/s]  [A
+
+Processed prompts:   2%|▏         | 4/198 [00:41<24:22,  7.54s/it, est. speed input: 87.44 toks/s, output: 90.94 toks/s][A
+
+Processed prompts:   3%|▎         | 5/198 [00:43<17:04,  5.31s/it, est. speed input: 92.38 toks/s, output: 117.49 toks/s][A
+
+Processed prompts:   3%|▎         | 6/198 [00:44<12:42,  3.97s/it, est. speed input: 96.90 toks/s, output: 142.40 toks/s][A
+
+Processed prompts:   4%|▎         | 7/198 [00:45<09:48,  3.08s/it, est. speed input: 99.71 toks/s, output: 166.32 toks/s][A
+
+Processed prompts:   4%|▍         | 8/198 [00:47<08:05,  2.55s/it, est. speed input: 101.84 toks/s, output: 188.35 toks/s][A
+
+Processed prompts:   5%|▍         | 9/198 [00:48<06:48,  2.16s/it, est. speed input: 104.18 toks/s, output: 209.68 toks/s][A
+
+Processed prompts:   6%|▌         | 11/198 [00:49<04:28,  1.43s/it, est. speed input: 119.53 toks/s, output: 255.96 toks/s][A
+
+Processed prompts:   8%|▊         | 15/198 [00:50<02:24,  1.27it/s, est. speed input: 138.55 toks/s, output: 350.36 toks/s][A
+
+Processed prompts:   8%|▊         | 16/198 [00:59<06:19,  2.08s/it, est. speed input: 124.38 toks/s, output: 327.99 toks/s][A
+
+Processed prompts:   9%|▊         | 17/198 [01:34<26:01,  8.63s/it, est. speed input: 87.59 toks/s, output: 238.36 toks/s] [A
+
+Processed prompts:   9%|▉         | 18/198 [01:38<22:43,  7.58s/it, est. speed input: 92.62 toks/s, output: 262.26 toks/s][A
+
+Processed prompts:  10%|▉         | 19/198 [01:45<22:08,  7.42s/it, est. speed input: 92.18 toks/s, output: 278.21 toks/s][A
+
+Processed prompts:  10%|█         | 20/198 [01:47<17:58,  6.06s/it, est. speed input: 95.71 toks/s, output: 305.73 toks/s][A
+
+Processed prompts:  11%|█         | 21/198 [01:49<14:14,  4.83s/it, est. speed input: 99.61 toks/s, output: 334.17 toks/s][A
+
+Processed prompts:  11%|█         | 22/198 [01:50<11:38,  3.97s/it, est. speed input: 102.95 toks/s, output: 361.09 toks/s][A
+
+Processed prompts:  12%|█▏        | 23/198 [01:52<09:26,  3.23s/it, est. speed input: 106.52 toks/s, output: 388.44 toks/s][A
+
+Processed prompts:  12%|█▏        | 24/198 [01:53<08:07,  2.80s/it, est. speed input: 107.76 toks/s, output: 413.97 toks/s][A
+
+Processed prompts:  13%|█▎        | 25/198 [01:55<06:48,  2.36s/it, est. speed input: 109.90 toks/s, output: 440.43 toks/s][A
+
+Processed prompts:  13%|█▎        | 26/198 [01:56<06:14,  2.17s/it, est. speed input: 112.53 toks/s, output: 464.72 toks/s][A
+
+Processed prompts:  14%|█▎        | 27/198 [01:58<05:23,  1.89s/it, est. speed input: 115.58 toks/s, output: 490.48 toks/s][A
+
+Processed prompts:  14%|█▍        | 28/198 [02:00<05:25,  1.92s/it, est. speed input: 117.54 toks/s, output: 512.65 toks/s][A
+
+Processed prompts:  15%|█▌        | 30/198 [02:01<03:49,  1.36s/it, est. speed input: 123.73 toks/s, output: 566.55 toks/s][A
+
+Processed prompts:  16%|█▌        | 31/198 [02:02<03:44,  1.34s/it, est. speed input: 126.12 toks/s, output: 590.33 toks/s][A
+
+Processed prompts:  16%|█▌        | 32/198 [02:04<03:59,  1.45s/it, est. speed input: 127.82 toks/s, output: 611.56 toks/s][A
+
+Processed prompts:  17%|█▋        | 33/198 [02:05<03:49,  1.39s/it, est. speed input: 129.95 toks/s, output: 634.67 toks/s][A
+
+Processed prompts:  17%|█▋        | 34/198 [02:07<03:46,  1.38s/it, est. speed input: 131.92 toks/s, output: 656.83 toks/s][A
+
+Processed prompts:  18%|█▊        | 35/198 [02:08<03:39,  1.35s/it, est. speed input: 133.92 toks/s, output: 679.01 toks/s][A
+
+Processed prompts:  18%|█▊        | 36/198 [02:09<03:44,  1.38s/it, est. speed input: 135.56 toks/s, output: 699.66 toks/s][A
+
+Processed prompts:  19%|█▊        | 37/198 [02:11<03:36,  1.34s/it, est. speed input: 137.41 toks/s, output: 721.17 toks/s][A
+
+Processed prompts:  19%|█▉        | 38/198 [02:12<03:42,  1.39s/it, est. speed input: 138.85 toks/s, output: 740.93 toks/s][A
+
+Processed prompts:  20%|█▉        | 39/198 [02:13<03:41,  1.39s/it, est. speed input: 140.29 toks/s, output: 760.86 toks/s][A
+
+Processed prompts:  20%|██        | 40/198 [02:15<03:34,  1.36s/it, est. speed input: 141.80 toks/s, output: 781.09 toks/s][A
+
+Processed prompts:  21%|██        | 42/198 [02:16<02:47,  1.07s/it, est. speed input: 144.41 toks/s, output: 799.97 toks/s][A
+
+Processed prompts:  22%|██▏       | 43/198 [02:18<02:56,  1.14s/it, est. speed input: 145.67 toks/s, output: 819.15 toks/s][A
+
+Processed prompts:  22%|██▏       | 44/198 [02:19<03:02,  1.18s/it, est. speed input: 146.93 toks/s, output: 838.27 toks/s][A
+
+Processed prompts:  23%|██▎       | 45/198 [02:20<03:06,  1.22s/it, est. speed input: 148.10 toks/s, output: 856.93 toks/s][A
+
+Processed prompts:  23%|██▎       | 46/198 [02:21<03:05,  1.22s/it, est. speed input: 149.36 toks/s, output: 875.95 toks/s][A
+
+Processed prompts:  24%|██▎       | 47/198 [02:23<03:07,  1.24s/it, est. speed input: 150.49 toks/s, output: 894.09 toks/s][A
+
+Processed prompts:  24%|██▍       | 48/198 [02:24<03:09,  1.27s/it, est. speed input: 151.55 toks/s, output: 911.84 toks/s][A
+
+Processed prompts:  25%|██▌       | 50/198 [02:25<02:27,  1.00it/s, est. speed input: 154.95 toks/s, output: 954.80 toks/s][A
+
+Processed prompts:  26%|██▌       | 51/198 [02:27<02:40,  1.09s/it, est. speed input: 155.83 toks/s, output: 971.33 toks/s][A
+
+Processed prompts:  27%|██▋       | 53/198 [02:28<02:14,  1.08it/s, est. speed input: 158.98 toks/s, output: 1012.91 toks/s][A
+
+Processed prompts:  27%|██▋       | 54/198 [02:29<02:26,  1.02s/it, est. speed input: 159.81 toks/s, output: 1029.07 toks/s][A
+
+Processed prompts:  28%|██▊       | 55/198 [02:31<02:33,  1.08s/it, est. speed input: 160.67 toks/s, output: 1045.38 toks/s][A
+
+Processed prompts:  28%|██▊       | 56/198 [02:32<02:39,  1.13s/it, est. speed input: 161.48 toks/s, output: 1061.39 toks/s][A
+
+Processed prompts:  29%|██▉       | 57/198 [02:33<02:49,  1.21s/it, est. speed input: 162.06 toks/s, output: 1076.15 toks/s][A
+
+Processed prompts:  30%|██▉       | 59/198 [02:35<02:12,  1.05it/s, est. speed input: 164.86 toks/s, output: 1116.19 toks/s][A
+
+Processed prompts:  30%|███       | 60/198 [02:36<02:21,  1.02s/it, est. speed input: 165.57 toks/s, output: 1131.42 toks/s][A
+
+Processed prompts:  31%|███       | 61/198 [02:37<02:31,  1.10s/it, est. speed input: 166.15 toks/s, output: 1145.80 toks/s][A
+
+Processed prompts:  31%|███▏      | 62/198 [02:38<02:35,  1.14s/it, est. speed input: 166.82 toks/s, output: 1160.68 toks/s][A
+
+Processed prompts:  32%|███▏      | 63/198 [02:40<02:42,  1.20s/it, est. speed input: 167.30 toks/s, output: 1174.43 toks/s][A
+
+Processed prompts:  32%|███▏      | 64/198 [02:41<02:43,  1.22s/it, est. speed input: 167.87 toks/s, output: 1188.67 toks/s][A
+
+Processed prompts:  33%|███▎      | 66/198 [02:42<02:05,  1.06it/s, est. speed input: 170.35 toks/s, output: 1226.41 toks/s][A
+
+Processed prompts:  34%|███▍      | 68/198 [02:44<01:48,  1.20it/s, est. speed input: 172.67 toks/s, output: 1262.83 toks/s][A
+
+Processed prompts:  35%|███▍      | 69/198 [02:45<02:00,  1.07it/s, est. speed input: 173.14 toks/s, output: 1275.89 toks/s][A
+
+Processed prompts:  35%|███▌      | 70/198 [02:46<02:09,  1.01s/it, est. speed input: 173.63 toks/s, output: 1289.02 toks/s][A
+
+Processed prompts:  36%|███▌      | 71/198 [02:47<02:17,  1.08s/it, est. speed input: 174.07 toks/s, output: 1301.83 toks/s][A
+
+Processed prompts:  38%|███▊      | 75/198 [02:48<00:56,  2.18it/s, est. speed input: 180.93 toks/s, output: 1391.38 toks/s][A
+
+Processed prompts:  39%|███▉      | 77/198 [02:48<00:41,  2.93it/s, est. speed input: 184.20 toks/s, output: 1435.69 toks/s][A
+
+Processed prompts:  41%|████      | 81/198 [02:48<00:23,  4.99it/s, est. speed input: 190.73 toks/s, output: 1525.18 toks/s][A
+
+Processed prompts:  44%|████▍     | 88/198 [02:48<00:11,  9.81it/s, est. speed input: 202.04 toks/s, output: 1682.95 toks/s][A
+
+Processed prompts:  47%|████▋     | 94/198 [02:48<00:07, 14.53it/s, est. speed input: 211.47 toks/s, output: 1818.13 toks/s][A
+
+Processed prompts:  51%|█████     | 100/198 [02:48<00:04, 19.91it/s, est. speed input: 220.70 toks/s, output: 1953.38 toks/s][A
+
+Processed prompts:  53%|█████▎    | 105/198 [02:48<00:04, 23.20it/s, est. speed input: 228.11 toks/s, output: 2065.62 toks/s][A
+
+Processed prompts:  58%|█████▊    | 114/198 [02:48<00:02, 33.82it/s, est. speed input: 241.22 toks/s, output: 2269.34 toks/s][A
+
+Processed prompts:  61%|██████    | 120/198 [02:49<00:02, 34.83it/s, est. speed input: 249.45 toks/s, output: 2404.12 toks/s][A
+
+Processed prompts:  65%|██████▍   | 128/198 [02:49<00:01, 41.64it/s, est. speed input: 260.10 toks/s, output: 2585.22 toks/s][A
+
+Processed prompts:  66%|██████▌   | 130/198 [03:06<00:01, 41.64it/s, est. speed input: 262.56 toks/s, output: 2629.13 toks/s][A
+
+Processed prompts:  66%|██████▌   | 131/198 [03:07<01:06,  1.01it/s, est. speed input: 238.49 toks/s, output: 2396.87 toks/s][A
+
+Processed prompts:  68%|██████▊   | 134/198 [03:07<00:52,  1.22it/s, est. speed input: 241.86 toks/s, output: 2457.04 toks/s][A
+
+Processed prompts:  70%|███████   | 139/198 [03:07<00:34,  1.73it/s, est. speed input: 247.34 toks/s, output: 2557.49 toks/s][A
+
+Processed prompts:  73%|███████▎  | 144/198 [03:07<00:22,  2.45it/s, est. speed input: 252.83 toks/s, output: 2659.51 toks/s][A
+
+Processed prompts:  73%|███████▎  | 145/198 [03:26<00:21,  2.45it/s, est. speed input: 248.26 toks/s, output: 2620.28 toks/s][A
+
+Processed prompts:  74%|███████▎  | 146/198 [03:33<01:55,  2.23s/it, est. speed input: 224.77 toks/s, output: 2380.40 toks/s][A
+
+Processed prompts:  74%|███████▍  | 147/198 [03:34<01:50,  2.16s/it, est. speed input: 224.15 toks/s, output: 2381.90 toks/s][A
+
+Processed prompts:  76%|███████▌  | 150/198 [03:38<01:31,  1.91s/it, est. speed input: 222.86 toks/s, output: 2392.26 toks/s][A
+
+Processed prompts:  77%|███████▋  | 153/198 [03:39<01:03,  1.41s/it, est. speed input: 224.97 toks/s, output: 2439.08 toks/s][A
+
+Processed prompts:  78%|███████▊  | 155/198 [03:39<00:49,  1.14s/it, est. speed input: 226.40 toks/s, output: 2470.69 toks/s][A
+
+Processed prompts:  79%|███████▉  | 157/198 [03:40<00:38,  1.08it/s, est. speed input: 227.65 toks/s, output: 2500.50 toks/s][A
+
+Processed prompts:  80%|████████  | 159/198 [03:40<00:27,  1.40it/s, est. speed input: 229.20 toks/s, output: 2533.92 toks/s][A
+
+Processed prompts:  81%|████████▏ | 161/198 [03:40<00:21,  1.74it/s, est. speed input: 230.52 toks/s, output: 2565.08 toks/s][A
+
+Processed prompts:  83%|████████▎ | 164/198 [03:40<00:13,  2.61it/s, est. speed input: 232.92 toks/s, output: 2616.66 toks/s][A
+
+Processed prompts:  84%|████████▍ | 166/198 [03:40<00:10,  3.20it/s, est. speed input: 234.33 toks/s, output: 2649.47 toks/s][A
+
+Processed prompts:  85%|████████▍ | 168/198 [03:41<00:07,  3.77it/s, est. speed input: 235.67 toks/s, output: 2681.66 toks/s][A
+
+Processed prompts:  86%|████████▌ | 170/198 [03:41<00:06,  4.65it/s, est. speed input: 237.11 toks/s, output: 2714.98 toks/s][A
+
+Processed prompts:  87%|████████▋ | 172/198 [03:41<00:04,  5.82it/s, est. speed input: 238.58 toks/s, output: 2748.86 toks/s][A
+
+Processed prompts:  88%|████████▊ | 175/198 [03:41<00:02,  8.02it/s, est. speed input: 240.78 toks/s, output: 2800.20 toks/s][A
+
+Processed prompts:  90%|████████▉ | 178/198 [03:41<00:01, 10.60it/s, est. speed input: 242.99 toks/s, output: 2851.85 toks/s][A
+
+Processed prompts:  91%|█████████▏| 181/198 [03:41<00:01, 12.53it/s, est. speed input: 245.07 toks/s, output: 2903.03 toks/s][A
+
+Processed prompts:  93%|█████████▎| 184/198 [03:42<00:00, 14.26it/s, est. speed input: 247.08 toks/s, output: 2954.25 toks/s][A
+
+Processed prompts:  94%|█████████▍| 186/198 [03:42<00:00, 14.12it/s, est. speed input: 248.33 toks/s, output: 2987.78 toks/s][A
+
+Processed prompts:  95%|█████████▌| 189/198 [03:42<00:00, 17.01it/s, est. speed input: 250.26 toks/s, output: 3039.61 toks/s][A
+
+Processed prompts:  97%|█████████▋| 192/198 [03:42<00:00, 16.61it/s, est. speed input: 251.97 toks/s, output: 3090.34 toks/s][A
+
+Processed prompts:  98%|█████████▊| 194/198 [03:42<00:00, 16.85it/s, est. speed input: 253.00 toks/s, output: 3124.42 toks/s][A
+
+Processed prompts:  99%|█████████▉| 197/198 [03:42<00:00, 18.30it/s, est. speed input: 254.46 toks/s, output: 3176.08 toks/s][A
+Processed prompts: 100%|██████████| 198/198 [03:42<00:00,  1.12s/it, est. speed input: 254.95 toks/s, output: 3193.85 toks/s]
+
+Splits: 100%|██████████| 1/1 [03:43<00:00, 223.07s/it]
+Splits: 100%|██████████| 1/1 [03:43<00:00, 223.07s/it]
+[2025-04-22 19:44:20,732] [[32m    INFO[0m]: --- COMPUTING METRICS --- (pipeline.py:504)[0m
+[2025-04-22 19:44:20,735] [[33m WARNING[0m]: We did not manage to extract a prediction in the correct format. Gold: ['A'], Pred: ['1.515151515151515151515151515151515151515151515151515151515151515151515151515151515151515151515151515151515151515151515151515151515151515151515151515151515151515151515151515151515151515151515151515151515151515151515151515151515151515151515151515151515151515151515Jesteśystemuserassistantassistantassistantassistant\n2.52525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252'] (dynamic_metrics.py:265)[0m
+[2025-04-22 19:44:20,738] [[33m WARNING[0m]: We did not manage to extract a prediction in the correct format. Gold: ['C'], Pred: ['115, 176, 333, 185, 315, 351. (1) 1, 2, 3, 4, 5, 6. (2) 1, 2, 3, 4, 5, 6. (3) 1, 2, 3, 4, 5, 6. (4) 1, 2, 3, 4, 5, 6. (5) 1, 2, 3, 4, 5, 6. (6) 1, 2, 3, 4, 5, 6. (1) 1, 2, 3, 4, 5, 6. (2) 1, 2, 3, 4, 5, 6. (3) 1, 2, 3, 4, 5, 6. (4) 1, 2, 3, 4, 5, 6. (5) 1, 2, 3, 4, 5, 6. (6) 1, 2, 3, 4, 5, 6. (1) 1, 2, 3, 4, 5, 6. (2) 1, 2, 3, 4, 5, 6. (3) 1, 2, 3, 4, 5, 6. (4) 1, 2, 3, 4, 5, 6. (5) 1, 2, 3, 4, 5, 6. (6) 1, 2, 3, 4, 5, 6. (1) 1, 2, 3, 4, 5, 6. (2) 1, 2, 3, 4, 5, 6. (3) 1, 2, 3, 4, 5, 6. (4) 1, 2, 3, 4, 5, 6. (5) 1, 2, 3, 4, 5, 6. (6) 1, 2, 3, 4, 5, 6. (1) 1, 2, 3, 4, 5, 6. (2) 1, 2, 3, 4, 5, 6. (3) 1, 2, 3, 4, 5, 6. (4) 1, 2, 3, 4, 5, 6. (5) 1, 2, 3, 4, 5, 6. (6) 1, 2, 3, 4, 5, 6. (1) 1, 2, 3, 4, 5, 6. (2) 1, 2, 3, 4, 5, 6. (3) 1, 2, 3, 4, 5, 6. (4) 1, 2, 3, 4, 5, 6. (5) 1, 2, 3, 4, 5, 6. (6) 1, 2, 3, 4, 5, 6. (1) 1, 2, 3, 4, 5, 6. (2) 1, 2, 3, 4, 5, 6. (3) 1, 2, 3, 4, 5, 6. (4) 1, 2, 3, 4, 5, 6. (5) 1, 2, 3, 4, 5, 6. (6) 1, 2, 3, 4, 5, 6. (1) 1, 2, 3, 4, 5, 6. (2) 1, 2, 3, 4, 5, 6. (3) 1, 2, 3, 4, 5, 6. (4) 1, 2, 3, 4, 5, 6. (5) 1, 2, 3, 4, 5, 6. (6) 1, 2, 3, 4, 5, 6. (1) 1, 2, 3, 4, 5, 6. (2) 1, 2, 3, 4, 5, 6. (3) 1, 2, 3, 4, 5, 6. (4) 1, 2, 3, 4, 5, 6. (5) 1, 2, 3, 4, 5, 6. (6) 1, 2, 3, 4, 5, 6. (1) 1, 2, 3, 4, 5, 6. (2) 1, 2, 3, 4, 5, 6. (3) 1, 2, 3, 4, 5, 6. (4) 1, 2, 3, 4, 5, 6. (5) 1, 2, 3, 4, 5, 6. (6) 1, 2, 3, 4, 5, 6. (1) 1, 2, 3, 4, 5, 6. (2) 1, 2, 3, 4, 5, 6. (3) 1, 2, 3, 4, 5, 6. (4) 1, 2, 3, 4, 5, 6. (5) 1, 2, 3, 4, 5, 6. (6) 1, 2, 3, 4, 5, 6. (1) 1, 2, 3, 4, 5, 6. (2) 1, 2, 3, 4, 5, 6. (3) 1, 2, 3, 4, 5, 6. (4) 1, 2, 3, 4, 5, 6. (5) 1, 2, 3, 4, 5, 6. (6) 1, 2, 3, 4, 5, 6. (1) 1, 2, 3, 4, 5, 6. (2) 1, 2, 3, 4, 5, 6. (3) 1, 2, 3, 4, 5, 6. (4) 1, 2, 3, 4, 5, 6. (5) 1, 2, 3, 4, 5, 6. (6) 1, 2, 3, 4, 5, 6. (1) 1, 2, 3, 4, 5, 6. (2) 1, 2, 3, 4, 5, 6. (3) 1, 2, 3, 4, 5, 6. (4) 1, 2, 3, 4, 5, 6. (5) 1, 2, 3, 4, 5, 6. (6) 1, 2, 3, 4, 5, 6. (1) 1, 2, 3, 4, 5, 6. (2) 1, 2, 3, 4, 5, 6. (3) 1, 2, 3, 4, 5, 6. (4) 1, 2, 3, 4, 5, 6. (5) 1, 2, 3, 4, 5, 6. (6) 1, 2, 3, 4, 5, 6. (1) 1, 2, 3, 4, 5, 6. (2) 1, 2, 3, 4, 5, 6. (3) 1, 2, 3, 4, 5, 6. (4) 1, 2, 3, 4, 5, 6. (5) 1, 2, 3, 4, 5, 6. (6) 1, 2, 3, 4, 5, 6. (1) 1, 2, 3, 4, 5, 6. (2) 1, 2, 3, 4, 5, 6. (3) 1, 2, 3, 4, 5, 6. (4) 1, 2, 3, 4, 5, 6. (5) 1, 2, 3, 4, 5, 6. (6) 1, 2, 3, 4, 5, 6. (1) 1, 2, 3, 4, 5, 6. (2) 1, 2, 3, 4, 5, 6. (3) 1, 2, 3, 4, 5, 6. (4) 1, 2, 3, 4, 5, 6. (5) 1, 2, 3, 4, 5, 6. (6) 1, 2, 3, 4, 5, 6. (1) 1, 2, 3, 4, 5, 6. (2) 1, 2, 3, 4, 5, 6. (3) 1, 2, 3, 4, 5, 6. (4) 1, 2, 3, 4, 5, 6. (5) 1, 2, 3, 4, 5, 6. (6) 1, 2, 3, 4, 5, 6. (1) 1, 2, 3, 4, 5, 6. (2) 1, 2, 3, 4, 5, 6. (3) 1, 2, 3, 4, 5, 6. (4) 1, 2, 3, 4, 5, 6. (5) 1, 2, 3, 4, 5, 6. (6) 1, 2, 3, 4, 5, 6. (1) 1, 2, 3, 4, 5, 6. (2) 1, 2, 3, 4, 5, 6. (3) 1, 2, 3, 4, 5, 6. (4) 1, 2, 3, 4, 5, 6. (5) 1, 2, 3, 4, 5, 6. (6) 1, 2, 3, 4, 5, 6. (1) 1, 2, 3, 4, 5, 6. (2) 1, 2, 3, 4, 5, 6. (3) 1, 2, 3, 4, 5, 6. (4) 1, 2, 3, 4, 5, 6. (5) 1, 2, 3, 4, 5, 6. (6) 1, 2, 3, 4, 5, 6. (1) 1, 2, 3, 4, 5, 6. (2) 1, 2, 3, 4, 5, 6. (3) 1, 2, 3, 4, 5, 6. (4) 1, 2, 3, 4, 5, 6. (5) 1, 2, 3, 4, 5, 6. (6) 1, 2, 3, 4, 5, 6. (1) 1, 2, 3, 4, 5, 6. (2) 1, 2, 3, 4, 5, 6. (3) 1, 2, 3, 4, 5, 6. (4) 1, 2, 3, 4, 5, 6. (5) 1, 2, 3, 4, 5, 6. (6) 1, 2, 3, 4, 5, 6. (1) 1, 2, 3, 4, 5, 6. (2) 1, 2, 3, 4, 5, 6. (3) 1, 2, 3, 4, 5, 6. (4) 1, 2, 3, 4, 5, 6. (5) 1, 2, 3, 4, 5, 6. (6) 1, 2, 3, 4, 5, 6. (1) 1, 2, 3, 4, 5, 6. (2) 1, 2, 3, 4, 5, 6. (3) 1, 2, 3, 4, 5, 6. (4) 1, 2, 3, 4, 5, 6. (5) 1, 2, 3, 4, 5, 6. (6) 1, 2, 3, 4, 5, 6. (1) 1, 2, 3, 4, 5, 6. (2) 1, 2, 3, 4, 5, 6. (3) 1, 2, 3, 4, 5, 6. (4) 1, 2, 3, 4, 5, 6. (5) 1, 2, 3, 4, 5, 6. (6) 1, 2, 3, 4, 5, 6. (1) 1, 2, 3, 4, 5, 6. (2) 1, 2, 3, 4, 5, 6. (3) 1, 2, 3, 4, 5, 6. (4) 1, 2, 3, 4, 5, 6. (5) 1, 2, 3, 4, 5, 6. (6) 1, 2, 3, 4, 5, 6. (1) 1, 2, 3, 4, 5, 6. (2) 1, 2, 3, 4, 5, 6. (3) 1, 2, 3, 4, 5, 6. (4) 1, 2, 3, 4, 5, 6. (5) 1, 2, 3, 4, 5, 6. (6) 1, 2, 3, 4, 5, 6. (1) 1, 2, 3, 4, 5, 6. (2) 1, 2, 3, 4, 5, 6. (3) 1, 2, 3, 4, 5, 6. (4) 1, 2, 3, 4, 5, 6. (5) 1, 2, 3, 4, 5, 6. (6) 1, 2, 3, 4, 5, 6. (1) 1, 2, 3, 4, 5, 6. (2) 1, 2, 3, 4, 5, 6. (3) 1, 2, 3, 4, 5, 6. (4) 1, 2, 3, 4, 5, 6. (5) 1, 2, 3, 4, 5, 6. (6) 1, 2, 3, 4, 5, 6. (1) 1, 2, 3, 4, 5,'] (dynamic_metrics.py:265)[0m
+[2025-04-22 19:44:20,740] [[33m WARNING[0m]: We did not manage to extract a prediction in the correct format. Gold: ['D'], Pred: ['2.222222222222222.111111111. last. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. '] (dynamic_metrics.py:265)[0m
+[2025-04-22 19:44:20,741] [[33m WARNING[0m]: We did not manage to extract a prediction in the correct format. Gold: ['B'], Pred: ['The following compounds will exhibit optical activity: (tetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedraltetrahedral\n1. (2,3) and rest of rest rest rest rest of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of\n1234567891011121314151617181920212223242\n of\n1234567891011121314151617181920212223242 of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of\n of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of'] (dynamic_metrics.py:265)[0m
+[2025-04-22 19:44:20,746] [[33m WARNING[0m]: We did not manage to extract a prediction in the correct format. Gold: ['A'], Pred: ['-2-6-:2.6.2. - -2.6.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2'] (dynamic_metrics.py:265)[0m
+[2025-04-22 19:44:20,750] [[33m WARNING[0m]: We did not manage to extract a prediction in the correct format. Gold: ['D'], Pred: ['1. 1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.LETLETLETLETLETLETLET.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.LETLETLETLETLET.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.LETLETLETLETLETLET.1.1.1.1.1.1.1.LETLETLET.1.1.1.1LETLETLETLETLETLET.LETLETLET.1.1.1.1.1.1.1.1.1.LETLET.1.1.1.1.1.1.1.LETLET.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1'] (dynamic_metrics.py:265)[0m
+[2025-04-22 19:44:20,754] [[33m WARNING[0m]: We did not manage to extract a prediction in the correct format. Gold: ['B'], Pred: ['.2. Your last line of your response. (without. 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2. (, 2.'] (dynamic_metrics.py:265)[0m
+[2025-04-22 19:44:20,755] [[33m WARNING[0m]: We did not manage to extract a prediction in the correct format. Gold: ['D'], Pred: ["1.101.1.10'LETLET'LET'LET'LET' 1.1.1'LET'1'1'1'1'1'LET'LET'LET'1'1'1'1'1'LET'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1'1"] (dynamic_metrics.py:265)[0m
+[2025-04-22 19:44:20,762] [[33m WARNING[0m]: We did not manage to extract a prediction in the correct format. Gold: ['A'], Pred: ['1.11\n1.11\n1.LETTERLETLETLET1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\n1.11\nLETLETLETLETLETLETLET1.111.111.111.111.111.111.11\nLETLETLETLETLETLETLETLETLETLETLET\nLET\n1111111111111111111111111111111111111111111111111111111111111111111111111111111111111111LETLETLETLETLET\n1.111.111.111.111.111.11\nLETLET1.111.111.111.1\nLETLETLETLETLETLETLET1.111.111.1111LETLETLETLET1111.1\n1LETLETLETLETLETLETLETLETLETLET1.1.1.1.1.1.1.1.111LETLETLETLETLETLETLET1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.'] (dynamic_metrics.py:265)[0m
+[2025-04-22 19:44:20,765] [[33m WARNING[0m]: We did not manage to extract a prediction in the correct format. Gold: ['B'], Pred: ['1. (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) ('] (dynamic_metrics.py:265)[0m
+[2025-04-22 19:44:20,766] [[33m WARNING[0m]: We did not manage to extract a prediction in the correct format. Gold: ['D'], Pred: ['1. 2. 3.4.5.6.7.8.9.10.1.2.3.4.5.6.7.8.9.10.1.2.3.4.5.6.7.8.9.1.2.3.4.5.6.7.8.9.1.2.3.4.5.6.7.8.9.1.2.3.4.5.6.7.8.9.1.2.3.4.5.6.7.8.9.1.2.3.4.5.6.7.8.9.1.2.3.4.5.6.7.8.9.1.2.3.4.5.6.7.8.9.1.2.3.4.5.6.7.8.9.1.2.3.4.5.6.7.8.9.1.2.3.4.5.6.7.8.9.1.2.3.4.5.6.7.8.9.1.2.3.4.5.6.7.8.9.1.2.3.4.5.6.7.8.9.1.2.3.4.5.6.7.8.9.1.2.3.4.5.6.7.8.9.1.2.3.4.5.6.7.8.9.1.2.3.4.5.6.7.8.9.1.2.3.4.5.6.7.8.9.1.2.3.4.5.6.7.8.9.1.2.3.4.5.6.7.8.9.1.2.3.4.5.6.7.8.9.1.2.3.4.5.6.7.8.9.1.2.3.4.5.6.7.8.9.1.2.3.4.5.6.7.8.9.1.2.3.4.5.6.7.8.9.1.2.3.4.5.6.7.8.9.1.2.3.4.5.6.7.8.9.1.2.3.4.5.6.7.8.9.1.2.3.4.5.6.7.8.9.1.2.3.4.5.6.7.8.9.1.2.3.4.5.6.7.8.9.1.2.3.4.5.6.7.8.9.1.2.3.4.5.6.7.8.9.1.2.3.4.5.6.7.8.9.1.2.3.4.5.6.7.8.9.1.2.3.4.5.6.7.8.9.1.2.3.4.5.6.7.8.9.1.2.3.4.5.6.7.8.9.1.2.3.4.5.6.7.8.9.1.2.3.4.5.6.7.8.9.1.2.3.4.5.6.7.8.9.1.2.3.4.5.6.7.8.9.1.2.3.4.5.6.7.8.9.1.2.3.4.5.6.7.8.9.1.2.3.4.5.6.7.8.9.1.2.3.4.5.6.7.8.9.1.2.3.4.5.6.7.8.9.1.2.3.4.5.6.7.8.9.1.2.3.4.5.6.7.8.9.1.2.3.4.5.6.7.8.9.1.2.3.4.5.6.7.8.9.1.2.3.4.5.6.7.8.9.1.2.3.4.5.6.7.8.9.1.2.3.4.5.6.7.8.9.1.2.3.4.5.6.7.8.9.1.2.3.4.5.6.7.8.9.1.2.3.4.5.6.7.8.9.1.2.3.4.5.6.7.8.9.1.2.3.4.5.6.7.8.9.1.2.3.4.5.6.7.8.9.1.2.3.4.5.6.7.8.9.1.2.3.4.5.6.7.8.9.1.2.3.4.5.6.7.8.9.1.2.3.4.5.6.7.8.9.1.2.3.4.5.6.7.8.9.1.2.3.4.5.6.7.8.9.1.2.3.4.5.6.7.8.9.1.2.3.4.5.6.7.8.9.1.2.3.4.5.6.7.8.9.1.2.3.4.5.6.7.8.9.1.2.3.4.5.6.7.8.9.1.2.3.4.5.6.7.8.9.1.2.3.4.5.6.7.8.9.1.2.3.4.5.6.7.8.9.1.2.3.4.5.6.7.8.9.1.2.3.4.5.6.7.8.9.1.2.3.4.5.6.7.8.9.1.2.3.4.5.6.7.8.9.1.2.3.4.5.6.7.8.9.1.2.3.4.5.6.7.8.9.1.2.3.4.5.6.7.8.9.1.2.3.4.5.6.7.8.9.1.2.3.4.5.6.7.8.9.1.2.3.4.5.6.7.8.9.1.2.3.4.5.6.7.8.9.1.2.3.4.5.6.7.8.9.1.2.3.4.5.6.7.8.9.1.2.3.4.5.6.7.8.9.1.2.3.4.5.6.7.8.9.1.2.3.4.5.6.7.8.9.1.2.3.4.5.6.7.8.9.1.2.3.4.5.6.7.8.9.1.2.3.4.5.6.7.8.9.1.2.3.4.5.6.7.8.9.1.2.3.4.5.6.7.8.9.1.2.3.4.5.6.7.8.9.1.2.3.4.5.6.7.8.9.1.2.3.4.5.6.7.8.9.1.2.3.4.5.6.7.8.9.1.2.3.4.5.6.7.8.9.1.2.3.4.5.6.7.8.9.1.2.3.4.5.6.7.8.9.1.2.3.4.5.6.7.8.9.1.2.3.4.5.6.7.8.9.1.2.3.4.5.6.7.8.9.1.2.3.4.5.6.7.8.9.1.2.3.4.5.6.7.8.9.1.2.3.4.5.6.7.8.9.1.2.3.4.5.6.7.8.9.1.2.3.4.5.6.7.8.9.1.2.3.4.5.6.7.8.9.1.2.3.4.5.6.7.8.9.1.2.3.4.5.6.7.8.9.1.2.3.4.5.6.7.8.9.1.2.3.4.5.6.7.8.9.1.2.3.4.5.6.7.8.9.1.2.3.4.5.6.7.8.9.1.2.3.4.5.6.7.8.9.1.2.3.4.5.6.7.8.9.1.2.3.4.5.6.7.8.9.1.2.3.4.5.6.7.8.9.1.2.3.4.5.6.7.8.9.1.2.3.4.5.6.7.8.9.1.2.3.4.5.6.7.8.9.1.2.3.4.5.6.7.8.9.1.2.3.4.5.6.7.8.9.1.2.3.4.5.6.7.8.9.1.2.3.4.5.6.7.8.9.1.2.3.4.5.6.7.8.9.1.2.3.4.5.6.7.8.9.1.2.3.4.5.6.7.8.9.1.2.3.4.5.6.7.8.9.1.2.3.4.5.6.7.8.9.1.2.3.4.5.6.7.8.9.1.2.3.4.5.6.7.8.9.1.2.3.4.5.6.7.8.9.1.2.3.4.5.6.7.8.9.1.2.3.4.5.6.7.8.9.1.2.3.4.5.6.7.8.9.1.2.3.4.5.6.7.8.9.1.2.3.4.5.6.7.8.9.1.2.3.4.5.6.7.8.9.1.2.3.4.5.6.7.8.9.1.2.3.4.5.6.7.8.9.1.2.3.4.5.6.7.8.9.1.2.3.4.5.6.7.8.9.1.2.3.4.5.6.7.8.9.1.2.3.4.5.6.7.8.9.1.2.3.4.5.6.7.8.9.1.2.3.4.5.6.7.8.9.1.2.3.4.5.6.7.8.9.1.2.3.4.5.6.7.8.9.1.2.3.4.5.6.7.8.9.1.2.3.4.5.6.7.8.9.1.2.3.4.5.6.7.8.9.1.2.3.4.5.6.7.8.9.1.2.3.4.5.6.7.8.9.1.2.3.4.5.6.7.8.9.1.2.3.4.5.6.7.8.9.1.2.3.4.5.6.7.8.9.1.2.3.4.5.6.7.8.9.1.2.3.4.5.6.7.8.9.1.2.3.4.5.6.7.8.9.1.2.3.4.5.6.7.8.9.1.2.3.4.5.6.7.8.9.1.2.3.4.5.6.7.8.9.1.2.3.4.5.6.7.8.9.1.2.3.4.5.6.7.8.9.1.2.3.4.5.6.7.8.9.1.2.3.4.5.6.7.8.9.1.2.3.4.5.6.7.8.9.1.2.3.4.5.6.7.8.9.1.2.3.4.5.6.7.8.9.1.2.3.4.5.6.7.8.9.1.2.3.4.5.6.7.8.9.1.2.3.4.5.6.7.8.9.1.2.3.4.5.6.7.8.9.1.2.3.4.5.6.7.8.9.1.2.3.4.5.6.7.8.9.1.2.3.4.5.6.7.8.9.1.2.3.4.5.6.7.8.9.1.2.3.4.5.6.7.8.9.1.2.3.4.5.6.7.8.9.1.2.3.4.5.6.7.8.9.1.2.3.4.5.6.7.8.9.1.2.3.4.5.6.7.8.9.1.2.3.4.5.6.7.8.9.1.2.3.4.5.6.7.8.9.1.2.3.4.5.6.7.8.9.1.2.3.4.5.6.7.8.9.1.2.3.4.5.6.7.8.9.1.2.3.4.5.6.7.8.9.1.2.3.4.5.6.7.8.9.1.2.3.4.5.6.7.8.9.1.2.3.4.5.6.7.8.9.1.2.3.4.5.6.7.8.9.1.2.3.4.5.6.7.8.9.1.2.3.4.5.6.7.8.9.1.2.3.4.5.6.7.8.9.1.2.3.4.5.6.7.8.9.1.2.3.4.5.6.7.8.9.1.2.3.4.5.6.7.8.9.1.2.3.4.5.6.7.8.9.1.2.3.4.5.6.7.8.9.1.2.3.4.5.6.7.8.9.1.2.3.4.5.6.7.8.9.1.2.3.4.5.6.7.8.9.1.2.3.4.5.6.7.8.9.1.2.3.4.5.6.7.8.9.1.2.3.4.5.6.7.8.9.1.2.3.4.5.6.7.8.9.1.2.3.4.5.6.7.8.9.1.2.3.4.5.6.7.8.9.1.2.3.4.5.6.7.8.9.1.2.3.4.5.6.7.8.9.'] (dynamic_metrics.py:265)[0m
+[2025-04-22 19:44:20,770] [[33m WARNING[0m]: We did not manage to extract a prediction in the correct format. Gold: ['A'], Pred: ['1-bromoben.2. (1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,9,1,2,'] (dynamic_metrics.py:265)[0m
+[2025-04-22 19:44:20,784] [[33m WARNING[0m]: We did not manage to extract a prediction in the correct format. Gold: ['A'], Pred: ['Step by step solution\n1) The last line before starting step-by-step reasoning should be formatted followingtettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettet\n1. (2/2) step by step reasoning followingtettettet. (2/2) step by step. (2/2) step. (2/2) step. (2/2) step. (2/2) step. (2/2) step. (2/2) step. (2/2) step. (2/2) step. (2/2) step. (2/2) step. (2/2) step. (2/2) step. (2/2) step. (2/2) step. (2/2) step. (2/2) step. (2/2) step. (2/2) step. (2/2) step. (2/2) step. (2/2) step. (2/2) step. (2/2) step. (2/2) step. (2/2) step. (2/2) step. (2/2) step. (2/2) step. (2/2) step. (2/2) step. (2/2) step. (2/2) step. (2/2) step. (2/2) step. (2/2) step. (2/2) step. (2/2) step. (2/2) step. (2/2) step. (2/2) step. (2/2) step. (2/2) step. (2/2) step. (2/2) step. (2/2) step. (2/2) step. (2/2) step. (2/2) step. (2/2) step. (2/2) step. (2/2) step. (2/2) step. (2/2) step. (2/2) step. (2/2) step. (2/2) step. (2/2) step. (2/2) step. (2/2) step. (2/2) step. (2/2) step. (2/2) step. (2/2) step. (2/2) step. (2/2) step. (2/2) step. (2/2) step. (2/2) step. (2/2) step. (2/2) step. (2/2) step. (2/2) step. (2/2) step. (2/2) step. (2/2) step. (2/2) step. (2/2) step. (2/2) step. (2/2) step. (2/2) step. (2/2) step. (2/2) step. (2/2) step. (2/2) step. (2/2) step. (2/2) step. (2/2) step. (2/2) step. (2/2) step. (2/2) step. (2/2) step. (2/2) step. (2/2) step. (2/2) step. (2/2) step. (2/2) step. (2/2) step. (2/2) step. (2/2) step. (2/2) step. (2/2) step. (2/2) step. (2/2) step. (2/2) step. (2/2) step. (2/2) step. (2/2) step. (2/2) step. (2/2) step. (2/2) step. (2/2) step. (2/2) step. (2/2) step. (2/2) step. (2/2) step. (2/2) step. (2/2) step. (2/2) step. (2/2) step. (2/2) step. (2/2) step. (2/2) step. (2/2) step. (2/2) step. (2/2) step. (2/2) step. (2/2) step. (2/2) step. (2/2) step. (2/2) step. (2/2) step. (2/2) step. (2/2) step. (2/2) step. (2/2) step. (2/2) step. (2/2) step. (2/2) step. (2/2) step. (2/2) step. (2/2) step. (2/2) step. (2/2) step. (2/2) step. (2/2) step. (2/2) step. (2/2) step. (2/2) step. (2/2) step. (2/2) step. (2/2) step. (2/2) step. (2/2) step. (2/2) step. (2/2) step. (2/2) step. (2/2) step. (2/2) step. (2/2) step. (2/2) step. (2/2) step. (2/2) step. (2/2) step. (2/2) step. (2/2) step. (2/2) step. (2/2) step. (2/2) step. (2/2) step. (2/2) step. (2/2) step. (2/2) step. (2/2) step. (2/2) step. (2/2) step. (2/2) step. (2/2) step. (2/2) step. (2/2) step. (2/2) step. (2/2) step. (2/2) step. (2/2) step. (2/2) step. (2/2) step. (2/2) step. (2/2) step. (2/2) step. (2/2) step. (2/2) step. (2/2) step. (2/2) step. (2/2) step. (2/2) step. (2/2) step. (2/2) step. (2/2) step. (2/2) step. (2/2) step. (2/2) step. (2/2) step. (2/2) step. (2/2) step. (2/2) step. (2/2) step. (2/2) step. (2/2) step. (2/2) step. (2/2) step. (2/2) step. (2/2) step. (2/2) step. (2/2) step. (2/2) step. (2/2) step. (2/2) step. (2/2) step. (2/2) step. (2/2) step. (2/2) step. (2/2) step. (2/2) step. (2/2) step. (2/2) step. (2/2) step. (2/2) step. (2/2) step. (2/2) step. (2/2) step. (2/2) step. (2/2) step. (2/2) step. (2/2) step. (2/2) step. (2/2) step. (2/2) step. (2/2) step. (2/2) step. (2/2) step. (2/2) step. (2/2) step. (2/2) step. (2/2) step. (2/2) step. (2/2) step. (2/2) step. (2/2) step. (2/2) step. (2/2) step. (2/2) step. (2/2) step. (2/2) step. (2/2) step. (2/2) step. (2/2) step. (2/2) step. (2/2) step. (2/2) step. (2/2) step. (2/2) step. (2/2) step. (2/2) step. (2/2) step. (2/2) step. (2/2) step. (2/2) step. (2/2) step. (2/2) step. (2/2)1111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111LETLETLETLETLETLETLET111111111111111111111111111LETLETLETLETLETLETLETLETLETLETLETLETLETLETLETLET1111111111111111111111LETLETLETLETLETLETLETLETLETLETLETLETLETLETLETLETLETLETLETLETLETLETLETLETLETLETLETLETLETLETLETLET1111111111111111111111111111111111LETLETLETLETLET11111111111111111111111111111111111111111LETLETLETLETLETLETLETLETLETLET11111111111111LETLETLETLET11111111LETLETLETLETLETLETLETLETLETLET1111111111111111111LETLETLETLETLETLET11111111111LETLET11111111111111111111111111111111111111111111111'] (dynamic_metrics.py:265)[0m
+[2025-04-22 19:44:20,788] [[33m WARNING[0m]: We did not manage to extract a prediction in the correct format. Gold: ['B'], Pred: ["Step by step solution\n1. Energy of particle moving within isotropic potential following harmonic oscillator law startingtettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettet\n1. (1/2) \\hbar \\omega' within rest of 1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3LETLETLETLETLETLETLET.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.LETLETLETLETLET.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.3.3.1.LETLET.1.1.1.1LETLETLETLETLETLETLETLETLETLET.1.1.1.1.3.3.1.3.3.1LETLET.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1"] (dynamic_metrics.py:265)[0m
+[2025-04-22 19:44:20,792] [[33m WARNING[0m]: We did not manage to extract a prediction in the correct format. Gold: ['A'], Pred: ['1.01.11.21.31.41.51.61.71.81.92.02.12.22.32.42.52.62.72.82.93.03.13.23.33.43.53.63.73.83.94.04.14.24.34.44.54.64.74.84.95.05.15.25.35.45.55.65.75.85.96.06.16.26.36.46.56.66.76.86.97.07.17.27.37.47.57.67.77.87.98.08.18.28.38.48.58.68.78.88.99.09.19.29.39.49.59.69.79.89.910.010.110.210.310.410.510.610.710.810.911.011.111.211.311.411.511.611.711.811.912.012.112.212.312.412.512.612.712.812.913.013.113.213.313.413.513.613.713.813.914.014.114.214.314.414.514.614.714.814.915.015.115.215.315.415.515.615.715.815.916.016.116.216.316.416.516.616.716.816.917.017.117.217.317.417.517.617.717.817.918.018.118.218.318.418.518.618.718.818.919.019.119.219.319.419.519.619.719.819.920.020.120.220.320.420.520.620.720.820.921.021.121.221.321.421.521.621.721.821.922.022.122.222.322.422.522.622.722.822.923.023.123.223.323.423.523.623.723.823.924.024.124.224.324.424.524.624.724.824.925.025.125.225.325.425.525.625.725.825.926.026.126.226.326.426.526.626.726.826.927.027.127.227.327.427.527.627.727.827.928.028.128.228.328.428.528.628.728.828.929.029.129.229.329.429.529.629.729.829.930.030.130.230.330.430.530.630.730.830.931.031.131.231.331.431.531.631.731.831.932.032.132.232.332.432.532.632.732.832.933.033.133.233.333.433.533.633.733.833.934.034.134.234.334.434.534.634.734.834.935.035.135.235.335.435.535.635.735.835.936.036.136.236.336.436.536.636.736.836.937.037.137.237.337.437.537.637.737.837.938.038.138.238.338.438.538.638.738.838.939.039.139.239.339.439.539.639.739.839.940.040.140.240.340.440.540.640.740.840.941.041.141.241.341.441.541.641.741.841.942.042.142.242.342.442.542.642.742.842.943.043.143.243.343.443.543.643.743.843.944.044.144.244.344.444.544.644.744.844.945.045.145.245.345.445.545.645.745.845.946.046.146.246.346.446.546.646.746.846.947.047.147.247.347.447.547.647.747.847.948.048.148.248.348.448.548.648.748.848.949.049.149.249.349.449.549.649.749.849.950.050.150.250.350.450.550.650.750.850.951.051.151.251.351.451.551.651.751.851.952.052.152.252.352.452.552.652.752.852.953.053.153.253.353.453.553.653.753.853.954.054.154.254.354.454.554.654.754.854.955.055.155.255.355.455.555.655.755.855.956.056.156.256.356.456.556.656.756.856.957.057.157.257.357.457.557.657.757.857.958.058.158.258.358.458.558.658.758.858.959.059.159.259.359.459. Think last line before last line before last.555555555555555555555 before last before last before last before last before last before last before last before last before last before last555555555555555555555 last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last555555555555555 last last last last last  1.  1.  1.  1.1.1.2.2.3.4.4.5.6.6.7.8.1.  1.  1. 12222222222222 last last last last last last last last last last last last last last last last last last last last last last 2.  2.2.3.3.4.4.5.5 last last last last last last last last last last last last last5 last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last last'] (dynamic_metrics.py:265)[0m
+[2025-04-22 19:44:20,803] [[33m WARNING[0m]: We did not manage to extract a prediction in the correct format. Gold: ['D'], Pred: ['Step-by-step solution\n1) The following reaction(s) required(s) step(s) starting material(s)?\n\nHextettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettettet\n1. (1/2) of 1/1 of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of\n15454545454545454545454545454545454545454545454545454545454545454545454545454545454545454545454545\n-2-2-2-2-2-2-2-2-LETLETLETLETLETLETLET222222222222222222222LETLETLETLETLETLETLETLETLETLETLETLETLETLETLETLETLETLETLETLETLETLET222222222222222222222LETLETLETLETLETLETLETLETLETLETLETLETLETLETLETLETLETLETLETLETLETLETLETLETLETLETLETLETLETLETLETLETLET2222222222222222222222222222222222LETLETLETLETLET222222222222222222222222222222222222222222LETLETLETLETLETLETLETLETLET22222222222222LETLETLETLET22222222LETLETLETLETLETLETLETLETLETLET2222222222222222222LETLETLETLETLETLET2222222222'] (dynamic_metrics.py:265)[0m
+[2025-04-22 19:44:20,805] [[33m WARNING[0m]: We did not manage to extract a prediction in the correct format. Gold: ['B'], Pred: ['1212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121LETLETLET, 12121212121212121212121212121212121212121LETLETLETLETLETLETLETLET22222222222222LETLETLETLET,1212121LETLETLETLETLETLETLETLETLETLET2222222222222222222LETLETLETLETLETLET,1212121212LETLETLET, 121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212'] (dynamic_metrics.py:265)[0m
+[2025-04-22 19:44:20,805] [[33m WARNING[0m]: We did not manage to extract a prediction in the correct format. Gold: ['A'], Pred: ['1.  1.  1.  1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.'] (dynamic_metrics.py:265)[0m
+[2025-04-22 19:44:20,807] [[33m WARNING[0m]: We did not manage to extract a prediction in the correct format. Gold: ['D'], Pred: ['-2-m\n-2-m\n-2-m\n-2-m\n-2-m\n-2-m\n-2-m\n-LETLETLETLETLETLETLET\n1222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222LETLETLETLETLET 2222222222222222222222222222222222222222\nLETLETLETLETLETLETLETLETLET22222222222222\nLETLETLET22222222LETLETLETLETLETLETLETLETLETLET 222222222222222222LETLETLETLETLETLETLETLETLETLETLETLETLET 222LETLETLET 2222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222'] (dynamic_metrics.py:265)[0m
+[2025-04-22 19:44:20,810] [[33m WARNING[0m]: We did not manage to extract a prediction in the correct format. Gold: ['D'], Pred: ["1) What is '1' of '1' of 'LET' of 'LET' of 'LET' of 1' in '1' of '1' of '1' of '1' of 'LET' of'1' of'1' 1' of'LET' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'1' of'"] (dynamic_metrics.py:265)[0m
+[2025-04-22 19:44:20,812] [[33m WARNING[0m]: We did not manage to extract a prediction in the correct format. Gold: ['B'], Pred: ['.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.LETLETLETLETLETLETLET.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.LETLETLETLETLET.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.LETLETLETLETLETLETLETLETLETLET.2.2.2.2.2.2.2.2.2.LETLET.2.2.2.2.2.2.2.LETLET.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2'] (dynamic_metrics.py:265)[0m
+[2025-04-22 19:44:20,813] [[33m WARNING[0m]: We did not manage to extract a prediction in the correct format. Gold: ['C'], Pred: ['1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.LETLETLETLETLETLETLET.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.LETLETLETLETLET.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.LETLETLETLETLETLETLET.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.'] (dynamic_metrics.py:265)[0m
+[2025-04-22 19:44:20,821] [[33m WARNING[0m]: We did not manage to extract a prediction in the correct format. Gold: ['C'], Pred: ["You are in the last of your last semester of your 1000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000[${LETTER}$/Jesteś]=$255255255255255255252' 'LET' 'LET' 'LET' 'LET' 'LET' 'LET' 'LET' '25225225225225225225' 'LET' 'LET' 'LET' 'LET' 'LET' 'LET' 'LET' 'LET' 'LET' 'LET' 'LET' '2522522' 'LET' '22222222222222222222' 'LET' '222222222222222' '2' 'LET' '2' 'LET' '2' '2' '2' '2' 'LET' 'LET' 'LET' 'LET' '222222222222' 'LET' '2' '2' '2' 'LET' 'LET' 'LET' '22' '2' '2' '2' '2' '2' 'LET' 'LET' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2'' '2' '2'' '2'' '2'' '2'' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2'' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2' '2'' '2' '2' '2'' '2' '2' '2' '2' '2' '2' '2' '2' '2"] (dynamic_metrics.py:265)[0m
+[2025-04-22 19:44:20,884] [[32m    INFO[0m]: --- DISPLAYING RESULTS --- (pipeline.py:546)[0m
+[2025-04-22 19:44:20,897] [[32m    INFO[0m]: --- SAVING AND PUSHING RESULTS --- (pipeline.py:536)[0m
+[2025-04-22 19:44:20,898] [[32m    INFO[0m]: Saving experiment tracker (evaluation_tracker.py:180)[0m
+[2025-04-22 19:44:21,323] [[32m    INFO[0m]: Saving results to ~/Projects/nips25_slot/open-r2/data/evals~/Models/Qwen/Qwen2.5-Math-7B/results/_Models_Qwen_Qwen2.5-Math-7B/results_2025-04-22T19-44-20.898116.json (evaluation_tracker.py:234)[0m
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=3, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([3773, 3584]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-Math-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - hidden_states_orig: torch.Size([3773, 3584]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-Math-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - hidden_states_orig: torch.Size([3773, 3584]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-Math-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=3, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([3761, 3584]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-Math-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - hidden_states_orig: torch.Size([3761, 3584]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-Math-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - hidden_states_orig: torch.Size([3761, 3584]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-Math-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=3, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([3798, 3584]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-Math-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - hidden_states_orig: torch.Size([3798, 3584]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-Math-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - hidden_states_orig: torch.Size([3798, 3584]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-Math-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=3, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([4036, 3584]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-Math-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - hidden_states_orig: torch.Size([4036, 3584]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-Math-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - hidden_states_orig: torch.Size([4036, 3584]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-Math-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=3, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([3919, 3584]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-Math-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - hidden_states_orig: torch.Size([3919, 3584]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-Math-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - hidden_states_orig: torch.Size([3919, 3584]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-Math-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=3, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([3913, 3584]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-Math-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - hidden_states_orig: torch.Size([3913, 3584]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-Math-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - hidden_states_orig: torch.Size([3913, 3584]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-Math-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=3, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([3942, 3584]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-Math-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - hidden_states_orig: torch.Size([3942, 3584]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-Math-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - hidden_states_orig: torch.Size([3942, 3584]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-Math-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=3, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([3959, 3584]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-Math-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - hidden_states_orig: torch.Size([3959, 3584]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-Math-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - hidden_states_orig: torch.Size([3959, 3584]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-Math-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=3, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([4020, 3584]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-Math-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - hidden_states_orig: torch.Size([4020, 3584]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-Math-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - hidden_states_orig: torch.Size([4020, 3584]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-Math-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=3, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([4034, 3584]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-Math-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - hidden_states_orig: torch.Size([4034, 3584]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-Math-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - hidden_states_orig: torch.Size([4034, 3584]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-Math-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=3, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([3999, 3584]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-Math-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - hidden_states_orig: torch.Size([3999, 3584]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-Math-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - hidden_states_orig: torch.Size([3999, 3584]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-Math-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=3, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([899, 3584]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-Math-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - hidden_states_orig: torch.Size([899, 3584]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-Math-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - hidden_states_orig: torch.Size([899, 3584]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-Math-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=3, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([224, 3584]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-Math-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - hidden_states_orig: torch.Size([224, 3584]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-Math-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - hidden_states_orig: torch.Size([224, 3584]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-Math-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=3, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([223, 3584]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-Math-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - hidden_states_orig: torch.Size([223, 3584]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-Math-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - hidden_states_orig: torch.Size([223, 3584]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-Math-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=3, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([223, 3584]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-Math-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - hidden_states_orig: torch.Size([223, 3584]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-Math-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - hidden_states_orig: torch.Size([223, 3584]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-Math-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=3, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([222, 3584]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-Math-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - hidden_states_orig: torch.Size([222, 3584]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-Math-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - hidden_states_orig: torch.Size([222, 3584]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-Math-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=3, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([220, 3584]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-Math-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - hidden_states_orig: torch.Size([220, 3584]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-Math-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - hidden_states_orig: torch.Size([220, 3584]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-Math-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=3, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([218, 3584]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-Math-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - hidden_states_orig: torch.Size([218, 3584]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-Math-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - hidden_states_orig: torch.Size([218, 3584]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-Math-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=3, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([217, 3584]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-Math-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - hidden_states_orig: torch.Size([217, 3584]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-Math-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - hidden_states_orig: torch.Size([217, 3584]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-Math-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=3, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([217, 3584]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-Math-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - hidden_states_orig: torch.Size([217, 3584]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-Math-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - hidden_states_orig: torch.Size([217, 3584]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-Math-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=3, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([432, 3584]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-Math-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - hidden_states_orig: torch.Size([432, 3584]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-Math-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - hidden_states_orig: torch.Size([432, 3584]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-Math-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=3, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([847, 3584]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-Math-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - hidden_states_orig: torch.Size([847, 3584]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-Math-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - hidden_states_orig: torch.Size([847, 3584]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-Math-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=3, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([210, 3584]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-Math-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - hidden_states_orig: torch.Size([210, 3584]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-Math-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - hidden_states_orig: torch.Size([210, 3584]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-Math-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=3, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([208, 3584]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-Math-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - hidden_states_orig: torch.Size([208, 3584]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-Math-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - hidden_states_orig: torch.Size([208, 3584]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-Math-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=3, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([205, 3584]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-Math-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - hidden_states_orig: torch.Size([205, 3584]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-Math-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - hidden_states_orig: torch.Size([205, 3584]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-Math-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=3, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([204, 3584]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-Math-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - hidden_states_orig: torch.Size([204, 3584]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-Math-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - hidden_states_orig: torch.Size([204, 3584]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-Math-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=3, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([203, 3584]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-Math-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - hidden_states_orig: torch.Size([203, 3584]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-Math-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - hidden_states_orig: torch.Size([203, 3584]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-Math-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=3, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([203, 3584]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-Math-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - hidden_states_orig: torch.Size([203, 3584]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-Math-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - hidden_states_orig: torch.Size([203, 3584]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-Math-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=3, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([200, 3584]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-Math-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - hidden_states_orig: torch.Size([200, 3584]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-Math-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - hidden_states_orig: torch.Size([200, 3584]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-Math-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=3, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([199, 3584]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-Math-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - hidden_states_orig: torch.Size([199, 3584]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-Math-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - hidden_states_orig: torch.Size([199, 3584]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-Math-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=3, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([199, 3584]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-Math-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - hidden_states_orig: torch.Size([199, 3584]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-Math-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - hidden_states_orig: torch.Size([199, 3584]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-Math-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=3, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([197, 3584]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-Math-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - hidden_states_orig: torch.Size([197, 3584]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-Math-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - hidden_states_orig: torch.Size([197, 3584]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-Math-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=3, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([197, 3584]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-Math-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - hidden_states_orig: torch.Size([197, 3584]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-Math-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - hidden_states_orig: torch.Size([197, 3584]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-Math-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=3, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([197, 3584]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-Math-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - hidden_states_orig: torch.Size([197, 3584]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-Math-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - hidden_states_orig: torch.Size([197, 3584]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-Math-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=3, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([195, 3584]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-Math-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - hidden_states_orig: torch.Size([195, 3584]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-Math-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - hidden_states_orig: torch.Size([195, 3584]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-Math-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=3, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([387, 3584]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-Math-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - hidden_states_orig: torch.Size([387, 3584]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-Math-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - hidden_states_orig: torch.Size([387, 3584]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-Math-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=3, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([190, 3584]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-Math-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - hidden_states_orig: torch.Size([190, 3584]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-Math-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - hidden_states_orig: torch.Size([190, 3584]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-Math-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=3, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([189, 3584]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-Math-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - hidden_states_orig: torch.Size([189, 3584]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-Math-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - hidden_states_orig: torch.Size([189, 3584]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-Math-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=3, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([188, 3584]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-Math-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - hidden_states_orig: torch.Size([188, 3584]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-Math-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - hidden_states_orig: torch.Size([188, 3584]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-Math-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=3, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([188, 3584]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-Math-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - hidden_states_orig: torch.Size([188, 3584]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-Math-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - hidden_states_orig: torch.Size([188, 3584]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-Math-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=3, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([186, 3584]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-Math-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - hidden_states_orig: torch.Size([186, 3584]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-Math-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - hidden_states_orig: torch.Size([186, 3584]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-Math-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=3, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([185, 3584]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-Math-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - hidden_states_orig: torch.Size([185, 3584]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-Math-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - hidden_states_orig: torch.Size([185, 3584]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-Math-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=3, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([183, 3584]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-Math-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - hidden_states_orig: torch.Size([183, 3584]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-Math-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - hidden_states_orig: torch.Size([183, 3584]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-Math-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=3, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([181, 3584]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-Math-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - hidden_states_orig: torch.Size([181, 3584]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-Math-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - hidden_states_orig: torch.Size([181, 3584]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-Math-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=3, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([180, 3584]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-Math-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - hidden_states_orig: torch.Size([180, 3584]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-Math-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - hidden_states_orig: torch.Size([180, 3584]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-Math-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=3, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([180, 3584]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-Math-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - hidden_states_orig: torch.Size([180, 3584]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-Math-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - hidden_states_orig: torch.Size([180, 3584]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-Math-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=3, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([359, 3584]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-Math-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - hidden_states_orig: torch.Size([359, 3584]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-Math-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - hidden_states_orig: torch.Size([359, 3584]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-Math-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=3, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([179, 3584]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-Math-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - hidden_states_orig: torch.Size([179, 3584]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-Math-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - hidden_states_orig: torch.Size([179, 3584]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-Math-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=3, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([178, 3584]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-Math-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - hidden_states_orig: torch.Size([178, 3584]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-Math-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - hidden_states_orig: torch.Size([178, 3584]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-Math-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=3, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([177, 3584]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-Math-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - hidden_states_orig: torch.Size([177, 3584]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-Math-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - hidden_states_orig: torch.Size([177, 3584]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-Math-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=3, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([177, 3584]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-Math-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - hidden_states_orig: torch.Size([177, 3584]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-Math-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - hidden_states_orig: torch.Size([177, 3584]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-Math-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=3, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([173, 3584]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-Math-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - hidden_states_orig: torch.Size([173, 3584]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-Math-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - hidden_states_orig: torch.Size([173, 3584]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-Math-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=3, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([173, 3584]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-Math-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - hidden_states_orig: torch.Size([173, 3584]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-Math-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - hidden_states_orig: torch.Size([173, 3584]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-Math-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=3, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([346, 3584]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-Math-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - hidden_states_orig: torch.Size([346, 3584]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-Math-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - hidden_states_orig: torch.Size([346, 3584]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-Math-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=3, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([170, 3584]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-Math-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - hidden_states_orig: torch.Size([170, 3584]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-Math-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - hidden_states_orig: torch.Size([170, 3584]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-Math-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=3, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([334, 3584]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-Math-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - hidden_states_orig: torch.Size([334, 3584]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-Math-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - hidden_states_orig: torch.Size([334, 3584]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-Math-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=3, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([165, 3584]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-Math-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - hidden_states_orig: torch.Size([165, 3584]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-Math-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - hidden_states_orig: torch.Size([165, 3584]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-Math-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=3, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([162, 3584]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-Math-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - hidden_states_orig: torch.Size([162, 3584]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-Math-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - hidden_states_orig: torch.Size([162, 3584]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-Math-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=3, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([162, 3584]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-Math-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - hidden_states_orig: torch.Size([162, 3584]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-Math-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - hidden_states_orig: torch.Size([162, 3584]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-Math-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=3, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([160, 3584]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-Math-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - hidden_states_orig: torch.Size([160, 3584]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-Math-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - hidden_states_orig: torch.Size([160, 3584]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-Math-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=3, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([313, 3584]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-Math-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - hidden_states_orig: torch.Size([313, 3584]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-Math-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - hidden_states_orig: torch.Size([313, 3584]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-Math-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=3, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([153, 3584]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-Math-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - hidden_states_orig: torch.Size([153, 3584]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-Math-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - hidden_states_orig: torch.Size([153, 3584]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-Math-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=3, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([153, 3584]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-Math-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - hidden_states_orig: torch.Size([153, 3584]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-Math-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - hidden_states_orig: torch.Size([153, 3584]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-Math-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=3, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([149, 3584]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-Math-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - hidden_states_orig: torch.Size([149, 3584]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-Math-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - hidden_states_orig: torch.Size([149, 3584]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-Math-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=3, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([147, 3584]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-Math-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - hidden_states_orig: torch.Size([147, 3584]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-Math-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - hidden_states_orig: torch.Size([147, 3584]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-Math-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=3, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([144, 3584]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-Math-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - hidden_states_orig: torch.Size([144, 3584]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-Math-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - hidden_states_orig: torch.Size([144, 3584]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-Math-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=3, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([269, 3584]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-Math-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - hidden_states_orig: torch.Size([269, 3584]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-Math-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - hidden_states_orig: torch.Size([269, 3584]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-Math-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=3, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([250, 3584]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-Math-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - hidden_states_orig: torch.Size([250, 3584]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-Math-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - hidden_states_orig: torch.Size([250, 3584]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-Math-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=3, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([124, 3584]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-Math-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - hidden_states_orig: torch.Size([124, 3584]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-Math-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - hidden_states_orig: torch.Size([124, 3584]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-Math-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=3, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([112, 3584]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-Math-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - hidden_states_orig: torch.Size([112, 3584]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-Math-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - hidden_states_orig: torch.Size([112, 3584]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-Math-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=3, lr=1.0
+DEBUG - hidden_states_orig: torch.Size([112, 3584]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-Math-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - hidden_states_orig: torch.Size([112, 3584]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-Math-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+DEBUG - hidden_states_orig: torch.Size([112, 3584]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-Math-7B_lm_head.pt
+cuda:0 torch.Size([152064, 3584])
+|          Task          |Version|     Metric     |Value |   |Stderr|
+|------------------------|------:|----------------|-----:|---|-----:|
+|all                     |       |extractive_match|0.2626|±  |0.0314|
+|lighteval:gpqa:diamond:0|      0|extractive_match|0.2626|±  |0.0314|
+

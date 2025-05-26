@@ -1,0 +1,1359 @@
+[2025-04-15 12:02:17,111] [[32m    INFO[0m]: PyTorch version 2.5.1 available. (config.py:58)[0m
+INFO 04-15 12:02:24 __init__.py:190] Automatically detected platform cuda.
+[2025-04-15 12:02:24,922] [[32m    INFO[0m]: --- LOADING MODEL --- (pipeline.py:189)[0m
+[2025-04-15 12:02:32,949] [[32m    INFO[0m]: This model supports multiple tasks: {'generate', 'classify', 'score', 'reward', 'embed'}. Defaulting to 'generate'. (config.py:542)[0m
+[2025-04-15 12:02:33,140] [[32m    INFO[0m]: Defaulting to use mp for distributed inference (config.py:1401)[0m
+[2025-04-15 12:02:33,144] [[32m    INFO[0m]: Initializing a V0 LLM engine (v0.7.2) with config: model='~/Models/LLM-Research/Llama-3.3-70B-Instruct', speculative_config=None, tokenizer='~/Models/LLM-Research/Llama-3.3-70B-Instruct', skip_tokenizer_init=False, tokenizer_mode=auto, revision=main, override_neuron_config=None, tokenizer_revision=main, trust_remote_code=False, dtype=torch.bfloat16, max_seq_len=32768, download_dir=None, load_format=LoadFormat.AUTO, tensor_parallel_size=8, pipeline_parallel_size=1, disable_custom_all_reduce=False, quantization=None, enforce_eager=False, kv_cache_dtype=auto,  device_config=cuda, decoding_config=DecodingConfig(guided_decoding_backend='xgrammar'), observability_config=ObservabilityConfig(otlp_traces_endpoint=None, collect_model_forward_time=False, collect_model_execute_time=False), seed=1234, served_model_name=~/Models/LLM-Research/Llama-3.3-70B-Instruct, num_scheduler_steps=1, multi_step_stream_outputs=True, enable_prefix_caching=False, chunked_prefill_enabled=False, use_async_output_proc=True, disable_mm_preprocessor_cache=False, mm_processor_kwargs=None, pooler_config=None, compilation_config={"splitting_ops":[],"compile_sizes":[],"cudagraph_capture_sizes":[128,120,112,104,96,88,80,72,64,56,48,40,32,24,16,8,4,2,1],"max_capture_size":128}, use_cached_outputs=False,  (llm_engine.py:234)[0m
+[2025-04-15 12:02:33,544] [[33m WARNING[0m]: Reducing Torch parallelism from 64 threads to 1 to avoid unnecessary CPU contention. Set OMP_NUM_THREADS in the external environment to tune this value as needed. (multiproc_worker_utils.py:300)[0m
+[2025-04-15 12:02:33,559] [[32m    INFO[0m]: Setting Triton cache manager to: vllm.triton_utils.custom_cache_manager:CustomCacheManager (custom_cache_manager.py:19)[0m
+[2025-04-15 12:02:34,334] [[32m    INFO[0m]: Using Flash Attention backend. (cuda.py:230)[0m
+INFO 04-15 12:02:39 __init__.py:190] Automatically detected platform cuda.
+INFO 04-15 12:02:40 __init__.py:190] Automatically detected platform cuda.
+INFO 04-15 12:02:40 __init__.py:190] Automatically detected platform cuda.
+INFO 04-15 12:02:40 __init__.py:190] Automatically detected platform cuda.
+INFO 04-15 12:02:40 __init__.py:190] Automatically detected platform cuda.
+INFO 04-15 12:02:40 __init__.py:190] Automatically detected platform cuda.
+INFO 04-15 12:02:40 __init__.py:190] Automatically detected platform cuda.
+[1;36m(VllmWorkerProcess pid=3363228)[0;0m INFO 04-15 12:02:42 multiproc_worker_utils.py:229] Worker ready; awaiting tasks
+[1;36m(VllmWorkerProcess pid=3363233)[0;0m INFO 04-15 12:02:42 multiproc_worker_utils.py:229] Worker ready; awaiting tasks
+[1;36m(VllmWorkerProcess pid=3363230)[0;0m INFO 04-15 12:02:42 multiproc_worker_utils.py:229] Worker ready; awaiting tasks
+[1;36m(VllmWorkerProcess pid=3363229)[0;0m INFO 04-15 12:02:42 multiproc_worker_utils.py:229] Worker ready; awaiting tasks
+[1;36m(VllmWorkerProcess pid=3363231)[0;0m INFO 04-15 12:02:42 multiproc_worker_utils.py:229] Worker ready; awaiting tasks
+[1;36m(VllmWorkerProcess pid=3363234)[0;0m INFO 04-15 12:02:42 multiproc_worker_utils.py:229] Worker ready; awaiting tasks
+[1;36m(VllmWorkerProcess pid=3363232)[0;0m INFO 04-15 12:02:42 multiproc_worker_utils.py:229] Worker ready; awaiting tasks
+[1;36m(VllmWorkerProcess pid=3363228)[0;0m INFO 04-15 12:02:46 cuda.py:230] Using Flash Attention backend.
+[1;36m(VllmWorkerProcess pid=3363233)[0;0m INFO 04-15 12:02:47 cuda.py:230] Using Flash Attention backend.
+[1;36m(VllmWorkerProcess pid=3363230)[0;0m INFO 04-15 12:02:47 cuda.py:230] Using Flash Attention backend.
+[1;36m(VllmWorkerProcess pid=3363232)[0;0m INFO 04-15 12:02:47 cuda.py:230] Using Flash Attention backend.
+[1;36m(VllmWorkerProcess pid=3363229)[0;0m INFO 04-15 12:02:47 cuda.py:230] Using Flash Attention backend.
+[1;36m(VllmWorkerProcess pid=3363234)[0;0m INFO 04-15 12:02:47 cuda.py:230] Using Flash Attention backend.
+[1;36m(VllmWorkerProcess pid=3363231)[0;0m INFO 04-15 12:02:47 cuda.py:230] Using Flash Attention backend.
+[1;36m(VllmWorkerProcess pid=3363232)[0;0m INFO 04-15 12:02:50 utils.py:950] Found nccl from library libnccl.so.2
+[1;36m(VllmWorkerProcess pid=3363229)[0;0m INFO 04-15 12:02:50 utils.py:950] Found nccl from library libnccl.so.2
+[1;36m(VllmWorkerProcess pid=3363232)[0;0m INFO 04-15 12:02:50 pynccl.py:69] vLLM is using nccl==2.21.5
+[2025-04-15 12:02:50,787] [[32m    INFO[0m]: Found nccl from library libnccl.so.2 (utils.py:950)[0m
+[1;36m(VllmWorkerProcess pid=3363231)[0;0m INFO 04-15 12:02:50 utils.py:950] Found nccl from library libnccl.so.2
+[1;36m(VllmWorkerProcess pid=3363229)[0;0m INFO 04-15 12:02:50 pynccl.py:69] vLLM is using nccl==2.21.5
+[1;36m(VllmWorkerProcess pid=3363230)[0;0m INFO 04-15 12:02:50 utils.py:950] Found nccl from library libnccl.so.2
+[1;36m(VllmWorkerProcess pid=3363228)[0;0m INFO 04-15 12:02:50 utils.py:950] Found nccl from library libnccl.so.2
+[1;36m(VllmWorkerProcess pid=3363231)[0;0m INFO 04-15 12:02:50 pynccl.py:69] vLLM is using nccl==2.21.5
+[1;36m(VllmWorkerProcess pid=3363234)[0;0m INFO 04-15 12:02:50 utils.py:950] Found nccl from library libnccl.so.2
+[1;36m(VllmWorkerProcess pid=3363230)[0;0m INFO 04-15 12:02:50 pynccl.py:69] vLLM is using nccl==2.21.5
+[1;36m(VllmWorkerProcess pid=3363228)[0;0m INFO 04-15 12:02:50 pynccl.py:69] vLLM is using nccl==2.21.5
+[2025-04-15 12:02:50,787] [[32m    INFO[0m]: vLLM is using nccl==2.21.5 (pynccl.py:69)[0m
+[1;36m(VllmWorkerProcess pid=3363233)[0;0m INFO 04-15 12:02:50 utils.py:950] Found nccl from library libnccl.so.2
+[1;36m(VllmWorkerProcess pid=3363234)[0;0m INFO 04-15 12:02:50 pynccl.py:69] vLLM is using nccl==2.21.5
+[1;36m(VllmWorkerProcess pid=3363233)[0;0m INFO 04-15 12:02:50 pynccl.py:69] vLLM is using nccl==2.21.5
+[1;36m(VllmWorkerProcess pid=3363234)[0;0m INFO 04-15 12:02:56 custom_all_reduce_utils.py:244] reading GPU P2P access cache from ~/.cache/vllm/gpu_p2p_access_cache_for_0,1,2,3,4,5,6,7.json
+[1;36m(VllmWorkerProcess pid=3363232)[0;0m INFO 04-15 12:02:56 custom_all_reduce_utils.py:244] reading GPU P2P access cache from ~/.cache/vllm/gpu_p2p_access_cache_for_0,1,2,3,4,5,6,7.json
+[1;36m(VllmWorkerProcess pid=3363230)[0;0m INFO 04-15 12:02:56 custom_all_reduce_utils.py:244] reading GPU P2P access cache from ~/.cache/vllm/gpu_p2p_access_cache_for_0,1,2,3,4,5,6,7.json
+[2025-04-15 12:02:56,390] [[32m    INFO[0m]: reading GPU P2P access cache from ~/.cache/vllm/gpu_p2p_access_cache_for_0,1,2,3,4,5,6,7.json (custom_all_reduce_utils.py:244)[0m
+[1;36m(VllmWorkerProcess pid=3363233)[0;0m INFO 04-15 12:02:56 custom_all_reduce_utils.py:244] reading GPU P2P access cache from ~/.cache/vllm/gpu_p2p_access_cache_for_0,1,2,3,4,5,6,7.json
+[1;36m(VllmWorkerProcess pid=3363231)[0;0m INFO 04-15 12:02:56 custom_all_reduce_utils.py:244] reading GPU P2P access cache from ~/.cache/vllm/gpu_p2p_access_cache_for_0,1,2,3,4,5,6,7.json
+[1;36m(VllmWorkerProcess pid=3363228)[0;0m INFO 04-15 12:02:56 custom_all_reduce_utils.py:244] reading GPU P2P access cache from ~/.cache/vllm/gpu_p2p_access_cache_for_0,1,2,3,4,5,6,7.json
+[1;36m(VllmWorkerProcess pid=3363229)[0;0m INFO 04-15 12:02:56 custom_all_reduce_utils.py:244] reading GPU P2P access cache from ~/.cache/vllm/gpu_p2p_access_cache_for_0,1,2,3,4,5,6,7.json
+[2025-04-15 12:02:56,773] [[32m    INFO[0m]: vLLM message queue communication handle: Handle(connect_ip='127.0.0.1', local_reader_ranks=[1, 2, 3, 4, 5, 6, 7], buffer_handle=(7, 4194304, 6, 'psm_e134c2c5'), local_subscribe_port=44293, remote_subscribe_port=None) (shm_broadcast.py:258)[0m
+[1;36m(VllmWorkerProcess pid=3363232)[0;0m INFO 04-15 12:02:56 model_runner.py:1110] Starting to load model ~/Models/LLM-Research/Llama-3.3-70B-Instruct...
+[1;36m(VllmWorkerProcess pid=3363231)[0;0m INFO 04-15 12:02:56 model_runner.py:1110] Starting to load model ~/Models/LLM-Research/Llama-3.3-70B-Instruct...
+[1;36m(VllmWorkerProcess pid=3363230)[0;0m INFO 04-15 12:02:56 model_runner.py:1110] Starting to load model ~/Models/LLM-Research/Llama-3.3-70B-Instruct...
+[1;36m(VllmWorkerProcess pid=3363229)[0;0m INFO 04-15 12:02:56 model_runner.py:1110] Starting to load model ~/Models/LLM-Research/Llama-3.3-70B-Instruct...
+[1;36m(VllmWorkerProcess pid=3363228)[0;0m INFO 04-15 12:02:56 model_runner.py:1110] Starting to load model ~/Models/LLM-Research/Llama-3.3-70B-Instruct...
+[2025-04-15 12:02:56,783] [[32m    INFO[0m]: Starting to load model ~/Models/LLM-Research/Llama-3.3-70B-Instruct... (model_runner.py:1110)[0m
+[1;36m(VllmWorkerProcess pid=3363233)[0;0m INFO 04-15 12:02:56 model_runner.py:1110] Starting to load model ~/Models/LLM-Research/Llama-3.3-70B-Instruct...
+[1;36m(VllmWorkerProcess pid=3363234)[0;0m INFO 04-15 12:02:56 model_runner.py:1110] Starting to load model ~/Models/LLM-Research/Llama-3.3-70B-Instruct...
+
+Loading safetensors checkpoint shards:   0% Completed | 0/30 [00:00<?, ?it/s]
+
+Loading safetensors checkpoint shards:   3% Completed | 1/30 [00:01<00:34,  1.20s/it]
+
+Loading safetensors checkpoint shards:   7% Completed | 2/30 [00:02<00:36,  1.31s/it]
+
+Loading safetensors checkpoint shards:  10% Completed | 3/30 [00:03<00:35,  1.33s/it]
+
+Loading safetensors checkpoint shards:  13% Completed | 4/30 [00:05<00:32,  1.25s/it]
+
+Loading safetensors checkpoint shards:  17% Completed | 5/30 [00:06<00:28,  1.15s/it]
+
+Loading safetensors checkpoint shards:  20% Completed | 6/30 [00:06<00:25,  1.04s/it]
+
+Loading safetensors checkpoint shards:  23% Completed | 7/30 [00:07<00:22,  1.03it/s]
+
+Loading safetensors checkpoint shards:  27% Completed | 8/30 [00:08<00:19,  1.14it/s]
+
+Loading safetensors checkpoint shards:  30% Completed | 9/30 [00:08<00:16,  1.28it/s]
+
+Loading safetensors checkpoint shards:  33% Completed | 10/30 [00:09<00:14,  1.41it/s]
+
+Loading safetensors checkpoint shards:  37% Completed | 11/30 [00:09<00:12,  1.56it/s]
+
+Loading safetensors checkpoint shards:  40% Completed | 12/30 [00:10<00:10,  1.71it/s]
+[1;36m(VllmWorkerProcess pid=3363233)[0;0m INFO 04-15 12:03:07 model_runner.py:1115] Loading model weights took 16.4606 GB
+
+Loading safetensors checkpoint shards:  43% Completed | 13/30 [00:10<00:09,  1.85it/s]
+
+Loading safetensors checkpoint shards:  47% Completed | 14/30 [00:11<00:07,  2.03it/s]
+[1;36m(VllmWorkerProcess pid=3363232)[0;0m INFO 04-15 12:03:08 model_runner.py:1115] Loading model weights took 16.4606 GB
+
+Loading safetensors checkpoint shards:  50% Completed | 15/30 [00:11<00:07,  2.14it/s]
+
+Loading safetensors checkpoint shards:  53% Completed | 16/30 [00:12<00:06,  2.22it/s]
+
+Loading safetensors checkpoint shards:  57% Completed | 17/30 [00:12<00:05,  2.31it/s]
+[1;36m(VllmWorkerProcess pid=3363234)[0;0m INFO 04-15 12:03:09 model_runner.py:1115] Loading model weights took 16.4606 GB
+
+Loading safetensors checkpoint shards:  60% Completed | 18/30 [00:12<00:05,  2.37it/s]
+
+Loading safetensors checkpoint shards:  63% Completed | 19/30 [00:13<00:04,  2.39it/s]
+
+Loading safetensors checkpoint shards:  67% Completed | 20/30 [00:13<00:04,  2.39it/s]
+
+Loading safetensors checkpoint shards:  70% Completed | 21/30 [00:14<00:03,  2.52it/s]
+
+Loading safetensors checkpoint shards:  73% Completed | 22/30 [00:14<00:03,  2.42it/s]
+
+Loading safetensors checkpoint shards:  77% Completed | 23/30 [00:14<00:02,  2.42it/s]
+[1;36m(VllmWorkerProcess pid=3363230)[0;0m INFO 04-15 12:03:12 model_runner.py:1115] Loading model weights took 16.4606 GB
+
+Loading safetensors checkpoint shards:  80% Completed | 24/30 [00:15<00:02,  2.39it/s]
+
+Loading safetensors checkpoint shards:  83% Completed | 25/30 [00:15<00:02,  2.34it/s]
+[1;36m(VllmWorkerProcess pid=3363228)[0;0m INFO 04-15 12:03:12 model_runner.py:1115] Loading model weights took 16.4606 GB
+
+Loading safetensors checkpoint shards:  87% Completed | 26/30 [00:16<00:01,  2.37it/s]
+
+Loading safetensors checkpoint shards:  90% Completed | 27/30 [00:16<00:01,  2.95it/s]
+
+Loading safetensors checkpoint shards:  93% Completed | 28/30 [00:16<00:00,  2.80it/s]
+
+Loading safetensors checkpoint shards:  97% Completed | 29/30 [00:17<00:00,  2.72it/s]
+
+Loading safetensors checkpoint shards: 100% Completed | 30/30 [00:17<00:00,  2.64it/s]
+
+Loading safetensors checkpoint shards: 100% Completed | 30/30 [00:17<00:00,  1.71it/s]
+
+[1;36m(VllmWorkerProcess pid=3363231)[0;0m INFO 04-15 12:03:14 model_runner.py:1115] Loading model weights took 16.4606 GB
+[2025-04-15 12:03:14,808] [[32m    INFO[0m]: Loading model weights took 16.4606 GB (model_runner.py:1115)[0m
+[1;36m(VllmWorkerProcess pid=3363229)[0;0m INFO 04-15 12:03:14 model_runner.py:1115] Loading model weights took 16.4606 GB
+[1;36m(VllmWorkerProcess pid=3363231)[0;0m [2025-04-15 12:03:17,653] [[33m WARNING[0m]: ~/Projects/nips25_slot/open-r2/openr1/lib/python3.11/site-packages/vllm/worker/model_runner.py:1828: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+[1;36m(VllmWorkerProcess pid=3363231)[0;0m   lm_head_weight = torch.load(lm_local, map_location=hidden_states_cur.device).to(dtype=torch.bfloat16)
+[1;36m(VllmWorkerProcess pid=3363231)[0;0m  (warnings.py:110)[0m
+[1;36m(VllmWorkerProcess pid=3363233)[0;0m [2025-04-15 12:03:17,653] [[33m WARNING[0m]: ~/Projects/nips25_slot/open-r2/openr1/lib/python3.11/site-packages/vllm/worker/model_runner.py:1828: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+[1;36m(VllmWorkerProcess pid=3363233)[0;0m   lm_head_weight = torch.load(lm_local, map_location=hidden_states_cur.device).to(dtype=torch.bfloat16)
+[1;36m(VllmWorkerProcess pid=3363233)[0;0m  (warnings.py:110)[0m
+[2025-04-15 12:03:17,653] [[33m WARNING[0m]: ~/Projects/nips25_slot/open-r2/openr1/lib/python3.11/site-packages/vllm/worker/model_runner.py:1828: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  lm_head_weight = torch.load(lm_local, map_location=hidden_states_cur.device).to(dtype=torch.bfloat16)
+ (warnings.py:110)[0m
+[1;36m(VllmWorkerProcess pid=3363228)[0;0m [2025-04-15 12:03:17,653] [[33m WARNING[0m]: ~/Projects/nips25_slot/open-r2/openr1/lib/python3.11/site-packages/vllm/worker/model_runner.py:1828: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+[1;36m(VllmWorkerProcess pid=3363228)[0;0m   lm_head_weight = torch.load(lm_local, map_location=hidden_states_cur.device).to(dtype=torch.bfloat16)
+[1;36m(VllmWorkerProcess pid=3363228)[0;0m  (warnings.py:110)[0m
+[1;36m(VllmWorkerProcess pid=3363234)[0;0m [2025-04-15 12:03:17,653] [[33m WARNING[0m]: ~/Projects/nips25_slot/open-r2/openr1/lib/python3.11/site-packages/vllm/worker/model_runner.py:1828: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+[1;36m(VllmWorkerProcess pid=3363234)[0;0m   lm_head_weight = torch.load(lm_local, map_location=hidden_states_cur.device).to(dtype=torch.bfloat16)
+[1;36m(VllmWorkerProcess pid=3363234)[0;0m  (warnings.py:110)[0m
+[1;36m(VllmWorkerProcess pid=3363232)[0;0m [2025-04-15 12:03:17,653] [[33m WARNING[0m]: ~/Projects/nips25_slot/open-r2/openr1/lib/python3.11/site-packages/vllm/worker/model_runner.py:1828: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+[1;36m(VllmWorkerProcess pid=3363232)[0;0m   lm_head_weight = torch.load(lm_local, map_location=hidden_states_cur.device).to(dtype=torch.bfloat16)
+[1;36m(VllmWorkerProcess pid=3363230)[0;0m [2025-04-15 12:03:17,653] [[33m WARNING[0m]: ~/Projects/nips25_slot/open-r2/openr1/lib/python3.11/site-packages/vllm/worker/model_runner.py:1828: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+[1;36m(VllmWorkerProcess pid=3363232)[0;0m  (warnings.py:110)[0m
+[1;36m(VllmWorkerProcess pid=3363230)[0;0m   lm_head_weight = torch.load(lm_local, map_location=hidden_states_cur.device).to(dtype=torch.bfloat16)
+[1;36m(VllmWorkerProcess pid=3363230)[0;0m  (warnings.py:110)[0m
+[1;36m(VllmWorkerProcess pid=3363229)[0;0m [2025-04-15 12:03:17,653] [[33m WARNING[0m]: ~/Projects/nips25_slot/open-r2/openr1/lib/python3.11/site-packages/vllm/worker/model_runner.py:1828: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+[1;36m(VllmWorkerProcess pid=3363229)[0;0m   lm_head_weight = torch.load(lm_local, map_location=hidden_states_cur.device).to(dtype=torch.bfloat16)
+[1;36m(VllmWorkerProcess pid=3363229)[0;0m  (warnings.py:110)[0m
+[1;36m(VllmWorkerProcess pid=3363232)[0;0m DEBUG - Starting CHOT optimization
+[1;36m(VllmWorkerProcess pid=3363232)[0;0m DEBUG - CHOT parameters: steps=3, lr=0.1
+[1;36m(VllmWorkerProcess pid=3363232)[0;0m DEBUG - hidden_states_orig: torch.Size([32768, 8192]), torch.bfloat16
+[1;36m(VllmWorkerProcess pid=3363232)[0;0m Loading lm_local from: lm_head/Llama-3.3-70B-Instruct_lm_head.pt
+[1;36m(VllmWorkerProcess pid=3363232)[0;0m cuda:5 torch.Size([128256, 8192])
+[1;36m(VllmWorkerProcess pid=3363232)[0;0m DEBUG - hidden_states_orig: torch.Size([32768, 8192]), torch.bfloat16
+[1;36m(VllmWorkerProcess pid=3363232)[0;0m Loading lm_local from: lm_head/Llama-3.3-70B-Instruct_lm_head.pt
+[1;36m(VllmWorkerProcess pid=3363232)[0;0m cuda:5 torch.Size([128256, 8192])
+[1;36m(VllmWorkerProcess pid=3363232)[0;0m DEBUG - hidden_states_orig: torch.Size([32768, 8192]), torch.bfloat16
+[1;36m(VllmWorkerProcess pid=3363232)[0;0m Loading lm_local from: lm_head/Llama-3.3-70B-Instruct_lm_head.pt
+[1;36m(VllmWorkerProcess pid=3363232)[0;0m cuda:5 torch.Size([128256, 8192])
+[1;36m(VllmWorkerProcess pid=3363232)[0;0m INFO 04-15 12:03:25 worker.py:267] Memory profiling takes 10.40 seconds
+[1;36m(VllmWorkerProcess pid=3363232)[0;0m INFO 04-15 12:03:25 worker.py:267] the current vLLM instance can use total_gpu_memory (79.22GiB) x gpu_memory_utilization (0.90) = 71.29GiB
+[1;36m(VllmWorkerProcess pid=3363232)[0;0m INFO 04-15 12:03:25 worker.py:267] model weights take 16.46GiB; non_torch_memory takes 3.48GiB; PyTorch activation peak memory takes 42.63GiB; the rest of the memory reserved for KV Cache is 8.72GiB.
+[1;36m(VllmWorkerProcess pid=3363233)[0;0m DEBUG - Starting CHOT optimization
+[1;36m(VllmWorkerProcess pid=3363233)[0;0m DEBUG - CHOT parameters: steps=3, lr=0.1
+[1;36m(VllmWorkerProcess pid=3363233)[0;0m DEBUG - hidden_states_orig: torch.Size([32768, 8192]), torch.bfloat16
+[1;36m(VllmWorkerProcess pid=3363233)[0;0m Loading lm_local from: lm_head/Llama-3.3-70B-Instruct_lm_head.pt
+[1;36m(VllmWorkerProcess pid=3363233)[0;0m cuda:6 torch.Size([128256, 8192])
+[1;36m(VllmWorkerProcess pid=3363233)[0;0m DEBUG - hidden_states_orig: torch.Size([32768, 8192]), torch.bfloat16
+[1;36m(VllmWorkerProcess pid=3363233)[0;0m Loading lm_local from: lm_head/Llama-3.3-70B-Instruct_lm_head.pt
+[1;36m(VllmWorkerProcess pid=3363233)[0;0m cuda:6 torch.Size([128256, 8192])
+[1;36m(VllmWorkerProcess pid=3363233)[0;0m DEBUG - hidden_states_orig: torch.Size([32768, 8192]), torch.bfloat16
+[1;36m(VllmWorkerProcess pid=3363233)[0;0m Loading lm_local from: lm_head/Llama-3.3-70B-Instruct_lm_head.pt
+[1;36m(VllmWorkerProcess pid=3363233)[0;0m cuda:6 torch.Size([128256, 8192])
+[1;36m(VllmWorkerProcess pid=3363233)[0;0m INFO 04-15 12:03:25 worker.py:267] Memory profiling takes 10.46 seconds
+[1;36m(VllmWorkerProcess pid=3363233)[0;0m INFO 04-15 12:03:25 worker.py:267] the current vLLM instance can use total_gpu_memory (79.22GiB) x gpu_memory_utilization (0.90) = 71.29GiB
+[1;36m(VllmWorkerProcess pid=3363233)[0;0m INFO 04-15 12:03:25 worker.py:267] model weights take 16.46GiB; non_torch_memory takes 3.48GiB; PyTorch activation peak memory takes 42.63GiB; the rest of the memory reserved for KV Cache is 8.72GiB.
+[1;36m(VllmWorkerProcess pid=3363231)[0;0m DEBUG - Starting CHOT optimization
+[1;36m(VllmWorkerProcess pid=3363231)[0;0m DEBUG - CHOT parameters: steps=3, lr=0.1
+[1;36m(VllmWorkerProcess pid=3363231)[0;0m DEBUG - hidden_states_orig: torch.Size([32768, 8192]), torch.bfloat16
+[1;36m(VllmWorkerProcess pid=3363231)[0;0m Loading lm_local from: lm_head/Llama-3.3-70B-Instruct_lm_head.pt
+[1;36m(VllmWorkerProcess pid=3363231)[0;0m cuda:4 torch.Size([128256, 8192])
+[1;36m(VllmWorkerProcess pid=3363231)[0;0m DEBUG - hidden_states_orig: torch.Size([32768, 8192]), torch.bfloat16
+[1;36m(VllmWorkerProcess pid=3363231)[0;0m Loading lm_local from: lm_head/Llama-3.3-70B-Instruct_lm_head.pt
+[1;36m(VllmWorkerProcess pid=3363231)[0;0m cuda:4 torch.Size([128256, 8192])
+[1;36m(VllmWorkerProcess pid=3363231)[0;0m DEBUG - hidden_states_orig: torch.Size([32768, 8192]), torch.bfloat16
+[1;36m(VllmWorkerProcess pid=3363231)[0;0m Loading lm_local from: lm_head/Llama-3.3-70B-Instruct_lm_head.pt
+[1;36m(VllmWorkerProcess pid=3363231)[0;0m cuda:4 torch.Size([128256, 8192])
+[1;36m(VllmWorkerProcess pid=3363231)[0;0m INFO 04-15 12:03:25 worker.py:267] Memory profiling takes 10.44 seconds
+[1;36m(VllmWorkerProcess pid=3363231)[0;0m INFO 04-15 12:03:25 worker.py:267] the current vLLM instance can use total_gpu_memory (79.22GiB) x gpu_memory_utilization (0.90) = 71.29GiB
+[1;36m(VllmWorkerProcess pid=3363231)[0;0m INFO 04-15 12:03:25 worker.py:267] model weights take 16.46GiB; non_torch_memory takes 3.48GiB; PyTorch activation peak memory takes 42.63GiB; the rest of the memory reserved for KV Cache is 8.72GiB.
+[1;36m(VllmWorkerProcess pid=3363234)[0;0m DEBUG - Starting CHOT optimization
+[1;36m(VllmWorkerProcess pid=3363234)[0;0m DEBUG - CHOT parameters: steps=3, lr=0.1
+[1;36m(VllmWorkerProcess pid=3363234)[0;0m DEBUG - hidden_states_orig: torch.Size([32768, 8192]), torch.bfloat16
+[1;36m(VllmWorkerProcess pid=3363234)[0;0m Loading lm_local from: lm_head/Llama-3.3-70B-Instruct_lm_head.pt
+[1;36m(VllmWorkerProcess pid=3363234)[0;0m cuda:7 torch.Size([128256, 8192])
+[1;36m(VllmWorkerProcess pid=3363234)[0;0m DEBUG - hidden_states_orig: torch.Size([32768, 8192]), torch.bfloat16
+[1;36m(VllmWorkerProcess pid=3363234)[0;0m Loading lm_local from: lm_head/Llama-3.3-70B-Instruct_lm_head.pt
+[1;36m(VllmWorkerProcess pid=3363234)[0;0m cuda:7 torch.Size([128256, 8192])
+[1;36m(VllmWorkerProcess pid=3363234)[0;0m DEBUG - hidden_states_orig: torch.Size([32768, 8192]), torch.bfloat16
+[1;36m(VllmWorkerProcess pid=3363234)[0;0m Loading lm_local from: lm_head/Llama-3.3-70B-Instruct_lm_head.pt
+[1;36m(VllmWorkerProcess pid=3363234)[0;0m cuda:7 torch.Size([128256, 8192])
+[1;36m(VllmWorkerProcess pid=3363234)[0;0m INFO 04-15 12:03:25 worker.py:267] Memory profiling takes 10.46 seconds
+[1;36m(VllmWorkerProcess pid=3363234)[0;0m INFO 04-15 12:03:25 worker.py:267] the current vLLM instance can use total_gpu_memory (79.22GiB) x gpu_memory_utilization (0.90) = 71.29GiB
+[1;36m(VllmWorkerProcess pid=3363234)[0;0m INFO 04-15 12:03:25 worker.py:267] model weights take 16.46GiB; non_torch_memory takes 3.17GiB; PyTorch activation peak memory takes 42.63GiB; the rest of the memory reserved for KV Cache is 9.04GiB.
+[1;36m(VllmWorkerProcess pid=3363230)[0;0m DEBUG - Starting CHOT optimization
+[1;36m(VllmWorkerProcess pid=3363230)[0;0m DEBUG - CHOT parameters: steps=3, lr=0.1
+[1;36m(VllmWorkerProcess pid=3363230)[0;0m DEBUG - hidden_states_orig: torch.Size([32768, 8192]), torch.bfloat16
+[1;36m(VllmWorkerProcess pid=3363230)[0;0m Loading lm_local from: lm_head/Llama-3.3-70B-Instruct_lm_head.pt
+[1;36m(VllmWorkerProcess pid=3363230)[0;0m cuda:3 torch.Size([128256, 8192])
+[1;36m(VllmWorkerProcess pid=3363230)[0;0m DEBUG - hidden_states_orig: torch.Size([32768, 8192]), torch.bfloat16
+[1;36m(VllmWorkerProcess pid=3363230)[0;0m Loading lm_local from: lm_head/Llama-3.3-70B-Instruct_lm_head.pt
+[1;36m(VllmWorkerProcess pid=3363230)[0;0m cuda:3 torch.Size([128256, 8192])
+[1;36m(VllmWorkerProcess pid=3363230)[0;0m DEBUG - hidden_states_orig: torch.Size([32768, 8192]), torch.bfloat16
+[1;36m(VllmWorkerProcess pid=3363230)[0;0m Loading lm_local from: lm_head/Llama-3.3-70B-Instruct_lm_head.pt
+[1;36m(VllmWorkerProcess pid=3363230)[0;0m cuda:3 torch.Size([128256, 8192])
+[1;36m(VllmWorkerProcess pid=3363230)[0;0m INFO 04-15 12:03:25 worker.py:267] Memory profiling takes 10.42 seconds
+[1;36m(VllmWorkerProcess pid=3363230)[0;0m INFO 04-15 12:03:25 worker.py:267] the current vLLM instance can use total_gpu_memory (79.22GiB) x gpu_memory_utilization (0.90) = 71.29GiB
+[1;36m(VllmWorkerProcess pid=3363230)[0;0m INFO 04-15 12:03:25 worker.py:267] model weights take 16.46GiB; non_torch_memory takes 3.48GiB; PyTorch activation peak memory takes 42.63GiB; the rest of the memory reserved for KV Cache is 8.72GiB.
+[1;36m(VllmWorkerProcess pid=3363229)[0;0m DEBUG - Starting CHOT optimization
+[1;36m(VllmWorkerProcess pid=3363229)[0;0m DEBUG - CHOT parameters: steps=3, lr=0.1
+[1;36m(VllmWorkerProcess pid=3363229)[0;0m DEBUG - hidden_states_orig: torch.Size([32768, 8192]), torch.bfloat16
+[1;36m(VllmWorkerProcess pid=3363229)[0;0m Loading lm_local from: lm_head/Llama-3.3-70B-Instruct_lm_head.pt
+[1;36m(VllmWorkerProcess pid=3363229)[0;0m cuda:2 torch.Size([128256, 8192])
+[1;36m(VllmWorkerProcess pid=3363229)[0;0m DEBUG - hidden_states_orig: torch.Size([32768, 8192]), torch.bfloat16
+[1;36m(VllmWorkerProcess pid=3363229)[0;0m Loading lm_local from: lm_head/Llama-3.3-70B-Instruct_lm_head.pt
+[1;36m(VllmWorkerProcess pid=3363229)[0;0m cuda:2 torch.Size([128256, 8192])
+[1;36m(VllmWorkerProcess pid=3363229)[0;0m DEBUG - hidden_states_orig: torch.Size([32768, 8192]), torch.bfloat16
+[1;36m(VllmWorkerProcess pid=3363229)[0;0m Loading lm_local from: lm_head/Llama-3.3-70B-Instruct_lm_head.pt
+[1;36m(VllmWorkerProcess pid=3363229)[0;0m cuda:2 torch.Size([128256, 8192])
+[1;36m(VllmWorkerProcess pid=3363229)[0;0m INFO 04-15 12:03:25 worker.py:267] Memory profiling takes 10.50 seconds
+[1;36m(VllmWorkerProcess pid=3363229)[0;0m INFO 04-15 12:03:25 worker.py:267] the current vLLM instance can use total_gpu_memory (79.22GiB) x gpu_memory_utilization (0.90) = 71.29GiB
+[1;36m(VllmWorkerProcess pid=3363229)[0;0m INFO 04-15 12:03:25 worker.py:267] model weights take 16.46GiB; non_torch_memory takes 3.48GiB; PyTorch activation peak memory takes 42.63GiB; the rest of the memory reserved for KV Cache is 8.72GiB.
+[1;36m(VllmWorkerProcess pid=3363228)[0;0m DEBUG - Starting CHOT optimization
+[1;36m(VllmWorkerProcess pid=3363228)[0;0m DEBUG - CHOT parameters: steps=3, lr=0.1
+[1;36m(VllmWorkerProcess pid=3363228)[0;0m DEBUG - hidden_states_orig: torch.Size([32768, 8192]), torch.bfloat16
+[1;36m(VllmWorkerProcess pid=3363228)[0;0m Loading lm_local from: lm_head/Llama-3.3-70B-Instruct_lm_head.pt
+[1;36m(VllmWorkerProcess pid=3363228)[0;0m cuda:1 torch.Size([128256, 8192])
+[1;36m(VllmWorkerProcess pid=3363228)[0;0m DEBUG - hidden_states_orig: torch.Size([32768, 8192]), torch.bfloat16
+[1;36m(VllmWorkerProcess pid=3363228)[0;0m Loading lm_local from: lm_head/Llama-3.3-70B-Instruct_lm_head.pt
+[1;36m(VllmWorkerProcess pid=3363228)[0;0m cuda:1 torch.Size([128256, 8192])
+[1;36m(VllmWorkerProcess pid=3363228)[0;0m DEBUG - hidden_states_orig: torch.Size([32768, 8192]), torch.bfloat16
+[1;36m(VllmWorkerProcess pid=3363228)[0;0m Loading lm_local from: lm_head/Llama-3.3-70B-Instruct_lm_head.pt
+[1;36m(VllmWorkerProcess pid=3363228)[0;0m cuda:1 torch.Size([128256, 8192])
+[1;36m(VllmWorkerProcess pid=3363228)[0;0m INFO 04-15 12:03:25 worker.py:267] Memory profiling takes 10.39 seconds
+[1;36m(VllmWorkerProcess pid=3363228)[0;0m INFO 04-15 12:03:25 worker.py:267] the current vLLM instance can use total_gpu_memory (79.22GiB) x gpu_memory_utilization (0.90) = 71.29GiB
+[1;36m(VllmWorkerProcess pid=3363228)[0;0m INFO 04-15 12:03:25 worker.py:267] model weights take 16.46GiB; non_torch_memory takes 3.48GiB; PyTorch activation peak memory takes 42.63GiB; the rest of the memory reserved for KV Cache is 8.72GiB.
+[2025-04-15 12:03:25,603] [[32m    INFO[0m]: Memory profiling takes 10.49 seconds
+the current vLLM instance can use total_gpu_memory (79.22GiB) x gpu_memory_utilization (0.90) = 71.29GiB
+model weights take 16.46GiB; non_torch_memory takes 4.48GiB; PyTorch activation peak memory takes 42.63GiB; the rest of the memory reserved for KV Cache is 7.72GiB. (worker.py:267)[0m
+[2025-04-15 12:03:25,818] [[32m    INFO[0m]: # CUDA blocks: 12652, # CPU blocks: 6553 (executor_base.py:110)[0m
+[2025-04-15 12:03:25,818] [[32m    INFO[0m]: Maximum concurrency for 32768 tokens per request: 6.18x (executor_base.py:115)[0m
+[1;36m(VllmWorkerProcess pid=3363228)[0;0m INFO 04-15 12:03:27 model_runner.py:1434] Capturing cudagraphs for decoding. This may lead to unexpected consequences if the model is not static. To run the model in eager mode, set 'enforce_eager=True' or use '--enforce-eager' in the CLI. If out-of-memory error occurs during cudagraph capture, consider decreasing `gpu_memory_utilization` or switching to eager mode. You can also reduce the `max_num_seqs` as needed to decrease memory usage.
+[1;36m(VllmWorkerProcess pid=3363230)[0;0m INFO 04-15 12:03:27 model_runner.py:1434] Capturing cudagraphs for decoding. This may lead to unexpected consequences if the model is not static. To run the model in eager mode, set 'enforce_eager=True' or use '--enforce-eager' in the CLI. If out-of-memory error occurs during cudagraph capture, consider decreasing `gpu_memory_utilization` or switching to eager mode. You can also reduce the `max_num_seqs` as needed to decrease memory usage.
+[1;36m(VllmWorkerProcess pid=3363229)[0;0m INFO 04-15 12:03:28 model_runner.py:1434] Capturing cudagraphs for decoding. This may lead to unexpected consequences if the model is not static. To run the model in eager mode, set 'enforce_eager=True' or use '--enforce-eager' in the CLI. If out-of-memory error occurs during cudagraph capture, consider decreasing `gpu_memory_utilization` or switching to eager mode. You can also reduce the `max_num_seqs` as needed to decrease memory usage.
+[1;36m(VllmWorkerProcess pid=3363231)[0;0m INFO 04-15 12:03:28 model_runner.py:1434] Capturing cudagraphs for decoding. This may lead to unexpected consequences if the model is not static. To run the model in eager mode, set 'enforce_eager=True' or use '--enforce-eager' in the CLI. If out-of-memory error occurs during cudagraph capture, consider decreasing `gpu_memory_utilization` or switching to eager mode. You can also reduce the `max_num_seqs` as needed to decrease memory usage.
+[1;36m(VllmWorkerProcess pid=3363234)[0;0m INFO 04-15 12:03:28 model_runner.py:1434] Capturing cudagraphs for decoding. This may lead to unexpected consequences if the model is not static. To run the model in eager mode, set 'enforce_eager=True' or use '--enforce-eager' in the CLI. If out-of-memory error occurs during cudagraph capture, consider decreasing `gpu_memory_utilization` or switching to eager mode. You can also reduce the `max_num_seqs` as needed to decrease memory usage.
+[1;36m(VllmWorkerProcess pid=3363233)[0;0m INFO 04-15 12:03:28 model_runner.py:1434] Capturing cudagraphs for decoding. This may lead to unexpected consequences if the model is not static. To run the model in eager mode, set 'enforce_eager=True' or use '--enforce-eager' in the CLI. If out-of-memory error occurs during cudagraph capture, consider decreasing `gpu_memory_utilization` or switching to eager mode. You can also reduce the `max_num_seqs` as needed to decrease memory usage.
+[1;36m(VllmWorkerProcess pid=3363232)[0;0m INFO 04-15 12:03:28 model_runner.py:1434] Capturing cudagraphs for decoding. This may lead to unexpected consequences if the model is not static. To run the model in eager mode, set 'enforce_eager=True' or use '--enforce-eager' in the CLI. If out-of-memory error occurs during cudagraph capture, consider decreasing `gpu_memory_utilization` or switching to eager mode. You can also reduce the `max_num_seqs` as needed to decrease memory usage.
+[2025-04-15 12:03:28,120] [[32m    INFO[0m]: Capturing cudagraphs for decoding. This may lead to unexpected consequences if the model is not static. To run the model in eager mode, set 'enforce_eager=True' or use '--enforce-eager' in the CLI. If out-of-memory error occurs during cudagraph capture, consider decreasing `gpu_memory_utilization` or switching to eager mode. You can also reduce the `max_num_seqs` as needed to decrease memory usage. (model_runner.py:1434)[0m
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=3, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([32768, 8192]), torch.bfloat16
+Loading lm_local from: lm_head/Llama-3.3-70B-Instruct_lm_head.pt
+cuda:0 torch.Size([128256, 8192])
+DEBUG - hidden_states_orig: torch.Size([32768, 8192]), torch.bfloat16
+Loading lm_local from: lm_head/Llama-3.3-70B-Instruct_lm_head.pt
+cuda:0 torch.Size([128256, 8192])
+DEBUG - hidden_states_orig: torch.Size([32768, 8192]), torch.bfloat16
+Loading lm_local from: lm_head/Llama-3.3-70B-Instruct_lm_head.pt
+cuda:0 torch.Size([128256, 8192])
+
+Capturing CUDA graph shapes:   0%|          | 0/19 [00:00<?, ?it/s]
+Capturing CUDA graph shapes:   5%|▌         | 1/19 [00:00<00:09,  1.89it/s]
+Capturing CUDA graph shapes:  11%|█         | 2/19 [00:01<00:08,  1.93it/s]
+Capturing CUDA graph shapes:  16%|█▌        | 3/19 [00:01<00:08,  1.93it/s]
+Capturing CUDA graph shapes:  21%|██        | 4/19 [00:02<00:07,  1.93it/s]
+Capturing CUDA graph shapes:  26%|██▋       | 5/19 [00:02<00:07,  1.93it/s]
+Capturing CUDA graph shapes:  32%|███▏      | 6/19 [00:03<00:06,  1.88it/s]
+Capturing CUDA graph shapes:  37%|███▋      | 7/19 [00:03<00:06,  1.90it/s]
+Capturing CUDA graph shapes:  42%|████▏     | 8/19 [00:04<00:05,  1.91it/s]
+Capturing CUDA graph shapes:  47%|████▋     | 9/19 [00:04<00:05,  1.91it/s]
+Capturing CUDA graph shapes:  53%|█████▎    | 10/19 [00:05<00:04,  1.91it/s]
+Capturing CUDA graph shapes:  58%|█████▊    | 11/19 [00:05<00:04,  1.91it/s]
+Capturing CUDA graph shapes:  63%|██████▎   | 12/19 [00:06<00:03,  1.93it/s]
+Capturing CUDA graph shapes:  68%|██████▊   | 13/19 [00:06<00:03,  1.93it/s]
+Capturing CUDA graph shapes:  74%|███████▎  | 14/19 [00:07<00:02,  1.93it/s]
+Capturing CUDA graph shapes:  79%|███████▉  | 15/19 [00:07<00:02,  1.93it/s]
+Capturing CUDA graph shapes:  84%|████████▍ | 16/19 [00:08<00:01,  1.93it/s][1;36m(VllmWorkerProcess pid=3363230)[0;0m INFO 04-15 12:03:36 custom_all_reduce.py:226] Registering 3059 cuda graph addresses
+[1;36m(VllmWorkerProcess pid=3363228)[0;0m INFO 04-15 12:03:36 custom_all_reduce.py:226] Registering 3059 cuda graph addresses
+
+Capturing CUDA graph shapes:  89%|████████▉ | 17/19 [00:08<00:01,  1.92it/s][1;36m(VllmWorkerProcess pid=3363229)[0;0m INFO 04-15 12:03:37 custom_all_reduce.py:226] Registering 3059 cuda graph addresses
+[1;36m(VllmWorkerProcess pid=3363231)[0;0m INFO 04-15 12:03:37 custom_all_reduce.py:226] Registering 3059 cuda graph addresses
+[1;36m(VllmWorkerProcess pid=3363232)[0;0m INFO 04-15 12:03:37 custom_all_reduce.py:226] Registering 3059 cuda graph addresses
+[1;36m(VllmWorkerProcess pid=3363233)[0;0m INFO 04-15 12:03:37 custom_all_reduce.py:226] Registering 3059 cuda graph addresses
+[1;36m(VllmWorkerProcess pid=3363234)[0;0m INFO 04-15 12:03:37 custom_all_reduce.py:226] Registering 3059 cuda graph addresses
+
+Capturing CUDA graph shapes:  95%|█████████▍| 18/19 [00:09<00:00,  2.02it/s]
+Capturing CUDA graph shapes: 100%|██████████| 19/19 [00:09<00:00,  1.84it/s]
+Capturing CUDA graph shapes: 100%|██████████| 19/19 [00:09<00:00,  1.91it/s]
+[2025-04-15 12:03:38,078] [[32m    INFO[0m]: Registering 3059 cuda graph addresses (custom_all_reduce.py:226)[0m
+[1;36m(VllmWorkerProcess pid=3363234)[0;0m INFO 04-15 12:03:38 model_runner.py:1562] Graph capturing finished in 10 secs, took 0.29 GiB
+[1;36m(VllmWorkerProcess pid=3363229)[0;0m INFO 04-15 12:03:38 model_runner.py:1562] Graph capturing finished in 11 secs, took 0.29 GiB
+[1;36m(VllmWorkerProcess pid=3363233)[0;0m INFO 04-15 12:03:38 model_runner.py:1562] Graph capturing finished in 10 secs, took 0.29 GiB
+[1;36m(VllmWorkerProcess pid=3363228)[0;0m INFO 04-15 12:03:38 model_runner.py:1562] Graph capturing finished in 11 secs, took 0.29 GiB
+[1;36m(VllmWorkerProcess pid=3363231)[0;0m INFO 04-15 12:03:38 model_runner.py:1562] Graph capturing finished in 11 secs, took 0.29 GiB
+[2025-04-15 12:03:38,622] [[32m    INFO[0m]: Graph capturing finished in 11 secs, took 0.29 GiB (model_runner.py:1562)[0m
+[1;36m(VllmWorkerProcess pid=3363232)[0;0m INFO 04-15 12:03:38 model_runner.py:1562] Graph capturing finished in 11 secs, took 0.29 GiB
+[1;36m(VllmWorkerProcess pid=3363230)[0;0m INFO 04-15 12:03:38 model_runner.py:1562] Graph capturing finished in 11 secs, took 0.29 GiB
+[2025-04-15 12:03:38,628] [[32m    INFO[0m]: init engine (profile, create kv cache, warmup model) took 23.74 seconds (llm_engine.py:431)[0m
+[2025-04-15 12:03:38,680] [[32m    INFO[0m]: --- INIT SEEDS --- (pipeline.py:263)[0m
+[2025-04-15 12:03:38,680] [[32m    INFO[0m]: --- LOADING TASKS --- (pipeline.py:216)[0m
+[2025-04-15 12:03:38,680] [[32m    INFO[0m]: Found 1 custom tasks in ~/Projects/nips25_slot/open-r2/openr1/lib/python3.11/site-packages/lighteval/tasks/extended/ifeval/main.py (registry.py:142)[0m
+[2025-04-15 12:03:38,680] [[32m    INFO[0m]: Found 6 custom tasks in ~/Projects/nips25_slot/open-r2/openr1/lib/python3.11/site-packages/lighteval/tasks/extended/tiny_benchmarks/main.py (registry.py:142)[0m
+[2025-04-15 12:03:38,680] [[32m    INFO[0m]: Found 1 custom tasks in ~/Projects/nips25_slot/open-r2/openr1/lib/python3.11/site-packages/lighteval/tasks/extended/mt_bench/main.py (registry.py:142)[0m
+[2025-04-15 12:03:38,680] [[32m    INFO[0m]: Found 4 custom tasks in ~/Projects/nips25_slot/open-r2/openr1/lib/python3.11/site-packages/lighteval/tasks/extended/mix_eval/main.py (registry.py:142)[0m
+[2025-04-15 12:03:38,680] [[32m    INFO[0m]: Found 5 custom tasks in ~/Projects/nips25_slot/open-r2/openr1/lib/python3.11/site-packages/lighteval/tasks/extended/olympiade_bench/main.py (registry.py:142)[0m
+[2025-04-15 12:03:38,680] [[32m    INFO[0m]: Found 1 custom tasks in ~/Projects/nips25_slot/open-r2/openr1/lib/python3.11/site-packages/lighteval/tasks/extended/hle/main.py (registry.py:142)[0m
+[2025-04-15 12:03:38,680] [[32m    INFO[0m]: Found 21 custom tasks in ~/Projects/nips25_slot/open-r2/openr1/lib/python3.11/site-packages/lighteval/tasks/extended/lcb/main.py (registry.py:142)[0m
+[2025-04-15 12:03:38,682] [[32m    INFO[0m]: Idavidrein/gpqa gpqa_diamond (lighteval_task.py:187)[0m
+[2025-04-15 12:03:38,682] [[33m WARNING[0m]: Careful, the task lighteval|gpqa:diamond is using evaluation data to build the few shot examples. (lighteval_task.py:260)[0m
+Using the latest cached version of the dataset since Idavidrein/gpqa couldn't be found on the Hugging Face Hub
+[2025-04-15 12:03:41,762] [[33m WARNING[0m]: Using the latest cached version of the dataset since Idavidrein/gpqa couldn't be found on the Hugging Face Hub (load.py:1631)[0m
+Found the latest cached dataset configuration 'gpqa_diamond' at ~/.cache/huggingface/datasets/Idavidrein___gpqa/gpqa_diamond/0.0.0/90b8e5be2b1d3d2dbfe016cdab47981150600c4a (last modified on Sat Apr 12 16:41:50 2025).
+[2025-04-15 12:03:41,763] [[33m WARNING[0m]: Found the latest cached dataset configuration 'gpqa_diamond' at ~/.cache/huggingface/datasets/Idavidrein___gpqa/gpqa_diamond/0.0.0/90b8e5be2b1d3d2dbfe016cdab47981150600c4a (last modified on Sat Apr 12 16:41:50 2025). (cache.py:95)[0m
+[2025-04-15 12:03:41,902] [[32m    INFO[0m]: --- RUNNING MODEL --- (pipeline.py:468)[0m
+[2025-04-15 12:03:41,902] [[32m    INFO[0m]: Running RequestType.GREEDY_UNTIL requests (pipeline.py:472)[0m
+[2025-04-15 12:03:41,957] [[33m WARNING[0m]: You cannot select the number of dataset splits for a generative evaluation at the moment. Automatically inferring. (data.py:260)[0m
+Idavidrein/gpqa
+gpqa_diamond
+True
+None
+
+Splits:   0%|          | 0/1 [00:00<?, ?it/s][2025-04-15 12:03:42,010] [[33m WARNING[0m]: context_size + max_new_tokens=35612 which is greater than self.max_length=32768. Truncating context to 0 tokens. (vllm_model.py:270)[0m
+
+
+Processed prompts:   0%|          | 0/198 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s][A[2025-04-15 12:03:42,529] [[33m WARNING[0m]: ~/Projects/nips25_slot/open-r2/openr1/lib/python3.11/site-packages/vllm/worker/model_runner.py:1828: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  lm_head_weight = torch.load(lm_local, map_location=hidden_states_cur.device).to(dtype=torch.bfloat16)
+ (warnings.py:110)[0m
+
+
+Processed prompts:   1%|          | 1/198 [00:14<47:32, 14.48s/it, est. speed input: 16.16 toks/s, output: 18.85 toks/s][A
+
+Processed prompts:   1%|          | 2/198 [00:18<26:26,  8.09s/it, est. speed input: 26.30 toks/s, output: 33.04 toks/s][A
+
+Processed prompts:   2%|▏         | 3/198 [00:20<18:13,  5.61s/it, est. speed input: 37.84 toks/s, output: 45.50 toks/s][A
+
+Processed prompts:   2%|▏         | 4/198 [00:24<15:15,  4.72s/it, est. speed input: 42.85 toks/s, output: 55.17 toks/s][A
+
+Processed prompts:   3%|▎         | 5/198 [00:26<12:27,  3.87s/it, est. speed input: 50.53 toks/s, output: 65.03 toks/s][A
+
+Processed prompts:   3%|▎         | 6/198 [00:28<10:51,  3.39s/it, est. speed input: 58.64 toks/s, output: 73.36 toks/s][A
+
+Processed prompts:   4%|▎         | 7/198 [00:31<09:46,  3.07s/it, est. speed input: 61.50 toks/s, output: 80.87 toks/s][A
+
+Processed prompts:   4%|▍         | 8/198 [00:33<08:48,  2.78s/it, est. speed input: 67.66 toks/s, output: 88.13 toks/s][A
+
+Processed prompts:   5%|▍         | 9/198 [00:35<08:06,  2.57s/it, est. speed input: 70.76 toks/s, output: 94.76 toks/s][A
+
+Processed prompts:   5%|▌         | 10/198 [00:37<07:42,  2.46s/it, est. speed input: 73.56 toks/s, output: 100.63 toks/s][A
+
+Processed prompts:   6%|▌         | 11/198 [00:40<07:31,  2.41s/it, est. speed input: 75.61 toks/s, output: 105.88 toks/s][A
+
+Processed prompts:   6%|▌         | 12/198 [00:42<07:03,  2.28s/it, est. speed input: 94.40 toks/s, output: 111.47 toks/s][A
+
+Processed prompts:   7%|▋         | 13/198 [00:44<07:08,  2.32s/it, est. speed input: 95.49 toks/s, output: 115.75 toks/s][A
+
+Processed prompts:   7%|▋         | 14/198 [00:46<06:46,  2.21s/it, est. speed input: 98.16 toks/s, output: 120.76 toks/s][A
+
+Processed prompts:   8%|▊         | 15/198 [00:48<06:48,  2.23s/it, est. speed input: 98.36 toks/s, output: 124.69 toks/s][A
+
+Processed prompts:   8%|▊         | 16/198 [00:51<06:49,  2.25s/it, est. speed input: 100.69 toks/s, output: 128.51 toks/s][A
+
+Processed prompts:   9%|▉         | 18/198 [00:53<05:20,  1.78s/it, est. speed input: 105.49 toks/s, output: 140.84 toks/s][A
+
+Processed prompts:  10%|▉         | 19/198 [00:55<05:33,  1.87s/it, est. speed input: 105.56 toks/s, output: 144.49 toks/s][A
+
+Processed prompts:  10%|█         | 20/198 [00:57<05:37,  1.89s/it, est. speed input: 108.33 toks/s, output: 148.27 toks/s][A
+
+Processed prompts:  11%|█         | 21/198 [00:59<05:54,  2.00s/it, est. speed input: 108.34 toks/s, output: 151.15 toks/s][A
+
+Processed prompts:  11%|█         | 22/198 [01:01<05:56,  2.03s/it, est. speed input: 108.70 toks/s, output: 154.41 toks/s][A
+
+Processed prompts:  12%|█▏        | 23/198 [01:04<05:56,  2.04s/it, est. speed input: 110.29 toks/s, output: 157.54 toks/s][A
+
+Processed prompts:  12%|█▏        | 24/198 [01:06<05:50,  2.01s/it, est. speed input: 111.96 toks/s, output: 160.76 toks/s][A
+
+Processed prompts:  13%|█▎        | 25/198 [01:08<05:52,  2.04s/it, est. speed input: 113.31 toks/s, output: 163.53 toks/s][A
+
+Processed prompts:  13%|█▎        | 26/198 [01:10<06:02,  2.11s/it, est. speed input: 115.78 toks/s, output: 165.81 toks/s][A
+
+Processed prompts:  14%|█▎        | 27/198 [01:12<05:56,  2.09s/it, est. speed input: 116.87 toks/s, output: 168.58 toks/s][A
+
+Processed prompts:  15%|█▍        | 29/198 [01:14<04:27,  1.58s/it, est. speed input: 122.75 toks/s, output: 178.58 toks/s][A
+
+Processed prompts:  16%|█▌        | 31/198 [01:16<03:48,  1.37s/it, est. speed input: 128.24 toks/s, output: 187.83 toks/s][A
+
+Processed prompts:  16%|█▌        | 32/198 [01:18<04:16,  1.54s/it, est. speed input: 128.98 toks/s, output: 189.58 toks/s][A
+
+Processed prompts:  17%|█▋        | 33/198 [01:20<04:31,  1.65s/it, est. speed input: 130.31 toks/s, output: 191.73 toks/s][A
+
+Processed prompts:  17%|█▋        | 34/198 [01:22<04:45,  1.74s/it, est. speed input: 130.52 toks/s, output: 193.70 toks/s][A
+
+Processed prompts:  18%|█▊        | 35/198 [01:24<05:04,  1.87s/it, est. speed input: 132.97 toks/s, output: 195.21 toks/s][A
+
+Processed prompts:  18%|█▊        | 36/198 [01:26<05:13,  1.93s/it, est. speed input: 132.66 toks/s, output: 196.93 toks/s][A
+
+Processed prompts:  19%|█▊        | 37/198 [01:29<05:19,  1.99s/it, est. speed input: 135.98 toks/s, output: 198.62 toks/s][A
+
+Processed prompts:  19%|█▉        | 38/198 [01:31<05:19,  2.00s/it, est. speed input: 135.92 toks/s, output: 200.45 toks/s][A
+
+Processed prompts:  20%|█▉        | 39/198 [01:33<05:26,  2.05s/it, est. speed input: 138.15 toks/s, output: 201.92 toks/s][A
+
+Processed prompts:  21%|██        | 41/198 [01:35<04:06,  1.57s/it, est. speed input: 140.33 toks/s, output: 209.84 toks/s][A
+
+Processed prompts:  21%|██        | 42/198 [01:37<04:22,  1.68s/it, est. speed input: 140.45 toks/s, output: 211.40 toks/s][A
+
+Processed prompts:  22%|██▏       | 43/198 [01:39<04:34,  1.77s/it, est. speed input: 140.50 toks/s, output: 212.95 toks/s][A
+
+Processed prompts:  22%|██▏       | 44/198 [01:41<04:56,  1.93s/it, est. speed input: 139.64 toks/s, output: 213.86 toks/s][A
+
+Processed prompts:  23%|██▎       | 45/198 [01:43<05:00,  1.96s/it, est. speed input: 141.00 toks/s, output: 215.35 toks/s][A
+
+Processed prompts:  23%|██▎       | 46/198 [01:45<05:11,  2.05s/it, est. speed input: 140.29 toks/s, output: 216.49 toks/s][A
+
+Processed prompts:  24%|██▎       | 47/198 [01:48<05:23,  2.14s/it, est. speed input: 141.45 toks/s, output: 217.45 toks/s][A
+
+Processed prompts:  24%|██▍       | 48/198 [01:50<05:16,  2.11s/it, est. speed input: 141.95 toks/s, output: 219.07 toks/s][A
+
+Processed prompts:  25%|██▍       | 49/198 [01:52<05:13,  2.10s/it, est. speed input: 145.27 toks/s, output: 220.57 toks/s][A
+
+Processed prompts:  26%|██▌       | 51/198 [01:54<03:53,  1.59s/it, est. speed input: 148.97 toks/s, output: 227.71 toks/s][A
+
+Processed prompts:  26%|██▋       | 52/198 [01:56<04:14,  1.74s/it, est. speed input: 148.49 toks/s, output: 228.83 toks/s][A
+
+Processed prompts:  27%|██▋       | 53/198 [01:58<04:27,  1.85s/it, est. speed input: 148.18 toks/s, output: 230.08 toks/s][A
+
+Processed prompts:  27%|██▋       | 54/198 [02:00<04:34,  1.90s/it, est. speed input: 148.79 toks/s, output: 231.48 toks/s][A
+
+Processed prompts:  28%|██▊       | 55/198 [02:03<04:45,  1.99s/it, est. speed input: 149.25 toks/s, output: 232.58 toks/s][A
+
+Processed prompts:  29%|██▉       | 57/198 [02:05<03:54,  1.66s/it, est. speed input: 150.96 toks/s, output: 238.48 toks/s][A
+
+Processed prompts:  30%|██▉       | 59/198 [02:07<03:16,  1.41s/it, est. speed input: 154.86 toks/s, output: 245.18 toks/s][A
+
+Processed prompts:  30%|███       | 60/198 [02:09<03:40,  1.60s/it, est. speed input: 156.70 toks/s, output: 246.15 toks/s][A
+
+Processed prompts:  31%|███       | 61/198 [02:12<04:06,  1.80s/it, est. speed input: 155.62 toks/s, output: 246.85 toks/s][A
+
+Processed prompts:  31%|███▏      | 62/198 [02:14<04:19,  1.90s/it, est. speed input: 155.71 toks/s, output: 248.04 toks/s][A
+
+Processed prompts:  32%|███▏      | 63/198 [02:16<04:22,  1.94s/it, est. speed input: 155.84 toks/s, output: 249.51 toks/s][A
+
+Processed prompts:  33%|███▎      | 65/198 [02:19<03:46,  1.70s/it, est. speed input: 156.83 toks/s, output: 254.91 toks/s][A
+
+Processed prompts:  33%|███▎      | 66/198 [02:21<03:53,  1.77s/it, est. speed input: 158.66 toks/s, output: 256.54 toks/s][A
+
+Processed prompts:  34%|███▍      | 67/198 [02:23<04:01,  1.84s/it, est. speed input: 158.18 toks/s, output: 258.00 toks/s][A
+
+Processed prompts:  34%|███▍      | 68/198 [02:25<04:03,  1.88s/it, est. speed input: 158.47 toks/s, output: 259.58 toks/s][A
+
+Processed prompts:  35%|███▍      | 69/198 [02:27<04:20,  2.02s/it, est. speed input: 157.97 toks/s, output: 260.38 toks/s][A
+
+Processed prompts:  35%|███▌      | 70/198 [02:29<04:19,  2.02s/it, est. speed input: 158.40 toks/s, output: 261.80 toks/s][A
+
+Processed prompts:  36%|███▌      | 71/198 [02:31<04:22,  2.07s/it, est. speed input: 158.76 toks/s, output: 262.97 toks/s][A
+
+Processed prompts:  37%|███▋      | 74/198 [02:32<02:06,  1.02s/it, est. speed input: 165.13 toks/s, output: 277.01 toks/s][A
+
+Processed prompts:  38%|███▊      | 76/198 [02:32<01:23,  1.45it/s, est. speed input: 185.09 toks/s, output: 284.20 toks/s][A
+
+Processed prompts:  40%|████      | 80/198 [02:32<00:45,  2.59it/s, est. speed input: 193.52 toks/s, output: 303.90 toks/s][A
+
+Processed prompts:  41%|████      | 81/198 [02:33<00:40,  2.91it/s, est. speed input: 196.04 toks/s, output: 308.83 toks/s][A
+
+Processed prompts:  42%|████▏     | 83/198 [02:33<00:37,  3.07it/s, est. speed input: 199.61 toks/s, output: 318.10 toks/s][A
+
+Processed prompts:  42%|████▏     | 84/198 [02:33<00:37,  3.06it/s, est. speed input: 201.51 toks/s, output: 322.75 toks/s][A
+
+Processed prompts:  43%|████▎     | 85/198 [02:34<00:32,  3.48it/s, est. speed input: 204.35 toks/s, output: 327.84 toks/s][A
+
+Processed prompts:  44%|████▍     | 87/198 [02:34<00:23,  4.75it/s, est. speed input: 207.80 toks/s, output: 338.29 toks/s][A
+
+Processed prompts:  44%|████▍     | 88/198 [02:34<00:20,  5.32it/s, est. speed input: 209.52 toks/s, output: 343.50 toks/s][A
+
+Processed prompts:  45%|████▌     | 90/198 [02:34<00:23,  4.52it/s, est. speed input: 211.96 toks/s, output: 350.53 toks/s][A
+
+Processed prompts:  46%|████▋     | 92/198 [02:35<00:21,  4.97it/s, est. speed input: 219.21 toks/s, output: 360.96 toks/s][A
+
+Processed prompts:  47%|████▋     | 94/198 [02:35<00:17,  5.97it/s, est. speed input: 222.28 toks/s, output: 371.78 toks/s][A
+
+Processed prompts:  48%|████▊     | 96/198 [02:35<00:16,  6.22it/s, est. speed input: 224.59 toks/s, output: 376.51 toks/s][A
+
+Processed prompts:  49%|████▉     | 98/198 [02:35<00:12,  7.74it/s, est. speed input: 227.42 toks/s, output: 384.79 toks/s][A
+
+Processed prompts:  51%|█████     | 101/198 [02:36<00:10,  9.12it/s, est. speed input: 232.30 toks/s, output: 398.18 toks/s][A
+
+Processed prompts:  52%|█████▏    | 103/198 [02:36<00:09,  9.74it/s, est. speed input: 235.65 toks/s, output: 409.44 toks/s][A
+
+Processed prompts:  53%|█████▎    | 105/198 [02:36<00:13,  7.12it/s, est. speed input: 239.67 toks/s, output: 420.05 toks/s][A
+
+Processed prompts:  54%|█████▎    | 106/198 [02:36<00:12,  7.10it/s, est. speed input: 240.90 toks/s, output: 423.59 toks/s][A
+
+Processed prompts:  55%|█████▍    | 108/198 [02:37<00:11,  7.97it/s, est. speed input: 243.15 toks/s, output: 430.87 toks/s][A
+
+Processed prompts:  55%|█████▌    | 109/198 [02:37<00:12,  7.30it/s, est. speed input: 244.78 toks/s, output: 436.44 toks/s][A
+
+Processed prompts:  56%|█████▌    | 110/198 [02:37<00:15,  5.80it/s, est. speed input: 245.99 toks/s, output: 441.75 toks/s][A
+
+Processed prompts:  57%|█████▋    | 112/198 [02:37<00:15,  5.53it/s, est. speed input: 249.07 toks/s, output: 448.94 toks/s][A
+
+Processed prompts:  58%|█████▊    | 114/198 [02:38<00:11,  7.27it/s, est. speed input: 251.21 toks/s, output: 453.74 toks/s][A
+
+Processed prompts:  58%|█████▊    | 115/198 [02:38<00:11,  7.05it/s, est. speed input: 252.98 toks/s, output: 459.59 toks/s][A
+
+Processed prompts:  59%|█████▉    | 117/198 [02:38<00:08,  9.02it/s, est. speed input: 257.21 toks/s, output: 467.95 toks/s][A
+
+Processed prompts:  60%|██████    | 119/198 [02:38<00:09,  8.69it/s, est. speed input: 259.79 toks/s, output: 476.27 toks/s][A
+
+Processed prompts:  62%|██████▏   | 122/198 [02:40<00:23,  3.22it/s, est. speed input: 260.82 toks/s, output: 483.68 toks/s][A
+
+Processed prompts:  63%|██████▎   | 125/198 [02:40<00:16,  4.52it/s, est. speed input: 264.10 toks/s, output: 493.40 toks/s][A
+
+Processed prompts:  64%|██████▍   | 127/198 [02:40<00:12,  5.47it/s, est. speed input: 267.44 toks/s, output: 506.73 toks/s][A
+
+Processed prompts:  65%|██████▌   | 129/198 [02:40<00:11,  5.95it/s, est. speed input: 269.87 toks/s, output: 516.85 toks/s][A
+
+Processed prompts:  66%|██████▌   | 130/198 [02:41<00:11,  5.81it/s, est. speed input: 270.63 toks/s, output: 519.37 toks/s][A
+
+Processed prompts:  66%|██████▌   | 131/198 [02:41<00:11,  5.82it/s, est. speed input: 271.43 toks/s, output: 522.13 toks/s][A
+
+Processed prompts:  67%|██████▋   | 133/198 [02:41<00:08,  7.68it/s, est. speed input: 273.86 toks/s, output: 530.09 toks/s][A
+
+Processed prompts:  68%|██████▊   | 135/198 [02:41<00:08,  7.75it/s, est. speed input: 275.75 toks/s, output: 536.50 toks/s][A
+
+Processed prompts:  69%|██████▉   | 137/198 [02:41<00:07,  8.30it/s, est. speed input: 277.81 toks/s, output: 545.82 toks/s][A
+
+Processed prompts:  70%|███████   | 139/198 [02:42<00:06,  8.73it/s, est. speed input: 279.65 toks/s, output: 552.10 toks/s][A
+
+Processed prompts:  71%|███████   | 140/198 [02:42<00:06,  8.36it/s, est. speed input: 281.00 toks/s, output: 558.91 toks/s][A
+
+Processed prompts:  72%|███████▏  | 143/198 [02:42<00:05,  9.79it/s, est. speed input: 283.52 toks/s, output: 568.54 toks/s][A
+
+Processed prompts:  73%|███████▎  | 145/198 [02:43<00:10,  5.06it/s, est. speed input: 285.86 toks/s, output: 580.51 toks/s][A
+
+Processed prompts:  74%|███████▍  | 147/198 [02:43<00:07,  6.39it/s, est. speed input: 288.17 toks/s, output: 590.10 toks/s][A
+
+Processed prompts:  76%|███████▌  | 150/198 [02:43<00:05,  8.43it/s, est. speed input: 291.33 toks/s, output: 603.30 toks/s][A
+
+Processed prompts:  77%|███████▋  | 152/198 [02:43<00:05,  8.30it/s, est. speed input: 293.26 toks/s, output: 611.18 toks/s][A
+
+Processed prompts:  78%|███████▊  | 154/198 [02:44<00:06,  6.75it/s, est. speed input: 294.39 toks/s, output: 617.13 toks/s][A
+
+Processed prompts:  78%|███████▊  | 155/198 [02:44<00:06,  6.32it/s, est. speed input: 295.65 toks/s, output: 624.25 toks/s][A
+
+Processed prompts:  79%|███████▉  | 156/198 [02:44<00:07,  5.26it/s, est. speed input: 296.83 toks/s, output: 631.01 toks/s][A
+
+Processed prompts:  79%|███████▉  | 157/198 [02:45<00:11,  3.68it/s, est. speed input: 297.38 toks/s, output: 636.99 toks/s][A
+
+Processed prompts:  80%|████████  | 159/198 [02:45<00:07,  4.98it/s, est. speed input: 299.01 toks/s, output: 644.76 toks/s][A
+
+Processed prompts:  81%|████████  | 160/198 [02:46<00:10,  3.56it/s, est. speed input: 299.60 toks/s, output: 650.87 toks/s][A
+
+Processed prompts:  81%|████████▏ | 161/198 [02:46<00:10,  3.62it/s, est. speed input: 300.53 toks/s, output: 658.27 toks/s][A
+
+Processed prompts:  82%|████████▏ | 162/198 [02:46<00:09,  3.87it/s, est. speed input: 301.50 toks/s, output: 663.59 toks/s][A
+
+Processed prompts:  82%|████████▏ | 163/198 [02:47<00:12,  2.89it/s, est. speed input: 301.41 toks/s, output: 665.98 toks/s][A
+
+Processed prompts:  83%|████████▎ | 165/198 [02:47<00:08,  3.95it/s, est. speed input: 303.38 toks/s, output: 678.48 toks/s][A
+
+Processed prompts:  85%|████████▍ | 168/198 [02:47<00:05,  5.79it/s, est. speed input: 306.20 toks/s, output: 693.75 toks/s][A
+
+Processed prompts:  85%|████████▌ | 169/198 [02:47<00:05,  5.15it/s, est. speed input: 306.55 toks/s, output: 697.20 toks/s][A
+
+Processed prompts:  86%|████████▌ | 170/198 [02:48<00:06,  4.04it/s, est. speed input: 307.30 toks/s, output: 704.33 toks/s][A
+
+Processed prompts:  86%|████████▋ | 171/198 [02:48<00:07,  3.66it/s, est. speed input: 307.72 toks/s, output: 708.49 toks/s][A
+
+Processed prompts:  87%|████████▋ | 173/198 [02:48<00:05,  5.00it/s, est. speed input: 309.63 toks/s, output: 719.26 toks/s][A
+
+Processed prompts:  88%|████████▊ | 174/198 [02:49<00:07,  3.01it/s, est. speed input: 309.79 toks/s, output: 725.22 toks/s][A
+
+Processed prompts:  88%|████████▊ | 175/198 [02:49<00:07,  3.24it/s, est. speed input: 311.20 toks/s, output: 733.66 toks/s][A
+
+Processed prompts:  89%|████████▉ | 176/198 [02:50<00:09,  2.35it/s, est. speed input: 310.89 toks/s, output: 736.69 toks/s][A
+
+Processed prompts:  89%|████████▉ | 177/198 [02:50<00:07,  2.65it/s, est. speed input: 311.59 toks/s, output: 742.20 toks/s][A
+
+Processed prompts:  90%|█████████ | 179/198 [02:51<00:05,  3.28it/s, est. speed input: 313.02 toks/s, output: 753.16 toks/s][A
+
+Processed prompts:  91%|█████████ | 180/198 [02:51<00:05,  3.26it/s, est. speed input: 313.45 toks/s, output: 758.05 toks/s][A
+
+Processed prompts:  92%|█████████▏| 183/198 [02:51<00:02,  5.70it/s, est. speed input: 317.29 toks/s, output: 783.11 toks/s][A
+
+Processed prompts:  93%|█████████▎| 184/198 [02:52<00:02,  5.16it/s, est. speed input: 318.41 toks/s, output: 791.90 toks/s][A
+
+Processed prompts:  93%|█████████▎| 185/198 [02:52<00:02,  4.76it/s, est. speed input: 318.97 toks/s, output: 797.42 toks/s][A
+
+Processed prompts:  94%|█████████▍| 186/198 [02:52<00:02,  4.63it/s, est. speed input: 320.00 toks/s, output: 806.50 toks/s][A
+
+Processed prompts:  94%|█████████▍| 187/198 [02:54<00:06,  1.82it/s, est. speed input: 318.14 toks/s, output: 806.33 toks/s][A
+
+Processed prompts:  95%|█████████▍| 188/198 [02:54<00:04,  2.06it/s, est. speed input: 318.84 toks/s, output: 813.20 toks/s][A
+
+Processed prompts:  96%|█████████▌| 190/198 [02:54<00:03,  2.66it/s, est. speed input: 320.05 toks/s, output: 825.78 toks/s][A
+
+Processed prompts:  96%|█████████▋| 191/198 [02:58<00:07,  1.01s/it, est. speed input: 315.57 toks/s, output: 820.14 toks/s][A
+
+Processed prompts:  97%|█████████▋| 192/198 [02:59<00:06,  1.01s/it, est. speed input: 314.69 toks/s, output: 823.88 toks/s][A
+
+Processed prompts:  97%|█████████▋| 193/198 [02:59<00:04,  1.21it/s, est. speed input: 315.32 toks/s, output: 831.96 toks/s][A
+
+Processed prompts:  98%|█████████▊| 194/198 [03:00<00:03,  1.08it/s, est. speed input: 314.31 toks/s, output: 835.96 toks/s][A
+
+Processed prompts:  98%|█████████▊| 195/198 [03:00<00:02,  1.26it/s, est. speed input: 314.65 toks/s, output: 843.68 toks/s][A
+
+Processed prompts:  99%|█████████▉| 196/198 [03:05<00:03,  1.86s/it, est. speed input: 308.03 toks/s, output: 834.35 toks/s][A
+
+Processed prompts:  99%|█████████▉| 197/198 [03:09<00:02,  2.51s/it, est. speed input: 302.61 toks/s, output: 831.81 toks/s][A
+
+Processed prompts: 100%|██████████| 198/198 [12:21<00:00, 163.76s/it, est. speed input: 77.59 toks/s, output: 256.54 toks/s][A
+Processed prompts: 100%|██████████| 198/198 [12:21<00:00,  3.75s/it, est. speed input: 77.59 toks/s, output: 256.54 toks/s] 
+
+Splits: 100%|██████████| 1/1 [12:21<00:00, 741.89s/it]
+Splits: 100%|██████████| 1/1 [12:21<00:00, 741.89s/it]
+[2025-04-15 12:16:04,509] [[32m    INFO[0m]: Terminating local vLLM worker processes (multiproc_worker_utils.py:141)[0m
+[1;36m(VllmWorkerProcess pid=3363228)[0;0m INFO 04-15 12:16:04 multiproc_worker_utils.py:253] Worker exiting
+[1;36m(VllmWorkerProcess pid=3363231)[0;0m INFO 04-15 12:16:04 multiproc_worker_utils.py:253] Worker exiting
+[1;36m(VllmWorkerProcess pid=3363230)[0;0m INFO 04-15 12:16:04 multiproc_worker_utils.py:253] Worker exiting
+[1;36m(VllmWorkerProcess pid=3363233)[0;0m INFO 04-15 12:16:04 multiproc_worker_utils.py:253] Worker exiting
+[1;36m(VllmWorkerProcess pid=3363232)[0;0m INFO 04-15 12:16:04 multiproc_worker_utils.py:253] Worker exiting
+[1;36m(VllmWorkerProcess pid=3363234)[0;0m INFO 04-15 12:16:04 multiproc_worker_utils.py:253] Worker exiting
+[1;36m(VllmWorkerProcess pid=3363229)[0;0m INFO 04-15 12:16:04 multiproc_worker_utils.py:253] Worker exiting
+[2025-04-15 12:16:05,133] [[32m    INFO[0m]: --- COMPUTING METRICS --- (pipeline.py:504)[0m
+[2025-04-15 12:16:05,172] [[32m    INFO[0m]: --- DISPLAYING RESULTS --- (pipeline.py:546)[0m
+[2025-04-15 12:16:05,181] [[32m    INFO[0m]: --- SAVING AND PUSHING RESULTS --- (pipeline.py:536)[0m
+[2025-04-15 12:16:05,181] [[32m    INFO[0m]: Saving experiment tracker (evaluation_tracker.py:180)[0m
+[2025-04-15 12:16:05,335] [[32m    INFO[0m]: Saving results to ~/Projects/nips25_slot/open-r2/data/evals~/Models/LLM-Research/Llama-3.3-70B-Instruct/results/_Models_LLM-Research_Llama-3.3-70B-Instruct/results_2025-04-15T12-16-05.181947.json (evaluation_tracker.py:234)[0m
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=3, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([32548, 8192]), torch.bfloat16
+Loading lm_local from: lm_head/Llama-3.3-70B-Instruct_lm_head.pt
+cuda:0 torch.Size([128256, 8192])
+DEBUG - hidden_states_orig: torch.Size([32548, 8192]), torch.bfloat16
+Loading lm_local from: lm_head/Llama-3.3-70B-Instruct_lm_head.pt
+cuda:0 torch.Size([128256, 8192])
+DEBUG - hidden_states_orig: torch.Size([32548, 8192]), torch.bfloat16
+Loading lm_local from: lm_head/Llama-3.3-70B-Instruct_lm_head.pt
+cuda:0 torch.Size([128256, 8192])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=3, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([12011, 8192]), torch.bfloat16
+Loading lm_local from: lm_head/Llama-3.3-70B-Instruct_lm_head.pt
+cuda:0 torch.Size([128256, 8192])
+DEBUG - hidden_states_orig: torch.Size([12011, 8192]), torch.bfloat16
+Loading lm_local from: lm_head/Llama-3.3-70B-Instruct_lm_head.pt
+cuda:0 torch.Size([128256, 8192])
+DEBUG - hidden_states_orig: torch.Size([12011, 8192]), torch.bfloat16
+Loading lm_local from: lm_head/Llama-3.3-70B-Instruct_lm_head.pt
+cuda:0 torch.Size([128256, 8192])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=3, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([226, 8192]), torch.bfloat16
+Loading lm_local from: lm_head/Llama-3.3-70B-Instruct_lm_head.pt
+cuda:0 torch.Size([128256, 8192])
+DEBUG - hidden_states_orig: torch.Size([226, 8192]), torch.bfloat16
+Loading lm_local from: lm_head/Llama-3.3-70B-Instruct_lm_head.pt
+cuda:0 torch.Size([128256, 8192])
+DEBUG - hidden_states_orig: torch.Size([226, 8192]), torch.bfloat16
+Loading lm_local from: lm_head/Llama-3.3-70B-Instruct_lm_head.pt
+cuda:0 torch.Size([128256, 8192])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=3, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([226, 8192]), torch.bfloat16
+Loading lm_local from: lm_head/Llama-3.3-70B-Instruct_lm_head.pt
+cuda:0 torch.Size([128256, 8192])
+DEBUG - hidden_states_orig: torch.Size([226, 8192]), torch.bfloat16
+Loading lm_local from: lm_head/Llama-3.3-70B-Instruct_lm_head.pt
+cuda:0 torch.Size([128256, 8192])
+DEBUG - hidden_states_orig: torch.Size([226, 8192]), torch.bfloat16
+Loading lm_local from: lm_head/Llama-3.3-70B-Instruct_lm_head.pt
+cuda:0 torch.Size([128256, 8192])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=3, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([224, 8192]), torch.bfloat16
+Loading lm_local from: lm_head/Llama-3.3-70B-Instruct_lm_head.pt
+cuda:0 torch.Size([128256, 8192])
+DEBUG - hidden_states_orig: torch.Size([224, 8192]), torch.bfloat16
+Loading lm_local from: lm_head/Llama-3.3-70B-Instruct_lm_head.pt
+cuda:0 torch.Size([128256, 8192])
+DEBUG - hidden_states_orig: torch.Size([224, 8192]), torch.bfloat16
+Loading lm_local from: lm_head/Llama-3.3-70B-Instruct_lm_head.pt
+cuda:0 torch.Size([128256, 8192])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=3, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([224, 8192]), torch.bfloat16
+Loading lm_local from: lm_head/Llama-3.3-70B-Instruct_lm_head.pt
+cuda:0 torch.Size([128256, 8192])
+DEBUG - hidden_states_orig: torch.Size([224, 8192]), torch.bfloat16
+Loading lm_local from: lm_head/Llama-3.3-70B-Instruct_lm_head.pt
+cuda:0 torch.Size([128256, 8192])
+DEBUG - hidden_states_orig: torch.Size([224, 8192]), torch.bfloat16
+Loading lm_local from: lm_head/Llama-3.3-70B-Instruct_lm_head.pt
+cuda:0 torch.Size([128256, 8192])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=3, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([223, 8192]), torch.bfloat16
+Loading lm_local from: lm_head/Llama-3.3-70B-Instruct_lm_head.pt
+cuda:0 torch.Size([128256, 8192])
+DEBUG - hidden_states_orig: torch.Size([223, 8192]), torch.bfloat16
+Loading lm_local from: lm_head/Llama-3.3-70B-Instruct_lm_head.pt
+cuda:0 torch.Size([128256, 8192])
+DEBUG - hidden_states_orig: torch.Size([223, 8192]), torch.bfloat16
+Loading lm_local from: lm_head/Llama-3.3-70B-Instruct_lm_head.pt
+cuda:0 torch.Size([128256, 8192])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=3, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([223, 8192]), torch.bfloat16
+Loading lm_local from: lm_head/Llama-3.3-70B-Instruct_lm_head.pt
+cuda:0 torch.Size([128256, 8192])
+DEBUG - hidden_states_orig: torch.Size([223, 8192]), torch.bfloat16
+Loading lm_local from: lm_head/Llama-3.3-70B-Instruct_lm_head.pt
+cuda:0 torch.Size([128256, 8192])
+DEBUG - hidden_states_orig: torch.Size([223, 8192]), torch.bfloat16
+Loading lm_local from: lm_head/Llama-3.3-70B-Instruct_lm_head.pt
+cuda:0 torch.Size([128256, 8192])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=3, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([221, 8192]), torch.bfloat16
+Loading lm_local from: lm_head/Llama-3.3-70B-Instruct_lm_head.pt
+cuda:0 torch.Size([128256, 8192])
+DEBUG - hidden_states_orig: torch.Size([221, 8192]), torch.bfloat16
+Loading lm_local from: lm_head/Llama-3.3-70B-Instruct_lm_head.pt
+cuda:0 torch.Size([128256, 8192])
+DEBUG - hidden_states_orig: torch.Size([221, 8192]), torch.bfloat16
+Loading lm_local from: lm_head/Llama-3.3-70B-Instruct_lm_head.pt
+cuda:0 torch.Size([128256, 8192])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=3, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([219, 8192]), torch.bfloat16
+Loading lm_local from: lm_head/Llama-3.3-70B-Instruct_lm_head.pt
+cuda:0 torch.Size([128256, 8192])
+DEBUG - hidden_states_orig: torch.Size([219, 8192]), torch.bfloat16
+Loading lm_local from: lm_head/Llama-3.3-70B-Instruct_lm_head.pt
+cuda:0 torch.Size([128256, 8192])
+DEBUG - hidden_states_orig: torch.Size([219, 8192]), torch.bfloat16
+Loading lm_local from: lm_head/Llama-3.3-70B-Instruct_lm_head.pt
+cuda:0 torch.Size([128256, 8192])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=3, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([219, 8192]), torch.bfloat16
+Loading lm_local from: lm_head/Llama-3.3-70B-Instruct_lm_head.pt
+cuda:0 torch.Size([128256, 8192])
+DEBUG - hidden_states_orig: torch.Size([219, 8192]), torch.bfloat16
+Loading lm_local from: lm_head/Llama-3.3-70B-Instruct_lm_head.pt
+cuda:0 torch.Size([128256, 8192])
+DEBUG - hidden_states_orig: torch.Size([219, 8192]), torch.bfloat16
+Loading lm_local from: lm_head/Llama-3.3-70B-Instruct_lm_head.pt
+cuda:0 torch.Size([128256, 8192])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=3, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([218, 8192]), torch.bfloat16
+Loading lm_local from: lm_head/Llama-3.3-70B-Instruct_lm_head.pt
+cuda:0 torch.Size([128256, 8192])
+DEBUG - hidden_states_orig: torch.Size([218, 8192]), torch.bfloat16
+Loading lm_local from: lm_head/Llama-3.3-70B-Instruct_lm_head.pt
+cuda:0 torch.Size([128256, 8192])
+DEBUG - hidden_states_orig: torch.Size([218, 8192]), torch.bfloat16
+Loading lm_local from: lm_head/Llama-3.3-70B-Instruct_lm_head.pt
+cuda:0 torch.Size([128256, 8192])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=3, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([217, 8192]), torch.bfloat16
+Loading lm_local from: lm_head/Llama-3.3-70B-Instruct_lm_head.pt
+cuda:0 torch.Size([128256, 8192])
+DEBUG - hidden_states_orig: torch.Size([217, 8192]), torch.bfloat16
+Loading lm_local from: lm_head/Llama-3.3-70B-Instruct_lm_head.pt
+cuda:0 torch.Size([128256, 8192])
+DEBUG - hidden_states_orig: torch.Size([217, 8192]), torch.bfloat16
+Loading lm_local from: lm_head/Llama-3.3-70B-Instruct_lm_head.pt
+cuda:0 torch.Size([128256, 8192])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=3, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([216, 8192]), torch.bfloat16
+Loading lm_local from: lm_head/Llama-3.3-70B-Instruct_lm_head.pt
+cuda:0 torch.Size([128256, 8192])
+DEBUG - hidden_states_orig: torch.Size([216, 8192]), torch.bfloat16
+Loading lm_local from: lm_head/Llama-3.3-70B-Instruct_lm_head.pt
+cuda:0 torch.Size([128256, 8192])
+DEBUG - hidden_states_orig: torch.Size([216, 8192]), torch.bfloat16
+Loading lm_local from: lm_head/Llama-3.3-70B-Instruct_lm_head.pt
+cuda:0 torch.Size([128256, 8192])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=3, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([211, 8192]), torch.bfloat16
+Loading lm_local from: lm_head/Llama-3.3-70B-Instruct_lm_head.pt
+cuda:0 torch.Size([128256, 8192])
+DEBUG - hidden_states_orig: torch.Size([211, 8192]), torch.bfloat16
+Loading lm_local from: lm_head/Llama-3.3-70B-Instruct_lm_head.pt
+cuda:0 torch.Size([128256, 8192])
+DEBUG - hidden_states_orig: torch.Size([211, 8192]), torch.bfloat16
+Loading lm_local from: lm_head/Llama-3.3-70B-Instruct_lm_head.pt
+cuda:0 torch.Size([128256, 8192])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=3, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([210, 8192]), torch.bfloat16
+Loading lm_local from: lm_head/Llama-3.3-70B-Instruct_lm_head.pt
+cuda:0 torch.Size([128256, 8192])
+DEBUG - hidden_states_orig: torch.Size([210, 8192]), torch.bfloat16
+Loading lm_local from: lm_head/Llama-3.3-70B-Instruct_lm_head.pt
+cuda:0 torch.Size([128256, 8192])
+DEBUG - hidden_states_orig: torch.Size([210, 8192]), torch.bfloat16
+Loading lm_local from: lm_head/Llama-3.3-70B-Instruct_lm_head.pt
+cuda:0 torch.Size([128256, 8192])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=3, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([209, 8192]), torch.bfloat16
+Loading lm_local from: lm_head/Llama-3.3-70B-Instruct_lm_head.pt
+cuda:0 torch.Size([128256, 8192])
+DEBUG - hidden_states_orig: torch.Size([209, 8192]), torch.bfloat16
+Loading lm_local from: lm_head/Llama-3.3-70B-Instruct_lm_head.pt
+cuda:0 torch.Size([128256, 8192])
+DEBUG - hidden_states_orig: torch.Size([209, 8192]), torch.bfloat16
+Loading lm_local from: lm_head/Llama-3.3-70B-Instruct_lm_head.pt
+cuda:0 torch.Size([128256, 8192])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=3, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([417, 8192]), torch.bfloat16
+Loading lm_local from: lm_head/Llama-3.3-70B-Instruct_lm_head.pt
+cuda:0 torch.Size([128256, 8192])
+DEBUG - hidden_states_orig: torch.Size([417, 8192]), torch.bfloat16
+Loading lm_local from: lm_head/Llama-3.3-70B-Instruct_lm_head.pt
+cuda:0 torch.Size([128256, 8192])
+DEBUG - hidden_states_orig: torch.Size([417, 8192]), torch.bfloat16
+Loading lm_local from: lm_head/Llama-3.3-70B-Instruct_lm_head.pt
+cuda:0 torch.Size([128256, 8192])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=3, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([207, 8192]), torch.bfloat16
+Loading lm_local from: lm_head/Llama-3.3-70B-Instruct_lm_head.pt
+cuda:0 torch.Size([128256, 8192])
+DEBUG - hidden_states_orig: torch.Size([207, 8192]), torch.bfloat16
+Loading lm_local from: lm_head/Llama-3.3-70B-Instruct_lm_head.pt
+cuda:0 torch.Size([128256, 8192])
+DEBUG - hidden_states_orig: torch.Size([207, 8192]), torch.bfloat16
+Loading lm_local from: lm_head/Llama-3.3-70B-Instruct_lm_head.pt
+cuda:0 torch.Size([128256, 8192])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=3, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([205, 8192]), torch.bfloat16
+Loading lm_local from: lm_head/Llama-3.3-70B-Instruct_lm_head.pt
+cuda:0 torch.Size([128256, 8192])
+DEBUG - hidden_states_orig: torch.Size([205, 8192]), torch.bfloat16
+Loading lm_local from: lm_head/Llama-3.3-70B-Instruct_lm_head.pt
+cuda:0 torch.Size([128256, 8192])
+DEBUG - hidden_states_orig: torch.Size([205, 8192]), torch.bfloat16
+Loading lm_local from: lm_head/Llama-3.3-70B-Instruct_lm_head.pt
+cuda:0 torch.Size([128256, 8192])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=3, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([205, 8192]), torch.bfloat16
+Loading lm_local from: lm_head/Llama-3.3-70B-Instruct_lm_head.pt
+cuda:0 torch.Size([128256, 8192])
+DEBUG - hidden_states_orig: torch.Size([205, 8192]), torch.bfloat16
+Loading lm_local from: lm_head/Llama-3.3-70B-Instruct_lm_head.pt
+cuda:0 torch.Size([128256, 8192])
+DEBUG - hidden_states_orig: torch.Size([205, 8192]), torch.bfloat16
+Loading lm_local from: lm_head/Llama-3.3-70B-Instruct_lm_head.pt
+cuda:0 torch.Size([128256, 8192])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=3, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([203, 8192]), torch.bfloat16
+Loading lm_local from: lm_head/Llama-3.3-70B-Instruct_lm_head.pt
+cuda:0 torch.Size([128256, 8192])
+DEBUG - hidden_states_orig: torch.Size([203, 8192]), torch.bfloat16
+Loading lm_local from: lm_head/Llama-3.3-70B-Instruct_lm_head.pt
+cuda:0 torch.Size([128256, 8192])
+DEBUG - hidden_states_orig: torch.Size([203, 8192]), torch.bfloat16
+Loading lm_local from: lm_head/Llama-3.3-70B-Instruct_lm_head.pt
+cuda:0 torch.Size([128256, 8192])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=3, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([203, 8192]), torch.bfloat16
+Loading lm_local from: lm_head/Llama-3.3-70B-Instruct_lm_head.pt
+cuda:0 torch.Size([128256, 8192])
+DEBUG - hidden_states_orig: torch.Size([203, 8192]), torch.bfloat16
+Loading lm_local from: lm_head/Llama-3.3-70B-Instruct_lm_head.pt
+cuda:0 torch.Size([128256, 8192])
+DEBUG - hidden_states_orig: torch.Size([203, 8192]), torch.bfloat16
+Loading lm_local from: lm_head/Llama-3.3-70B-Instruct_lm_head.pt
+cuda:0 torch.Size([128256, 8192])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=3, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([202, 8192]), torch.bfloat16
+Loading lm_local from: lm_head/Llama-3.3-70B-Instruct_lm_head.pt
+cuda:0 torch.Size([128256, 8192])
+DEBUG - hidden_states_orig: torch.Size([202, 8192]), torch.bfloat16
+Loading lm_local from: lm_head/Llama-3.3-70B-Instruct_lm_head.pt
+cuda:0 torch.Size([128256, 8192])
+DEBUG - hidden_states_orig: torch.Size([202, 8192]), torch.bfloat16
+Loading lm_local from: lm_head/Llama-3.3-70B-Instruct_lm_head.pt
+cuda:0 torch.Size([128256, 8192])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=3, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([201, 8192]), torch.bfloat16
+Loading lm_local from: lm_head/Llama-3.3-70B-Instruct_lm_head.pt
+cuda:0 torch.Size([128256, 8192])
+DEBUG - hidden_states_orig: torch.Size([201, 8192]), torch.bfloat16
+Loading lm_local from: lm_head/Llama-3.3-70B-Instruct_lm_head.pt
+cuda:0 torch.Size([128256, 8192])
+DEBUG - hidden_states_orig: torch.Size([201, 8192]), torch.bfloat16
+Loading lm_local from: lm_head/Llama-3.3-70B-Instruct_lm_head.pt
+cuda:0 torch.Size([128256, 8192])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=3, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([201, 8192]), torch.bfloat16
+Loading lm_local from: lm_head/Llama-3.3-70B-Instruct_lm_head.pt
+cuda:0 torch.Size([128256, 8192])
+DEBUG - hidden_states_orig: torch.Size([201, 8192]), torch.bfloat16
+Loading lm_local from: lm_head/Llama-3.3-70B-Instruct_lm_head.pt
+cuda:0 torch.Size([128256, 8192])
+DEBUG - hidden_states_orig: torch.Size([201, 8192]), torch.bfloat16
+Loading lm_local from: lm_head/Llama-3.3-70B-Instruct_lm_head.pt
+cuda:0 torch.Size([128256, 8192])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=3, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([199, 8192]), torch.bfloat16
+Loading lm_local from: lm_head/Llama-3.3-70B-Instruct_lm_head.pt
+cuda:0 torch.Size([128256, 8192])
+DEBUG - hidden_states_orig: torch.Size([199, 8192]), torch.bfloat16
+Loading lm_local from: lm_head/Llama-3.3-70B-Instruct_lm_head.pt
+cuda:0 torch.Size([128256, 8192])
+DEBUG - hidden_states_orig: torch.Size([199, 8192]), torch.bfloat16
+Loading lm_local from: lm_head/Llama-3.3-70B-Instruct_lm_head.pt
+cuda:0 torch.Size([128256, 8192])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=3, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([392, 8192]), torch.bfloat16
+Loading lm_local from: lm_head/Llama-3.3-70B-Instruct_lm_head.pt
+cuda:0 torch.Size([128256, 8192])
+DEBUG - hidden_states_orig: torch.Size([392, 8192]), torch.bfloat16
+Loading lm_local from: lm_head/Llama-3.3-70B-Instruct_lm_head.pt
+cuda:0 torch.Size([128256, 8192])
+DEBUG - hidden_states_orig: torch.Size([392, 8192]), torch.bfloat16
+Loading lm_local from: lm_head/Llama-3.3-70B-Instruct_lm_head.pt
+cuda:0 torch.Size([128256, 8192])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=3, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([390, 8192]), torch.bfloat16
+Loading lm_local from: lm_head/Llama-3.3-70B-Instruct_lm_head.pt
+cuda:0 torch.Size([128256, 8192])
+DEBUG - hidden_states_orig: torch.Size([390, 8192]), torch.bfloat16
+Loading lm_local from: lm_head/Llama-3.3-70B-Instruct_lm_head.pt
+cuda:0 torch.Size([128256, 8192])
+DEBUG - hidden_states_orig: torch.Size([390, 8192]), torch.bfloat16
+Loading lm_local from: lm_head/Llama-3.3-70B-Instruct_lm_head.pt
+cuda:0 torch.Size([128256, 8192])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=3, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([193, 8192]), torch.bfloat16
+Loading lm_local from: lm_head/Llama-3.3-70B-Instruct_lm_head.pt
+cuda:0 torch.Size([128256, 8192])
+DEBUG - hidden_states_orig: torch.Size([193, 8192]), torch.bfloat16
+Loading lm_local from: lm_head/Llama-3.3-70B-Instruct_lm_head.pt
+cuda:0 torch.Size([128256, 8192])
+DEBUG - hidden_states_orig: torch.Size([193, 8192]), torch.bfloat16
+Loading lm_local from: lm_head/Llama-3.3-70B-Instruct_lm_head.pt
+cuda:0 torch.Size([128256, 8192])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=3, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([193, 8192]), torch.bfloat16
+Loading lm_local from: lm_head/Llama-3.3-70B-Instruct_lm_head.pt
+cuda:0 torch.Size([128256, 8192])
+DEBUG - hidden_states_orig: torch.Size([193, 8192]), torch.bfloat16
+Loading lm_local from: lm_head/Llama-3.3-70B-Instruct_lm_head.pt
+cuda:0 torch.Size([128256, 8192])
+DEBUG - hidden_states_orig: torch.Size([193, 8192]), torch.bfloat16
+Loading lm_local from: lm_head/Llama-3.3-70B-Instruct_lm_head.pt
+cuda:0 torch.Size([128256, 8192])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=3, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([192, 8192]), torch.bfloat16
+Loading lm_local from: lm_head/Llama-3.3-70B-Instruct_lm_head.pt
+cuda:0 torch.Size([128256, 8192])
+DEBUG - hidden_states_orig: torch.Size([192, 8192]), torch.bfloat16
+Loading lm_local from: lm_head/Llama-3.3-70B-Instruct_lm_head.pt
+cuda:0 torch.Size([128256, 8192])
+DEBUG - hidden_states_orig: torch.Size([192, 8192]), torch.bfloat16
+Loading lm_local from: lm_head/Llama-3.3-70B-Instruct_lm_head.pt
+cuda:0 torch.Size([128256, 8192])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=3, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([190, 8192]), torch.bfloat16
+Loading lm_local from: lm_head/Llama-3.3-70B-Instruct_lm_head.pt
+cuda:0 torch.Size([128256, 8192])
+DEBUG - hidden_states_orig: torch.Size([190, 8192]), torch.bfloat16
+Loading lm_local from: lm_head/Llama-3.3-70B-Instruct_lm_head.pt
+cuda:0 torch.Size([128256, 8192])
+DEBUG - hidden_states_orig: torch.Size([190, 8192]), torch.bfloat16
+Loading lm_local from: lm_head/Llama-3.3-70B-Instruct_lm_head.pt
+cuda:0 torch.Size([128256, 8192])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=3, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([188, 8192]), torch.bfloat16
+Loading lm_local from: lm_head/Llama-3.3-70B-Instruct_lm_head.pt
+cuda:0 torch.Size([128256, 8192])
+DEBUG - hidden_states_orig: torch.Size([188, 8192]), torch.bfloat16
+Loading lm_local from: lm_head/Llama-3.3-70B-Instruct_lm_head.pt
+cuda:0 torch.Size([128256, 8192])
+DEBUG - hidden_states_orig: torch.Size([188, 8192]), torch.bfloat16
+Loading lm_local from: lm_head/Llama-3.3-70B-Instruct_lm_head.pt
+cuda:0 torch.Size([128256, 8192])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=3, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([187, 8192]), torch.bfloat16
+Loading lm_local from: lm_head/Llama-3.3-70B-Instruct_lm_head.pt
+cuda:0 torch.Size([128256, 8192])
+DEBUG - hidden_states_orig: torch.Size([187, 8192]), torch.bfloat16
+Loading lm_local from: lm_head/Llama-3.3-70B-Instruct_lm_head.pt
+cuda:0 torch.Size([128256, 8192])
+DEBUG - hidden_states_orig: torch.Size([187, 8192]), torch.bfloat16
+Loading lm_local from: lm_head/Llama-3.3-70B-Instruct_lm_head.pt
+cuda:0 torch.Size([128256, 8192])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=3, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([187, 8192]), torch.bfloat16
+Loading lm_local from: lm_head/Llama-3.3-70B-Instruct_lm_head.pt
+cuda:0 torch.Size([128256, 8192])
+DEBUG - hidden_states_orig: torch.Size([187, 8192]), torch.bfloat16
+Loading lm_local from: lm_head/Llama-3.3-70B-Instruct_lm_head.pt
+cuda:0 torch.Size([128256, 8192])
+DEBUG - hidden_states_orig: torch.Size([187, 8192]), torch.bfloat16
+Loading lm_local from: lm_head/Llama-3.3-70B-Instruct_lm_head.pt
+cuda:0 torch.Size([128256, 8192])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=3, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([186, 8192]), torch.bfloat16
+Loading lm_local from: lm_head/Llama-3.3-70B-Instruct_lm_head.pt
+cuda:0 torch.Size([128256, 8192])
+DEBUG - hidden_states_orig: torch.Size([186, 8192]), torch.bfloat16
+Loading lm_local from: lm_head/Llama-3.3-70B-Instruct_lm_head.pt
+cuda:0 torch.Size([128256, 8192])
+DEBUG - hidden_states_orig: torch.Size([186, 8192]), torch.bfloat16
+Loading lm_local from: lm_head/Llama-3.3-70B-Instruct_lm_head.pt
+cuda:0 torch.Size([128256, 8192])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=3, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([370, 8192]), torch.bfloat16
+Loading lm_local from: lm_head/Llama-3.3-70B-Instruct_lm_head.pt
+cuda:0 torch.Size([128256, 8192])
+DEBUG - hidden_states_orig: torch.Size([370, 8192]), torch.bfloat16
+Loading lm_local from: lm_head/Llama-3.3-70B-Instruct_lm_head.pt
+cuda:0 torch.Size([128256, 8192])
+DEBUG - hidden_states_orig: torch.Size([370, 8192]), torch.bfloat16
+Loading lm_local from: lm_head/Llama-3.3-70B-Instruct_lm_head.pt
+cuda:0 torch.Size([128256, 8192])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=3, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([183, 8192]), torch.bfloat16
+Loading lm_local from: lm_head/Llama-3.3-70B-Instruct_lm_head.pt
+cuda:0 torch.Size([128256, 8192])
+DEBUG - hidden_states_orig: torch.Size([183, 8192]), torch.bfloat16
+Loading lm_local from: lm_head/Llama-3.3-70B-Instruct_lm_head.pt
+cuda:0 torch.Size([128256, 8192])
+DEBUG - hidden_states_orig: torch.Size([183, 8192]), torch.bfloat16
+Loading lm_local from: lm_head/Llama-3.3-70B-Instruct_lm_head.pt
+cuda:0 torch.Size([128256, 8192])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=3, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([181, 8192]), torch.bfloat16
+Loading lm_local from: lm_head/Llama-3.3-70B-Instruct_lm_head.pt
+cuda:0 torch.Size([128256, 8192])
+DEBUG - hidden_states_orig: torch.Size([181, 8192]), torch.bfloat16
+Loading lm_local from: lm_head/Llama-3.3-70B-Instruct_lm_head.pt
+cuda:0 torch.Size([128256, 8192])
+DEBUG - hidden_states_orig: torch.Size([181, 8192]), torch.bfloat16
+Loading lm_local from: lm_head/Llama-3.3-70B-Instruct_lm_head.pt
+cuda:0 torch.Size([128256, 8192])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=3, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([181, 8192]), torch.bfloat16
+Loading lm_local from: lm_head/Llama-3.3-70B-Instruct_lm_head.pt
+cuda:0 torch.Size([128256, 8192])
+DEBUG - hidden_states_orig: torch.Size([181, 8192]), torch.bfloat16
+Loading lm_local from: lm_head/Llama-3.3-70B-Instruct_lm_head.pt
+cuda:0 torch.Size([128256, 8192])
+DEBUG - hidden_states_orig: torch.Size([181, 8192]), torch.bfloat16
+Loading lm_local from: lm_head/Llama-3.3-70B-Instruct_lm_head.pt
+cuda:0 torch.Size([128256, 8192])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=3, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([181, 8192]), torch.bfloat16
+Loading lm_local from: lm_head/Llama-3.3-70B-Instruct_lm_head.pt
+cuda:0 torch.Size([128256, 8192])
+DEBUG - hidden_states_orig: torch.Size([181, 8192]), torch.bfloat16
+Loading lm_local from: lm_head/Llama-3.3-70B-Instruct_lm_head.pt
+cuda:0 torch.Size([128256, 8192])
+DEBUG - hidden_states_orig: torch.Size([181, 8192]), torch.bfloat16
+Loading lm_local from: lm_head/Llama-3.3-70B-Instruct_lm_head.pt
+cuda:0 torch.Size([128256, 8192])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=3, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([180, 8192]), torch.bfloat16
+Loading lm_local from: lm_head/Llama-3.3-70B-Instruct_lm_head.pt
+cuda:0 torch.Size([128256, 8192])
+DEBUG - hidden_states_orig: torch.Size([180, 8192]), torch.bfloat16
+Loading lm_local from: lm_head/Llama-3.3-70B-Instruct_lm_head.pt
+cuda:0 torch.Size([128256, 8192])
+DEBUG - hidden_states_orig: torch.Size([180, 8192]), torch.bfloat16
+Loading lm_local from: lm_head/Llama-3.3-70B-Instruct_lm_head.pt
+cuda:0 torch.Size([128256, 8192])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=3, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([176, 8192]), torch.bfloat16
+Loading lm_local from: lm_head/Llama-3.3-70B-Instruct_lm_head.pt
+cuda:0 torch.Size([128256, 8192])
+DEBUG - hidden_states_orig: torch.Size([176, 8192]), torch.bfloat16
+Loading lm_local from: lm_head/Llama-3.3-70B-Instruct_lm_head.pt
+cuda:0 torch.Size([128256, 8192])
+DEBUG - hidden_states_orig: torch.Size([176, 8192]), torch.bfloat16
+Loading lm_local from: lm_head/Llama-3.3-70B-Instruct_lm_head.pt
+cuda:0 torch.Size([128256, 8192])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=3, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([176, 8192]), torch.bfloat16
+Loading lm_local from: lm_head/Llama-3.3-70B-Instruct_lm_head.pt
+cuda:0 torch.Size([128256, 8192])
+DEBUG - hidden_states_orig: torch.Size([176, 8192]), torch.bfloat16
+Loading lm_local from: lm_head/Llama-3.3-70B-Instruct_lm_head.pt
+cuda:0 torch.Size([128256, 8192])
+DEBUG - hidden_states_orig: torch.Size([176, 8192]), torch.bfloat16
+Loading lm_local from: lm_head/Llama-3.3-70B-Instruct_lm_head.pt
+cuda:0 torch.Size([128256, 8192])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=3, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([175, 8192]), torch.bfloat16
+Loading lm_local from: lm_head/Llama-3.3-70B-Instruct_lm_head.pt
+cuda:0 torch.Size([128256, 8192])
+DEBUG - hidden_states_orig: torch.Size([175, 8192]), torch.bfloat16
+Loading lm_local from: lm_head/Llama-3.3-70B-Instruct_lm_head.pt
+cuda:0 torch.Size([128256, 8192])
+DEBUG - hidden_states_orig: torch.Size([175, 8192]), torch.bfloat16
+Loading lm_local from: lm_head/Llama-3.3-70B-Instruct_lm_head.pt
+cuda:0 torch.Size([128256, 8192])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=3, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([346, 8192]), torch.bfloat16
+Loading lm_local from: lm_head/Llama-3.3-70B-Instruct_lm_head.pt
+cuda:0 torch.Size([128256, 8192])
+DEBUG - hidden_states_orig: torch.Size([346, 8192]), torch.bfloat16
+Loading lm_local from: lm_head/Llama-3.3-70B-Instruct_lm_head.pt
+cuda:0 torch.Size([128256, 8192])
+DEBUG - hidden_states_orig: torch.Size([346, 8192]), torch.bfloat16
+Loading lm_local from: lm_head/Llama-3.3-70B-Instruct_lm_head.pt
+cuda:0 torch.Size([128256, 8192])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=3, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([170, 8192]), torch.bfloat16
+Loading lm_local from: lm_head/Llama-3.3-70B-Instruct_lm_head.pt
+cuda:0 torch.Size([128256, 8192])
+DEBUG - hidden_states_orig: torch.Size([170, 8192]), torch.bfloat16
+Loading lm_local from: lm_head/Llama-3.3-70B-Instruct_lm_head.pt
+cuda:0 torch.Size([128256, 8192])
+DEBUG - hidden_states_orig: torch.Size([170, 8192]), torch.bfloat16
+Loading lm_local from: lm_head/Llama-3.3-70B-Instruct_lm_head.pt
+cuda:0 torch.Size([128256, 8192])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=3, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([169, 8192]), torch.bfloat16
+Loading lm_local from: lm_head/Llama-3.3-70B-Instruct_lm_head.pt
+cuda:0 torch.Size([128256, 8192])
+DEBUG - hidden_states_orig: torch.Size([169, 8192]), torch.bfloat16
+Loading lm_local from: lm_head/Llama-3.3-70B-Instruct_lm_head.pt
+cuda:0 torch.Size([128256, 8192])
+DEBUG - hidden_states_orig: torch.Size([169, 8192]), torch.bfloat16
+Loading lm_local from: lm_head/Llama-3.3-70B-Instruct_lm_head.pt
+cuda:0 torch.Size([128256, 8192])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=3, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([168, 8192]), torch.bfloat16
+Loading lm_local from: lm_head/Llama-3.3-70B-Instruct_lm_head.pt
+cuda:0 torch.Size([128256, 8192])
+DEBUG - hidden_states_orig: torch.Size([168, 8192]), torch.bfloat16
+Loading lm_local from: lm_head/Llama-3.3-70B-Instruct_lm_head.pt
+cuda:0 torch.Size([128256, 8192])
+DEBUG - hidden_states_orig: torch.Size([168, 8192]), torch.bfloat16
+Loading lm_local from: lm_head/Llama-3.3-70B-Instruct_lm_head.pt
+cuda:0 torch.Size([128256, 8192])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=3, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([167, 8192]), torch.bfloat16
+Loading lm_local from: lm_head/Llama-3.3-70B-Instruct_lm_head.pt
+cuda:0 torch.Size([128256, 8192])
+DEBUG - hidden_states_orig: torch.Size([167, 8192]), torch.bfloat16
+Loading lm_local from: lm_head/Llama-3.3-70B-Instruct_lm_head.pt
+cuda:0 torch.Size([128256, 8192])
+DEBUG - hidden_states_orig: torch.Size([167, 8192]), torch.bfloat16
+Loading lm_local from: lm_head/Llama-3.3-70B-Instruct_lm_head.pt
+cuda:0 torch.Size([128256, 8192])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=3, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([330, 8192]), torch.bfloat16
+Loading lm_local from: lm_head/Llama-3.3-70B-Instruct_lm_head.pt
+cuda:0 torch.Size([128256, 8192])
+DEBUG - hidden_states_orig: torch.Size([330, 8192]), torch.bfloat16
+Loading lm_local from: lm_head/Llama-3.3-70B-Instruct_lm_head.pt
+cuda:0 torch.Size([128256, 8192])
+DEBUG - hidden_states_orig: torch.Size([330, 8192]), torch.bfloat16
+Loading lm_local from: lm_head/Llama-3.3-70B-Instruct_lm_head.pt
+cuda:0 torch.Size([128256, 8192])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=3, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([322, 8192]), torch.bfloat16
+Loading lm_local from: lm_head/Llama-3.3-70B-Instruct_lm_head.pt
+cuda:0 torch.Size([128256, 8192])
+DEBUG - hidden_states_orig: torch.Size([322, 8192]), torch.bfloat16
+Loading lm_local from: lm_head/Llama-3.3-70B-Instruct_lm_head.pt
+cuda:0 torch.Size([128256, 8192])
+DEBUG - hidden_states_orig: torch.Size([322, 8192]), torch.bfloat16
+Loading lm_local from: lm_head/Llama-3.3-70B-Instruct_lm_head.pt
+cuda:0 torch.Size([128256, 8192])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=3, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([159, 8192]), torch.bfloat16
+Loading lm_local from: lm_head/Llama-3.3-70B-Instruct_lm_head.pt
+cuda:0 torch.Size([128256, 8192])
+DEBUG - hidden_states_orig: torch.Size([159, 8192]), torch.bfloat16
+Loading lm_local from: lm_head/Llama-3.3-70B-Instruct_lm_head.pt
+cuda:0 torch.Size([128256, 8192])
+DEBUG - hidden_states_orig: torch.Size([159, 8192]), torch.bfloat16
+Loading lm_local from: lm_head/Llama-3.3-70B-Instruct_lm_head.pt
+cuda:0 torch.Size([128256, 8192])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=3, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([159, 8192]), torch.bfloat16
+Loading lm_local from: lm_head/Llama-3.3-70B-Instruct_lm_head.pt
+cuda:0 torch.Size([128256, 8192])
+DEBUG - hidden_states_orig: torch.Size([159, 8192]), torch.bfloat16
+Loading lm_local from: lm_head/Llama-3.3-70B-Instruct_lm_head.pt
+cuda:0 torch.Size([128256, 8192])
+DEBUG - hidden_states_orig: torch.Size([159, 8192]), torch.bfloat16
+Loading lm_local from: lm_head/Llama-3.3-70B-Instruct_lm_head.pt
+cuda:0 torch.Size([128256, 8192])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=3, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([157, 8192]), torch.bfloat16
+Loading lm_local from: lm_head/Llama-3.3-70B-Instruct_lm_head.pt
+cuda:0 torch.Size([128256, 8192])
+DEBUG - hidden_states_orig: torch.Size([157, 8192]), torch.bfloat16
+Loading lm_local from: lm_head/Llama-3.3-70B-Instruct_lm_head.pt
+cuda:0 torch.Size([128256, 8192])
+DEBUG - hidden_states_orig: torch.Size([157, 8192]), torch.bfloat16
+Loading lm_local from: lm_head/Llama-3.3-70B-Instruct_lm_head.pt
+cuda:0 torch.Size([128256, 8192])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=3, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([155, 8192]), torch.bfloat16
+Loading lm_local from: lm_head/Llama-3.3-70B-Instruct_lm_head.pt
+cuda:0 torch.Size([128256, 8192])
+DEBUG - hidden_states_orig: torch.Size([155, 8192]), torch.bfloat16
+Loading lm_local from: lm_head/Llama-3.3-70B-Instruct_lm_head.pt
+cuda:0 torch.Size([128256, 8192])
+DEBUG - hidden_states_orig: torch.Size([155, 8192]), torch.bfloat16
+Loading lm_local from: lm_head/Llama-3.3-70B-Instruct_lm_head.pt
+cuda:0 torch.Size([128256, 8192])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=3, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([286, 8192]), torch.bfloat16
+Loading lm_local from: lm_head/Llama-3.3-70B-Instruct_lm_head.pt
+cuda:0 torch.Size([128256, 8192])
+DEBUG - hidden_states_orig: torch.Size([286, 8192]), torch.bfloat16
+Loading lm_local from: lm_head/Llama-3.3-70B-Instruct_lm_head.pt
+cuda:0 torch.Size([128256, 8192])
+DEBUG - hidden_states_orig: torch.Size([286, 8192]), torch.bfloat16
+Loading lm_local from: lm_head/Llama-3.3-70B-Instruct_lm_head.pt
+cuda:0 torch.Size([128256, 8192])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=3, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([137, 8192]), torch.bfloat16
+Loading lm_local from: lm_head/Llama-3.3-70B-Instruct_lm_head.pt
+cuda:0 torch.Size([128256, 8192])
+DEBUG - hidden_states_orig: torch.Size([137, 8192]), torch.bfloat16
+Loading lm_local from: lm_head/Llama-3.3-70B-Instruct_lm_head.pt
+cuda:0 torch.Size([128256, 8192])
+DEBUG - hidden_states_orig: torch.Size([137, 8192]), torch.bfloat16
+Loading lm_local from: lm_head/Llama-3.3-70B-Instruct_lm_head.pt
+cuda:0 torch.Size([128256, 8192])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=3, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([132, 8192]), torch.bfloat16
+Loading lm_local from: lm_head/Llama-3.3-70B-Instruct_lm_head.pt
+cuda:0 torch.Size([128256, 8192])
+DEBUG - hidden_states_orig: torch.Size([132, 8192]), torch.bfloat16
+Loading lm_local from: lm_head/Llama-3.3-70B-Instruct_lm_head.pt
+cuda:0 torch.Size([128256, 8192])
+DEBUG - hidden_states_orig: torch.Size([132, 8192]), torch.bfloat16
+Loading lm_local from: lm_head/Llama-3.3-70B-Instruct_lm_head.pt
+cuda:0 torch.Size([128256, 8192])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=3, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([132, 8192]), torch.bfloat16
+Loading lm_local from: lm_head/Llama-3.3-70B-Instruct_lm_head.pt
+cuda:0 torch.Size([128256, 8192])
+DEBUG - hidden_states_orig: torch.Size([132, 8192]), torch.bfloat16
+Loading lm_local from: lm_head/Llama-3.3-70B-Instruct_lm_head.pt
+cuda:0 torch.Size([128256, 8192])
+DEBUG - hidden_states_orig: torch.Size([132, 8192]), torch.bfloat16
+Loading lm_local from: lm_head/Llama-3.3-70B-Instruct_lm_head.pt
+cuda:0 torch.Size([128256, 8192])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=3, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([132, 8192]), torch.bfloat16
+Loading lm_local from: lm_head/Llama-3.3-70B-Instruct_lm_head.pt
+cuda:0 torch.Size([128256, 8192])
+DEBUG - hidden_states_orig: torch.Size([132, 8192]), torch.bfloat16
+Loading lm_local from: lm_head/Llama-3.3-70B-Instruct_lm_head.pt
+cuda:0 torch.Size([128256, 8192])
+DEBUG - hidden_states_orig: torch.Size([132, 8192]), torch.bfloat16
+Loading lm_local from: lm_head/Llama-3.3-70B-Instruct_lm_head.pt
+cuda:0 torch.Size([128256, 8192])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=3, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([120, 8192]), torch.bfloat16
+Loading lm_local from: lm_head/Llama-3.3-70B-Instruct_lm_head.pt
+cuda:0 torch.Size([128256, 8192])
+DEBUG - hidden_states_orig: torch.Size([120, 8192]), torch.bfloat16
+Loading lm_local from: lm_head/Llama-3.3-70B-Instruct_lm_head.pt
+cuda:0 torch.Size([128256, 8192])
+DEBUG - hidden_states_orig: torch.Size([120, 8192]), torch.bfloat16
+Loading lm_local from: lm_head/Llama-3.3-70B-Instruct_lm_head.pt
+cuda:0 torch.Size([128256, 8192])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=3, lr=0.1
+DEBUG - hidden_states_orig: torch.Size([120, 8192]), torch.bfloat16
+Loading lm_local from: lm_head/Llama-3.3-70B-Instruct_lm_head.pt
+cuda:0 torch.Size([128256, 8192])
+DEBUG - hidden_states_orig: torch.Size([120, 8192]), torch.bfloat16
+Loading lm_local from: lm_head/Llama-3.3-70B-Instruct_lm_head.pt
+cuda:0 torch.Size([128256, 8192])
+DEBUG - hidden_states_orig: torch.Size([120, 8192]), torch.bfloat16
+Loading lm_local from: lm_head/Llama-3.3-70B-Instruct_lm_head.pt
+cuda:0 torch.Size([128256, 8192])
+|          Task          |Version|     Metric     |Value |   |Stderr|
+|------------------------|------:|----------------|-----:|---|-----:|
+|all                     |       |extractive_match|0.5505|±  |0.0354|
+|lighteval:gpqa:diamond:0|      0|extractive_match|0.5505|±  |0.0354|
+

@@ -1,0 +1,737 @@
+[2025-04-23 15:56:46,981] [[32m    INFO[0m]: PyTorch version 2.5.1 available. (config.py:58)[0m
+INFO 04-23 15:56:52 __init__.py:190] Automatically detected platform cuda.
+[2025-04-23 15:56:52,828] [[32m    INFO[0m]: --- LOADING MODEL --- (pipeline.py:189)[0m
+[2025-04-23 15:57:01,151] [[32m    INFO[0m]: This model supports multiple tasks: {'generate', 'embed', 'score', 'classify', 'reward'}. Defaulting to 'generate'. (config.py:542)[0m
+[2025-04-23 15:57:01,153] [[32m    INFO[0m]: Initializing a V0 LLM engine (v0.7.2) with config: model='~/Models/Qwen/Qwen2.5-Math-1.5B', speculative_config=None, tokenizer='~/Models/Qwen/Qwen2.5-Math-1.5B', skip_tokenizer_init=False, tokenizer_mode=auto, revision=main, override_neuron_config=None, tokenizer_revision=main, trust_remote_code=False, dtype=torch.bfloat16, max_seq_len=4096, download_dir=None, load_format=LoadFormat.AUTO, tensor_parallel_size=1, pipeline_parallel_size=1, disable_custom_all_reduce=False, quantization=None, enforce_eager=False, kv_cache_dtype=auto,  device_config=cuda, decoding_config=DecodingConfig(guided_decoding_backend='xgrammar'), observability_config=ObservabilityConfig(otlp_traces_endpoint=None, collect_model_forward_time=False, collect_model_execute_time=False), seed=1234, served_model_name=~/Models/Qwen/Qwen2.5-Math-1.5B, num_scheduler_steps=1, multi_step_stream_outputs=True, enable_prefix_caching=False, chunked_prefill_enabled=False, use_async_output_proc=True, disable_mm_preprocessor_cache=False, mm_processor_kwargs=None, pooler_config=None, compilation_config={"splitting_ops":[],"compile_sizes":[],"cudagraph_capture_sizes":[128,120,112,104,96,88,80,72,64,56,48,40,32,24,16,8,4,2,1],"max_capture_size":128}, use_cached_outputs=False,  (llm_engine.py:234)[0m
+[2025-04-23 15:57:02,158] [[32m    INFO[0m]: Using Flash Attention backend. (cuda.py:230)[0m
+[2025-04-23 15:57:04,041] [[32m    INFO[0m]: Starting to load model ~/Models/Qwen/Qwen2.5-Math-1.5B... (model_runner.py:1110)[0m
+
+Loading safetensors checkpoint shards:   0% Completed | 0/1 [00:00<?, ?it/s]
+
+Loading safetensors checkpoint shards: 100% Completed | 1/1 [00:01<00:00,  1.11s/it]
+
+Loading safetensors checkpoint shards: 100% Completed | 1/1 [00:01<00:00,  1.11s/it]
+
+[2025-04-23 15:57:05,549] [[32m    INFO[0m]: Loading model weights took 2.8797 GB (model_runner.py:1115)[0m
+[2025-04-23 15:57:06,059] [[33m WARNING[0m]: ~/Projects/nips25_slot/open-r2/openr1/lib/python3.11/site-packages/vllm/worker/model_runner.py:1832: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  lm_head_weight = torch.load(lm_local, map_location=hidden_states_cur.device).to(dtype=torch.bfloat16)
+ (warnings.py:110)[0m
+[2025-04-23 15:57:06,574] [[32m    INFO[0m]: Memory profiling takes 0.69 seconds
+the current vLLM instance can use total_gpu_memory (79.22GiB) x gpu_memory_utilization (0.90) = 71.29GiB
+model weights take 2.88GiB; non_torch_memory takes 0.16GiB; PyTorch activation peak memory takes 6.30GiB; the rest of the memory reserved for KV Cache is 61.96GiB. (worker.py:267)[0m
+[2025-04-23 15:57:06,732] [[32m    INFO[0m]: # CUDA blocks: 145022, # CPU blocks: 9362 (executor_base.py:110)[0m
+[2025-04-23 15:57:06,732] [[32m    INFO[0m]: Maximum concurrency for 4096 tokens per request: 566.49x (executor_base.py:115)[0m
+[2025-04-23 15:57:09,848] [[32m    INFO[0m]: Capturing cudagraphs for decoding. This may lead to unexpected consequences if the model is not static. To run the model in eager mode, set 'enforce_eager=True' or use '--enforce-eager' in the CLI. If out-of-memory error occurs during cudagraph capture, consider decreasing `gpu_memory_utilization` or switching to eager mode. You can also reduce the `max_num_seqs` as needed to decrease memory usage. (model_runner.py:1434)[0m
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.0001
+DEBUG - hidden_states_orig: torch.Size([4096, 1536]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-Math-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+
+Capturing CUDA graph shapes:   0%|          | 0/19 [00:00<?, ?it/s]
+Capturing CUDA graph shapes:   5%|▌         | 1/19 [00:00<00:06,  2.66it/s]
+Capturing CUDA graph shapes:  11%|█         | 2/19 [00:00<00:06,  2.74it/s]
+Capturing CUDA graph shapes:  16%|█▌        | 3/19 [00:01<00:05,  2.69it/s]
+Capturing CUDA graph shapes:  21%|██        | 4/19 [00:01<00:08,  1.86it/s]
+Capturing CUDA graph shapes:  26%|██▋       | 5/19 [00:02<00:06,  2.11it/s]
+Capturing CUDA graph shapes:  32%|███▏      | 6/19 [00:02<00:05,  2.38it/s]
+Capturing CUDA graph shapes:  37%|███▋      | 7/19 [00:02<00:04,  2.58it/s]
+Capturing CUDA graph shapes:  42%|████▏     | 8/19 [00:03<00:05,  2.09it/s]
+Capturing CUDA graph shapes:  47%|████▋     | 9/19 [00:03<00:04,  2.32it/s]
+Capturing CUDA graph shapes:  53%|█████▎    | 10/19 [00:04<00:03,  2.54it/s]
+Capturing CUDA graph shapes:  58%|█████▊    | 11/19 [00:04<00:02,  2.68it/s]
+Capturing CUDA graph shapes:  63%|██████▎   | 12/19 [00:05<00:03,  2.33it/s]
+Capturing CUDA graph shapes:  68%|██████▊   | 13/19 [00:05<00:03,  2.00it/s]
+Capturing CUDA graph shapes:  74%|███████▎  | 14/19 [00:06<00:02,  2.09it/s]
+Capturing CUDA graph shapes:  79%|███████▉  | 15/19 [00:06<00:01,  2.15it/s]
+Capturing CUDA graph shapes:  84%|████████▍ | 16/19 [00:07<00:01,  1.88it/s]
+Capturing CUDA graph shapes:  89%|████████▉ | 17/19 [00:07<00:00,  2.10it/s]
+Capturing CUDA graph shapes:  95%|█████████▍| 18/19 [00:08<00:00,  2.29it/s]
+Capturing CUDA graph shapes: 100%|██████████| 19/19 [00:08<00:00,  2.49it/s]
+Capturing CUDA graph shapes: 100%|██████████| 19/19 [00:08<00:00,  2.28it/s]
+[2025-04-23 15:57:18,178] [[32m    INFO[0m]: Graph capturing finished in 8 secs, took 0.22 GiB (model_runner.py:1562)[0m
+[2025-04-23 15:57:18,179] [[32m    INFO[0m]: init engine (profile, create kv cache, warmup model) took 12.63 seconds (llm_engine.py:431)[0m
+[2025-04-23 15:57:19,448] [[32m    INFO[0m]: --- INIT SEEDS --- (pipeline.py:263)[0m
+[2025-04-23 15:57:19,448] [[32m    INFO[0m]: --- LOADING TASKS --- (pipeline.py:216)[0m
+[2025-04-23 15:57:19,449] [[32m    INFO[0m]: Found 1 custom tasks in ~/Projects/nips25_slot/open-r2/openr1/lib/python3.11/site-packages/lighteval/tasks/extended/ifeval/main.py (registry.py:142)[0m
+[2025-04-23 15:57:19,449] [[32m    INFO[0m]: Found 6 custom tasks in ~/Projects/nips25_slot/open-r2/openr1/lib/python3.11/site-packages/lighteval/tasks/extended/tiny_benchmarks/main.py (registry.py:142)[0m
+[2025-04-23 15:57:19,449] [[32m    INFO[0m]: Found 1 custom tasks in ~/Projects/nips25_slot/open-r2/openr1/lib/python3.11/site-packages/lighteval/tasks/extended/mt_bench/main.py (registry.py:142)[0m
+[2025-04-23 15:57:19,449] [[32m    INFO[0m]: Found 4 custom tasks in ~/Projects/nips25_slot/open-r2/openr1/lib/python3.11/site-packages/lighteval/tasks/extended/mix_eval/main.py (registry.py:142)[0m
+[2025-04-23 15:57:19,449] [[32m    INFO[0m]: Found 5 custom tasks in ~/Projects/nips25_slot/open-r2/openr1/lib/python3.11/site-packages/lighteval/tasks/extended/olympiade_bench/main.py (registry.py:142)[0m
+[2025-04-23 15:57:19,449] [[32m    INFO[0m]: Found 1 custom tasks in ~/Projects/nips25_slot/open-r2/openr1/lib/python3.11/site-packages/lighteval/tasks/extended/hle/main.py (registry.py:142)[0m
+[2025-04-23 15:57:19,449] [[32m    INFO[0m]: Found 21 custom tasks in ~/Projects/nips25_slot/open-r2/openr1/lib/python3.11/site-packages/lighteval/tasks/extended/lcb/main.py (registry.py:142)[0m
+[2025-04-23 15:57:19,450] [[32m    INFO[0m]: Idavidrein/gpqa gpqa_diamond (lighteval_task.py:187)[0m
+[2025-04-23 15:57:19,450] [[33m WARNING[0m]: Careful, the task lighteval|gpqa:diamond is using evaluation data to build the few shot examples. (lighteval_task.py:260)[0m
+Using the latest cached version of the dataset since Idavidrein/gpqa couldn't be found on the Hugging Face Hub
+[2025-04-23 15:57:41,625] [[33m WARNING[0m]: Using the latest cached version of the dataset since Idavidrein/gpqa couldn't be found on the Hugging Face Hub (load.py:1631)[0m
+Found the latest cached dataset configuration 'gpqa_diamond' at ~/.cache/huggingface/datasets/Idavidrein___gpqa/gpqa_diamond/0.0.0/90b8e5be2b1d3d2dbfe016cdab47981150600c4a (last modified on Sat Apr 12 16:41:50 2025).
+[2025-04-23 15:57:41,627] [[33m WARNING[0m]: Found the latest cached dataset configuration 'gpqa_diamond' at ~/.cache/huggingface/datasets/Idavidrein___gpqa/gpqa_diamond/0.0.0/90b8e5be2b1d3d2dbfe016cdab47981150600c4a (last modified on Sat Apr 12 16:41:50 2025). (cache.py:95)[0m
+[2025-04-23 15:57:41,770] [[32m    INFO[0m]: --- RUNNING MODEL --- (pipeline.py:468)[0m
+[2025-04-23 15:57:41,771] [[32m    INFO[0m]: Running RequestType.GREEDY_UNTIL requests (pipeline.py:472)[0m
+[2025-04-23 15:57:41,828] [[33m WARNING[0m]: You cannot select the number of dataset splits for a generative evaluation at the moment. Automatically inferring. (data.py:260)[0m
+Idavidrein/gpqa
+gpqa_diamond
+True
+None
+
+Splits:   0%|          | 0/1 [00:00<?, ?it/s][2025-04-23 15:57:41,881] [[33m WARNING[0m]: context_size + max_new_tokens=6935 which is greater than self.max_length=4096. Truncating context to 0 tokens. (vllm_model.py:270)[0m
+
+
+Processed prompts:   0%|          | 0/198 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s][A
+
+Processed prompts:   1%|          | 1/198 [00:02<09:46,  2.98s/it, est. speed input: 96.34 toks/s, output: 19.47 toks/s][A
+
+Processed prompts:   1%|          | 2/198 [00:03<04:31,  1.39s/it, est. speed input: 159.08 toks/s, output: 37.85 toks/s][A
+
+Processed prompts:   2%|▏         | 3/198 [00:04<03:44,  1.15s/it, est. speed input: 202.34 toks/s, output: 59.20 toks/s][A
+
+Processed prompts:   2%|▏         | 4/198 [00:04<03:01,  1.07it/s, est. speed input: 245.91 toks/s, output: 84.02 toks/s][A
+
+Processed prompts:   3%|▎         | 5/198 [00:05<02:27,  1.30it/s, est. speed input: 281.89 toks/s, output: 110.14 toks/s][A
+
+Processed prompts:   3%|▎         | 6/198 [00:05<01:51,  1.72it/s, est. speed input: 324.90 toks/s, output: 138.56 toks/s][A
+
+Processed prompts:   4%|▎         | 7/198 [00:05<01:30,  2.11it/s, est. speed input: 350.38 toks/s, output: 165.13 toks/s][A
+
+Processed prompts:   4%|▍         | 8/198 [00:06<01:41,  1.87it/s, est. speed input: 352.18 toks/s, output: 183.35 toks/s][A
+
+Processed prompts:   5%|▍         | 9/198 [00:06<01:25,  2.20it/s, est. speed input: 386.67 toks/s, output: 211.19 toks/s][A
+
+Processed prompts:   5%|▌         | 10/198 [00:06<01:11,  2.63it/s, est. speed input: 409.66 toks/s, output: 239.26 toks/s][A
+
+Processed prompts:   6%|▌         | 11/198 [00:07<01:02,  2.98it/s, est. speed input: 442.14 toks/s, output: 265.34 toks/s][A
+
+Processed prompts:   6%|▌         | 12/198 [00:07<01:08,  2.70it/s, est. speed input: 453.50 toks/s, output: 284.14 toks/s][A
+
+Processed prompts:   7%|▋         | 13/198 [00:07<00:59,  3.13it/s, est. speed input: 486.81 toks/s, output: 310.84 toks/s][A
+
+Processed prompts:   7%|▋         | 14/198 [00:07<00:53,  3.45it/s, est. speed input: 506.38 toks/s, output: 335.57 toks/s][A
+
+Processed prompts:   8%|▊         | 15/198 [00:08<01:08,  2.66it/s, est. speed input: 502.91 toks/s, output: 347.73 toks/s][A
+
+Processed prompts:   8%|▊         | 16/198 [00:08<01:12,  2.51it/s, est. speed input: 524.96 toks/s, output: 365.56 toks/s][A
+
+Processed prompts:   9%|▊         | 17/198 [00:09<01:02,  2.91it/s, est. speed input: 539.07 toks/s, output: 391.90 toks/s][A
+
+Processed prompts:   9%|▉         | 18/198 [00:09<00:55,  3.24it/s, est. speed input: 574.41 toks/s, output: 416.87 toks/s][A
+
+Processed prompts:  10%|▉         | 19/198 [00:09<00:54,  3.29it/s, est. speed input: 642.67 toks/s, output: 438.52 toks/s][A
+
+Processed prompts:  10%|█         | 20/198 [00:10<01:12,  2.47it/s, est. speed input: 638.51 toks/s, output: 447.03 toks/s][A
+
+Processed prompts:  11%|█         | 21/198 [00:10<01:08,  2.60it/s, est. speed input: 670.90 toks/s, output: 468.60 toks/s][A
+
+Processed prompts:  11%|█         | 22/198 [00:10<01:00,  2.92it/s, est. speed input: 689.68 toks/s, output: 493.31 toks/s][A
+
+Processed prompts:  12%|█▏        | 23/198 [00:11<01:00,  2.91it/s, est. speed input: 695.47 toks/s, output: 513.52 toks/s][A
+
+Processed prompts:  12%|█▏        | 24/198 [00:11<00:51,  3.38it/s, est. speed input: 710.46 toks/s, output: 540.01 toks/s][A
+
+Processed prompts:  13%|█▎        | 25/198 [00:12<01:04,  2.67it/s, est. speed input: 697.74 toks/s, output: 550.39 toks/s][A
+
+Processed prompts:  13%|█▎        | 26/198 [00:12<01:10,  2.46it/s, est. speed input: 692.25 toks/s, output: 565.25 toks/s][A
+
+Processed prompts:  14%|█▎        | 27/198 [00:12<01:05,  2.61it/s, est. speed input: 692.16 toks/s, output: 586.96 toks/s][A
+
+Processed prompts:  14%|█▍        | 28/198 [00:13<00:59,  2.85it/s, est. speed input: 715.36 toks/s, output: 610.40 toks/s][A
+
+Processed prompts:  15%|█▍        | 29/198 [00:13<01:00,  2.79it/s, est. speed input: 715.88 toks/s, output: 629.45 toks/s][A
+
+Processed prompts:  15%|█▌        | 30/198 [00:15<02:01,  1.38it/s, est. speed input: 659.09 toks/s, output: 602.74 toks/s][A
+
+Processed prompts:  16%|█▌        | 31/198 [00:15<01:34,  1.77it/s, est. speed input: 676.72 toks/s, output: 634.08 toks/s][A
+
+Processed prompts:  16%|█▌        | 32/198 [00:15<01:23,  2.00it/s, est. speed input: 673.86 toks/s, output: 620.75 toks/s][A
+
+Processed prompts:  17%|█▋        | 33/198 [00:15<01:12,  2.28it/s, est. speed input: 675.98 toks/s, output: 647.78 toks/s][A
+
+Processed prompts:  17%|█▋        | 34/198 [00:16<01:18,  2.09it/s, est. speed input: 664.22 toks/s, output: 635.79 toks/s][A
+
+Processed prompts:  18%|█▊        | 35/198 [00:16<01:11,  2.27it/s, est. speed input: 673.54 toks/s, output: 661.64 toks/s][A
+
+Processed prompts:  18%|█▊        | 36/198 [00:17<01:03,  2.54it/s, est. speed input: 676.70 toks/s, output: 689.40 toks/s][A
+
+Processed prompts:  19%|█▊        | 37/198 [00:17<01:01,  2.63it/s, est. speed input: 675.95 toks/s, output: 707.36 toks/s][A
+
+Processed prompts:  19%|█▉        | 38/198 [00:17<00:59,  2.67it/s, est. speed input: 714.67 toks/s, output: 731.63 toks/s][A
+
+Processed prompts:  20%|█▉        | 39/198 [00:18<01:27,  1.83it/s, est. speed input: 690.47 toks/s, output: 734.40 toks/s][A
+
+Processed prompts:  20%|██        | 40/198 [00:19<01:22,  1.93it/s, est. speed input: 685.43 toks/s, output: 744.72 toks/s][A
+
+Processed prompts:  21%|██        | 41/198 [00:19<01:10,  2.22it/s, est. speed input: 689.05 toks/s, output: 773.35 toks/s][A
+
+Processed prompts:  21%|██        | 42/198 [00:21<02:01,  1.28it/s, est. speed input: 648.58 toks/s, output: 745.04 toks/s][A
+
+Processed prompts:  22%|██▏       | 43/198 [00:21<01:49,  1.42it/s, est. speed input: 641.06 toks/s, output: 736.79 toks/s][A
+
+Processed prompts:  22%|██▏       | 44/198 [00:21<01:27,  1.76it/s, est. speed input: 643.37 toks/s, output: 753.90 toks/s][A
+
+Processed prompts:  23%|██▎       | 45/198 [00:22<01:21,  1.87it/s, est. speed input: 643.43 toks/s, output: 778.53 toks/s][A
+
+Processed prompts:  23%|██▎       | 46/198 [00:23<01:43,  1.47it/s, est. speed input: 634.57 toks/s, output: 785.45 toks/s][A
+
+Processed prompts:  24%|██▎       | 47/198 [00:23<01:37,  1.54it/s, est. speed input: 630.52 toks/s, output: 807.98 toks/s][A
+
+Processed prompts:  24%|██▍       | 48/198 [00:24<01:23,  1.80it/s, est. speed input: 629.31 toks/s, output: 812.38 toks/s][A
+
+Processed prompts:  25%|██▌       | 50/198 [00:24<00:55,  2.66it/s, est. speed input: 642.73 toks/s, output: 851.52 toks/s][A
+
+Processed prompts:  26%|██▋       | 52/198 [00:25<00:50,  2.91it/s, est. speed input: 661.30 toks/s, output: 885.93 toks/s][A
+
+Processed prompts:  27%|██▋       | 53/198 [00:25<00:49,  2.92it/s, est. speed input: 663.19 toks/s, output: 915.30 toks/s][A
+
+Processed prompts:  27%|██▋       | 54/198 [00:26<01:04,  2.22it/s, est. speed input: 649.70 toks/s, output: 892.81 toks/s][A
+
+Processed prompts:  28%|██▊       | 55/198 [00:27<01:19,  1.79it/s, est. speed input: 641.12 toks/s, output: 906.39 toks/s][A
+
+Processed prompts:  28%|██▊       | 56/198 [00:27<01:12,  1.95it/s, est. speed input: 638.70 toks/s, output: 911.04 toks/s][A
+
+Processed prompts:  29%|██▉       | 57/198 [00:27<01:06,  2.13it/s, est. speed input: 637.23 toks/s, output: 920.26 toks/s][A
+
+Processed prompts:  29%|██▉       | 58/198 [00:29<01:35,  1.47it/s, est. speed input: 708.19 toks/s, output: 925.09 toks/s][A
+
+Processed prompts:  30%|██▉       | 59/198 [00:29<01:30,  1.53it/s, est. speed input: 702.59 toks/s, output: 950.44 toks/s][A
+
+Processed prompts:  30%|███       | 60/198 [00:30<01:27,  1.57it/s, est. speed input: 694.04 toks/s, output: 936.35 toks/s][A
+
+Processed prompts:  31%|███       | 61/198 [00:30<01:18,  1.74it/s, est. speed input: 689.46 toks/s, output: 928.75 toks/s][A
+
+Processed prompts:  31%|███▏      | 62/198 [00:31<01:42,  1.33it/s, est. speed input: 669.00 toks/s, output: 897.70 toks/s][A
+
+Processed prompts:  32%|███▏      | 63/198 [00:32<01:24,  1.60it/s, est. speed input: 668.40 toks/s, output: 920.91 toks/s][A
+
+Processed prompts:  32%|███▏      | 64/198 [00:32<01:13,  1.81it/s, est. speed input: 667.07 toks/s, output: 945.25 toks/s][A
+
+Processed prompts:  33%|███▎      | 65/198 [00:33<01:37,  1.36it/s, est. speed input: 654.75 toks/s, output: 957.29 toks/s][A
+
+Processed prompts:  34%|███▍      | 67/198 [00:33<00:58,  2.25it/s, est. speed input: 663.43 toks/s, output: 1029.75 toks/s][A
+
+Processed prompts:  34%|███▍      | 68/198 [00:34<00:54,  2.37it/s, est. speed input: 661.10 toks/s, output: 1027.04 toks/s][A
+
+Processed prompts:  35%|███▍      | 69/198 [00:34<00:51,  2.51it/s, est. speed input: 659.02 toks/s, output: 1020.82 toks/s][A
+
+Processed prompts:  35%|███▌      | 70/198 [00:35<00:57,  2.24it/s, est. speed input: 652.20 toks/s, output: 1007.82 toks/s][A
+
+Processed prompts:  36%|███▌      | 71/198 [00:35<01:07,  1.89it/s, est. speed input: 652.52 toks/s, output: 1031.67 toks/s][A
+
+Processed prompts:  36%|███▋      | 72/198 [00:36<01:23,  1.50it/s, est. speed input: 639.16 toks/s, output: 1018.18 toks/s][A
+
+Processed prompts:  37%|███▋      | 73/198 [00:37<01:03,  1.98it/s, est. speed input: 641.84 toks/s, output: 1033.82 toks/s][A
+
+Processed prompts:  37%|███▋      | 74/198 [00:37<00:50,  2.44it/s, est. speed input: 642.10 toks/s, output: 1034.11 toks/s][A
+
+Processed prompts:  38%|███▊      | 75/198 [00:38<01:14,  1.65it/s, est. speed input: 628.35 toks/s, output: 1024.53 toks/s][A
+
+Processed prompts:  39%|███▉      | 77/198 [00:39<00:59,  2.02it/s, est. speed input: 624.95 toks/s, output: 1039.45 toks/s][A
+
+Processed prompts:  39%|███▉      | 78/198 [00:39<01:01,  1.96it/s, est. speed input: 619.47 toks/s, output: 1034.49 toks/s][A
+
+Processed prompts:  40%|███▉      | 79/198 [00:39<00:53,  2.22it/s, est. speed input: 620.61 toks/s, output: 1070.86 toks/s][A
+
+Processed prompts:  40%|████      | 80/198 [00:40<00:59,  1.99it/s, est. speed input: 620.84 toks/s, output: 1102.36 toks/s][A
+
+Processed prompts:  41%|████▏     | 82/198 [00:40<00:36,  3.20it/s, est. speed input: 631.27 toks/s, output: 1175.18 toks/s][A
+
+Processed prompts:  42%|████▏     | 83/198 [00:42<01:04,  1.79it/s, est. speed input: 616.92 toks/s, output: 1186.86 toks/s][A
+
+Processed prompts:  42%|████▏     | 84/198 [00:42<01:00,  1.89it/s, est. speed input: 613.16 toks/s, output: 1187.54 toks/s][A
+
+Processed prompts:  43%|████▎     | 85/198 [00:43<01:02,  1.81it/s, est. speed input: 610.06 toks/s, output: 1220.90 toks/s][A
+
+Processed prompts:  43%|████▎     | 86/198 [00:44<01:29,  1.25it/s, est. speed input: 592.96 toks/s, output: 1198.01 toks/s][A
+
+Processed prompts:  44%|████▍     | 87/198 [00:46<02:19,  1.25s/it, est. speed input: 570.69 toks/s, output: 1187.83 toks/s][A
+
+Processed prompts:  44%|████▍     | 88/198 [00:50<03:44,  2.04s/it, est. speed input: 529.71 toks/s, output: 1135.47 toks/s][A
+
+Processed prompts:  45%|████▍     | 89/198 [00:53<04:04,  2.24s/it, est. speed input: 508.55 toks/s, output: 1132.15 toks/s][A
+
+Processed prompts:  45%|████▌     | 90/198 [00:58<05:36,  3.11s/it, est. speed input: 472.68 toks/s, output: 1088.05 toks/s][A
+
+Processed prompts:  46%|████▌     | 91/198 [01:01<05:05,  2.85s/it, est. speed input: 457.92 toks/s, output: 1083.98 toks/s][A
+
+Processed prompts:  46%|████▋     | 92/198 [01:01<03:46,  2.14s/it, est. speed input: 457.32 toks/s, output: 1116.21 toks/s][A
+
+Processed prompts:  47%|████▋     | 94/198 [01:01<02:04,  1.20s/it, est. speed input: 469.26 toks/s, output: 1226.32 toks/s][A
+
+Processed prompts:  48%|████▊     | 95/198 [01:01<01:38,  1.04it/s, est. speed input: 476.78 toks/s, output: 1278.97 toks/s][A
+
+Processed prompts:  48%|████▊     | 96/198 [01:02<01:21,  1.25it/s, est. speed input: 482.79 toks/s, output: 1328.80 toks/s][A
+
+Processed prompts:  49%|████▉     | 97/198 [01:03<01:27,  1.15it/s, est. speed input: 482.09 toks/s, output: 1364.06 toks/s][A
+
+Processed prompts:  50%|█████     | 99/198 [01:03<00:58,  1.70it/s, est. speed input: 492.64 toks/s, output: 1468.65 toks/s][A
+
+Processed prompts:  52%|█████▏    | 102/198 [01:04<00:32,  2.91it/s, est. speed input: 510.48 toks/s, output: 1635.19 toks/s][A
+
+Processed prompts:  52%|█████▏    | 103/198 [01:04<00:33,  2.88it/s, est. speed input: 513.56 toks/s, output: 1683.53 toks/s][A
+
+Processed prompts:  53%|█████▎    | 105/198 [01:04<00:26,  3.50it/s, est. speed input: 522.36 toks/s, output: 1789.71 toks/s][A
+
+Processed prompts:  54%|█████▍    | 107/198 [01:04<00:19,  4.77it/s, est. speed input: 532.36 toks/s, output: 1901.95 toks/s][A
+
+Processed prompts:  55%|█████▌    | 109/198 [01:04<00:14,  6.27it/s, est. speed input: 542.18 toks/s, output: 2014.14 toks/s][A
+
+Processed prompts:  57%|█████▋    | 112/198 [01:05<00:10,  8.50it/s, est. speed input: 556.30 toks/s, output: 2181.90 toks/s][A
+
+Processed prompts:  58%|█████▊    | 114/198 [01:05<00:08,  9.39it/s, est. speed input: 564.92 toks/s, output: 2292.19 toks/s][A
+
+Processed prompts:  60%|█████▉    | 118/198 [01:05<00:06, 12.87it/s, est. speed input: 582.66 toks/s, output: 2517.40 toks/s][A
+
+Processed prompts:  63%|██████▎   | 124/198 [01:05<00:03, 19.65it/s, est. speed input: 609.03 toks/s, output: 2859.15 toks/s][A
+
+Processed prompts:  64%|██████▍   | 127/198 [01:05<00:03, 20.86it/s, est. speed input: 621.15 toks/s, output: 3027.73 toks/s][A
+
+Processed prompts:  67%|██████▋   | 132/198 [01:05<00:02, 26.80it/s, est. speed input: 641.38 toks/s, output: 3313.05 toks/s][A
+
+Processed prompts:  72%|███████▏  | 142/198 [01:05<00:01, 40.84it/s, est. speed input: 681.01 toks/s, output: 3886.81 toks/s][A
+
+Processed prompts:  76%|███████▋  | 151/198 [01:06<00:00, 51.79it/s, est. speed input: 714.66 toks/s, output: 4403.96 toks/s][A
+
+Processed prompts:  79%|███████▉  | 157/198 [01:06<00:00, 50.59it/s, est. speed input: 735.60 toks/s, output: 4744.60 toks/s][A
+
+Processed prompts:  83%|████████▎ | 165/198 [01:06<00:01, 29.08it/s, est. speed input: 757.58 toks/s, output: 5173.14 toks/s][A
+
+Processed prompts:  86%|████████▌ | 170/198 [01:07<00:02, 12.08it/s, est. speed input: 760.39 toks/s, output: 5367.29 toks/s][A
+
+Processed prompts:  88%|████████▊ | 174/198 [01:08<00:01, 12.33it/s, est. speed input: 769.51 toks/s, output: 5571.55 toks/s][A
+
+Processed prompts:  89%|████████▉ | 177/198 [01:08<00:02, 10.49it/s, est. speed input: 773.16 toks/s, output: 5703.17 toks/s][A
+
+Processed prompts:  91%|█████████ | 180/198 [01:09<00:01,  9.45it/s, est. speed input: 776.88 toks/s, output: 5836.30 toks/s][A
+
+Processed prompts:  92%|█████████▏| 182/198 [01:09<00:01,  8.70it/s, est. speed input: 778.96 toks/s, output: 5921.64 toks/s][A
+
+Processed prompts:  93%|█████████▎| 184/198 [01:09<00:01,  8.69it/s, est. speed input: 781.94 toks/s, output: 6014.05 toks/s][A
+
+Processed prompts:  94%|█████████▍| 186/198 [01:10<00:02,  5.48it/s, est. speed input: 776.88 toks/s, output: 6039.15 toks/s][A
+
+Processed prompts:  94%|█████████▍| 187/198 [01:10<00:02,  5.24it/s, est. speed input: 776.78 toks/s, output: 6073.59 toks/s][A
+
+Processed prompts:  95%|█████████▍| 188/198 [01:11<00:02,  4.15it/s, est. speed input: 773.80 toks/s, output: 6085.48 toks/s][A
+
+Processed prompts:  95%|█████████▌| 189/198 [01:11<00:01,  4.60it/s, est. speed input: 775.08 toks/s, output: 6130.63 toks/s][A
+
+Processed prompts:  96%|█████████▌| 190/198 [01:11<00:02,  3.45it/s, est. speed input: 771.51 toks/s, output: 6137.28 toks/s][A
+
+Processed prompts:  97%|█████████▋| 192/198 [01:12<00:01,  4.89it/s, est. speed input: 775.09 toks/s, output: 6235.49 toks/s][A
+
+Processed prompts:  97%|█████████▋| 193/198 [01:12<00:01,  3.81it/s, est. speed input: 772.36 toks/s, output: 6248.42 toks/s][A
+
+Processed prompts:  99%|█████████▉| 196/198 [01:12<00:00,  4.81it/s, est. speed input: 774.51 toks/s, output: 6371.89 toks/s][A
+
+Processed prompts:  99%|█████████▉| 197/198 [01:14<00:00,  2.33it/s, est. speed input: 761.80 toks/s, output: 6304.53 toks/s][A
+
+Processed prompts: 100%|██████████| 198/198 [01:14<00:00,  2.23it/s, est. speed input: 758.03 toks/s, output: 6314.12 toks/s][A
+Processed prompts: 100%|██████████| 198/198 [01:14<00:00,  2.64it/s, est. speed input: 758.03 toks/s, output: 6314.12 toks/s]
+
+Splits: 100%|██████████| 1/1 [01:15<00:00, 75.21s/it]
+Splits: 100%|██████████| 1/1 [01:15<00:00, 75.21s/it]
+[2025-04-23 15:58:58,059] [[32m    INFO[0m]: --- COMPUTING METRICS --- (pipeline.py:504)[0m
+[2025-04-23 15:58:58,062] [[33m WARNING[0m]: We did not manage to extract a prediction in the correct format. Gold: ['A'], Pred: ['Please reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\nPlease reason step by step, and put your final answer within \\boxed{}.نظم\n'] (dynamic_metrics.py:265)[0m
+[2025-04-23 15:58:58,133] [[33m WARNING[0m]: We did not manage to extract a prediction in the correct format. Gold: ['C'], Pred: ['Please reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by step, and put your final answer within \\boxed{}..Highlighted text\nPlease reason step by'] (dynamic_metrics.py:265)[0m
+[2025-04-23 15:58:58,184] [[32m    INFO[0m]: --- DISPLAYING RESULTS --- (pipeline.py:546)[0m
+[2025-04-23 15:58:58,193] [[32m    INFO[0m]: --- SAVING AND PUSHING RESULTS --- (pipeline.py:536)[0m
+[2025-04-23 15:58:58,193] [[32m    INFO[0m]: Saving experiment tracker (evaluation_tracker.py:180)[0m
+[2025-04-23 15:58:58,483] [[32m    INFO[0m]: Saving results to ~/Projects/nips25_slot/open-r2/data/evals~/Models/Qwen/Qwen2.5-Math-1.5B/results/_Models_Qwen_Qwen2.5-Math-1.5B/results_2025-04-23T15-58-58.193970.json (evaluation_tracker.py:234)[0m
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.0001
+DEBUG - hidden_states_orig: torch.Size([3773, 1536]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-Math-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.0001
+DEBUG - hidden_states_orig: torch.Size([3761, 1536]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-Math-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.0001
+DEBUG - hidden_states_orig: torch.Size([3798, 1536]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-Math-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.0001
+DEBUG - hidden_states_orig: torch.Size([4036, 1536]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-Math-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.0001
+DEBUG - hidden_states_orig: torch.Size([3919, 1536]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-Math-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.0001
+DEBUG - hidden_states_orig: torch.Size([3913, 1536]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-Math-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.0001
+DEBUG - hidden_states_orig: torch.Size([3942, 1536]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-Math-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.0001
+DEBUG - hidden_states_orig: torch.Size([3959, 1536]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-Math-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.0001
+DEBUG - hidden_states_orig: torch.Size([4020, 1536]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-Math-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.0001
+DEBUG - hidden_states_orig: torch.Size([4034, 1536]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-Math-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.0001
+DEBUG - hidden_states_orig: torch.Size([3999, 1536]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-Math-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.0001
+DEBUG - hidden_states_orig: torch.Size([899, 1536]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-Math-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.0001
+DEBUG - hidden_states_orig: torch.Size([224, 1536]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-Math-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.0001
+DEBUG - hidden_states_orig: torch.Size([223, 1536]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-Math-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.0001
+DEBUG - hidden_states_orig: torch.Size([223, 1536]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-Math-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.0001
+DEBUG - hidden_states_orig: torch.Size([222, 1536]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-Math-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.0001
+DEBUG - hidden_states_orig: torch.Size([220, 1536]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-Math-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.0001
+DEBUG - hidden_states_orig: torch.Size([218, 1536]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-Math-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.0001
+DEBUG - hidden_states_orig: torch.Size([217, 1536]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-Math-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.0001
+DEBUG - hidden_states_orig: torch.Size([217, 1536]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-Math-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.0001
+DEBUG - hidden_states_orig: torch.Size([216, 1536]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-Math-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.0001
+DEBUG - hidden_states_orig: torch.Size([216, 1536]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-Math-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.0001
+DEBUG - hidden_states_orig: torch.Size([213, 1536]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-Math-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.0001
+DEBUG - hidden_states_orig: torch.Size([212, 1536]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-Math-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.0001
+DEBUG - hidden_states_orig: torch.Size([211, 1536]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-Math-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.0001
+DEBUG - hidden_states_orig: torch.Size([211, 1536]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-Math-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.0001
+DEBUG - hidden_states_orig: torch.Size([210, 1536]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-Math-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.0001
+DEBUG - hidden_states_orig: torch.Size([208, 1536]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-Math-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.0001
+DEBUG - hidden_states_orig: torch.Size([205, 1536]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-Math-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.0001
+DEBUG - hidden_states_orig: torch.Size([204, 1536]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-Math-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.0001
+DEBUG - hidden_states_orig: torch.Size([203, 1536]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-Math-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.0001
+DEBUG - hidden_states_orig: torch.Size([203, 1536]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-Math-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.0001
+DEBUG - hidden_states_orig: torch.Size([200, 1536]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-Math-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.0001
+DEBUG - hidden_states_orig: torch.Size([199, 1536]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-Math-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.0001
+DEBUG - hidden_states_orig: torch.Size([199, 1536]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-Math-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.0001
+DEBUG - hidden_states_orig: torch.Size([197, 1536]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-Math-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.0001
+DEBUG - hidden_states_orig: torch.Size([197, 1536]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-Math-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.0001
+DEBUG - hidden_states_orig: torch.Size([197, 1536]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-Math-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.0001
+DEBUG - hidden_states_orig: torch.Size([195, 1536]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-Math-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.0001
+DEBUG - hidden_states_orig: torch.Size([194, 1536]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-Math-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.0001
+DEBUG - hidden_states_orig: torch.Size([193, 1536]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-Math-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.0001
+DEBUG - hidden_states_orig: torch.Size([190, 1536]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-Math-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.0001
+DEBUG - hidden_states_orig: torch.Size([189, 1536]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-Math-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.0001
+DEBUG - hidden_states_orig: torch.Size([188, 1536]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-Math-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.0001
+DEBUG - hidden_states_orig: torch.Size([188, 1536]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-Math-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.0001
+DEBUG - hidden_states_orig: torch.Size([186, 1536]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-Math-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.0001
+DEBUG - hidden_states_orig: torch.Size([185, 1536]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-Math-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.0001
+DEBUG - hidden_states_orig: torch.Size([183, 1536]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-Math-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.0001
+DEBUG - hidden_states_orig: torch.Size([181, 1536]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-Math-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.0001
+DEBUG - hidden_states_orig: torch.Size([180, 1536]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-Math-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.0001
+DEBUG - hidden_states_orig: torch.Size([180, 1536]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-Math-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.0001
+DEBUG - hidden_states_orig: torch.Size([180, 1536]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-Math-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.0001
+DEBUG - hidden_states_orig: torch.Size([179, 1536]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-Math-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.0001
+DEBUG - hidden_states_orig: torch.Size([179, 1536]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-Math-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.0001
+DEBUG - hidden_states_orig: torch.Size([178, 1536]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-Math-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.0001
+DEBUG - hidden_states_orig: torch.Size([177, 1536]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-Math-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.0001
+DEBUG - hidden_states_orig: torch.Size([177, 1536]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-Math-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.0001
+DEBUG - hidden_states_orig: torch.Size([173, 1536]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-Math-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.0001
+DEBUG - hidden_states_orig: torch.Size([173, 1536]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-Math-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.0001
+DEBUG - hidden_states_orig: torch.Size([346, 1536]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-Math-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.0001
+DEBUG - hidden_states_orig: torch.Size([338, 1536]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-Math-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.0001
+DEBUG - hidden_states_orig: torch.Size([166, 1536]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-Math-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.0001
+DEBUG - hidden_states_orig: torch.Size([165, 1536]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-Math-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.0001
+DEBUG - hidden_states_orig: torch.Size([162, 1536]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-Math-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.0001
+DEBUG - hidden_states_orig: torch.Size([162, 1536]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-Math-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.0001
+DEBUG - hidden_states_orig: torch.Size([160, 1536]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-Math-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.0001
+DEBUG - hidden_states_orig: torch.Size([159, 1536]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-Math-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.0001
+DEBUG - hidden_states_orig: torch.Size([154, 1536]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-Math-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.0001
+DEBUG - hidden_states_orig: torch.Size([153, 1536]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-Math-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.0001
+DEBUG - hidden_states_orig: torch.Size([153, 1536]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-Math-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.0001
+DEBUG - hidden_states_orig: torch.Size([149, 1536]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-Math-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.0001
+DEBUG - hidden_states_orig: torch.Size([147, 1536]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-Math-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.0001
+DEBUG - hidden_states_orig: torch.Size([144, 1536]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-Math-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.0001
+DEBUG - hidden_states_orig: torch.Size([138, 1536]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-Math-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.0001
+DEBUG - hidden_states_orig: torch.Size([257, 1536]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-Math-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.0001
+DEBUG - hidden_states_orig: torch.Size([124, 1536]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-Math-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.0001
+DEBUG - hidden_states_orig: torch.Size([124, 1536]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-Math-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.0001
+DEBUG - hidden_states_orig: torch.Size([112, 1536]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-Math-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+DEBUG - Starting CHOT optimization
+DEBUG - CHOT parameters: steps=1, lr=0.0001
+DEBUG - hidden_states_orig: torch.Size([112, 1536]), torch.bfloat16
+Loading lm_local from: lm_head/Qwen2.5-Math-1.5B_lm_head.pt
+cuda:0 torch.Size([151936, 1536])
+|          Task          |Version|     Metric     |Value |   |Stderr|
+|------------------------|------:|----------------|-----:|---|-----:|
+|all                     |       |extractive_match|0.2727|±  |0.0317|
+|lighteval:gpqa:diamond:0|      0|extractive_match|0.2727|±  |0.0317|
+
