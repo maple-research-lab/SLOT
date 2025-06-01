@@ -68,3 +68,16 @@ bash run_vllm.sh
 ## Contact
 If you have any problem, welcome issues, or contact Yang Hu (Email: huyangtorus@gmail.com, Wechat: 18840249731)
 ![](wechat_hy.png)
+
+
+```bibtex
+@misc{hu2025slotsamplespecificlanguagemodel,
+      title={SLOT: Sample-specific Language Model Optimization at Test-time},
+      author={Yang Hu and Xingyu Zhang and Xueji Fang and Zhiyang Chen and Xiao Wang and Huatian Zhang and Guojun Qi},
+      year={2025},
+      eprint={2505.12392},
+      archivePrefix={arXiv},
+      primaryClass={cs.CL},
+      url={[https://arxiv.org/abs/2505.12392](https://arxiv.org/abs/2505.12392)},
+}
+
