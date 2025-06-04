@@ -29,7 +29,7 @@ The goal of the proposed SLOT approach is to adapt the trained LM to individual 
 
 ## SLOT - 20-Second Quick Integration Guide
 
-### 🚀 Evaluation Script Modification (Reset signal for each new prompt)
+### 🚀 Evaluation Script Modification (Reset signal for each new prompt), e.g. in eval_only_slot.py
 
 ```python
 # Add this line before model.generate()
@@ -37,7 +37,7 @@ os.environ["prompt_only"] = "True"
 outputs = model.generate(**inputs, **generation_params)
 ```
 
-### 🚀 Model Forward Modification (Insert between hidden_states and lm_head)
+### 🚀 Model Forward Modification (Insert between hidden_states and lm_head), e.g. in modeling_qwen2_slot.py
 
 ```python
 def forward(self, input_ids, ...):
