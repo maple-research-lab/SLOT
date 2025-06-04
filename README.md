@@ -27,6 +27,60 @@ The goal of the proposed SLOT approach is to adapt the trained LM to individual 
 - datasets==3.2.0
 - vllm==0.7.2
 
+## SLOT - 20-Second Quick Integration Guide
+
+### 🚀 Evaluation Script Modification (Reset signal for each new prompt)
+
+```python
+# Add this line before model.generate()
+os.environ["prompt_only"] = "True"  
+outputs = model.generate(**inputs, **generation_params)
+```
+
+### 🚀 Model Forward Modification (Insert between hidden_states and lm_head)
+
+```python
+def forward(self, input_ids, ...):
+    # ... existing code ...
+    hidden_states = outputs[0]  # Get hidden states from backbone
+    
+    ###### SLOT begin ######
+    prompt_only = os.environ.get("prompt_only", "False") == "True" 
+    if prompt_only:
+        times = int(os.environ.get("times", 5))        # Optimization steps
+        lr = float(os.environ.get("lr", 0.1))          # Learning rate
+        
+        with torch.enable_grad():
+            # Create learnable delta vector
+            delta = nn.Parameter(0.0 * torch.randn([1,1, hidden_states.shape[-1]]).to(hidden_states))
+            optimizer = torch.optim.AdamW([delta], lr=lr, weight_decay=1e-8, eps=1e-5)
+            
+            # Few gradient descent steps to optimize delta
+            for _ in range(times):
+                optimizer.zero_grad()
+                logits = self.lm_head(hidden_states + delta)
+                
+                # Calculate loss using current input
+                loss_fct = nn.CrossEntropyLoss()
+                shift_logits = logits[..., :-1, :].contiguous()
+                shift_labels = input_ids[:, 1:].contiguous()
+                loss = loss_fct(shift_logits.view(-1, shift_logits.size(-1)), shift_labels.view(-1))
+                
+                loss.backward()
+                optimizer.step()
+            
+            self.delta = delta  # Save optimized delta
+            hidden_states = hidden_states + self.delta
+            os.environ["prompt_only"] = "False"
+    else:
+        hidden_states = hidden_states + self.delta  # Reuse previous delta
+    ###### SLOT end ######
+    
+    logits = self.lm_head(hidden_states)  # Original lm_head call
+    # ... existing code ...
+```
+
+
 ### Inference
 
 We provide the inference code [eval_only_slot.py](eval_only_slot.py) to evaluate models on [GSM8k](https://huggingface.co/datasets/openai/gsm8k). If you would like to inference with other prompts, feel free to modify the code!
