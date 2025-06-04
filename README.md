@@ -81,7 +81,7 @@ def forward(self, input_ids, ...):
 ```
 
 
-### Inference
+## Run SLOT on GSM-8K
 
 We provide the inference code [eval_only_slot.py](eval_only_slot.py) to evaluate models on [GSM8k](https://huggingface.co/datasets/openai/gsm8k). If you would like to inference with other prompts, feel free to modify the code!
 
@@ -99,7 +99,7 @@ Please refer [run.sh](run.sh) for example commands.
 
 Output logs are saved in `logs/log_times_<times_value>_lr_<lr_value>.txt`.
 
-### SLOT for LLM on Various Benchmarks
+## SLOT for LLM on reasonining Benchmarks from open-r1
 
 1. Pre-saving `lm_head`
 SLOT operates on the final projection layer (`lm_head`) of the Transformer and requires Tensor Parallelism (TP) for large models.  
