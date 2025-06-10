@@ -26,7 +26,7 @@ The goal of the proposed SLOT approach is to adapt the trained LM to individual 
 - transformers==4.49.0.dev0
 - datasets==3.2.0
 - vllm==0.7.2
-- lighteval==0.8.1.dev0
+- lighteval==0.8.1
 
 
 
