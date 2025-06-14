@@ -54,7 +54,7 @@ Output logs are saved in `logs/log_times_<times_value>_lr_<lr_value>.txt`.
 SLOT operates on the final projection layer (`lm_head`) of the Transformer and requires Tensor Parallelism (TP) for large models.  
 To prepare, first extract and save the `lm_head` from the model's weights.
 📄 Refer to [`retrieve_lm_head.ipynb`](./retrieve_lm_head.ipynb) for detailed instructions.~~
-2. Replace `model_runner.py` in `vllm`
+2. **Directly** replace `model_runner.py` in `vllm`
 To enable SLOT within the `vllm` inference framework, replace the original `model_runner.py` file:
 ```bash
 cp ./vllm/model_runner.py -r ~/openr1/lib/python3.11/site-packages/vllm/worker/model_runner.py
