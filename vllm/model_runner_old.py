@@ -1,4 +1,3 @@
-# 612 vllm
 # SPDX-License-Identifier: Apache-2.0
 
 import dataclasses
@@ -62,12 +61,6 @@ from vllm.worker.model_runner_base import (
 
 if TYPE_CHECKING:
     from vllm.attention.backends.abstract import AttentionBackend
-
-from vllm.distributed.parallel_state import get_tensor_model_parallel_rank # 请确保是这个路径
-
-
-# import torch.distributed
-
 
 logger = init_logger(__name__)
 
@@ -1113,7 +1106,6 @@ class GPUModelRunnerBase(ModelRunnerBase[TModelInputForGPU]):
             # multi-step model runner does not have `_builder_cls`
             self.builder = self._builder_cls(weakref.proxy(self))
 
-
     def load_model(self) -> None:
         logger.info("Starting to load model %s...", self.model_config.model)
         with DeviceMemoryProfiler() as m:
@@ -1130,7 +1122,9 @@ class GPUModelRunnerBase(ModelRunnerBase[TModelInputForGPU]):
 
             if supports_multimodal(self.model):
                 logger.warning("Regarding multimodal models, vLLM currently "
-                            "only supports adding LoRA to language model.")
+                               "only supports adding LoRA to language model.")
+            # It's necessary to distinguish between the max_position_embeddings
+            # of VLMs and LLMs.
             if hasattr(self.model.config, "max_position_embeddings"):
                 max_pos_embeddings = self.model.config.max_position_embeddings
             else:
@@ -1166,46 +1160,6 @@ class GPUModelRunnerBase(ModelRunnerBase[TModelInputForGPU]):
                 self.model,
                 fullgraph=envs.VLLM_TEST_DYNAMO_FULLGRAPH_CAPTURE,
                 backend=backend)
-
-        # ==================== 最终解决方案：手动构建TP Ranks ====================
-        logger.info("Attempting to gather COMPLETE head weights across all TP ranks...")
-        try:
-            # 步骤 1: 获取当前GPU上的权重分片
-            local_head_shard = self.model.lm_head.weight.detach()
-
-            tp_world_size = self.parallel_config.tensor_parallel_size
-            
-            if tp_world_size == 1:
-                self.custom_head_weights = local_head_shard.clone()
-            else:
-                # 步骤 2: 手动构建TP组的全局ranks列表，此方法不依赖特定vLLM API
-                global_rank = torch.distributed.get_rank()
-                tp_rank = get_tensor_model_parallel_rank()
-                first_rank_in_group = global_rank - tp_rank
-                tp_ranks = list(range(first_rank_in_group, first_rank_in_group + tp_world_size))
-                
-                # 步骤 3: 创建临时的标准PyTorch通信组
-                temp_tp_group = torch.distributed.new_group(ranks=tp_ranks)
-
-                # 步骤 4: 在这个标准通信组上执行 all_gather
-                tensor_list = [torch.empty_like(local_head_shard) for _ in range(tp_world_size)]
-                torch.distributed.all_gather(
-                    tensor_list,
-                    local_head_shard,
-                    group=temp_tp_group
-                )
-                
-                # 步骤 5: 拼接得到完整权重
-                full_head_weights = torch.cat(tensor_list, dim=0)
-                self.custom_head_weights = full_head_weights
-
-            logger.info(f"Successfully obtained full head weights. "
-                        f"Final shape: {self.custom_head_weights.shape}")
-
-        except Exception as e:
-            logger.error(f"Failed to gather full head weights: {e}", exc_info=True)
-            self.custom_head_weights = None
-        # =================================================================================
 
     def get_model(self) -> nn.Module:
         return self.model
@@ -1652,9 +1606,6 @@ class ModelRunner(GPUModelRunnerBase[ModelInputForGPUWithSamplingMetadata]):
             )
         return model_input
 
-
-
-
     def prepare_model_input(
         self,
         seq_group_metadata_list: List[SequenceGroupMetadata],
@@ -1810,108 +1761,404 @@ class ModelRunner(GPUModelRunnerBase[ModelInputForGPUWithSamplingMetadata]):
                 hidden_or_intermediate_states.tensors["model_forward_time"] = (
                     torch.tensor(model_forward_time + orig_model_forward_time))
             return hidden_or_intermediate_states
-
-
         # import ipdb; ipdb.set_trace()
 
-
-
         if model_input.is_prompt:
-            chot_steps = int(os.environ.get("CHOT_STEPS", "5"))
-            chot_lr = float(os.environ.get("CHOT_LR", "0.1"))
 
-            self.ptuning_params = torch.zeros(
-                self.model.lm_head.embedding_dim,
-                device=hidden_or_intermediate_states.device,
-                dtype=hidden_or_intermediate_states.dtype)
-
-            self.adam_m = torch.zeros_like(self.ptuning_params)
-            self.adam_v = torch.zeros_like(self.ptuning_params)
-            beta1, beta2, eps = 0.9, 0.95, 1e-6
-            adam_step = 0
-            weight_decay = 1e-5
-
-            for _ in range(chot_steps):
-                hidden_states_orig = hidden_or_intermediate_states.clone()
-                hidden_states_cur = hidden_states_orig + self.ptuning_params
+            if 1: 
+                print("DEBUG - Starting CHOT optimization") # Removed
+                chot_steps = int(os.environ.get("CHOT_STEPS", "5"))
+                chot_lr = float(os.environ.get("CHOT_LR", "0.1"))
+                print(f"DEBUG - CHOT parameters: steps={chot_steps}, lr={chot_lr}") # Removed
                 
-                lm_head_weight = self.custom_head_weights
-                temp_logits = hidden_states_cur @ lm_head_weight.T
+                try:
+                    # import pdb; pdb.set_trace()
+                    # print("DEBUG - Creating ptuning parameters") # Removed
+   
+                    # 在优化开始前初始化Adam参数
+                    # print("DEBUG - Creating Adam optimizer parameters") # Removed
+                    self.ptuning_params = torch.zeros(
+                        self.model.lm_head.embedding_dim,
+                        device=hidden_or_intermediate_states.device,
+                        dtype=hidden_or_intermediate_states.dtype
+                    )
 
-                target_tokens = model_input.input_tokens
+                    # 初始化Adam状态
+                    self.adam_m = torch.zeros_like(self.ptuning_params)  # First moment
+                    self.adam_v = torch.zeros_like(self.ptuning_params)  # Second moment
+                    beta1 = 0.9  # Adam beta1
+                    beta2 = 0.95  # Adam beta2
+                    eps = 1e-6  # Adam epsilon
+                    step = 0  # Adam step counter
 
-                # Only handles len(temp_logits.shape) == 2 case
-                shift_logits = temp_logits[:-1, :].contiguous()
-                shift_labels = target_tokens[1:].contiguous()
-                vocab_size = shift_logits.size(1)
+                    # print(f"DEBUG - ptuning_params created: {self.ptuning_params.shape}, {self.ptuning_params.dtype}") # Removed
+                    
+                    # 使用简单的sign SGD (注释保留，但实际是Adam)
+                    weight_decay = 1e-5  # 权重衰减率
 
-                # Softmax
-                max_logits = torch.max(shift_logits, dim=-1, keepdim=True)[0]
-                exp_logits = torch.exp(shift_logits - max_logits)
-                sum_exp_logits = torch.sum(exp_logits, dim=-1, keepdim=True)
-                probs = exp_logits / sum_exp_logits
-                del max_logits, exp_logits, sum_exp_logits
+                    # 运行优化步骤
+                    for step in range(chot_steps):
+                        # print(f"\nDEBUG - Optimization step {step+1}/{chot_steps}") # Removed
+                        # 保存原始hidden_states副本
+                        hidden_states_orig = hidden_or_intermediate_states.clone()
 
-                # Flatten (already flat for 2D)
-                flat_probs = probs
-                flat_labels = shift_labels
+                        print(f"DEBUG - hidden_states_orig: {hidden_states_orig.shape}, {hidden_states_orig.dtype}") # Removed
+                        
+                        # 应用ptuning参数 (直接计算，避免中间变量)
+                        # print(f"DEBUG - patched_hidden_states: {patched_hidden_states.shape}, {patched_hidden_states.dtype}") # Removed (变量已优化掉)
+                        
+                        # 前向传播计算logits
+                        # print("DEBUG - Computing logits for loss calculation") # Removed
+                        # try:
+                            # TODO: BUGS
+                        # temp_logits = self.model.compute_logits(
+                        #     hidden_states_orig + self.ptuning_params, 
+                        #     None
+                        # )
+                        # except Exception as e:
+                        #     print(f"DEBUG - Error in compute_logits: {e}") # Removed
+                        #     # 释放克隆的张量以防出错
+                        #     del hidden_states_orig 
+                        #     raise
 
-                valid_label_mask = (flat_labels >= 0).float()
+                        hidden_states_cur = hidden_states_orig + self.ptuning_params
+                        # print("Using Normalization")
+                        # import torch.nn.functional as F
+                        # hidden_states_cur = F.normalize(hidden_states_cur, p=2, dim=-1)
 
-                # Loss calculation
-                batch_indices = torch.arange(flat_labels.size(0),
-                                                device=flat_labels.device)
-                valid_labels = torch.clamp(flat_labels, min=0)
-                masked_probs = flat_probs[batch_indices,
-                                            valid_labels] * valid_label_mask
-                log_probs = torch.log(masked_probs + 1e-10)
-                num_valid = torch.sum(valid_label_mask)
-                loss = -torch.sum(log_probs) / (num_valid + 1e-10)
-                del batch_indices, valid_labels, masked_probs, log_probs, num_valid
+                        # lm_local = "/storage/qiguojunLab/fangxueji/Projects/nips25/LongRL_causvid/DeepSeek-R1-Distill-Qwen-32B_lm_head.pt"
+                        lm_local = os.environ.get("lm_local")
+                        print(f"Loading lm_local from: {lm_local}")
+                        lm_head_weight = torch.load(lm_local, map_location=hidden_states_cur.device).to(dtype=torch.bfloat16)
+                        
+                        temp_logits = hidden_states_cur @ lm_head_weight.T # self.model.lm_head.weight.T
+                        # print(f"temp_logits: {temp_logits}")
 
-                # Gradient calculation
-                one_hot = torch.zeros_like(flat_probs)
-                valid_labels = torch.clamp(flat_labels, min=0)
-                valid_label_mask_cast = valid_label_mask.to(
-                    dtype=one_hot.dtype)
-                one_hot.scatter_(1, valid_labels.unsqueeze(1),
-                                    valid_label_mask_cast.unsqueeze(1))
+                        # print(f"DEBUG - temp_logits: {temp_logits.shape}, {temp_logits.dtype}") # Removed
+                        
+                        # 准备计算交叉熵损失
+                        target_tokens = model_input.input_tokens
+                        # print(f"DEBUG - target_tokens: {target_tokens.shape}, {target_tokens.dtype}") # Removed
+                        
+                        # 根据实际输出调整形状处理
+                        # 检查logits的维度
+                        # print(f"DEBUG - Checking logits dimensions: {len(temp_logits.shape)}") # Removed
+                        if len(temp_logits.shape) == 3:  # [batch_size, seq_len, vocab_size]
+                            # print("DEBUG - Processing 3D logits") # Removed
+                            shift_logits = temp_logits[..., :-1, :].contiguous()
+                            shift_labels = target_tokens[..., 1:].contiguous()
+                            batch_size = shift_logits.size(0)
+                            seq_length = shift_logits.size(1)
+                            vocab_size = shift_logits.size(2)
+                        elif len(temp_logits.shape) == 2:  # [seq_len, vocab_size]
+                            # print("DEBUG - Processing 2D logits") # Removed
+                            # 已经是展平的形式
+                            seq_len = temp_logits.size(0)
+                            vocab_size = temp_logits.size(1)
+                            
+                            # 调整为能够匹配的尺寸
+                            shift_logits = temp_logits[:-1, :].contiguous()
+                            shift_labels = target_tokens[1:].contiguous()
+                            
+                            # 扁平化处理 (没有batch维度)
+                            batch_size = 1
+                            seq_length = shift_logits.size(0)
+                        else:
+                            # print(f"DEBUG - Unexpected logits shape: {temp_logits.shape}") # Removed
+                            # 考虑添加一个实际的错误处理或日志记录
+                            pass # Placeholder if no specific error handling needed here
+                        
+                        # print(f"DEBUG - shift_logits: {shift_logits.shape}, shift_labels: {shift_labels.shape}") # Removed
+                        # print(f"DEBUG - batch_size: {batch_size}, seq_length: {seq_length}, vocab_size: {vocab_size}") # Removed
+                        
+                        # 将logits转换为概率分布
+                        # 计算softmax: exp(x_i) / sum(exp(x_j))
+                        try:
+                            # print("DEBUG - Computing softmax") # Removed
+                            max_logits = torch.max(shift_logits, dim=-1, keepdim=True)[0]
+                            exp_logits = torch.exp(shift_logits - max_logits)
+                            sum_exp_logits = torch.sum(exp_logits, dim=-1, keepdim=True)
+                            probs = exp_logits / sum_exp_logits
+                            # print(f"DEBUG - probs: {probs.shape}, {probs.dtype}") # Removed
+                            # 及时删除不再需要的中间变量
+                            del max_logits, exp_logits, sum_exp_logits
+                        except Exception as e:
+                            # print(f"DEBUG - Error in softmax computation: {e}") # Removed
+                            del hidden_states_orig, temp_logits # 清理已创建的张量
+                            raise
+                        
+                        # 获取每个位置对应标签的概率 - 向量化操作
+                        # 处理2D logits的情况
+                        try:
+                            # print("DEBUG - Preparing flat tensors") # Removed
+                            if len(temp_logits.shape) == 2:
+                                flat_probs = probs  # 已经是扁平的形式 [seq_len, vocab_size]
+                                flat_labels = shift_labels  # [seq_len]
+                            else:
+                                flat_probs = probs.view(-1, vocab_size)
+                                flat_labels = shift_labels.view(-1)
+                            # print(f"DEBUG - flat_probs: {flat_probs.shape}, flat_labels: {flat_labels.shape}") # Removed
+                        except Exception as e:
+                            # print(f"DEBUG - Error in tensor flattening: {e}") # Removed
+                            del hidden_states_orig, temp_logits, probs # 清理
+                            raise
+                        
+                        # === DEBUG INFO START === (Removed Block)
+                        # print("DEBUG - Shapes:")
+                        # print(f"temp_logits.shape: {temp_logits.shape}, dtype: {temp_logits.dtype}")
+                        # print(f"shift_logits.shape: {shift_logits.shape}, dtype: {shift_logits.dtype}")
+                        # print(f"target_tokens.shape: {target_tokens.shape}, dtype: {target_tokens.dtype}")
+                        # print(f"shift_labels.shape: {shift_labels.shape}, dtype: {shift_labels.dtype}")
+                        # print(f"flat_probs.shape: {flat_probs.shape}, dtype: {flat_probs.dtype}")
+                        # print(f"flat_labels.shape: {flat_labels.shape}, dtype: {flat_labels.dtype}")
+                        # === DEBUG INFO END === (Removed Block)
+                        
+                        valid_label_mask = (flat_labels >= 0).float()
+                        
+                        # 获取每个位置对应标签的概率 - 向量化操作
+                        try:
+                            # print("DEBUG - Computing label probabilities and loss") # Removed
+                            # 创建索引张量 (batch_idx, label_idx)
+                            batch_indices = torch.arange(flat_labels.size(0), 
+                                                        device=flat_labels.device)
+                            # 使用高级索引直接获取所有标签概率
+                            valid_labels = torch.clamp(flat_labels, min=0)  # 将所有负索引变为0，避免索引错误
+                            # 直接计算 label_probs，不单独存储
+                            masked_probs = flat_probs[batch_indices, valid_labels] * valid_label_mask
+                            # print(f"DEBUG - label_probs: {label_probs.shape}, {label_probs.dtype}") # Removed (variable not stored)
+                            
+                            # 对无效标签位置应用掩码
+                            # masked_probs = label_probs * valid_label_mask # Calculation combined above
+                            # print(f"DEBUG - masked_probs: {masked_probs.shape}, {masked_probs.dtype}") # Removed
+                            
+                            # 计算交叉熵损失: -log(p)
+                            log_probs = torch.log(masked_probs + 1e-10)
+                            num_valid = torch.sum(valid_label_mask)
+                            loss = -torch.sum(log_probs) / (num_valid + 1e-10)
+                            # print(f"DEBUG - loss: {loss.item()}") # Removed
+                            # 及时删除中间变量
+                            del batch_indices, valid_labels, masked_probs, log_probs, num_valid
+                        except Exception as e:
+                            # print(f"DEBUG - Error in loss computation: {e}") # Removed
+                            del hidden_states_orig, temp_logits, probs, flat_probs, flat_labels # 清理
+                            raise
+                        
+                        # === DEBUG INFO FOR LOSS === (Removed Block)
+                        # print("DEBUG - Loss calculation:")
+                        # print(f"masked_probs stats: min={masked_probs.min().item()}, "
+                        #     f"max={masked_probs.max().item()}, "
+                        #     f"mean={masked_probs.mean().item()}")
+                        # print(f"num_valid: {num_valid.item()}")
+                        # print(f"loss: {loss.item()}")
+                        # === DEBUG INFO END == (Removed Block)
+                        
+                        # 手动计算梯度 - 向量化操作
+                        # 对softmax的梯度: dL/ds_i = p_i - 1(i=y)
+                        # d_probs = flat_probs.clone() # 避免克隆
+                        
+                        # === DEBUG INFO START === (Removed Block)
+                        # print("DEBUG - Gradient calculation:")
+                        # print(f"valid_label_mask.shape: {valid_label_mask.shape}, dtype: {valid_label_mask.dtype}")
+                        # print(f"valid_labels.shape: {valid_labels.shape}, dtype: {valid_labels.dtype}")
+                        # print(f"d_probs.shape: {d_probs.shape}, dtype: {d_probs.dtype}") # d_probs not used
+                        # === DEBUG INFO END === (Removed Block)
+                        
+                        # 创建one-hot张量，表示正确标签的位置
+                        valid_labels = torch.clamp(flat_labels, min=0)  # 将所有负索引变为0
+                        
+                        # 确保数据类型匹配
+                        one_hot = torch.zeros_like(flat_probs)
+                        # 将valid_label_mask转换为与one_hot相同的数据类型
+                        valid_label_mask_cast = valid_label_mask.to(dtype=one_hot.dtype)
+                        
+                        # === DEBUG INFO BEFORE SCATTER === (Removed Block)
+                        # print("DEBUG - Before scatter:")
+                        # print(f"one_hot.shape: {one_hot.shape}, dtype: {one_hot.dtype}")
+                        # print(f"valid_labels.unsqueeze(1).shape: {valid_labels.unsqueeze(1).shape}, "
+                        #     f"dtype: {valid_labels.unsqueeze(1).dtype}")
+                        # print(f"valid_label_mask_cast.unsqueeze(1).shape: {valid_label_mask_cast.unsqueeze(1).shape}, "
+                        #     f"dtype: {valid_label_mask_cast.unsqueeze(1).dtype}")
+                        # === DEBUG INFO END === (Removed Block)
+                        
+                        try:
+                            # print("DEBUG - Attempting scatter operation") # Removed
+                            one_hot.scatter_(1, valid_labels.unsqueeze(1), valid_label_mask_cast.unsqueeze(1))
+                            # print("DEBUG - Scatter operation successful") # Removed
+                        except Exception as e:
+                            # print(f"DEBUG - Scatter error: {e}") # Removed
+                            # 备选方案：手动创建one-hot
+                            # print("DEBUG - Using manual one-hot creation as fallback") # Removed
+                            # one_hot = torch.zeros_like(flat_probs) # Fallback logic kept if needed
+                            # for i in range(valid_labels.size(0)):
+                            #     if valid_label_mask[i] > 0:
+                            #         one_hot[i, valid_labels[i]] = 1.0
+                            # print("DEBUG - Manual one-hot creation completed") # Removed
+                            pass # Ensure except block is not empty if fallback is commented out
 
-                d_logits_grad = probs - one_hot
-                d_logits_grad = d_logits_grad / (torch.sum(valid_label_mask)
-                                                    + 1e-10)
-                del one_hot, probs
+                        # 从概率分布中减去one-hot张量
+                        try:
+                            # print("DEBUG - Calculating final gradient for logits") # Removed
+                            # 直接计算梯度，结果存入 d_logits_grad，避免修改 probs 或克隆
+                            d_logits_grad = probs - one_hot 
+                            
+                            # 调整梯度的缩放
+                            d_logits_grad = d_logits_grad / (torch.sum(valid_label_mask) + 1e-10)
+                            # print(f"DEBUG - d_logits_grad after scaling: {d_logits_grad.shape}") # Removed
+                            # 删除不再需要的 one_hot 和 probs
+                            del one_hot, probs 
+                        except Exception as e:
+                            # print(f"DEBUG - Error in gradient calculation: {e}") # Removed
+                            del hidden_states_orig, temp_logits, flat_probs, flat_labels # 清理
+                            # one_hot 和 probs 可能已删除或未定义，安全起见尝试删除
+                            try: del one_hot 
+                            except NameError: pass
+                            try: del probs
+                            except NameError: pass
+                            raise
+                        
+                        # 反向传播到 patched_hidden_states
+                        try:
+                            # print("DEBUG - Backpropagating to hidden states") # Removed
+                            # 简化：假设logits = W * hidden_states + b
+                            # 则 dL/d_hidden = (dL/d_logits) * W^T
+                            # TODO:
+                            # lm_head_weight = self.model.lm_head.weight  # [vocab_size, hidden_dim]
+                            # print(lm_head_weight.shape)
+                            # torch.save(lm_head_weight, f'./lm_head_weight_{lm_head_weight.device}.pt')
+                            # print("saved lm_head_weight")
+                            # assert 0
+                            print(lm_head_weight.device, lm_head_weight.shape)   # TODO
+                            # print(f"DEBUG - lm_head_weight: {lm_head_weight.shape}, {lm_head_weight.dtype}") # Removed
+                            
+                            # 调整d_logits_grad的形状以适应不同情况
+                            if len(temp_logits.shape) == 2:
+                                # 对于2D logits，不需要重新调整形状
+                                d_hidden = torch.matmul(d_logits_grad, lm_head_weight)
+                            else:
+                                # 对于3D logits，先恢复batch维度
+                                d_hidden = torch.matmul(d_logits_grad.view(batch_size, seq_length, vocab_size), 
+                                                    lm_head_weight)
+                            # print(f"DEBUG - d_hidden: {d_hidden.shape}, {d_hidden.dtype}") # Removed
+                            # 删除不再需要的 d_logits_grad 和 temp_logits
+                            del d_logits_grad, temp_logits 
+                        except Exception as e:
+                            # print(f"DEBUG - Error in backpropagation: {e}") # Removed
+                            del hidden_states_orig # 清理
+                            # 其他可能存在的张量
+                            try: del d_logits_grad 
+                            except NameError: pass
+                            try: del temp_logits
+                            except NameError: pass
+                            try: del flat_probs
+                            except NameError: pass
+                            try: del flat_labels
+                            except NameError: pass
+                            raise
+                        
+                        # 梯度只影响ptuning_params (等于所有位置的梯度和)
+                        try:
+                            # print("DEBUG - Computing gradient for ptuning_params") # Removed
+                            # d_ptuning = d_hidden.sum(dim=(0, 1), keepdim=True)
+                            # d_ptuning = d_hidden.sum(dim=0, keepdim=True).unsqueeze(0)
+                            d_ptuning = d_hidden.mean(dim=0)
 
-                # Backpropagation
-                d_hidden = torch.matmul(d_logits_grad, lm_head_weight)
-                del d_logits_grad, temp_logits
 
-                # Aggregate gradient
-                d_ptuning = d_hidden.mean(dim=0)
-                del d_hidden, hidden_states_orig
+                            # print(f"DEBUG - d_ptuning shape: {d_ptuning.shape}, dtype: {d_ptuning.dtype}") # Removed
+                            # 删除不再需要的 d_hidden 和 hidden_states_orig
+                            del d_hidden, hidden_states_orig 
+                        except Exception as e:
+                            # print(f"DEBUG - Error in gradient aggregation: {e}") # Removed
+                            # if len(d_hidden.shape) == 2: # Fallback logic kept if needed
+                            #     print("DEBUG - Attempting alternative aggregation for 2D tensor") # Removed
+                            #     d_ptuning = d_hidden.sum(dim=0, keepdim=True).unsqueeze(0)
+                            # else:
+                            #     raise
+                            del hidden_states_orig # 确保删除
+                            try: del d_hidden
+                            except NameError: pass
+                            try: del flat_probs
+                            except NameError: pass
+                            try: del flat_labels
+                            except NameError: pass
+                            raise
+                        
+                        # === DEBUG INFO FOR GRADIENT === (Removed Block)
+                        # print("DEBUG - Gradient and Update:")
+                        # print(f"d_ptuning stats: min={d_ptuning.min().item()}, "
+                        #     f"max={d_ptuning.max().item()}, "
+                        #     f"mean={d_ptuning.mean().item()}, "
+                        #     f"shape={d_ptuning.shape}, "
+                        #     f"dtype={d_ptuning.dtype}")
+                        # === DEBUG INFO END === (Removed Block)
+                        
+                        # 替换Sign SGD更新逻辑为Adam更新
+                        try:
+                            # print("DEBUG - Applying Adam update") # Removed
+                            step += 1
+                            
+                            # 计算偏差修正系数
+                            bias_correction1 = 1 - beta1 ** step
+                            bias_correction2 = 1 - beta2 ** step
+                            
+                            # 更新动量
+                            self.adam_m = beta1 * self.adam_m + (1 - beta1) * d_ptuning
+                            self.adam_v = beta2 * self.adam_v + (1 - beta2) * (d_ptuning * d_ptuning)
+                            
+                            # 计算偏差修正后的动量
+                            m_hat = self.adam_m / bias_correction1
+                            v_hat = self.adam_v / bias_correction2
+                            
+                            # 更新参数
+                            update = chot_lr * m_hat / (torch.sqrt(v_hat) + eps)
+                            self.ptuning_params = self.ptuning_params - update - chot_lr * weight_decay * self.ptuning_params
+                            
+                            # print(f"DEBUG - Updated ptuning_params: min={self.ptuning_params.min().item()}, " # Removed
+                            #       f"max={self.ptuning_params.max().item()}, " # Removed
+                            #       f"mean={self.ptuning_params.mean().item()}") # Removed
+                            # print(f"DEBUG - Adam moments: m_mean={self.adam_m.mean().item()}, " # Removed
+                            #       f"v_mean={self.adam_v.mean().item()}") # Removed
+                            
+                            # 删除 d_ptuning
+                            del d_ptuning
+                        except Exception as e:
+                            # print(f"DEBUG - Error in Adam parameter update: {e}") # Removed
+                            # 清理可能存在的张量
+                            try: del d_ptuning
+                            except NameError: pass
+                            try: del flat_probs
+                            except NameError: pass
+                            try: del flat_labels
+                            except NameError: pass
+                            raise
 
-                # Adam update
-                adam_step += 1
-                bias_correction1 = 1 - beta1**adam_step
-                bias_correction2 = 1 - beta2**adam_step
-
-                self.adam_m = beta1 * self.adam_m + (1 - beta1) * d_ptuning
-                self.adam_v = beta2 * self.adam_v + (1 -
-                                                        beta2) * (d_ptuning**2)
-
-                m_hat = self.adam_m / bias_correction1
-                v_hat = self.adam_v / bias_correction2
-
-                update = chot_lr * m_hat / (torch.sqrt(v_hat) + eps)
-                self.ptuning_params = self.ptuning_params - update - chot_lr * weight_decay * self.ptuning_params
-                del d_ptuning
-
-        # Apply optimized parameters
+                        # 在每次迭代结束时清理缓存
+                        # print("DEBUG - Clearing CUDA cache for iteration end") # Removed
+                        # torch.cuda.empty_cache() 
+                    
+                except Exception as e:
+                    # print(f"DEBUG - Exception in CHOT optimization: {e}") # Removed
+                    traceback.print_exc() # 保留 traceback 打印，因为它不是 DEBUG 信息
+                finally:
+                    # 清理
+                    # print("DEBUG - Final cleanup after CHOT loop") # Removed
+                    # 删除可能在异常中未被删除的张量 (保留清理逻辑)
+                    if 'hidden_states_orig' in locals(): del hidden_states_orig
+                    if 'temp_logits' in locals(): del temp_logits
+                    if 'probs' in locals(): del probs
+                    if 'flat_probs' in locals(): del flat_probs
+                    if 'flat_labels' in locals(): del flat_labels
+                    if 'one_hot' in locals(): del one_hot
+                    if 'd_logits_grad' in locals(): del d_logits_grad
+                    if 'd_hidden' in locals(): del d_hidden
+                    if 'd_ptuning' in locals(): del d_ptuning
+                    # torch.cuda.empty_cache()                    
+            
+            # 应用优化后的参数
         if hasattr(self, 'ptuning_params') and self.ptuning_params is not None:
-            tensor_parallel_size_my = int(
-                os.environ.get("tensor_parallel_size_my"))
-            hidden_or_intermediate_states = hidden_or_intermediate_states + self.ptuning_params / tensor_parallel_size_my
-
+            
+            tensor_parallel_size_my = int(os.environ.get("tensor_parallel_size_my"))
+            hidden_or_intermediate_states = hidden_or_intermediate_states + self.ptuning_params/tensor_parallel_size_my
+    
         logits = self.model.compute_logits(hidden_or_intermediate_states,
                                            model_input.sampling_metadata)
 

@@ -50,10 +50,10 @@ Output logs are saved in `logs/log_times_<times_value>_lr_<lr_value>.txt`.
 
 ## SLOT for LLM on reasonining Benchmarks from open-r1
 
-1. Pre-saving `lm_head`
+~~1. Pre-saving `lm_head`
 SLOT operates on the final projection layer (`lm_head`) of the Transformer and requires Tensor Parallelism (TP) for large models.  
 To prepare, first extract and save the `lm_head` from the model's weights.
-📄 Refer to [`retrieve_lm_head.ipynb`](./retrieve_lm_head.ipynb) for detailed instructions.
+📄 Refer to [`retrieve_lm_head.ipynb`](./retrieve_lm_head.ipynb) for detailed instructions.~~
 2. Replace `model_runner.py` in `vllm`
 To enable SLOT within the `vllm` inference framework, replace the original `model_runner.py` file:
 ```bash
