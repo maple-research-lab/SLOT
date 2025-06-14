@@ -85,7 +85,7 @@ def forward(self, input_ids, ...):
     # ... existing code ...
     hidden_states = outputs[0]  # Get hidden states from backbone
     
-    ###### SLOT begin ######
+    ###### SLOT begin ###### don't forget to import os
     prompt_only = os.environ.get("prompt_only", "False") == "True" 
     if prompt_only:
         times = int(os.environ.get("times", 5))        # Optimization steps
