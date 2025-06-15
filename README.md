@@ -34,35 +34,24 @@ The goal of the proposed SLOT approach is to adapt the trained LM to individual 
 
 We provide the inference code [eval_only_slot.py](eval_only_slot.py) to evaluate models on [GSM8k](https://huggingface.co/datasets/openai/gsm8k). If you would like to inference with other prompts, feel free to modify the code!
 
-```bash
-export times=[NUM OF OPTIMIZATION ITERS IN SLOT]
-export lr=[LEARNING RATE USED IN SLOT]
-
-python eval_only_slot.py \
-    --model_path [PATH_TO_MODEL_WEIGHTS]
-```
+Please refer [run.sh](run.sh) for example commands.
 
 Hyper-parameters in SLOT are set with environment variables. If `times=0` is set, then the model is inferenced without SLOT optimzation.
-
-Please refer [run.sh](run.sh) for example commands.
 
 Output logs are saved in `logs/log_times_<times_value>_lr_<lr_value>.txt`.
 
 ## SLOT for LLM on reasonining Benchmarks from open-r1
 
-~~1. Pre-saving `lm_head`
-SLOT operates on the final projection layer (`lm_head`) of the Transformer and requires Tensor Parallelism (TP) for large models.  
-To prepare, first extract and save the `lm_head` from the model's weights.
-📄 Refer to [`retrieve_lm_head.ipynb`](./retrieve_lm_head.ipynb) for detailed instructions.~~
-2. **Directly** replace `model_runner.py` in `vllm`
-To enable SLOT within the `vllm` inference framework, replace the original `model_runner.py` file:
+
+1. **Directly** replace `model_runner.py` in `vllm`
+To enable SLOT within the `vllm` inference framework, replace the original `model_runner.py` file (replace your vllm/worker/model_runner.py with ours):
 ```bash
-cp ./vllm/model_runner.py -r ~/openr1/lib/python3.11/site-packages/vllm/worker/model_runner.py
+cp ./vllm/model_runner.py -r ~/openr1/lib/python3.11/site-packages/vllm/worker/model_runner.py ## "~/openr1/lib/python3.11/site-packages" depends on your environments
 ```
-3. Run Inference with SLOT
+2. Run Inference with SLOT
 Execute the following script to launch inference with SLOT support:
 ```shell
-bash run_vllm.sh
+bash run_vllm.sh  ## change the setting here, you can refer to the SLOT/vllm/logs/ to reproduce the results.
 ```
 
 ## SLOT results
