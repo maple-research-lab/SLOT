@@ -1,3 +1,14 @@
+# pip install torch==2.5.1
+# pip install transformers==4.49.0.dev0
+# pip install datasets==3.2.0
+# pip install vllm==0.7.2  ## only needed for AIME/MATH500/GPQA DIAMOND
+# pip install lighteval==0.8.1.dev0  ## only needed for AIME/MATH500/GPQA DIAMOND
+
+
+# cp ./vllm/model_runner.py "$(python -c 'import vllm, os; print(os.path.join(os.path.dirname(vllm.__file__), "worker"))' | tail -n 1)"
+
+
+
 export VLLM_WORKER_MULTIPROC_METHOD=spawn 
 MODEL_NAME=DeepSeek-R1-Distill-Qwen-7B ## refer to table.2 for more models
 export tensor_parallel_size_my=1 # Set to 8 for 32B and 70B models
