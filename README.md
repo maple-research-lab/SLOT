@@ -45,7 +45,7 @@ Output logs are saved in `logs/log_times_<times_value>_lr_<lr_value>.txt`.
 1. **Directly** replace `model_runner.py` in `vllm` with model_runner.py with SLOT integrated.
 To enable SLOT within the `vllm` inference framework, replace the original `model_runner.py` file (replace your vllm/worker/model_runner.py with ours):
 ```bash
-cp ./vllm/model_runner.py "$(python -c 'import vllm, os; print(os.path.join(os.path.dirname(vllm.__file__), "worker"))')"
+cp ./vllm/model_runner.py "$(python -c 'import vllm, os; print(os.path.join(os.path.dirname(vllm.__file__), "worker"))' | tail -n 1)"
 ```
 2. Run Inference with SLOT
 Execute the following script to launch inference with SLOT support:
