@@ -2,7 +2,7 @@
 # pip install transformers==4.49.0.dev0
 # pip install datasets==3.2.0
 # pip install vllm==0.7.2  ## only needed for AIME/MATH500/GPQA DIAMOND
-# pip install lighteval==0.8.1.dev0  ## only needed for AIME/MATH500/GPQA DIAMOND
+# pip install lighteval==0.8.1  ## only needed for AIME/MATH500/GPQA DIAMOND
 
 
 # cp ./vllm/model_runner.py "$(python -c 'import vllm, os; print(os.path.join(os.path.dirname(vllm.__file__), "worker"))' | tail -n 1)"
