@@ -4,7 +4,7 @@
 
 ***Training free, simple but effective test-time adaptation***
 
-***Fast, low overhead, easy to adapt to your reasearch***
+***Fast, low overhead, easy to adapt to your research***
 
 SLOT is a test-time inference technique that optimizes a lightweight, sample-specific parameter vector for a few steps on the input prompt. This helps the model better align with and follow the given instruction.
 
@@ -25,8 +25,8 @@ The goal of the proposed SLOT approach is to adapt the trained LM to individual 
 - torch==2.5.1
 - transformers==4.49.0.dev0
 - datasets==3.2.0
-- vllm==0.7.2
-- lighteval==0.8.1
+- vllm==0.7.2  ## only needed for AIME/MATH500/GPQA DIAMOND
+- lighteval==0.8.1  ## only needed for AIME/MATH500/GPQA DIAMOND
 
 
 
@@ -40,13 +40,12 @@ Hyper-parameters in SLOT are set with environment variables. If `times=0` is set
 
 Output logs are saved in `logs/log_times_<times_value>_lr_<lr_value>.txt`.
 
-## SLOT for LLM on reasonining Benchmarks from open-r1
+## SLOT for LLM on reasonining Benchmarks from open-r1 (AIME/MATH500/GPQA DIAMOND)
 
-
-1. **Directly** replace `model_runner.py` in `vllm`
+1. **Directly** replace `model_runner.py` in `vllm` with model_runner.py with SLOT integrated.
 To enable SLOT within the `vllm` inference framework, replace the original `model_runner.py` file (replace your vllm/worker/model_runner.py with ours):
 ```bash
-cp ./vllm/model_runner.py -r ~/openr1/lib/python3.11/site-packages/vllm/worker/model_runner.py ## "~/openr1/lib/python3.11/site-packages" depends on your environments
+cp ./vllm/model_runner.py "$(python -c 'import vllm, os; print(os.path.join(os.path.dirname(vllm.__file__), "worker"))')"
 ```
 2. Run Inference with SLOT
 Execute the following script to launch inference with SLOT support:
@@ -62,7 +61,7 @@ bash run_vllm.sh  ## change the setting here, you can refer to the SLOT/vllm/log
 ### 🚀 Evaluation Script Modification (Reset signal for each new prompt), e.g. in eval_only_slot.py
 
 ```python
-# Add this line before model.generate()
+# Add this line before model.generate(). This sets a flag to inform the model that the upcoming forward pass is for the 'Prompt Stage' optimization.
 os.environ["prompt_only"] = "True"  
 outputs = model.generate(**inputs, **generation_params)
 ```
